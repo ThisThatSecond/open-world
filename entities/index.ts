@@ -13,3 +13,4 @@ export { Project } from "./project.entity";
 export { Team } from "./team.entity";
 export { User } from "./user.entity";
 
+console.log('hello')
