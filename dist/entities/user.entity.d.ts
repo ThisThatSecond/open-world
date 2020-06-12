@@ -1,5 +1,5 @@
-import { Genders } from '../../shared/enums/genders.enum';
 import { NOTIFICATION_PREFERENCES } from '../shared/enums/notification_preferences.enum';
+import { Genders } from '../shared/enums/genders.enum';
 export declare class User {
     user_id: string;
     username: string;
