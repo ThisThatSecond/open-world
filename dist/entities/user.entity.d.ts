@@ -1,0 +1,31 @@
+import { Genders } from '../../shared/enums/genders.enum';
+import { NOTIFICATION_PREFERENCES } from '../shared/enums/notification_preferences.enum';
+export declare class User {
+    user_id: string;
+    username: string;
+    email: string;
+    name: string;
+    firstname: string;
+    surname: string;
+    profile_image_url: string;
+    birthday: Date;
+    gender: Genders;
+    bio: string;
+    neighborhood: string;
+    neighborhood_visible: boolean;
+    education: string;
+    language: string;
+    location: string;
+    notifications_preferences: NOTIFICATION_PREFERENCES[];
+    sees_polls_from: string[];
+    fcm_token: string;
+    installed_version: string;
+    activity_badge: number;
+    profile_completed: boolean;
+    is_analytics_user: boolean;
+    is_active: boolean;
+    last_opened_analytics: Date;
+    last_opened_app: Date;
+    last_checked_activity: Date;
+    created_at: Date;
+}
