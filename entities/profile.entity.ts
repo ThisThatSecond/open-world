@@ -5,7 +5,7 @@ import { Team } from './team.entity';
 @Entity('profiles')
 export class Profile {
     @PrimaryColumn()
-    project_id: string;
+    profile_id: string;
 
     @Index()
     @Column()

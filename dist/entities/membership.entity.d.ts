@@ -1,12 +1,12 @@
 import { User } from './user.entity';
 import { Team } from './team.entity';
-import { Project } from './project.entity';
+import { Profile } from './profile.entity';
 export declare class Membership {
     membership_id: string;
     inviter: User;
     invitee: User;
     team: Team;
-    project: Project;
+    project: Profile;
     invitation_message: string;
     is_pending: boolean;
     is_admin: boolean;

@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var user_entity_1 = require("./user.entity");
 var team_entity_1 = require("./team.entity");
-var project_entity_1 = require("./project.entity");
+var profile_entity_1 = require("./profile.entity");
 var Membership = /** @class */ (function () {
     function Membership() {
     }
@@ -42,11 +42,11 @@ var Membership = /** @class */ (function () {
         __metadata("design:type", team_entity_1.Team)
     ], Membership.prototype, "team", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return project_entity_1.Project; }),
+        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }),
         typeorm_1.JoinColumn({
-            name: 'project_id',
+            name: 'profile_id',
         }),
-        __metadata("design:type", project_entity_1.Project)
+        __metadata("design:type", profile_entity_1.Profile)
     ], Membership.prototype, "project", void 0);
     __decorate([
         typeorm_1.Column({

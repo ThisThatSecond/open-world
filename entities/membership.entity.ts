@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne } from 'typeorm';
 import { User } from './user.entity';
 import { Team } from './team.entity';
-import { Project } from './profile.entity';
+import { Profile } from './profile.entity';
 
 @Entity('memberships')
 export class Membership {
@@ -26,11 +26,11 @@ export class Membership {
     })
     team: Team;
 
-    @ManyToOne(() => Project)
+    @ManyToOne(() => Profile)
     @JoinColumn({
-        name: 'project_id',
+        name: 'profile_id',
     })
-    project: Project;
+    project: Profile;
 
     @Column({
         nullable: true,
