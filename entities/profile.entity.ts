@@ -2,8 +2,8 @@ import { Entity, Column, PrimaryColumn, Index, JoinColumn, ManyToOne, OneToOne }
 import { User } from './user.entity';
 import { Team } from './team.entity';
 
-@Entity('projects')
-export class Project {
+@Entity('profiles')
+export class Profile {
     @PrimaryColumn()
     project_id: string;
 

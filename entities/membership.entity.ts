@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne } from 'typeorm';
 import { User } from './user.entity';
 import { Team } from './team.entity';
-import { Project } from './project.entity';
+import { Project } from './profile.entity';
 
 @Entity('memberships')
 export class Membership {

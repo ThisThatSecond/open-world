@@ -9,6 +9,6 @@ export { PairVote } from "./pair_vote.entity";
 export { Pair } from "./pair.entity";
 export { PollUserAction } from "./poll_user_action.entity";
 export { Poll } from "./poll.entity";
-export { Project } from "./project.entity";
+export { Project } from "./profile.entity";
 export { Team } from "./team.entity";
 export { User } from "./user.entity";
