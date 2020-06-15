@@ -13,6 +13,7 @@ var typeorm_1 = require("typeorm");
 var user_entity_1 = require("./user.entity");
 var team_entity_1 = require("./team.entity");
 var profile_entity_1 = require("./profile.entity");
+var analytics_roles_enum_1 = require("../shared/enums/analytics_roles.enum");
 var Membership = /** @class */ (function () {
     function Membership() {
     }
@@ -62,10 +63,12 @@ var Membership = /** @class */ (function () {
     ], Membership.prototype, "is_pending", void 0);
     __decorate([
         typeorm_1.Column({
-            default: false
+            type: "enum",
+            enum: analytics_roles_enum_1.AnalyticsRoles,
+            nullable: false
         }),
-        __metadata("design:type", Boolean)
-    ], Membership.prototype, "is_admin", void 0);
+        __metadata("design:type", Number)
+    ], Membership.prototype, "role", void 0);
     __decorate([
         typeorm_1.Column({
             default: false

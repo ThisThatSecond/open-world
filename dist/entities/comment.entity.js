@@ -39,6 +39,12 @@ var Comment = /** @class */ (function () {
     ], Comment.prototype, "creator", void 0);
     __decorate([
         typeorm_1.Column({
+            default: false
+        }),
+        __metadata("design:type", Boolean)
+    ], Comment.prototype, "is_hidden", void 0);
+    __decorate([
+        typeorm_1.Column({
             type: 'timestamptz',
             default: function () { return 'CURRENT_TIMESTAMP'; }
         }),

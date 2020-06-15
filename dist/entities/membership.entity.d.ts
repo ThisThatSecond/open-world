@@ -1,6 +1,7 @@
 import { User } from './user.entity';
 import { Team } from './team.entity';
 import { Profile } from './profile.entity';
+import { AnalyticsRoles } from '../shared/enums/analytics_roles.enum';
 export declare class Membership {
     membership_id: string;
     inviter: User;
@@ -9,7 +10,7 @@ export declare class Membership {
     project: Profile;
     invitation_message: string;
     is_pending: boolean;
-    is_admin: boolean;
+    role: AnalyticsRoles;
     is_active: boolean;
     send_email_required: boolean;
     created_at: any;

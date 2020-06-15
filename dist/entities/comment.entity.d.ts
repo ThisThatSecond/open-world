@@ -5,5 +5,6 @@ export declare class Comment {
     text: string;
     poll: Poll;
     creator: User;
+    is_hidden: boolean;
     created_at: any;
 }

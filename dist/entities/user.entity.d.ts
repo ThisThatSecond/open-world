@@ -24,6 +24,7 @@ export declare class User {
     profile_completed: boolean;
     is_analytics_user: boolean;
     is_active: boolean;
+    is_hidden: boolean;
     last_opened_analytics: Date;
     last_opened_app: Date;
     last_checked_activity: Date;

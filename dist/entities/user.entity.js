@@ -162,6 +162,12 @@ var User = /** @class */ (function () {
     ], User.prototype, "is_active", void 0);
     __decorate([
         typeorm_1.Column({
+            default: false
+        }),
+        __metadata("design:type", Boolean)
+    ], User.prototype, "is_hidden", void 0);
+    __decorate([
+        typeorm_1.Column({
             type: 'timestamptz',
             nullable: true,
         }),
