@@ -2,6 +2,7 @@ import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne } from 'typeorm';
 import { User } from './user.entity';
 import { Team } from './team.entity';
 import { Profile } from './profile.entity';
+import { AnalyticsRoles } from '../shared/enums/analytics_roles.enum';
 
 @Entity('memberships')
 export class Membership {
@@ -43,9 +44,11 @@ export class Membership {
     is_pending: boolean;
 
     @Column({
-        default: false
+        type: "enum",
+        enum: AnalyticsRoles,
+        nullable: false
     })
-    is_admin: boolean;
+    role: AnalyticsRoles;
 
     @Column({
         default: false

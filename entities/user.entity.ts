@@ -126,6 +126,11 @@ export class User {
         default: true
     })
     is_active: boolean;
+    
+    @Column({
+        default: false
+    })
+    is_hidden: boolean;
 
     @Column({
         type: 'timestamptz',

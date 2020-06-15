@@ -23,6 +23,11 @@ export class Comment {
     creator: User;
 
     @Column({
+        default: false
+    })
+    is_hidden: boolean;
+
+    @Column({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP'
     })

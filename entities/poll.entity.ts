@@ -1,6 +1,7 @@
 import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne } from 'typeorm';
 import { User } from './user.entity';
 import { CATEGORIES } from '../shared/enums/categories.enum';
+import { Profile } from './profile.entity';
 
 @Entity('polls')
 export class Poll {
@@ -59,15 +60,22 @@ export class Poll {
     is_draft: boolean;
 
     @Column({
-        default: true
+        default: false
     })
-    is_active: boolean;
+    is_hidden: boolean;
+
 
     @ManyToOne(() => User, { nullable: false })
     @JoinColumn({
         name: 'creator_id'
     })
     creator: User;
+    
+    @ManyToOne(() => Profile, { nullable: false })
+    @JoinColumn({
+        name: 'profile_id'
+    })
+    profile: Profile;
 
     @Column({
         type: 'timestamptz',
