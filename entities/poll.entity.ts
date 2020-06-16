@@ -71,7 +71,7 @@ export class Poll {
     })
     creator: User;
     
-    @ManyToOne(() => Profile, { nullable: false })
+    @ManyToOne(() => Profile, { nullable: true })
     @JoinColumn({
         name: 'profile_id'
     })
