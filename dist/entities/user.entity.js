@@ -81,12 +81,6 @@ var User = /** @class */ (function () {
     ], User.prototype, "bio", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true
-        }),
-        __metadata("design:type", String)
-    ], User.prototype, "neighborhood", void 0);
-    __decorate([
-        typeorm_1.Column({
             default: false
         }),
         __metadata("design:type", Boolean)

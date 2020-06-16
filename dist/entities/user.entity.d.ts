@@ -11,7 +11,6 @@ export declare class User {
     birthday?: Date;
     gender?: Genders;
     bio?: string;
-    neighborhood?: string;
     neighborhood_visible?: boolean;
     education?: string;
     language?: string;
