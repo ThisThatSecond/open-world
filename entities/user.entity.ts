@@ -60,11 +60,6 @@ export class User {
     bio?: string;
 
     @Column({
-        nullable: true
-    })
-    neighborhood?: string;
-
-    @Column({
         default: false
     })
     neighborhood_visible?: boolean;
