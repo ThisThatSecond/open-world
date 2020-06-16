@@ -6,6 +6,8 @@ export declare class Poll {
     question: string;
     caption?: string;
     language?: string;
+    geo_point?: string;
+    location?: string;
     category: CATEGORIES;
     visibile_options_count?: number;
     analytics_audience_size?: number;

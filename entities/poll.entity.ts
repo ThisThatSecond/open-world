@@ -22,6 +22,17 @@ export class Poll {
     language?: string;
 
     @Column({
+        type: 'point',
+        nullable: true
+    })
+    geo_point?: string;
+    
+    @Column({
+        nullable: true
+    })
+    location?: string;
+
+    @Column({
         type: 'enum',
         enum: CATEGORIES,
         nullable: false

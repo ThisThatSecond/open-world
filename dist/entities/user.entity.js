@@ -109,6 +109,12 @@ var User = /** @class */ (function () {
             nullable: true
         }),
         __metadata("design:type", String)
+    ], User.prototype, "geo_point", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: true
+        }),
+        __metadata("design:type", String)
     ], User.prototype, "location", void 0);
     __decorate([
         typeorm_1.Column('varchar', {

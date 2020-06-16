@@ -83,6 +83,11 @@ export class User {
         type: 'point',
         nullable: true
     })
+    geo_point?: string;
+    
+    @Column({
+        nullable: true
+    })
     location?: string;
 
     @Column('varchar', {

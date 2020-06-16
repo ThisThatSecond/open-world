@@ -38,6 +38,19 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "language", void 0);
     __decorate([
         typeorm_1.Column({
+            type: 'point',
+            nullable: true
+        }),
+        __metadata("design:type", String)
+    ], Poll.prototype, "geo_point", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: true
+        }),
+        __metadata("design:type", String)
+    ], Poll.prototype, "location", void 0);
+    __decorate([
+        typeorm_1.Column({
             type: 'enum',
             enum: categories_enum_1.CATEGORIES,
             nullable: false
