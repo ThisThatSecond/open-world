@@ -6,5 +6,5 @@ export declare class CommentVote {
     action: CommentVoteActions;
     comment: Comment;
     voter: User;
-    created_at: any;
+    created_at?: Date;
 }

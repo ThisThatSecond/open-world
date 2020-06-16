@@ -12,12 +12,12 @@ export class Option {
     @Column({
         nullable: true
     })
-    image_url: string;
+    image_url?: string;
     
     @Column({
         nullable: true
     })
-    is_this: boolean;
+    is_this?: boolean;
 
     @ManyToOne(() => Poll, { nullable: false })
     @JoinColumn({

@@ -12,149 +12,149 @@ export class User {
         unique: true,
         nullable: true,
     })
-    username: string;
+    username?: string;
 
     @Index()
     @Column({
         nullable: true,
     })
-    email: string;
+    email?: string;
 
     @Index()
     @Column({
         nullable: true
     })
-    name: string;
+    name?: string;
 
     @Column({
         nullable: true
     })
-    firstname: string;
+    firstname?: string;
 
     @Column({
         nullable: true
     })
-    surname: string;
+    surname?: string;
 
     @Column({
         nullable: true
     })
-    profile_image_url: string;
+    profile_image_url?: string;
 
     @Column({
         type: "date",
         nullable: true
     })
-    birthday: Date;
+    birthday?: Date;
 
     @Column({
         type: "enum",
         enum: Genders,
         nullable: true
     })
-    gender: Genders;
+    gender?: Genders;
 
     @Column({
         nullable: true
     })
-    bio: string;
+    bio?: string;
 
     @Column({
         nullable: true
     })
-    neighborhood: string;
+    neighborhood?: string;
 
     @Column({
         default: false
     })
-    neighborhood_visible: boolean;
+    neighborhood_visible?: boolean;
 
     @Column({
         nullable: true
     })
-    education: string;
+    education?: string;
 
     @Column({
         nullable: true
     })
-    language: string;
+    language?: string;
 
     @Column({
         type: 'point',
         nullable: true
     })
-    location: string;
+    location?: string;
 
     @Column('varchar', {
         array: true,
         default: '{}'
     })
-    notifications_preferences: NOTIFICATION_PREFERENCES[];
+    notifications_preferences?: NOTIFICATION_PREFERENCES[];
 
     @Column('varchar', {
         array: true,
         default: '{}'
     })
-    sees_polls_from: string[];
+    sees_polls_from?: string[];
 
     @Column({
         nullable: true
     })
-    fcm_token: string;
+    fcm_token?: string;
 
     @Column({
         nullable: true
     })
-    installed_version: string;
+    installed_version?: string;
 
     @Column({
         default: 0
     })
-    activity_badge: number;
+    activity_badge?: number;
 
     @Column({
         default: false
     })
-    profile_completed: boolean;
+    profile_completed?: boolean;
 
     @Column({
         default: false
     })
-    is_analytics_user: boolean;
+    is_analytics_user?: boolean;
 
     @Column({
         default: true
     })
-    is_active: boolean;
+    is_active?: boolean;
     
     @Column({
         default: false
     })
-    is_hidden: boolean;
+    is_hidden?: boolean;
 
     @Column({
         type: 'timestamptz',
         nullable: true,
     })
-    last_opened_analytics: Date;
+    last_opened_analytics?: Date;
 
     @Column({
         type: 'timestamptz',
         nullable: true,
     })
-    last_opened_app: Date;
+    last_opened_app?: Date;
 
     @Column({
         type: 'timestamptz',
         nullable: true,
     })
-    last_checked_activity: Date;
+    last_checked_activity?: Date;
 
     @Column({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP'
     })
-    created_at: Date;
+    created_at?: Date;
 
 
 }

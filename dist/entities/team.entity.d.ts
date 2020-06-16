@@ -4,9 +4,9 @@ export declare class Team {
     name: string;
     join_link: string;
     description: string;
-    avatar_url: string;
-    opinions_count: number;
+    avatar_url?: string;
+    opinions_count?: number;
     creator: User;
     is_active: boolean;
-    created_at: any;
+    created_at?: Date;
 }

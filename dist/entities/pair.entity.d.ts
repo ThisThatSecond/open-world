@@ -5,5 +5,5 @@ export declare class Pair {
     poll: Poll;
     option1: Option;
     option2: Option;
-    created_at: any;
+    created_at?: Date;
 }

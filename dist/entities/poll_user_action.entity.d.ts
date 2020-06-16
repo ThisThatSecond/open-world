@@ -5,5 +5,5 @@ export declare class PollUserAction {
     poll: Poll;
     user: User;
     action: PollUserAction;
-    created_at: any;
+    created_at?: Date;
 }

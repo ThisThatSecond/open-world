@@ -25,13 +25,13 @@ export class Comment {
     @Column({
         default: false
     })
-    is_hidden: boolean;
+    is_hidden?: boolean;
 
     @Column({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP'
     })
-    created_at;
+    created_at?: Date;
 
 
 }

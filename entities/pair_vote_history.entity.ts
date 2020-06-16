@@ -32,7 +32,7 @@ export class PairVoteHistory {
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP'
     })
-    created_at;
+    created_at?: Date;
 
 
 }

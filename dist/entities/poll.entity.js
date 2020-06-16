@@ -32,6 +32,12 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "caption", void 0);
     __decorate([
         typeorm_1.Column({
+            nullable: true
+        }),
+        __metadata("design:type", String)
+    ], Poll.prototype, "language", void 0);
+    __decorate([
+        typeorm_1.Column({
             type: 'enum',
             enum: categories_enum_1.CATEGORIES,
             nullable: false
@@ -95,7 +101,7 @@ var Poll = /** @class */ (function () {
         __metadata("design:type", user_entity_1.User)
     ], Poll.prototype, "creator", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
+        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: 'profile_id'
         }),
@@ -106,7 +112,7 @@ var Poll = /** @class */ (function () {
             type: 'timestamptz',
             default: function () { return 'CURRENT_TIMESTAMP'; }
         }),
-        __metadata("design:type", Object)
+        __metadata("design:type", Date)
     ], Poll.prototype, "created_at", void 0);
     Poll = __decorate([
         typeorm_1.Entity('polls')

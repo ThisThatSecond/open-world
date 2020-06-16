@@ -86,7 +86,7 @@ var Membership = /** @class */ (function () {
             type: 'timestamptz',
             default: function () { return 'CURRENT_TIMESTAMP'; }
         }),
-        __metadata("design:type", Object)
+        __metadata("design:type", Date)
     ], Membership.prototype, "created_at", void 0);
     Membership = __decorate([
         typeorm_1.Entity('memberships')

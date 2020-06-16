@@ -46,7 +46,7 @@ var CommentVote = /** @class */ (function () {
             type: 'timestamptz',
             default: function () { return 'CURRENT_TIMESTAMP'; }
         }),
-        __metadata("design:type", Object)
+        __metadata("design:type", Date)
     ], CommentVote.prototype, "created_at", void 0);
     CommentVote = __decorate([
         typeorm_1.Entity('comment_votes')

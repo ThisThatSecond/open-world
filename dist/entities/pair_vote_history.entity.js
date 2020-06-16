@@ -47,7 +47,7 @@ var PairVoteHistory = /** @class */ (function () {
             type: 'timestamptz',
             default: function () { return 'CURRENT_TIMESTAMP'; }
         }),
-        __metadata("design:type", Object)
+        __metadata("design:type", Date)
     ], PairVoteHistory.prototype, "created_at", void 0);
     PairVoteHistory = __decorate([
         typeorm_1.Entity('pair_votes_history')

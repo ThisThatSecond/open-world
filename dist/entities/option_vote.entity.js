@@ -47,7 +47,7 @@ var OptionVote = /** @class */ (function () {
             type: 'timestamptz',
             default: function () { return 'CURRENT_TIMESTAMP'; }
         }),
-        __metadata("design:type", Object)
+        __metadata("design:type", Date)
     ], OptionVote.prototype, "created_at", void 0);
     OptionVote = __decorate([
         typeorm_1.Entity('option_votes')

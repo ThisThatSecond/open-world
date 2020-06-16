@@ -6,5 +6,5 @@ export declare class PairVote {
     pair: Pair;
     action: PairVoteActions;
     voter: User;
-    created_at: any;
+    created_at?: Date;
 }

@@ -6,12 +6,12 @@ export declare class Membership {
     membership_id: string;
     inviter: User;
     invitee: User;
-    team: Team;
-    project: Profile;
-    invitation_message: string;
-    is_pending: boolean;
+    team?: Team;
+    project?: Profile;
+    invitation_message?: string;
+    is_pending?: boolean;
     role: AnalyticsRoles;
-    is_active: boolean;
-    send_email_required: boolean;
-    created_at: any;
+    is_active?: boolean;
+    send_email_required?: boolean;
+    created_at?: Date;
 }

@@ -6,5 +6,5 @@ export declare class OptionVote {
     option: Option;
     action: OptionVoteActions;
     voter: User;
-    created_at: any;
+    created_at?: Date;
 }

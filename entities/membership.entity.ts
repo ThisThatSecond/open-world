@@ -25,23 +25,23 @@ export class Membership {
     @JoinColumn({
         name: 'team_id',
     })
-    team: Team;
+    team?: Team;
 
     @ManyToOne(() => Profile)
     @JoinColumn({
         name: 'profile_id',
     })
-    project: Profile;
+    project?: Profile;
 
     @Column({
         nullable: true,
     })
-    invitation_message: string;
+    invitation_message?: string;
 
     @Column({
         default: true
     })
-    is_pending: boolean;
+    is_pending?: boolean;
 
     @Column({
         type: "enum",
@@ -53,18 +53,18 @@ export class Membership {
     @Column({
         default: false
     })
-    is_active: boolean;
+    is_active?: boolean;
 
     @Column({
         default: false
     })
-    send_email_required: boolean;
+    send_email_required?: boolean;
 
     @Column({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP'
     })
-    created_at;
+    created_at?: Date;
 
 
 }

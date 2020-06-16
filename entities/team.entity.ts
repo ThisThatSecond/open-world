@@ -19,12 +19,12 @@ export class Team {
     @Column({
         nullable: true
     })
-    avatar_url: string;
+    avatar_url?: string;
   
     @Column({
         default: 0
     })
-    opinions_count: number;
+    opinions_count?: number;
 
     @ManyToOne(() => User, { nullable: false })
     @JoinColumn({
@@ -41,7 +41,7 @@ export class Team {
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP'
     })
-    created_at;
+    created_at?: Date;
 
 
 }

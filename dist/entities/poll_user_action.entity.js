@@ -46,7 +46,7 @@ var PollUserAction = /** @class */ (function () {
             type: 'timestamptz',
             default: function () { return 'CURRENT_TIMESTAMP'; }
         }),
-        __metadata("design:type", Object)
+        __metadata("design:type", Date)
     ], PollUserAction.prototype, "created_at", void 0);
     PollUserAction = __decorate([
         typeorm_1.Entity('poll_user_actions')
