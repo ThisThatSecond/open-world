@@ -41,7 +41,7 @@ var Poll = /** @class */ (function () {
             type: 'point',
             nullable: true
         }),
-        __metadata("design:type", String)
+        __metadata("design:type", Object)
     ], Poll.prototype, "geo_point", void 0);
     __decorate([
         typeorm_1.Column({

@@ -6,7 +6,7 @@ export declare class Poll {
     question: string;
     caption?: string;
     language?: string;
-    geo_point?: string;
+    geo_point?: any;
     location?: string;
     category: CATEGORIES;
     visibile_options_count?: number;

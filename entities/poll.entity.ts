@@ -25,8 +25,8 @@ export class Poll {
         type: 'point',
         nullable: true
     })
-    geo_point?: string;
-    
+    geo_point?: any;
+
     @Column({
         nullable: true
     })
@@ -86,7 +86,7 @@ export class Poll {
         name: 'creator_id'
     })
     creator: User;
-    
+
     @ManyToOne(() => Profile, { nullable: true })
     @JoinColumn({
         name: 'profile_id'

@@ -78,8 +78,8 @@ export class User {
         type: 'point',
         nullable: true
     })
-    geo_point?: string;
-    
+    geo_point?: any;
+
     @Column({
         nullable: true
     })
@@ -126,7 +126,7 @@ export class User {
         default: true
     })
     is_active?: boolean;
-    
+
     @Column({
         default: false
     })
