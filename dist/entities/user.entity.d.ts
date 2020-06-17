@@ -14,7 +14,10 @@ export declare class User {
     neighborhood_visible?: boolean;
     education?: string;
     language?: string;
-    geo_point?: any;
+    geo_point?: {
+        x: number;
+        y: number;
+    };
     location?: string;
     notifications_preferences?: NOTIFICATION_PREFERENCES[];
     sees_polls_from?: string[];

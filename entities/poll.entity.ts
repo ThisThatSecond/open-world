@@ -25,7 +25,10 @@ export class Poll {
         type: 'point',
         nullable: true
     })
-    geo_point?: any;
+    geo_point?: {
+        x: number,
+        y: number
+    };
 
     @Column({
         nullable: true
