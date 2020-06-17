@@ -84,13 +84,13 @@ export class Poll {
     is_hidden?: boolean;
 
 
-    @ManyToOne(() => User, { nullable: false })
+    @ManyToOne(() => User, { nullable: false, eager: true })
     @JoinColumn({
         name: 'creator_id'
     })
     creator: User;
 
-    @ManyToOne(() => Profile, { nullable: true })
+    @ManyToOne(() => Profile, { nullable: true, eager: true })
     @JoinColumn({
         name: 'profile_id'
     })
