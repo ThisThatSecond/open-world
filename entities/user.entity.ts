@@ -1,9 +1,10 @@
-import { Entity, Column, PrimaryColumn, Index, OneToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryColumn, Index, OneToOne, JoinColumn, BeforeInsert, BeforeUpdate } from 'typeorm';
 import { NOTIFICATION_PREFERENCES } from '../shared/enums/notification_preferences.enum';
 import { Genders } from '../shared/enums/genders.enum';
 
 @Entity('users')
 export class User {
+
     @PrimaryColumn()
     user_id: string;
 
@@ -81,7 +82,7 @@ export class User {
     geo_point?: {
         x: number,
         y: number
-    };
+    } | string;
 
     @Column({
         nullable: true

@@ -9,7 +9,7 @@ export declare class Poll {
     geo_point?: {
         x: number;
         y: number;
-    };
+    } | string;
     location?: string;
     category: CATEGORIES;
     visibile_options_count?: number;

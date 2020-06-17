@@ -17,7 +17,7 @@ export declare class User {
     geo_point?: {
         x: number;
         y: number;
-    };
+    } | string;
     location?: string;
     notifications_preferences?: NOTIFICATION_PREFERENCES[];
     sees_polls_from?: string[];
