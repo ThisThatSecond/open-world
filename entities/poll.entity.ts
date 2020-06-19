@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 import { User } from './user.entity';
 import { CATEGORIES } from '../shared/enums/categories.enum';
 import { Profile } from './profile.entity';
+import { Option } from './option.entity';
 
 @Entity('polls')
 export class Poll {
@@ -62,7 +63,7 @@ export class Poll {
         default: false
     })
     is_analytics_poll?: boolean;
-    
+
     @Column({
         default: false
     })
@@ -99,6 +100,9 @@ export class Poll {
         name: 'profile_id'
     })
     profile?: Profile;
+
+    @OneToMany(() => Option, option => option.poll, { nullable: false })
+    options: Option[]
 
     @Column({
         type: 'timestamptz',

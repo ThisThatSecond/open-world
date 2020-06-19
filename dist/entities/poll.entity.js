@@ -13,6 +13,7 @@ var typeorm_1 = require("typeorm");
 var user_entity_1 = require("./user.entity");
 var categories_enum_1 = require("../shared/enums/categories.enum");
 var profile_entity_1 = require("./profile.entity");
+var option_entity_1 = require("./option.entity");
 var Poll = /** @class */ (function () {
     function Poll() {
     }
@@ -126,6 +127,10 @@ var Poll = /** @class */ (function () {
         }),
         __metadata("design:type", profile_entity_1.Profile)
     ], Poll.prototype, "profile", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return option_entity_1.Option; }, function (option) { return option.poll; }, { nullable: false }),
+        __metadata("design:type", Array)
+    ], Poll.prototype, "options", void 0);
     __decorate([
         typeorm_1.Column({
             type: 'timestamptz',

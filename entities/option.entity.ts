@@ -19,7 +19,7 @@ export class Option {
     })
     is_this?: boolean;
 
-    @ManyToOne(() => Poll, { nullable: false })
+    @ManyToOne(() => Poll, poll => poll.options, { nullable: false })
     @JoinColumn({
         name: 'poll_id'
     })

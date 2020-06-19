@@ -1,6 +1,7 @@
 import { User } from './user.entity';
 import { CATEGORIES } from '../shared/enums/categories.enum';
 import { Profile } from './profile.entity';
+import { Option } from './option.entity';
 export declare class Poll {
     poll_id: string;
     question: string;
@@ -23,5 +24,6 @@ export declare class Poll {
     is_hidden?: boolean;
     creator: User;
     profile?: Profile;
+    options: Option[];
     created_at?: Date;
 }
