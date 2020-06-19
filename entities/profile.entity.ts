@@ -7,10 +7,6 @@ export class Profile {
     @PrimaryColumn()
     profile_id: string;
 
-    @Index()
-    @Column()
-    name: string;
-
     @OneToOne(() => User, { nullable: false })
     @JoinColumn({
         name: 'user_id'
