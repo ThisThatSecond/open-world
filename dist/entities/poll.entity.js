@@ -68,7 +68,7 @@ var Poll = /** @class */ (function () {
             default: 0,
         }),
         __metadata("design:type", Number)
-    ], Poll.prototype, "analytics_audience_size", void 0);
+    ], Poll.prototype, "desired_votes_count", void 0);
     __decorate([
         typeorm_1.Column({
             type: 'timestamptz',
@@ -82,6 +82,12 @@ var Poll = /** @class */ (function () {
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_analytics_poll", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: false
+        }),
+        __metadata("design:type", Boolean)
+    ], Poll.prototype, "has_anonymous_vote", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: true

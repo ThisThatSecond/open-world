@@ -50,7 +50,7 @@ export class Poll {
     @Column({
         default: 0,
     })
-    analytics_audience_size?: number;
+    desired_votes_count?: number;
 
     @Column({
         type: 'timestamptz',
@@ -62,6 +62,11 @@ export class Poll {
         default: false
     })
     is_analytics_poll?: boolean;
+    
+    @Column({
+        default: false
+    })
+    has_anonymous_vote?: boolean;
 
     @Column({
         nullable: true
@@ -82,7 +87,6 @@ export class Poll {
         default: false
     })
     is_hidden?: boolean;
-
 
     @ManyToOne(() => User, { nullable: false, eager: true })
     @JoinColumn({
