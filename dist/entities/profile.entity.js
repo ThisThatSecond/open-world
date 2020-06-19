@@ -20,11 +20,6 @@ var Profile = /** @class */ (function () {
         __metadata("design:type", String)
     ], Profile.prototype, "profile_id", void 0);
     __decorate([
-        typeorm_1.Index(),
-        typeorm_1.Column(),
-        __metadata("design:type", String)
-    ], Profile.prototype, "name", void 0);
-    __decorate([
         typeorm_1.OneToOne(function () { return user_entity_1.User; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: 'user_id'
