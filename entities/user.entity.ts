@@ -162,7 +162,7 @@ export class User {
     created_at?: Date;
 
     @OneToMany(() => Poll, poll => poll.creator)
-    polls?: Promise<Poll[]>
+    polls?: Poll[]
 
 
 }

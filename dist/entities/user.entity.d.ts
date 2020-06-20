@@ -33,5 +33,5 @@ export declare class User {
     last_opened_app?: Date;
     last_checked_activity?: Date;
     created_at?: Date;
-    polls?: Promise<Poll[]>;
+    polls?: Poll[];
 }

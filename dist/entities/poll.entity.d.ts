@@ -23,7 +23,7 @@ export declare class Poll {
     is_draft?: boolean;
     is_hidden?: boolean;
     created_at?: Date;
-    creator: Promise<User>;
+    creator: User;
     profile?: Profile;
     options?: Option[];
 }

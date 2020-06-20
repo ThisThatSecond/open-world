@@ -125,7 +125,7 @@ var Poll = /** @class */ (function () {
         typeorm_1.JoinColumn({
             name: 'creator_id'
         }),
-        __metadata("design:type", Promise)
+        __metadata("design:type", user_entity_1.User)
     ], Poll.prototype, "creator", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, function (profile) { return profile.polls; }, { nullable: true }),

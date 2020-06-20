@@ -99,7 +99,7 @@ export class Poll {
     @JoinColumn({
         name: 'creator_id'
     })
-    creator: Promise<User>;
+    creator: User;
 
     @ManyToOne(() => Profile, profile => profile.polls, { nullable: true })
     @JoinColumn({

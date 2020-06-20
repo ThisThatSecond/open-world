@@ -197,7 +197,7 @@ var User = /** @class */ (function () {
     ], User.prototype, "created_at", void 0);
     __decorate([
         typeorm_1.OneToMany(function () { return poll_entity_1.Poll; }, function (poll) { return poll.creator; }),
-        __metadata("design:type", Promise)
+        __metadata("design:type", Array)
     ], User.prototype, "polls", void 0);
     User = __decorate([
         typeorm_1.Entity('users')
