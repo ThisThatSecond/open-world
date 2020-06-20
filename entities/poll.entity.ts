@@ -89,24 +89,24 @@ export class Poll {
     })
     is_hidden?: boolean;
 
-    @ManyToOne(() => User, { nullable: false, eager: true })
-    @JoinColumn({
-        name: 'creator_id'
-    })
-    creator: User;
-
-    @ManyToOne(() => Profile, { nullable: true, eager: true })
-    @JoinColumn({
-        name: 'profile_id'
-    })
-    profile?: Profile;
-
-    @OneToMany(() => Option, option => option.poll, { nullable: false })
-    options: Option[]
-
     @Column({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP'
     })
     created_at?: Date;
+
+    @ManyToOne(() => User, user => user.polls, { nullable: false })
+    @JoinColumn({
+        name: 'creator_id'
+    })
+    creator: Promise<User>;
+
+    @ManyToOne(() => Profile, profile => profile.polls, { nullable: true })
+    @JoinColumn({
+        name: 'profile_id'
+    })
+    profile?: Profile;
+
+    @OneToMany(() => Option, option => option.poll)
+    options?: Option[]
 }

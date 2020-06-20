@@ -22,8 +22,8 @@ export declare class Poll {
     is_familiarity_required?: boolean;
     is_draft?: boolean;
     is_hidden?: boolean;
-    creator: User;
-    profile?: Profile;
-    options: Option[];
     created_at?: Date;
+    creator: Promise<User>;
+    profile?: Profile;
+    options?: Option[];
 }

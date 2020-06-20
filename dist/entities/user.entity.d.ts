@@ -1,5 +1,6 @@
 import { NOTIFICATION_PREFERENCES } from '../shared/enums/notification_preferences.enum';
 import { Genders } from '../shared/enums/genders.enum';
+import { Poll } from './poll.entity';
 export declare class User {
     user_id: string;
     username?: string;
@@ -32,4 +33,5 @@ export declare class User {
     last_opened_app?: Date;
     last_checked_activity?: Date;
     created_at?: Date;
+    polls?: Promise<Poll[]>;
 }

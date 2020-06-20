@@ -114,30 +114,30 @@ var Poll = /** @class */ (function () {
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_hidden", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false, eager: true }),
-        typeorm_1.JoinColumn({
-            name: 'creator_id'
-        }),
-        __metadata("design:type", user_entity_1.User)
-    ], Poll.prototype, "creator", void 0);
-    __decorate([
-        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: true, eager: true }),
-        typeorm_1.JoinColumn({
-            name: 'profile_id'
-        }),
-        __metadata("design:type", profile_entity_1.Profile)
-    ], Poll.prototype, "profile", void 0);
-    __decorate([
-        typeorm_1.OneToMany(function () { return option_entity_1.Option; }, function (option) { return option.poll; }, { nullable: false }),
-        __metadata("design:type", Array)
-    ], Poll.prototype, "options", void 0);
-    __decorate([
         typeorm_1.Column({
             type: 'timestamptz',
             default: function () { return 'CURRENT_TIMESTAMP'; }
         }),
         __metadata("design:type", Date)
     ], Poll.prototype, "created_at", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, function (user) { return user.polls; }, { nullable: false }),
+        typeorm_1.JoinColumn({
+            name: 'creator_id'
+        }),
+        __metadata("design:type", Promise)
+    ], Poll.prototype, "creator", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, function (profile) { return profile.polls; }, { nullable: true }),
+        typeorm_1.JoinColumn({
+            name: 'profile_id'
+        }),
+        __metadata("design:type", profile_entity_1.Profile)
+    ], Poll.prototype, "profile", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return option_entity_1.Option; }, function (option) { return option.poll; }),
+        __metadata("design:type", Array)
+    ], Poll.prototype, "options", void 0);
     Poll = __decorate([
         typeorm_1.Entity('polls')
     ], Poll);

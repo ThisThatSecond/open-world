@@ -1,6 +1,7 @@
-import { Entity, Column, PrimaryColumn, Index, OneToOne, JoinColumn, BeforeInsert, BeforeUpdate } from 'typeorm';
+import { Entity, Column, PrimaryColumn, Index, OneToOne, JoinColumn, BeforeInsert, BeforeUpdate, OneToMany } from 'typeorm';
 import { NOTIFICATION_PREFERENCES } from '../shared/enums/notification_preferences.enum';
 import { Genders } from '../shared/enums/genders.enum';
+import { Poll } from './poll.entity';
 
 @Entity('users')
 export class User {
@@ -159,6 +160,9 @@ export class User {
         default: () => 'CURRENT_TIMESTAMP'
     })
     created_at?: Date;
+
+    @OneToMany(() => Poll, poll => poll.creator)
+    polls?: Promise<Poll[]>
 
 
 }

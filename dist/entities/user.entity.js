@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var genders_enum_1 = require("../shared/enums/genders.enum");
+var poll_entity_1 = require("./poll.entity");
 var User = /** @class */ (function () {
     function User() {
     }
@@ -194,6 +195,10 @@ var User = /** @class */ (function () {
         }),
         __metadata("design:type", Date)
     ], User.prototype, "created_at", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return poll_entity_1.Poll; }, function (poll) { return poll.creator; }),
+        __metadata("design:type", Promise)
+    ], User.prototype, "polls", void 0);
     User = __decorate([
         typeorm_1.Entity('users')
     ], User);

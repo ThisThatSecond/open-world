@@ -1,6 +1,7 @@
-import { Entity, Column, PrimaryColumn, Index, JoinColumn, ManyToOne, OneToOne } from 'typeorm';
+import { Entity, Column, PrimaryColumn, Index, JoinColumn, ManyToOne, OneToOne, OneToMany } from 'typeorm';
 import { User } from './user.entity';
 import { Team } from './team.entity';
+import { Poll } from './poll.entity';
 
 @Entity('profiles')
 export class Profile {
@@ -19,10 +20,13 @@ export class Profile {
     })
     creator: User;
 
-    @ManyToOne(() => Team, { nullable: false })
+    @ManyToOne(() => Team, team => team.profiles, { nullable: false })
     @JoinColumn({
         name: 'team_id'
     })
     team: Team;
+
+    @OneToMany(() => Poll, poll => poll.profile)
+    polls?: Poll[]
 
 }
