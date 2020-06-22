@@ -11,6 +11,5 @@ export declare enum CATEGORIES {
     TRAVEL = "travel",
     BEAUTY = "beauty",
     FOOD = "food",
-    CARS = "cars",
-    ALL = "all"
+    CARS = "cars"
 }

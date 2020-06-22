@@ -12,5 +12,4 @@ export enum CATEGORIES {
     BEAUTY = 'beauty',
     FOOD = 'food',
     CARS = 'cars',
-    ALL = 'all'
 }
