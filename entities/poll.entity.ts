@@ -44,12 +44,12 @@ export class Poll {
     category: CATEGORIES;
 
     @Column({
-        default: 0,
+        nullable: true,
     })
     visibile_options_count?: number;
 
     @Column({
-        default: 0,
+        nullable: true,
     })
     desired_votes_count?: number;
 

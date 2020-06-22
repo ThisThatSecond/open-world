@@ -60,13 +60,13 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "category", void 0);
     __decorate([
         typeorm_1.Column({
-            default: 0,
+            nullable: true,
         }),
         __metadata("design:type", Number)
     ], Poll.prototype, "visibile_options_count", void 0);
     __decorate([
         typeorm_1.Column({
-            default: 0,
+            nullable: true,
         }),
         __metadata("design:type", Number)
     ], Poll.prototype, "desired_votes_count", void 0);
