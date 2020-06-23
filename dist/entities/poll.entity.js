@@ -54,7 +54,7 @@ var Poll = /** @class */ (function () {
         typeorm_1.Column({
             type: 'enum',
             enum: categories_enum_1.CATEGORIES,
-            nullable: false
+            nullable: true
         }),
         __metadata("design:type", String)
     ], Poll.prototype, "category", void 0);

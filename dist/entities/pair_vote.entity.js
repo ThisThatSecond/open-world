@@ -21,13 +21,6 @@ var PairVote = /** @class */ (function () {
         __metadata("design:type", String)
     ], PairVote.prototype, "pair_vote_id", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return pair_entity_1.Pair; }, { nullable: false }),
-        typeorm_1.JoinColumn({
-            name: 'pair_id'
-        }),
-        __metadata("design:type", pair_entity_1.Pair)
-    ], PairVote.prototype, "pair", void 0);
-    __decorate([
         typeorm_1.Column({
             type: 'enum',
             enum: actions_enum_1.PairVoteActions,
@@ -36,19 +29,26 @@ var PairVote = /** @class */ (function () {
         __metadata("design:type", Number)
     ], PairVote.prototype, "action", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
-        typeorm_1.JoinColumn({
-            name: 'voter_id'
-        }),
-        __metadata("design:type", user_entity_1.User)
-    ], PairVote.prototype, "voter", void 0);
-    __decorate([
         typeorm_1.Column({
             type: 'timestamptz',
             default: function () { return 'CURRENT_TIMESTAMP'; }
         }),
         __metadata("design:type", Date)
     ], PairVote.prototype, "created_at", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return pair_entity_1.Pair; }, { nullable: false }),
+        typeorm_1.JoinColumn({
+            name: 'pair_id'
+        }),
+        __metadata("design:type", pair_entity_1.Pair)
+    ], PairVote.prototype, "pair", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
+        typeorm_1.JoinColumn({
+            name: 'voter_id'
+        }),
+        __metadata("design:type", user_entity_1.User)
+    ], PairVote.prototype, "voter", void 0);
     PairVote = __decorate([
         typeorm_1.Entity('pair_votes')
     ], PairVote);

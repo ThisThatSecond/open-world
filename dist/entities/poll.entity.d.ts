@@ -12,7 +12,7 @@ export declare class Poll {
         y: number;
     } | string;
     location?: string;
-    category: CATEGORIES;
+    category?: CATEGORIES;
     visibile_options_count?: number;
     desired_votes_count?: number;
     release_date?: Date;

@@ -8,12 +8,6 @@ export class PairVote {
     @PrimaryGeneratedColumn('uuid')
     pair_vote_id: string;
 
-    @ManyToOne(() => Pair, { nullable: false })
-    @JoinColumn({
-        name: 'pair_id'
-    })
-    pair: Pair;
-
     @Column({
         type: 'enum',
         enum: PairVoteActions,
@@ -21,18 +15,21 @@ export class PairVote {
     })
     action: PairVoteActions;
 
-    @ManyToOne(() => User, { nullable: false })
-    @JoinColumn({
-        name: 'voter_id'
-    })
-    voter: User;
-
-
     @Column({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP'
     })
     created_at?: Date;
 
+    @ManyToOne(() => Pair, { nullable: false })
+    @JoinColumn({
+        name: 'pair_id'
+    })
+    pair: Pair;
 
+    @ManyToOne(() => User, { nullable: false })
+    @JoinColumn({
+        name: 'voter_id'
+    })
+    voter: User;
 }

@@ -39,9 +39,9 @@ export class Poll {
     @Column({
         type: 'enum',
         enum: CATEGORIES,
-        nullable: false
+        nullable: true
     })
-    category: CATEGORIES;
+    category?: CATEGORIES;
 
     @Column({
         nullable: true,
