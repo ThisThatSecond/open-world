@@ -115,6 +115,12 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "is_hidden", void 0);
     __decorate([
         typeorm_1.Column({
+            default: true
+        }),
+        __metadata("design:type", Boolean)
+    ], Poll.prototype, "is_active", void 0);
+    __decorate([
+        typeorm_1.Column({
             type: 'timestamptz',
             default: function () { return 'CURRENT_TIMESTAMP'; }
         }),

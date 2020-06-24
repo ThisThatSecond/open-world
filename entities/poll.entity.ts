@@ -88,6 +88,11 @@ export class Poll {
         default: false
     })
     is_hidden?: boolean;
+    
+    @Column({
+        default: true
+    })
+    is_active?: boolean;
 
     @Column({
         type: 'timestamptz',

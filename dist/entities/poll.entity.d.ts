@@ -22,6 +22,7 @@ export declare class Poll {
     is_familiarity_required?: boolean;
     is_draft?: boolean;
     is_hidden?: boolean;
+    is_active?: boolean;
     created_at?: Date;
     creator: User;
     profile?: Profile;
