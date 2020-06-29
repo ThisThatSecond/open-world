@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, Index, OneToOne, JoinColumn, BeforeInsert, BeforeUpdate, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryColumn, Index, OneToMany } from 'typeorm';
 import { NOTIFICATION_PREFERENCES } from '../shared/enums/notification_preferences.enum';
 import { Genders } from '../shared/enums/genders.enum';
 import { Poll } from './poll.entity';

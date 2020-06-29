@@ -3,6 +3,7 @@ import { User } from './user.entity';
 import { CATEGORIES } from '../shared/enums/categories.enum';
 import { Profile } from './profile.entity';
 import { Option } from './option.entity';
+import { Collection } from './collection.entity';
 
 @Entity('polls')
 export class Poll {
@@ -111,6 +112,12 @@ export class Poll {
         name: 'profile_id'
     })
     profile?: Profile;
+
+    @ManyToOne(() => Collection, collection => collection.polls, { nullable: true })
+    @JoinColumn({
+        name: 'collection_id'
+    })
+    collection?: Collection;
 
     @OneToMany(() => Option, option => option.poll)
     options?: Option[]

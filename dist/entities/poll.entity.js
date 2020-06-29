@@ -14,6 +14,7 @@ var user_entity_1 = require("./user.entity");
 var categories_enum_1 = require("../shared/enums/categories.enum");
 var profile_entity_1 = require("./profile.entity");
 var option_entity_1 = require("./option.entity");
+var collection_entity_1 = require("./collection.entity");
 var Poll = /** @class */ (function () {
     function Poll() {
     }
@@ -140,6 +141,13 @@ var Poll = /** @class */ (function () {
         }),
         __metadata("design:type", profile_entity_1.Profile)
     ], Poll.prototype, "profile", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return collection_entity_1.Collection; }, function (collection) { return collection.polls; }, { nullable: true }),
+        typeorm_1.JoinColumn({
+            name: 'collection_id'
+        }),
+        __metadata("design:type", collection_entity_1.Collection)
+    ], Poll.prototype, "collection", void 0);
     __decorate([
         typeorm_1.OneToMany(function () { return option_entity_1.Option; }, function (option) { return option.poll; }),
         __metadata("design:type", Array)
