@@ -12,3 +12,4 @@ export { Poll } from "./poll.entity";
 export { Profile } from "./profile.entity";
 export { Team } from "./team.entity";
 export { User } from "./user.entity";
+export { Collection } from "./collection.entity";
