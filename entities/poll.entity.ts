@@ -71,7 +71,7 @@ export class Poll {
     has_anonymous_vote?: boolean;
 
     @Column({
-        nullable: true
+        default: false
     })
     is_private?: boolean;
 
@@ -81,7 +81,7 @@ export class Poll {
     is_familiarity_required?: boolean;
 
     @Column({
-        default: false
+        default: true
     })
     is_draft?: boolean;
 

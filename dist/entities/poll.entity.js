@@ -92,7 +92,7 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "has_anonymous_vote", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true
+            default: false
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_private", void 0);
@@ -104,7 +104,7 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "is_familiarity_required", void 0);
     __decorate([
         typeorm_1.Column({
-            default: false
+            default: true
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_draft", void 0);
