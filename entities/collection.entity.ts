@@ -11,7 +11,6 @@ export class Collection {
 
     @Index()
     @Column({
-        unique: true,
         nullable: true,
     })
     title: string;
@@ -32,13 +31,15 @@ export class Collection {
     polls?: Poll[]
 
     @Column({
-        default: true
+        default: true,
+        nullable: false
     })
     is_draft?: boolean;
 
     @Column({
         type: 'timestamptz',
-        default: () => 'CURRENT_TIMESTAMP'
+        default: () => 'CURRENT_TIMESTAMP',
+        nullable: false
     })
     created_at?: Date;
 

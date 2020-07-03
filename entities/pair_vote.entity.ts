@@ -11,15 +11,10 @@ export class PairVote {
     @Column({
         type: 'enum',
         enum: PairVoteActions,
-        enumName: 'pair_vote_action_enum'
+        enumName: 'pair_vote_action_enum',
+        nullable: false
     })
     action: PairVoteActions;
-
-    @Column({
-        type: 'timestamptz',
-        default: () => 'CURRENT_TIMESTAMP'
-    })
-    created_at?: Date;
 
     @ManyToOne(() => Pair, { nullable: false })
     @JoinColumn({
@@ -32,4 +27,11 @@ export class PairVote {
         name: 'voter_id'
     })
     voter: User;
+
+    @Column({
+        type: 'timestamptz',
+        default: () => 'CURRENT_TIMESTAMP',
+        nullable: false
+    })
+    created_at?: Date;
 }

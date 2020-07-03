@@ -10,7 +10,9 @@ export class Poll {
     @PrimaryColumn()
     poll_id: string;
 
-    @Column()
+    @Column({
+        nullable: false
+    })
     question: string;
 
     @Column({
@@ -61,17 +63,20 @@ export class Poll {
     release_date?: Date;
 
     @Column({
-        default: false
+        default: false,
+        nullable: false
     })
     is_analytics_poll?: boolean;
 
     @Column({
-        default: false
+        default: false,
+        nullable: false
     })
     has_anonymous_vote?: boolean;
 
     @Column({
-        default: false
+        default: false,
+        nullable: false
     })
     is_private?: boolean;
 
@@ -81,25 +86,22 @@ export class Poll {
     is_familiarity_required?: boolean;
 
     @Column({
-        default: true
+        default: true,
+        nullable: false
     })
     is_draft?: boolean;
 
     @Column({
-        default: false
+        default: false,
+        nullable: false
     })
     is_hidden?: boolean;
     
     @Column({
-        default: true
+        default: true,
+        nullable: false
     })
     is_active?: boolean;
-
-    @Column({
-        type: 'timestamptz',
-        default: () => 'CURRENT_TIMESTAMP'
-    })
-    created_at?: Date;
 
     @ManyToOne(() => User, user => user.polls, { nullable: false })
     @JoinColumn({
@@ -121,4 +123,11 @@ export class Poll {
 
     @OneToMany(() => Option, option => option.poll)
     options?: Option[]
+
+    @Column({
+        type: 'timestamptz',
+        default: () => 'CURRENT_TIMESTAMP',
+        nullable: false
+    })
+    created_at?: Date;
 }

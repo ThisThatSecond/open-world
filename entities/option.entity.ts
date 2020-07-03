@@ -6,7 +6,9 @@ export class Option {
     @PrimaryColumn()
     option_id: string;
 
-    @Column()
+    @Column({
+        nullable: false
+    })
     title: string;
 
     @Column({

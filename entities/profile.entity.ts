@@ -29,4 +29,11 @@ export class Profile {
     @OneToMany(() => Poll, poll => poll.profile)
     polls?: Poll[]
 
+    @Column({
+        type: 'timestamptz',
+        default: () => 'CURRENT_TIMESTAMP',
+        nullable: false
+    })
+    created_at?: Date;
+
 }

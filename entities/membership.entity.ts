@@ -39,7 +39,8 @@ export class Membership {
     invitation_message?: string;
 
     @Column({
-        default: true
+        default: true,
+        nullable: false
     })
     is_pending?: boolean;
 
@@ -51,18 +52,21 @@ export class Membership {
     role: AnalyticsRoles;
 
     @Column({
-        default: false
+        default: false,
+        nullable: false
     })
     is_active?: boolean;
 
     @Column({
-        default: false
+        default: false,
+        nullable: false
     })
     send_email_required?: boolean;
 
     @Column({
         type: 'timestamptz',
-        default: () => 'CURRENT_TIMESTAMP'
+        default: () => 'CURRENT_TIMESTAMP',
+        nullable: false
     })
     created_at?: Date;
 

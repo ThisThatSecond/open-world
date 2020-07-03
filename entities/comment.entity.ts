@@ -7,7 +7,9 @@ export class Comment {
     @PrimaryColumn()
     comment_id: string;
 
-    @Column()
+    @Column({
+        nullable: false
+    })
     text: string;
 
     @ManyToOne(() => Poll, { nullable: false })
@@ -23,13 +25,15 @@ export class Comment {
     creator: User;
 
     @Column({
-        default: false
+        default: false,
+        nullable: false
     })
     is_hidden?: boolean;
 
     @Column({
         type: 'timestamptz',
-        default: () => 'CURRENT_TIMESTAMP'
+        default: () => 'CURRENT_TIMESTAMP',
+        nullable: false
     })
     created_at?: Date;
 

@@ -17,7 +17,8 @@ export class OptionVote {
     @Column({
         type: 'enum',
         enum: OptionVoteActions,
-        enumName: 'option_vote_action_enum'
+        enumName: 'option_vote_action_enum',
+        nullable: false
     })
     action: OptionVoteActions;
 
@@ -29,7 +30,8 @@ export class OptionVote {
 
     @Column({
         type: 'timestamptz',
-        default: () => 'CURRENT_TIMESTAMP'
+        default: () => 'CURRENT_TIMESTAMP',
+        nullable: false
     })
     created_at?: Date;
 

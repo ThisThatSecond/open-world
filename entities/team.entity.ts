@@ -8,13 +8,19 @@ export class Team {
     team_id: string;
 
     @Index()
-    @Column()
+    @Column({
+        nullable: false
+    })
     name: string;
 
-    @Column()
-    join_link: string;
+    @Column({
+        nullable: true
+    })
+    join_link?: string;
 
-    @Column()
+    @Column({
+       nullable: false 
+    })
     description: string;
 
     @Column({
@@ -23,20 +29,16 @@ export class Team {
     avatar_url?: string;
 
     @Column({
-        default: 0
+        default: 0,
+        nullable: false
     })
     opinions_count?: number;
 
     @Column({
-        default: true
+        default: true,
+        nullable: false
     })
     is_active: boolean;
-
-    @Column({
-        type: 'timestamptz',
-        default: () => 'CURRENT_TIMESTAMP'
-    })
-    created_at?: Date;
 
     @ManyToOne(() => User, { nullable: false })
     @JoinColumn({
@@ -46,4 +48,11 @@ export class Team {
 
     @OneToMany(() => Profile, profile => profile.team)
     profiles?: Profile[]
+
+    @Column({
+        type: 'timestamptz',
+        default: () => 'CURRENT_TIMESTAMP',
+        nullable: false
+    })
+    created_at?: Date;
 }

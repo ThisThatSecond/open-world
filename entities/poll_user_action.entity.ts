@@ -30,7 +30,8 @@ export class PollUserAction {
 
     @Column({
         type: 'timestamptz',
-        default: () => 'CURRENT_TIMESTAMP'
+        default: () => 'CURRENT_TIMESTAMP',
+        nullable: false
     })
     created_at?: Date;
 
