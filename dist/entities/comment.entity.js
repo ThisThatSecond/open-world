@@ -20,7 +20,9 @@ var Comment = /** @class */ (function () {
         __metadata("design:type", String)
     ], Comment.prototype, "comment_id", void 0);
     __decorate([
-        typeorm_1.Column(),
+        typeorm_1.Column({
+            nullable: false
+        }),
         __metadata("design:type", String)
     ], Comment.prototype, "text", void 0);
     __decorate([
@@ -39,14 +41,16 @@ var Comment = /** @class */ (function () {
     ], Comment.prototype, "creator", void 0);
     __decorate([
         typeorm_1.Column({
-            default: false
+            default: false,
+            nullable: false
         }),
         __metadata("design:type", Boolean)
     ], Comment.prototype, "is_hidden", void 0);
     __decorate([
         typeorm_1.Column({
             type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; }
+            default: function () { return 'CURRENT_TIMESTAMP'; },
+            nullable: false
         }),
         __metadata("design:type", Date)
     ], Comment.prototype, "created_at", void 0);

@@ -57,7 +57,8 @@ var Membership = /** @class */ (function () {
     ], Membership.prototype, "invitation_message", void 0);
     __decorate([
         typeorm_1.Column({
-            default: true
+            default: true,
+            nullable: false
         }),
         __metadata("design:type", Boolean)
     ], Membership.prototype, "is_pending", void 0);
@@ -71,20 +72,23 @@ var Membership = /** @class */ (function () {
     ], Membership.prototype, "role", void 0);
     __decorate([
         typeorm_1.Column({
-            default: false
+            default: false,
+            nullable: false
         }),
         __metadata("design:type", Boolean)
     ], Membership.prototype, "is_active", void 0);
     __decorate([
         typeorm_1.Column({
-            default: false
+            default: false,
+            nullable: false
         }),
         __metadata("design:type", Boolean)
     ], Membership.prototype, "send_email_required", void 0);
     __decorate([
         typeorm_1.Column({
             type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; }
+            default: function () { return 'CURRENT_TIMESTAMP'; },
+            nullable: false
         }),
         __metadata("design:type", Date)
     ], Membership.prototype, "created_at", void 0);

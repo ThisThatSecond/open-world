@@ -43,7 +43,8 @@ var Pair = /** @class */ (function () {
     __decorate([
         typeorm_1.Column({
             type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; }
+            default: function () { return 'CURRENT_TIMESTAMP'; },
+            nullable: false
         }),
         __metadata("design:type", Date)
     ], Pair.prototype, "created_at", void 0);

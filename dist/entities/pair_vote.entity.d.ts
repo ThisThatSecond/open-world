@@ -4,7 +4,7 @@ import { PairVoteActions } from '../shared/enums/actions.enum';
 export declare class PairVote {
     pair_vote_id: string;
     action: PairVoteActions;
-    created_at?: Date;
     pair: Pair;
     voter: User;
+    created_at?: Date;
 }

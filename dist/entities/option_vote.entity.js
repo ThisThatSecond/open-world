@@ -31,7 +31,8 @@ var OptionVote = /** @class */ (function () {
         typeorm_1.Column({
             type: 'enum',
             enum: actions_enum_1.OptionVoteActions,
-            enumName: 'option_vote_action_enum'
+            enumName: 'option_vote_action_enum',
+            nullable: false
         }),
         __metadata("design:type", Number)
     ], OptionVote.prototype, "action", void 0);
@@ -45,7 +46,8 @@ var OptionVote = /** @class */ (function () {
     __decorate([
         typeorm_1.Column({
             type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; }
+            default: function () { return 'CURRENT_TIMESTAMP'; },
+            nullable: false
         }),
         __metadata("design:type", Date)
     ], OptionVote.prototype, "created_at", void 0);

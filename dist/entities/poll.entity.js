@@ -23,7 +23,9 @@ var Poll = /** @class */ (function () {
         __metadata("design:type", String)
     ], Poll.prototype, "poll_id", void 0);
     __decorate([
-        typeorm_1.Column(),
+        typeorm_1.Column({
+            nullable: false
+        }),
         __metadata("design:type", String)
     ], Poll.prototype, "question", void 0);
     __decorate([
@@ -80,19 +82,22 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "release_date", void 0);
     __decorate([
         typeorm_1.Column({
-            default: false
+            default: false,
+            nullable: false
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_analytics_poll", void 0);
     __decorate([
         typeorm_1.Column({
-            default: false
+            default: false,
+            nullable: false
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "has_anonymous_vote", void 0);
     __decorate([
         typeorm_1.Column({
-            default: false
+            default: false,
+            nullable: false
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_private", void 0);
@@ -104,29 +109,25 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "is_familiarity_required", void 0);
     __decorate([
         typeorm_1.Column({
-            default: true
+            default: true,
+            nullable: false
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_draft", void 0);
     __decorate([
         typeorm_1.Column({
-            default: false
+            default: false,
+            nullable: false
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_hidden", void 0);
     __decorate([
         typeorm_1.Column({
-            default: true
+            default: true,
+            nullable: false
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_active", void 0);
-    __decorate([
-        typeorm_1.Column({
-            type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; }
-        }),
-        __metadata("design:type", Date)
-    ], Poll.prototype, "created_at", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return user_entity_1.User; }, function (user) { return user.polls; }, { nullable: false }),
         typeorm_1.JoinColumn({
@@ -152,6 +153,14 @@ var Poll = /** @class */ (function () {
         typeorm_1.OneToMany(function () { return option_entity_1.Option; }, function (option) { return option.poll; }),
         __metadata("design:type", Array)
     ], Poll.prototype, "options", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: 'timestamptz',
+            default: function () { return 'CURRENT_TIMESTAMP'; },
+            nullable: false
+        }),
+        __metadata("design:type", Date)
+    ], Poll.prototype, "created_at", void 0);
     Poll = __decorate([
         typeorm_1.Entity('polls')
     ], Poll);

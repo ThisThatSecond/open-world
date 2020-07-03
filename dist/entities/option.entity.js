@@ -19,7 +19,9 @@ var Option = /** @class */ (function () {
         __metadata("design:type", String)
     ], Option.prototype, "option_id", void 0);
     __decorate([
-        typeorm_1.Column(),
+        typeorm_1.Column({
+            nullable: false
+        }),
         __metadata("design:type", String)
     ], Option.prototype, "title", void 0);
     __decorate([

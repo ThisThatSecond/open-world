@@ -24,17 +24,11 @@ var PairVote = /** @class */ (function () {
         typeorm_1.Column({
             type: 'enum',
             enum: actions_enum_1.PairVoteActions,
-            enumName: 'pair_vote_action_enum'
+            enumName: 'pair_vote_action_enum',
+            nullable: false
         }),
         __metadata("design:type", Number)
     ], PairVote.prototype, "action", void 0);
-    __decorate([
-        typeorm_1.Column({
-            type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; }
-        }),
-        __metadata("design:type", Date)
-    ], PairVote.prototype, "created_at", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return pair_entity_1.Pair; }, { nullable: false }),
         typeorm_1.JoinColumn({
@@ -49,6 +43,14 @@ var PairVote = /** @class */ (function () {
         }),
         __metadata("design:type", user_entity_1.User)
     ], PairVote.prototype, "voter", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: 'timestamptz',
+            default: function () { return 'CURRENT_TIMESTAMP'; },
+            nullable: false
+        }),
+        __metadata("design:type", Date)
+    ], PairVote.prototype, "created_at", void 0);
     PairVote = __decorate([
         typeorm_1.Entity('pair_votes')
     ], PairVote);

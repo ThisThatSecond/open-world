@@ -45,6 +45,14 @@ var Profile = /** @class */ (function () {
         typeorm_1.OneToMany(function () { return poll_entity_1.Poll; }, function (poll) { return poll.profile; }),
         __metadata("design:type", Array)
     ], Profile.prototype, "polls", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: 'timestamptz',
+            default: function () { return 'CURRENT_TIMESTAMP'; },
+            nullable: false
+        }),
+        __metadata("design:type", Date)
+    ], Profile.prototype, "created_at", void 0);
     Profile = __decorate([
         typeorm_1.Entity('profiles')
     ], Profile);

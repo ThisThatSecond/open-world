@@ -7,4 +7,5 @@ export declare class Profile {
     creator: User;
     team: Team;
     polls?: Poll[];
+    created_at?: Date;
 }
