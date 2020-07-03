@@ -23,7 +23,8 @@ var CommentVote = /** @class */ (function () {
     __decorate([
         typeorm_1.Column({
             type: 'enum',
-            enum: actions_enum_1.CommentVoteActions
+            enum: actions_enum_1.CommentVoteActions,
+            nullable: false,
         }),
         __metadata("design:type", Number)
     ], CommentVote.prototype, "action", void 0);

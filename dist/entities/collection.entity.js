@@ -48,7 +48,7 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "polls", void 0);
     __decorate([
         typeorm_1.Column({
-            default: false
+            default: true
         }),
         __metadata("design:type", Boolean)
     ], Collection.prototype, "is_draft", void 0);

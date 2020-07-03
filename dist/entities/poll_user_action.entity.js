@@ -38,6 +38,7 @@ var PollUserAction = /** @class */ (function () {
         typeorm_1.Column({
             type: 'enum',
             enum: actions_enum_1.PollUserActions,
+            nullable: false
         }),
         __metadata("design:type", PollUserAction)
     ], PollUserAction.prototype, "action", void 0);
