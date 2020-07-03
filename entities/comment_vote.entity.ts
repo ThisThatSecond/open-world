@@ -10,7 +10,8 @@ export class CommentVote {
 
     @Column({
         type: 'enum',
-        enum: CommentVoteActions
+        enum: CommentVoteActions,
+        nullable: false,
     })
     action: CommentVoteActions;
 

@@ -24,6 +24,7 @@ export class PollUserAction {
     @Column({
         type: 'enum',
         enum: PollUserActions,
+        nullable: false
     })
     action: PollUserAction;
 

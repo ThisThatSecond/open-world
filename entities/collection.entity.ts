@@ -32,7 +32,7 @@ export class Collection {
     polls?: Poll[]
 
     @Column({
-        default: false
+        default: true
     })
     is_draft?: boolean;
 
