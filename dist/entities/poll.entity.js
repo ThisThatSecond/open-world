@@ -164,7 +164,7 @@ var Poll = /** @class */ (function () {
         typeorm_1.Entity('polls'),
         typeorm_1.Check('not_null_is_private_for_analytics', "is_analytics_poll and not is_draft and is_private is not null"),
         typeorm_1.Check('not_null_profile_for_analytics', "is_analytics_poll and not is_draft and profile_id is not null"),
-        typeorm_1.Check('not_null_desired_votes_count_for_analytics', "is_analytics_poll and not is_draft and profile_id is not null")
+        typeorm_1.Check('not_null_desired_votes_count_for_analytics', "is_analytics_poll and not is_draft and desired_votes_count is not null")
     ], Poll);
     return Poll;
 }());
