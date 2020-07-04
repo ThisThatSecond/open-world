@@ -162,9 +162,9 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "created_at", void 0);
     Poll = __decorate([
         typeorm_1.Entity('polls'),
-        typeorm_1.Check('not_null_is_private_for_analytics', "not is_analytics_poll or is_private is not null"),
-        typeorm_1.Check('not_null_profile_for_analytics', "not is_analytics_poll or profile_id is not null"),
-        typeorm_1.Check('not_null_desired_votes_count_for_analytics', "not is_analytics_poll or profile_id is not null")
+        typeorm_1.Check('not_null_is_private_for_analytics', "is_analytics_poll and not is_draft and is_private is not null"),
+        typeorm_1.Check('not_null_profile_for_analytics', "is_analytics_poll and not is_draft and profile_id is not null"),
+        typeorm_1.Check('not_null_desired_votes_count_for_analytics', "is_analytics_poll and not is_draft and profile_id is not null")
     ], Poll);
     return Poll;
 }());

@@ -6,7 +6,7 @@ import { Poll } from './poll.entity';
 @Entity('collections')
 export class Collection {
 
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratednotColumn('uuid')
     collection_id: string;
 
     @Index()
