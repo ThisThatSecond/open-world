@@ -96,8 +96,7 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "has_anonymous_vote", void 0);
     __decorate([
         typeorm_1.Column({
-            default: false,
-            nullable: false
+            nullable: true,
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_private", void 0);
@@ -162,7 +161,10 @@ var Poll = /** @class */ (function () {
         __metadata("design:type", Date)
     ], Poll.prototype, "created_at", void 0);
     Poll = __decorate([
-        typeorm_1.Entity('polls')
+        typeorm_1.Entity('polls'),
+        typeorm_1.Check('not_null_is_private_for_analytics', "not is_analytics_poll or is_private is not null"),
+        typeorm_1.Check('not_null_profile_for_analytics', "not is_analytics_poll or profile_id is not null"),
+        typeorm_1.Check('not_null_desired_votes_count_for_analytics', "not is_analytics_poll or profile_id is not null")
     ], Poll);
     return Poll;
 }());
