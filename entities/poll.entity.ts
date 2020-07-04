@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne, OneToMany, Check } from 'typeorm';
 import { User } from './user.entity';
 import { CATEGORIES } from '../shared/enums/categories.enum';
 import { Profile } from './profile.entity';
@@ -6,6 +6,9 @@ import { Option } from './option.entity';
 import { Collection } from './collection.entity';
 
 @Entity('polls')
+@Check('not_null_is_private_for_analytics',`not is_analytics_poll or is_private is not null`)
+@Check('not_null_profile_for_analytics',`not is_analytics_poll or profile_id is not null`)
+@Check('not_null_desired_votes_count_for_analytics',`not is_analytics_poll or profile_id is not null`)
 export class Poll {
     @PrimaryColumn()
     poll_id: string;
@@ -75,8 +78,7 @@ export class Poll {
     has_anonymous_vote?: boolean;
 
     @Column({
-        default: false,
-        nullable: false
+        nullable: true,
     })
     is_private?: boolean;
 
