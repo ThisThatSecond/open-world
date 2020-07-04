@@ -17,7 +17,7 @@ var Collection = /** @class */ (function () {
     function Collection() {
     }
     __decorate([
-        PrimaryGeneratednotColumn('uuid'),
+        typeorm_1.PrimaryGeneratedColumn('uuid'),
         __metadata("design:type", String)
     ], Collection.prototype, "collection_id", void 0);
     __decorate([
