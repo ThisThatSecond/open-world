@@ -6,9 +6,9 @@ import { Option } from './option.entity';
 import { Collection } from './collection.entity';
 
 @Entity('polls')
-@Check('not_null_is_private_for_analytics',`is_draft or not is_analytics_poll or (is_analytics_poll and not is_draft and is_private is not null)`)
-@Check('not_null_profile_for_analytics',`is_draft or not is_analytics_poll or (is_analytics_poll and not is_draft and profile_id is not null)`)
-@Check('not_null_desired_votes_count_for_analytics',`is_draft or not is_analytics_poll or (is_analytics_poll and not is_draft and desired_votes_count is not null)`)
+@Check('not_null_is_private_for_analytics',`is_draft or not is_analytics_poll or is_private is not null`)
+@Check('not_null_profile_for_analytics',`is_draft or not is_analytics_poll or profile_id is not null`)
+@Check('not_null_desired_votes_count_for_analytics',`is_draft or not is_analytics_poll or desired_votes_count is not null`)
 export class Poll {
     @PrimaryColumn()
     poll_id: string;
