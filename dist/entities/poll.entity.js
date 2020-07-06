@@ -16,6 +16,10 @@ var profile_entity_1 = require("./profile.entity");
 var option_entity_1 = require("./option.entity");
 var collection_entity_1 = require("./collection.entity");
 var Poll = /** @class */ (function () {
+    // @Check(
+    //   "null_profile_id_for_collection",
+    //   `not (profile_id is not null and collection_id is not null)` 
+    // )
     function Poll() {
     }
     __decorate([
@@ -166,8 +170,11 @@ var Poll = /** @class */ (function () {
         typeorm_1.Entity("polls"),
         typeorm_1.Check("not_null_is_private_for_analytics", "is_draft or collection_id is not null or not is_analytics_poll or is_private is not null"),
         typeorm_1.Check("not_null_profile_for_analytics", "is_draft or not is_analytics_poll or collection_id is not null or profile_id is not null"),
-        typeorm_1.Check("not_null_desired_votes_count_for_analytics", "is_draft or not is_analytics_poll or desired_votes_count is not null"),
-        typeorm_1.Check("null_profile_id_for_collection", "not (profile_id is not null and collection_id is not null)")
+        typeorm_1.Check("not_null_desired_votes_count_for_analytics", "is_draft or not is_analytics_poll or desired_votes_count is not null")
+        // @Check(
+        //   "null_profile_id_for_collection",
+        //   `not (profile_id is not null and collection_id is not null)` 
+        // )
     ], Poll);
     return Poll;
 }());
