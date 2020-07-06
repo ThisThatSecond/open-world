@@ -37,6 +37,12 @@ export class Collection {
     is_draft?: boolean;
     
     @Column({
+        default: true,
+        nullable: false
+    })
+    is_active?: boolean;
+    
+    @Column({
         default: false,
         nullable: false
     })
