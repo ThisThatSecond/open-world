@@ -24,40 +24,40 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "poll_id", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: false
+            nullable: false,
         }),
         __metadata("design:type", String)
     ], Poll.prototype, "question", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true
+            nullable: true,
         }),
         __metadata("design:type", String)
     ], Poll.prototype, "caption", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true
+            nullable: true,
         }),
         __metadata("design:type", String)
     ], Poll.prototype, "language", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'point',
-            nullable: true
+            type: "point",
+            nullable: true,
         }),
         __metadata("design:type", Object)
     ], Poll.prototype, "geo_point", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true
+            nullable: true,
         }),
         __metadata("design:type", String)
     ], Poll.prototype, "location", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'enum',
+            type: "enum",
             enum: categories_enum_1.CATEGORIES,
-            nullable: true
+            nullable: true,
         }),
         __metadata("design:type", String)
     ], Poll.prototype, "category", void 0);
@@ -75,22 +75,22 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "desired_votes_count", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'timestamptz',
-            nullable: true
+            type: "timestamptz",
+            nullable: true,
         }),
         __metadata("design:type", Date)
     ], Poll.prototype, "release_date", void 0);
     __decorate([
         typeorm_1.Column({
             default: false,
-            nullable: false
+            nullable: false,
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_analytics_poll", void 0);
     __decorate([
         typeorm_1.Column({
             default: false,
-            nullable: false
+            nullable: false,
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "has_anonymous_vote", void 0);
@@ -102,49 +102,51 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "is_private", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true
+            nullable: true,
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_familiarity_required", void 0);
     __decorate([
         typeorm_1.Column({
             default: true,
-            nullable: false
+            nullable: false,
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_draft", void 0);
     __decorate([
         typeorm_1.Column({
             default: false,
-            nullable: false
+            nullable: false,
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_hidden", void 0);
     __decorate([
         typeorm_1.Column({
             default: true,
-            nullable: false
+            nullable: false,
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_active", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return user_entity_1.User; }, function (user) { return user.polls; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'creator_id'
+            name: "creator_id",
         }),
         __metadata("design:type", user_entity_1.User)
     ], Poll.prototype, "creator", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, function (profile) { return profile.polls; }, { nullable: true }),
         typeorm_1.JoinColumn({
-            name: 'profile_id'
+            name: "profile_id",
         }),
         __metadata("design:type", profile_entity_1.Profile)
     ], Poll.prototype, "profile", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return collection_entity_1.Collection; }, function (collection) { return collection.polls; }, { nullable: true }),
+        typeorm_1.ManyToOne(function () { return collection_entity_1.Collection; }, function (collection) { return collection.polls; }, {
+            nullable: true,
+        }),
         typeorm_1.JoinColumn({
-            name: 'collection_id'
+            name: "collection_id",
         }),
         __metadata("design:type", collection_entity_1.Collection)
     ], Poll.prototype, "collection", void 0);
@@ -154,17 +156,18 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "options", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; },
-            nullable: false
+            type: "timestamptz",
+            default: function () { return "CURRENT_TIMESTAMP"; },
+            nullable: false,
         }),
         __metadata("design:type", Date)
     ], Poll.prototype, "created_at", void 0);
     Poll = __decorate([
-        typeorm_1.Entity('polls'),
-        typeorm_1.Check('not_null_is_private_for_analytics', "is_draft or collection_id is not null or not is_analytics_poll or is_private is not null"),
-        typeorm_1.Check('not_null_profile_for_analytics', "is_draft or not is_analytics_poll or profile_id is not null"),
-        typeorm_1.Check('not_null_desired_votes_count_for_analytics', "is_draft or not is_analytics_poll or desired_votes_count is not null")
+        typeorm_1.Entity("polls"),
+        typeorm_1.Check("not_null_is_private_for_analytics", "is_draft or collection_id is not null or not is_analytics_poll or is_private is not null"),
+        typeorm_1.Check("not_null_profile_for_analytics", "is_draft or not is_analytics_poll or collection_id is not null or profile_id is not null"),
+        typeorm_1.Check("not_null_desired_votes_count_for_analytics", "is_draft or not is_analytics_poll or desired_votes_count is not null"),
+        typeorm_1.Check("not_null_profile_id_for_collection", "(profile_id is null and collection_id is not null) or (profile_id is not null and collection_id is null)")
     ], Poll);
     return Poll;
 }());
