@@ -28,7 +28,7 @@ import { Collection } from "./collection.entity";
 )
 @Check(
   "null_profile_id_for_collection",
-  `not (profile_id is not null and collection_id is not null)`
+  `not (profile_id is not null and collection_id is not null)` 
 )
 export class Poll {
   @PrimaryColumn()
