@@ -26,10 +26,10 @@ import { Collection } from "./collection.entity";
   "not_null_desired_votes_count_for_analytics",
   `is_draft or not is_analytics_poll or desired_votes_count is not null`
 )
-// @Check(
-//   "null_profile_id_for_collection",
-//   `not (profile_id is not null and collection_id is not null)` 
-// )
+@Check(
+  "null_profile_id_for_collection",
+  `not (profile_id is not null and collection_id is not null)` 
+)
 export class Poll {
   @PrimaryColumn()
   poll_id: string;
