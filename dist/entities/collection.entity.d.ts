@@ -8,5 +8,6 @@ export declare class Collection {
     creator: User;
     polls?: Poll[];
     is_draft?: boolean;
+    is_private?: boolean;
     created_at?: Date;
 }

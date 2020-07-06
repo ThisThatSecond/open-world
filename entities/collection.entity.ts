@@ -35,6 +35,12 @@ export class Collection {
         nullable: false
     })
     is_draft?: boolean;
+    
+    @Column({
+        default: false,
+        nullable: false
+    })
+    is_private?: boolean;
 
     @Column({
         type: 'timestamptz',

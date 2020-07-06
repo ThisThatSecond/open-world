@@ -54,6 +54,13 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "is_draft", void 0);
     __decorate([
         typeorm_1.Column({
+            default: false,
+            nullable: false
+        }),
+        __metadata("design:type", Boolean)
+    ], Collection.prototype, "is_private", void 0);
+    __decorate([
+        typeorm_1.Column({
             type: 'timestamptz',
             default: function () { return 'CURRENT_TIMESTAMP'; },
             nullable: false
