@@ -20,6 +20,7 @@ import { Poll } from "./poll.entity";
         title is not null and
         visibile_options_count >= 3 and
         desired_votes_count > 0 and
+        is_familiarity_required is not null
         
     `
 )
@@ -34,12 +35,12 @@ export class Collection {
   title: string;
 
   @Column({
-    nullable: false,
+    nullable: true,
   })
   visibile_options_count: number;
 
   @Column({
-    nullable: false,
+    nullable: true,
   })
   desired_votes_count: number;
 
@@ -68,8 +69,7 @@ export class Collection {
   is_private?: boolean;
 
   @Column({
-    nullable: false,
-    default: false,
+    nullable: true,
   })
   is_familiarity_required?: boolean;
 

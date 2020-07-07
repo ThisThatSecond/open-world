@@ -29,13 +29,13 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "title", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: false,
+            nullable: true,
         }),
         __metadata("design:type", Number)
     ], Collection.prototype, "visibile_options_count", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: false,
+            nullable: true,
         }),
         __metadata("design:type", Number)
     ], Collection.prototype, "desired_votes_count", void 0);
@@ -69,8 +69,7 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "is_private", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: false,
-            default: false,
+            nullable: true,
         }),
         __metadata("design:type", Boolean)
     ], Collection.prototype, "is_familiarity_required", void 0);
@@ -102,7 +101,7 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "created_at", void 0);
     Collection = __decorate([
         typeorm_1.Entity("collections"),
-        typeorm_1.Check("check_requirements", "\n        not is_draft and \n        title is not null and\n        visibile_options_count >= 3 and\n        desired_votes_count > 0 and\n        \n    ")
+        typeorm_1.Check("check_requirements", "\n        not is_draft and \n        title is not null and\n        visibile_options_count >= 3 and\n        desired_votes_count > 0 and\n        is_familiarity_required is not null\n        \n    ")
     ], Collection);
     return Collection;
 }());
