@@ -89,14 +89,15 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "is_analytics_poll", void 0);
     __decorate([
         typeorm_1.Column({
-            default: false,
+            default: true,
             nullable: false,
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "has_anonymous_vote", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true,
+            default: false,
+            nullable: false,
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_private", void 0);
@@ -164,10 +165,10 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "created_at", void 0);
     Poll = __decorate([
         typeorm_1.Entity("polls"),
-        typeorm_1.Check("not_null_is_private_for_analytics", "is_draft or collection_id is not null or not is_analytics_poll or is_private is not null"),
-        typeorm_1.Check("not_null_profile_for_analytics", "is_draft or not is_analytics_poll or collection_id is not null or profile_id is not null"),
-        typeorm_1.Check("not_null_desired_votes_count_for_analytics", "is_draft or not is_analytics_poll or desired_votes_count is not null"),
-        typeorm_1.Check("null_profile_id_for_collection", "not (profile_id is not null and collection_id is not null)")
+        typeorm_1.Check("check_null_profile_id_for_collection", "profile_id is null or collection_id is null"),
+        typeorm_1.Check("check_is_analytics", "profile_id is not null or collection_id is not null and is_analytics_poll"),
+        typeorm_1.Check("check_analytics_requirements", "profile_id is null or is_draft or (\n    desired_votes_count is not null and\n    is_familiarity_required is not null\n    )  \n  "),
+        typeorm_1.Check("check_mobile_collection_requirements", "profile_id is null and \n   visibile_options_count is null and\n   release_date is null and\n   desired_votes_count is null and\n   is_familiarity_required is null\n   ")
     ], Poll);
     return Poll;
 }());

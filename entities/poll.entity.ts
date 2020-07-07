@@ -15,20 +15,29 @@ import { Collection } from "./collection.entity";
 
 @Entity("polls")
 @Check(
-  "not_null_is_private_for_analytics",
-  `is_draft or collection_id is not null or not is_analytics_poll or is_private is not null`
+  "check_null_profile_id_for_collection",
+  `profile_id is null or collection_id is null`
 )
 @Check(
-  "not_null_profile_for_analytics",
-  `is_draft or not is_analytics_poll or collection_id is not null or profile_id is not null`
+  "check_is_analytics",
+  `profile_id is not null or collection_id is not null and is_analytics_poll`
 )
 @Check(
-  "not_null_desired_votes_count_for_analytics",
-  `is_draft or not is_analytics_poll or desired_votes_count is not null`
+  "check_analytics_requirements",
+  `profile_id is null or is_draft or (
+    desired_votes_count is not null and
+    is_familiarity_required is not null
+    )  
+  `
 )
 @Check(
-  "null_profile_id_for_collection",
-  `not (profile_id is not null and collection_id is not null)` 
+  "check_mobile_collection_requirements",
+  `profile_id is null and 
+   visibile_options_count is null and
+   release_date is null and
+   desired_votes_count is null and
+   is_familiarity_required is null
+   `
 )
 export class Poll {
   @PrimaryColumn()
@@ -95,13 +104,14 @@ export class Poll {
   is_analytics_poll?: boolean;
 
   @Column({
-    default: false,
+    default: true,
     nullable: false,
   })
   has_anonymous_vote?: boolean;
 
   @Column({
-    nullable: true,
+    default: false,
+    nullable: false,
   })
   is_private?: boolean;
 
