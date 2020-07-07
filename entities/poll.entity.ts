@@ -20,26 +20,21 @@ import { Collection } from "./collection.entity";
 )
 @Check(
   "check_is_analytics",
-  `profile_id is not null or collection_id is not null and is_analytics_poll`
+  `profile_id is not null or collection_id is not null and is_analytics_poll and is_draft is not null`
 )
 @Check(
   "check_analytics_requirements",
   `profile_id is null or is_draft or (
     desired_votes_count is not null and
     desired_votes_count > 0 and
+    has_anonymous_vote is not null and
+    is_private is not null and
+    is_hidden is not null and
+    is_active is not null and
     is_familiarity_required is not null and
     (visibile_options_count is null or visibile_options_count > 3) 
     )  
   `
-)
-@Check(
-  "check_mobile_collection_requirements",
-  `profile_id is null and 
-   visibile_options_count is null and
-   release_date is null and
-   desired_votes_count is null and
-   is_familiarity_required is null
-   `
 )
 export class Poll {
   @PrimaryColumn()
@@ -106,14 +101,12 @@ export class Poll {
   is_analytics_poll?: boolean;
 
   @Column({
-    default: true,
-    nullable: false,
+    nullable: true,
   })
   has_anonymous_vote?: boolean;
 
   @Column({
-    default: false,
-    nullable: false,
+    nullable: true,
   })
   is_private?: boolean;
 
@@ -123,20 +116,17 @@ export class Poll {
   is_familiarity_required?: boolean;
 
   @Column({
-    default: true,
-    nullable: false,
+    nullable: true,
   })
   is_draft?: boolean;
 
   @Column({
-    default: false,
-    nullable: false,
+    nullable: true,
   })
   is_hidden?: boolean;
 
   @Column({
-    default: true,
-    nullable: false,
+    nullable: true,
   })
   is_active?: boolean;
 

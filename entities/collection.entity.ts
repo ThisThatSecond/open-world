@@ -18,8 +18,9 @@ import { Poll } from "./poll.entity";
   `
         not is_draft and 
         title is not null and
-        visibile_options_count >= 3
-        desired_votes_count > 0  
+        visibile_options_count >= 3 and
+        desired_votes_count > 0 and
+        
     `
 )
 export class Collection {
