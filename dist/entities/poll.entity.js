@@ -167,7 +167,7 @@ var Poll = /** @class */ (function () {
         typeorm_1.Entity("polls"),
         typeorm_1.Check("check_null_profile_id_for_collection", "profile_id is null or collection_id is null"),
         typeorm_1.Check("check_is_analytics", "profile_id is not null or collection_id is not null and is_analytics_poll"),
-        typeorm_1.Check("check_analytics_requirements", "profile_id is null or is_draft or (\n    desired_votes_count is not null and\n    is_familiarity_required is not null\n    )  \n  "),
+        typeorm_1.Check("check_analytics_requirements", "profile_id is null or is_draft or (\n    desired_votes_count is not null and\n    desired_votes_count > 0 and\n    is_familiarity_required is not null and\n    (visibile_options_count is null or visibile_options_count > 3) \n    )  \n  "),
         typeorm_1.Check("check_mobile_collection_requirements", "profile_id is null and \n   visibile_options_count is null and\n   release_date is null and\n   desired_votes_count is null and\n   is_familiarity_required is null\n   ")
     ], Poll);
     return Poll;

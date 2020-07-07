@@ -26,7 +26,9 @@ import { Collection } from "./collection.entity";
   "check_analytics_requirements",
   `profile_id is null or is_draft or (
     desired_votes_count is not null and
-    is_familiarity_required is not null
+    desired_votes_count > 0 and
+    is_familiarity_required is not null and
+    (visibile_options_count is null or visibile_options_count > 3) 
     )  
   `
 )
