@@ -30,7 +30,6 @@ import { Collection } from "./collection.entity";
     is_private is not null and
     is_hidden is not null and
     is_active is not null and
-    is_familiarity_required is not null and
     (visibile_options_count is null or visibile_options_count > 3) 
     )  
   `
