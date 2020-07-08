@@ -16,12 +16,12 @@ import { Poll } from "./poll.entity";
 @Check(
   "check_requirements",
   `
-        not is_draft and 
-        title is not null and
-        visibile_options_count >= 3 and
-        desired_votes_count > 0 and
-        is_familiarity_required is not null
-        
+        is_draft or ( 
+          title is not null and
+          visibile_options_count >= 3 and
+          desired_votes_count > 0 and
+          is_familiarity_required is not null
+        )
     `
 )
 export class Collection {
