@@ -19,7 +19,7 @@ import { Poll } from "./poll.entity";
         is_draft or ( 
           title is not null and
           visibile_options_count >= 3 and
-          desired_votes_count > 0 and
+          desired_votes_count > 0
         )
     `
 )
