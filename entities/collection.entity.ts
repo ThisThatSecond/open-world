@@ -32,9 +32,9 @@ import { Educations } from "../shared/enums/educations.enum";
         not is_private or ( 
           audience_age_min is null and
           audience_age_max is null and
-          audience_age_genders is null and
-          audience_age_educations is null and
-          audience_age_locations is null
+          audience_genders is null and
+          audience_educations is null and
+          audience_locations is null
         )
     `
 )
@@ -113,7 +113,7 @@ export class Collection {
     array: true,
     nullable: true,
   })
-  audience_location?: string[];
+  audience_locations?: string[];
 
   @Column({
     default: false,

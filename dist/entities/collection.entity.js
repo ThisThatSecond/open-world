@@ -105,7 +105,7 @@ var Collection = /** @class */ (function () {
             nullable: true,
         }),
         __metadata("design:type", Array)
-    ], Collection.prototype, "audience_location", void 0);
+    ], Collection.prototype, "audience_locations", void 0);
     __decorate([
         typeorm_1.Column({
             default: false,
@@ -149,7 +149,7 @@ var Collection = /** @class */ (function () {
     Collection = __decorate([
         typeorm_1.Entity("collections"),
         typeorm_1.Check("check_requirements", "\n        is_draft or ( \n          title is not null and\n          visibile_options_count >= 3 and\n          desired_votes_count > 0 and\n          location is not null\n        )\n    "),
-        typeorm_1.Check("check_public_audience", "\n        not is_private or ( \n          audience_age_min is null and\n          audience_age_max is null and\n          audience_age_genders is null and\n          audience_age_educations is null and\n          audience_age_locations is null\n        )\n    ")
+        typeorm_1.Check("check_public_audience", "\n        not is_private or ( \n          audience_age_min is null and\n          audience_age_max is null and\n          audience_genders is null and\n          audience_educations is null and\n          audience_locations is null\n        )\n    ")
     ], Collection);
     return Collection;
 }());

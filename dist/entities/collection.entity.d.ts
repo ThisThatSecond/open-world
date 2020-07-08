@@ -17,7 +17,7 @@ export declare class Collection {
     audience_age_max?: number;
     audience_genders?: Genders[];
     audience_educations?: Educations[];
-    audience_location?: string[];
+    audience_locations?: string[];
     is_familiarity_required?: boolean;
     has_anonymous_vote?: boolean;
     polls?: Poll[];
