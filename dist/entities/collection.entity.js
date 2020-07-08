@@ -69,10 +69,18 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "is_private", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true,
+            default: false,
+            nullable: false,
         }),
         __metadata("design:type", Boolean)
     ], Collection.prototype, "is_familiarity_required", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: false,
+            nullable: false,
+        }),
+        __metadata("design:type", Boolean)
+    ], Collection.prototype, "has_anonymous_vote", void 0);
     __decorate([
         typeorm_1.OneToMany(function () { return poll_entity_1.Poll; }, function (poll) { return poll.collection; }),
         __metadata("design:type", Array)
@@ -101,7 +109,7 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "created_at", void 0);
     Collection = __decorate([
         typeorm_1.Entity("collections"),
-        typeorm_1.Check("check_requirements", "\n        is_draft or ( \n          title is not null and\n          visibile_options_count >= 3 and\n          desired_votes_count > 0 and\n          is_familiarity_required is not null\n        )\n    ")
+        typeorm_1.Check("check_requirements", "\n        is_draft or ( \n          title is not null and\n          visibile_options_count >= 3 and\n          desired_votes_count > 0 and\n        )\n    ")
     ], Collection);
     return Collection;
 }());

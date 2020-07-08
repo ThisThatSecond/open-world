@@ -11,6 +11,7 @@ export declare class Collection {
     is_active?: boolean;
     is_private?: boolean;
     is_familiarity_required?: boolean;
+    has_anonymous_vote?: boolean;
     polls?: Poll[];
     profile: Profile;
     creator: User;

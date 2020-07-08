@@ -20,7 +20,6 @@ import { Poll } from "./poll.entity";
           title is not null and
           visibile_options_count >= 3 and
           desired_votes_count > 0 and
-          is_familiarity_required is not null
         )
     `
 )
@@ -69,9 +68,16 @@ export class Collection {
   is_private?: boolean;
 
   @Column({
-    nullable: true,
+    default: false,
+    nullable: false,
   })
   is_familiarity_required?: boolean;
+
+  @Column({
+    default: false,
+    nullable: false,
+  })
+  has_anonymous_vote?: boolean;
 
   @OneToMany(() => Poll, (poll) => poll.collection)
   polls?: Poll[];
