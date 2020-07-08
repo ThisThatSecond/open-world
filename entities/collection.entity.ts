@@ -34,7 +34,7 @@ import { Educations } from "../shared/enums/educations.enum";
           audience_age_max is null and
           audience_age_genders is null and
           audience_age_educations is null and
-          audience_age_locations is null and
+          audience_age_locations is null
         )
     `
 )
