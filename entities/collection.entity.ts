@@ -51,7 +51,7 @@ export class Collection {
   @Column({
     nullable: true,
   })
-  location: number;
+  location: string;
   
   @Column({
     nullable: true,

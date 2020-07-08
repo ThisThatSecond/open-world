@@ -31,7 +31,7 @@ var Collection = /** @class */ (function () {
         typeorm_1.Column({
             nullable: true,
         }),
-        __metadata("design:type", Number)
+        __metadata("design:type", String)
     ], Collection.prototype, "location", void 0);
     __decorate([
         typeorm_1.Column({

@@ -6,7 +6,7 @@ import { Educations } from "../shared/enums/educations.enum";
 export declare class Collection {
     collection_id: string;
     title: string;
-    location: number;
+    location: string;
     visibile_options_count: number;
     desired_votes_count: number;
     release_date?: Date;
