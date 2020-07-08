@@ -20,7 +20,7 @@ import { Collection } from "./collection.entity";
 )
 @Check(
   "check_is_analytics",
-  `profile_id is not null or collection_id is not null and is_analytics_poll and is_draft is not null`
+  `profile_id is not null or collection_id is not null and is_analytics_poll`
 )
 @Check(
   "check_analytics_requirements",
