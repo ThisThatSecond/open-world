@@ -76,7 +76,7 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "is_familiarity_required", void 0);
     __decorate([
         typeorm_1.Column({
-            default: false,
+            default: true,
             nullable: false,
         }),
         __metadata("design:type", Boolean)

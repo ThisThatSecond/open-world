@@ -74,7 +74,7 @@ export class Collection {
   is_familiarity_required?: boolean;
 
   @Column({
-    default: false,
+    default: true,
     nullable: false,
   })
   has_anonymous_vote?: boolean;
