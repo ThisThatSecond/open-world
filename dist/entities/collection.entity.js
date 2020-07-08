@@ -32,6 +32,12 @@ var Collection = /** @class */ (function () {
             nullable: true,
         }),
         __metadata("design:type", Number)
+    ], Collection.prototype, "location", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: true,
+        }),
+        __metadata("design:type", Number)
     ], Collection.prototype, "visibile_options_count", void 0);
     __decorate([
         typeorm_1.Column({
@@ -67,6 +73,39 @@ var Collection = /** @class */ (function () {
         }),
         __metadata("design:type", Boolean)
     ], Collection.prototype, "is_private", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: true,
+        }),
+        __metadata("design:type", Number)
+    ], Collection.prototype, "audience_age_min", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: true,
+        }),
+        __metadata("design:type", Number)
+    ], Collection.prototype, "audience_age_max", void 0);
+    __decorate([
+        typeorm_1.Column("varchar", {
+            array: true,
+            nullable: true,
+        }),
+        __metadata("design:type", Array)
+    ], Collection.prototype, "audience_genders", void 0);
+    __decorate([
+        typeorm_1.Column("varchar", {
+            array: true,
+            nullable: true,
+        }),
+        __metadata("design:type", Array)
+    ], Collection.prototype, "audience_educations", void 0);
+    __decorate([
+        typeorm_1.Column("varchar", {
+            array: true,
+            nullable: true,
+        }),
+        __metadata("design:type", Array)
+    ], Collection.prototype, "audience_location", void 0);
     __decorate([
         typeorm_1.Column({
             default: false,
@@ -109,7 +148,7 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "created_at", void 0);
     Collection = __decorate([
         typeorm_1.Entity("collections"),
-        typeorm_1.Check("check_requirements", "\n        is_draft or ( \n          title is not null and\n          visibile_options_count >= 3 and\n          desired_votes_count > 0\n        )\n    ")
+        typeorm_1.Check("check_requirements", "\n        is_draft or ( \n          title is not null and\n          visibile_options_count >= 3 and\n          desired_votes_count > 0 and\n          location is not null\n        )\n    ")
     ], Collection);
     return Collection;
 }());

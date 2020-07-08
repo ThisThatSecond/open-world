@@ -11,6 +11,8 @@ import {
 import { Profile } from "./profile.entity";
 import { User } from "./user.entity";
 import { Poll } from "./poll.entity";
+import { Genders } from "../shared/enums/genders.enum";
+import { Educations } from "../shared/enums/educations.enum";
 
 @Entity("collections")
 @Check(
@@ -19,7 +21,8 @@ import { Poll } from "./poll.entity";
         is_draft or ( 
           title is not null and
           visibile_options_count >= 3 and
-          desired_votes_count > 0
+          desired_votes_count > 0 and
+          location is not null
         )
     `
 )
@@ -33,6 +36,11 @@ export class Collection {
   })
   title: string;
 
+  @Column({
+    nullable: true,
+  })
+  location: number;
+  
   @Column({
     nullable: true,
   })
@@ -66,6 +74,34 @@ export class Collection {
     nullable: false,
   })
   is_private?: boolean;
+
+  @Column({
+    nullable: true,
+  })
+  audience_age_min?: number;
+
+  @Column({
+    nullable: true,
+  })
+  audience_age_max?: number;
+
+  @Column("varchar", {
+    array: true,
+    nullable: true,
+  })
+  audience_genders?: Genders[];
+
+  @Column("varchar", {
+    array: true,
+    nullable: true,
+  })
+  audience_educations?: Educations[];
+
+  @Column("varchar", {
+    array: true,
+    nullable: true,
+  })
+  audience_location?: string[];
 
   @Column({
     default: false,
