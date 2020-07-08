@@ -26,6 +26,18 @@ import { Educations } from "../shared/enums/educations.enum";
         )
     `
 )
+@Check(
+  "check_public_audience",
+  `
+        not is_private or ( 
+          audience_age_min is null and
+          audience_age_max is null and
+          audience_age_genders is null and
+          audience_age_educations is null and
+          audience_age_locations is null and
+        )
+    `
+)
 export class Collection {
   @PrimaryGeneratedColumn("uuid")
   collection_id: string;
