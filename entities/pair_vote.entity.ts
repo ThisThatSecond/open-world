@@ -4,7 +4,7 @@ import { Pair } from './pair.entity';
 import { PairVoteActions } from '../shared/enums/actions.enum';
 
 @Entity('pair_votes')
-@Unique("uniqe_pair_voter", ["pair_id", "voter_id"])
+@Unique("uniqe_pair_voter", ["pair", "voter"])
 export class PairVote {
     @PrimaryGeneratedColumn('uuid')
     pair_vote_id: string;
