@@ -1,9 +1,10 @@
-import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn, Unique } from 'typeorm';
 import { User } from './user.entity';
 import { Pair } from './pair.entity';
 import { PairVoteActions } from '../shared/enums/actions.enum';
 
 @Entity('pair_votes')
+@Unique("uniqe_pair_voter", ["pair_id", "voter_id"])
 export class PairVote {
     @PrimaryGeneratedColumn('uuid')
     pair_vote_id: string;
