@@ -84,11 +84,16 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "is_private", void 0);
     __decorate([
         typeorm_1.Column({
+            type: "jsonb",
+            array: false,
             nullable: true,
         }),
-        __metadata("design:type", Number)
+        __metadata("design:type", Array)
     ], Collection.prototype, "audience_age_groups", void 0);
     __decorate([
+        typeorm_1.Column({
+            nullable: true,
+        }),
         typeorm_1.Column("varchar", {
             array: true,
             nullable: true,

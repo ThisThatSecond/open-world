@@ -15,7 +15,10 @@ export declare class Collection {
     is_draft?: boolean;
     is_active?: boolean;
     is_private?: boolean;
-    audience_age_groups?: number;
+    audience_age_groups?: Array<{
+        start: number;
+        end: number;
+    }>;
     audience_genders?: Genders[];
     audience_educations?: Educations[];
     audience_locations?: string[];

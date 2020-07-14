@@ -60,7 +60,7 @@ export class Collection {
     nullable: true,
   })
   location: string;
-  
+
   @Column({
     nullable: true,
   })
@@ -96,10 +96,15 @@ export class Collection {
   is_private?: boolean;
 
   @Column({
+    type: "jsonb",
+    array: false,
     nullable: true,
   })
-  audience_age_groups?: number;
+  audience_age_groups?: Array<{ start: number; end: number }>;
 
+  @Column({
+    nullable: true,
+  })
   @Column("varchar", {
     array: true,
     nullable: true,
