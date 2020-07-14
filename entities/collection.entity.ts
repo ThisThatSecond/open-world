@@ -31,8 +31,7 @@ import { CATEGORIES } from "../shared/enums/categories.enum";
   "check_public_audience",
   `
         not is_private or ( 
-          audience_age_min is null and
-          audience_age_max is null and
+          audience_age_groups is null and
           audience_genders is null and
           audience_educations is null and
           audience_locations is null
