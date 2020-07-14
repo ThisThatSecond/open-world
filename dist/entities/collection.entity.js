@@ -13,6 +13,7 @@ var typeorm_1 = require("typeorm");
 var profile_entity_1 = require("./profile.entity");
 var user_entity_1 = require("./user.entity");
 var poll_entity_1 = require("./poll.entity");
+var categories_enum_1 = require("../shared/enums/categories.enum");
 var Collection = /** @class */ (function () {
     function Collection() {
     }
@@ -23,10 +24,18 @@ var Collection = /** @class */ (function () {
     __decorate([
         typeorm_1.Index(),
         typeorm_1.Column({
-            nullable: true,
+            nullable: false,
         }),
         __metadata("design:type", String)
     ], Collection.prototype, "title", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: "enum",
+            enum: categories_enum_1.CATEGORIES,
+            nullable: true,
+        }),
+        __metadata("design:type", String)
+    ], Collection.prototype, "category", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: true,
@@ -78,13 +87,7 @@ var Collection = /** @class */ (function () {
             nullable: true,
         }),
         __metadata("design:type", Number)
-    ], Collection.prototype, "audience_age_min", void 0);
-    __decorate([
-        typeorm_1.Column({
-            nullable: true,
-        }),
-        __metadata("design:type", Number)
-    ], Collection.prototype, "audience_age_max", void 0);
+    ], Collection.prototype, "audience_age_groups", void 0);
     __decorate([
         typeorm_1.Column("varchar", {
             array: true,

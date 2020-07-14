@@ -13,6 +13,7 @@ import { User } from "./user.entity";
 import { Poll } from "./poll.entity";
 import { Genders } from "../shared/enums/genders.enum";
 import { Educations } from "../shared/enums/educations.enum";
+import { CATEGORIES } from "../shared/enums/categories.enum";
 
 @Entity("collections")
 @Check(
@@ -44,9 +45,16 @@ export class Collection {
 
   @Index()
   @Column({
-    nullable: true,
+    nullable: false,
   })
   title: string;
+
+  @Column({
+    type: "enum",
+    enum: CATEGORIES,
+    nullable: true,
+  })
+  category?: CATEGORIES;
 
   @Column({
     nullable: true,
@@ -90,12 +98,7 @@ export class Collection {
   @Column({
     nullable: true,
   })
-  audience_age_min?: number;
-
-  @Column({
-    nullable: true,
-  })
-  audience_age_max?: number;
+  audience_age_groups?: number;
 
   @Column("varchar", {
     array: true,
