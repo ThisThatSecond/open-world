@@ -12,45 +12,50 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var poll_entity_1 = require("./poll.entity");
 var option_entity_1 = require("./option.entity");
+var pair_vote_entity_1 = require("./pair_vote.entity");
 var Pair = /** @class */ (function () {
     function Pair() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn('uuid'),
+        typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", String)
     ], Pair.prototype, "pair_id", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return poll_entity_1.Poll; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'poll_id'
+            name: "poll_id",
         }),
         __metadata("design:type", poll_entity_1.Poll)
     ], Pair.prototype, "poll", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return option_entity_1.Option; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'option1_id'
+            name: "option1_id",
         }),
         __metadata("design:type", option_entity_1.Option)
     ], Pair.prototype, "option1", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return option_entity_1.Option; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'option2_id'
+            name: "option2_id",
         }),
         __metadata("design:type", option_entity_1.Option)
     ], Pair.prototype, "option2", void 0);
     __decorate([
+        typeorm_1.OneToMany(function () { return pair_vote_entity_1.PairVote; }, function (pairVote) { return pairVote.pair; }),
+        __metadata("design:type", Array)
+    ], Pair.prototype, "pairVotes", void 0);
+    __decorate([
         typeorm_1.Column({
-            type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; },
-            nullable: false
+            type: "timestamptz",
+            default: function () { return "CURRENT_TIMESTAMP"; },
+            nullable: false,
         }),
         __metadata("design:type", Date)
     ], Pair.prototype, "created_at", void 0);
     Pair = __decorate([
-        typeorm_1.Entity('pairs'),
-        typeorm_1.Unique(['option1', 'option2'])
+        typeorm_1.Entity("pairs"),
+        typeorm_1.Unique(["option1", "option2"])
     ], Pair);
     return Pair;
 }());
