@@ -33,6 +33,8 @@ export class Option {
   @OneToMany(() => OptionVote, (optionVote) => optionVote.option)
   optionVotes?: OptionVote[];
 
+  wins?: number;
+
   @ManyToOne(() => Poll, (poll) => poll.options, { nullable: false })
   @JoinColumn({
     name: "poll_id",
