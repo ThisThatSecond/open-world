@@ -29,6 +29,7 @@ export declare class User {
     is_analytics_user?: boolean;
     is_active?: boolean;
     is_hidden?: boolean;
+    is_verified?: boolean;
     last_opened_analytics?: Date;
     last_opened_app?: Date;
     last_checked_activity?: Date;

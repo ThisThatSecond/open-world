@@ -136,6 +136,11 @@ export class User {
         default: false
     })
     is_hidden?: boolean;
+   
+    @Column({
+        default: false
+    })
+    is_verified?: boolean;
 
     @Column({
         type: 'timestamptz',
