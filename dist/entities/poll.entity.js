@@ -15,6 +15,7 @@ var categories_enum_1 = require("../shared/enums/categories.enum");
 var profile_entity_1 = require("./profile.entity");
 var option_entity_1 = require("./option.entity");
 var collection_entity_1 = require("./collection.entity");
+var pair_entity_1 = require("./pair.entity");
 var Poll = /** @class */ (function () {
     function Poll() {
     }
@@ -150,6 +151,10 @@ var Poll = /** @class */ (function () {
         typeorm_1.OneToMany(function () { return option_entity_1.Option; }, function (option) { return option.poll; }),
         __metadata("design:type", Array)
     ], Poll.prototype, "options", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return pair_entity_1.Pair; }, function (pair) { return pair.poll; }),
+        __metadata("design:type", Array)
+    ], Poll.prototype, "pairs", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",

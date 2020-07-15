@@ -3,6 +3,7 @@ import { CATEGORIES } from "../shared/enums/categories.enum";
 import { Profile } from "./profile.entity";
 import { Option } from "./option.entity";
 import { Collection } from "./collection.entity";
+import { Pair } from "./pair.entity";
 export declare class Poll {
     poll_id: string;
     question: string;
@@ -28,5 +29,6 @@ export declare class Poll {
     profile?: Profile;
     collection?: Collection;
     options?: Option[];
+    pairs?: Pair[];
     created_at?: Date;
 }

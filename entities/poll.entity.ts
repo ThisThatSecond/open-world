@@ -12,6 +12,7 @@ import { CATEGORIES } from "../shared/enums/categories.enum";
 import { Profile } from "./profile.entity";
 import { Option } from "./option.entity";
 import { Collection } from "./collection.entity";
+import { Pair } from "./pair.entity";
 
 @Entity("polls")
 @Check(
@@ -150,6 +151,9 @@ export class Poll {
 
   @OneToMany(() => Option, (option) => option.poll)
   options?: Option[];
+
+  @OneToMany(() => Pair, (pair) => pair.poll)
+  pairs?: Pair[];
 
   @Column({
     type: "timestamptz",
