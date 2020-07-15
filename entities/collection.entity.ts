@@ -47,6 +47,12 @@ export class Collection {
     nullable: false,
   })
   title: string;
+  
+  @Index()
+  @Column({
+    nullable: true,
+  })
+  caption: string;
 
   @Column({
     type: "enum",

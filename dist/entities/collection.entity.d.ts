@@ -7,6 +7,7 @@ import { CATEGORIES } from "../shared/enums/categories.enum";
 export declare class Collection {
     collection_id: string;
     title: string;
+    caption: string;
     category?: CATEGORIES;
     location: string;
     visibile_options_count: number;
