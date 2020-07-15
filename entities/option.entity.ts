@@ -39,5 +39,4 @@ export class Option {
   })
   poll: Poll;
 
-  wins?: number;
 }

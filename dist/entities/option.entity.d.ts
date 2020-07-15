@@ -7,5 +7,4 @@ export declare class Option {
     is_this?: boolean;
     optionVotes?: OptionVote[];
     poll: Poll;
-    wins?: number;
 }
