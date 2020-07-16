@@ -65,6 +65,11 @@ export class Collection {
     nullable: true,
   })
   location: string;
+  
+  @Column({
+    nullable: true,
+  })
+  language: string;
 
   @Column({
     nullable: true,

@@ -10,6 +10,7 @@ export declare class Collection {
     caption: string;
     category?: CATEGORIES;
     location: string;
+    language: string;
     visibile_options_count: number;
     desired_votes_count: number;
     release_date?: Date;
