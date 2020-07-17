@@ -27,17 +27,7 @@ import { CATEGORIES } from "../shared/enums/categories.enum";
         )
     `
 )
-@Check(
-  "check_public_audience",
-  `
-        not is_private or ( 
-          audience_age_groups is null and
-          audience_genders is null and
-          audience_educations is null and
-          audience_locations is null
-        )
-    `
-)
+
 export class Collection {
   @PrimaryGeneratedColumn("uuid")
   collection_id: string;
