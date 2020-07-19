@@ -11,6 +11,10 @@ export declare class Collection {
     category?: CATEGORIES;
     location: string;
     language: string;
+    geo_point?: {
+        x: number;
+        y: number;
+    } | string;
     visibile_options_count: number;
     desired_votes_count: number;
     release_date?: Date;

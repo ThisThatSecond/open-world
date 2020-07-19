@@ -13,6 +13,8 @@ import { Profile } from "./profile.entity";
 import { Option } from "./option.entity";
 import { Collection } from "./collection.entity";
 import { Pair } from "./pair.entity";
+import { Genders } from "../shared/enums/genders.enum";
+import { Educations } from "../shared/enums/educations.enum";
 
 @Entity("polls")
 @Check(
@@ -92,6 +94,35 @@ export class Poll {
     nullable: true,
   })
   release_date?: Date;
+
+  @Column({
+    type: "jsonb",
+    array: false,
+    nullable: true,
+  })
+  audience_age_groups?: Array<{ start: number; end: number }>;
+
+  @Column({
+    nullable: true,
+  })
+  @Column("varchar", {
+    array: true,
+    nullable: true,
+  })
+  audience_genders?: Genders[];
+
+  @Column("varchar", {
+    array: true,
+    nullable: true,
+  })
+  audience_educations?: Educations[];
+
+  @Column("varchar", {
+    array: true,
+    nullable: true,
+  })
+  audience_locations?: string[];
+
 
   @Column({
     default: false,

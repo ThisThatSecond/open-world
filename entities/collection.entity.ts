@@ -23,7 +23,9 @@ import { CATEGORIES } from "../shared/enums/categories.enum";
           title is not null and
           visibile_options_count >= 3 and
           desired_votes_count > 0 and
-          location is not null
+          location is not null and
+          language is not null and 
+          geo_point is not null
         )
     `
 )
@@ -60,6 +62,17 @@ export class Collection {
     nullable: true,
   })
   language: string;
+
+  @Column({
+    type: "point",
+    nullable: true,
+  })
+  geo_point?:
+    | {
+        x: number;
+        y: number;
+      }
+    | string;
 
   @Column({
     nullable: true,
