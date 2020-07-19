@@ -1,19 +1,11 @@
-import {
-  Entity,
-  Column,
-  Index,
-  JoinColumn,
-  PrimaryGeneratedColumn,
-  ManyToOne,
-  OneToMany,
-  Check,
-} from "typeorm";
+import { Entity, Column, Index, JoinColumn, PrimaryGeneratedColumn, ManyToOne, OneToMany, Check } from "typeorm";
 import { Profile } from "./profile.entity";
 import { User } from "./user.entity";
 import { Poll } from "./poll.entity";
 import { Genders } from "../shared/enums/genders.enum";
 import { Educations } from "../shared/enums/educations.enum";
 import { CATEGORIES } from "../shared/enums/categories.enum";
+import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 
 @Entity("collections")
 @Check(
@@ -29,7 +21,6 @@ import { CATEGORIES } from "../shared/enums/categories.enum";
         )
     `
 )
-
 export class Collection {
   @PrimaryGeneratedColumn("uuid")
   collection_id: string;
@@ -39,7 +30,7 @@ export class Collection {
     nullable: false,
   })
   title: string;
-  
+
   @Index()
   @Column({
     nullable: true,
@@ -57,7 +48,7 @@ export class Collection {
     nullable: true,
   })
   location: string;
-  
+
   @Column({
     nullable: true,
   })
@@ -67,12 +58,7 @@ export class Collection {
     type: "point",
     nullable: true,
   })
-  geo_point?:
-    | {
-        x: number;
-        y: number;
-      }
-    | string;
+  geo_point?: IGeoPoint | string;
 
   @Column({
     nullable: true,

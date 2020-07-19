@@ -4,6 +4,7 @@ import { Poll } from "./poll.entity";
 import { Genders } from "../shared/enums/genders.enum";
 import { Educations } from "../shared/enums/educations.enum";
 import { CATEGORIES } from "../shared/enums/categories.enum";
+import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 export declare class Collection {
     collection_id: string;
     title: string;
@@ -11,10 +12,7 @@ export declare class Collection {
     category?: CATEGORIES;
     location: string;
     language: string;
-    geo_point?: {
-        x: number;
-        y: number;
-    } | string;
+    geo_point?: IGeoPoint | string;
     visibile_options_count: number;
     desired_votes_count: number;
     release_date?: Date;

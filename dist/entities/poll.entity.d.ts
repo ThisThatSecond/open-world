@@ -6,15 +6,13 @@ import { Collection } from "./collection.entity";
 import { Pair } from "./pair.entity";
 import { Genders } from "../shared/enums/genders.enum";
 import { Educations } from "../shared/enums/educations.enum";
+import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 export declare class Poll {
     poll_id: string;
     question: string;
     caption?: string;
     language?: string;
-    geo_point?: {
-        latitude: number;
-        longitude: number;
-    } | string;
+    geo_point?: IGeoPoint | string;
     location?: string;
     category?: CATEGORIES;
     visibile_options_count?: number;
