@@ -12,8 +12,8 @@ export declare class Poll {
     caption?: string;
     language?: string;
     geo_point?: {
-        x: number;
-        y: number;
+        latitude: number;
+        longitude: number;
     } | string;
     location?: string;
     category?: CATEGORIES;

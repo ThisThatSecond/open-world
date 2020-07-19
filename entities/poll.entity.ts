@@ -62,8 +62,8 @@ export class Poll {
   })
   geo_point?:
     | {
-        x: number;
-        y: number;
+        latitude: number;
+        longitude: number;
       }
     | string;
 
