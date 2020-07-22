@@ -1,5 +1,4 @@
 import { Entity, Column, PrimaryColumn, Index, OneToMany } from 'typeorm';
-import { NOTIFICATION_PREFERENCES } from '../shared/enums/notification_preferences.enum';
 import { Genders } from '../shared/enums/genders.enum';
 import { Poll } from './poll.entity';
 
@@ -41,7 +40,7 @@ export class User {
     @Column({
         nullable: true
     })
-    profile_image_url?: string;
+    image_url?: string;
 
     @Column({
         type: "date",
@@ -55,16 +54,6 @@ export class User {
         nullable: true
     })
     gender?: Genders;
-
-    @Column({
-        nullable: true
-    })
-    bio?: string;
-
-    @Column({
-        default: false
-    })
-    neighborhood_visible?: boolean;
 
     @Column({
         nullable: true
@@ -90,18 +79,6 @@ export class User {
     })
     location?: string;
 
-    @Column('varchar', {
-        array: true,
-        default: '{}'
-    })
-    notifications_preferences?: NOTIFICATION_PREFERENCES[];
-
-    @Column('varchar', {
-        array: true,
-        default: '{}'
-    })
-    sees_polls_from?: string[];
-
     @Column({
         nullable: true
     })
@@ -111,16 +88,6 @@ export class User {
         nullable: true
     })
     installed_version?: string;
-
-    @Column({
-        default: 0
-    })
-    activity_badge?: number;
-
-    @Column({
-        default: false
-    })
-    profile_completed?: boolean;
 
     @Column({
         default: false
@@ -137,11 +104,6 @@ export class User {
     })
     is_hidden?: boolean;
    
-    @Column({
-        default: false
-    })
-    is_verified?: boolean;
-
     @Column({
         type: 'timestamptz',
         nullable: true,
