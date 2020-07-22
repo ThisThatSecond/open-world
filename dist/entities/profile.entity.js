@@ -28,6 +28,101 @@ var Profile = /** @class */ (function () {
         __metadata("design:type", user_entity_1.User)
     ], Profile.prototype, "user", void 0);
     __decorate([
+        typeorm_1.Index(),
+        typeorm_1.Column({
+            nullable: true
+        }),
+        __metadata("design:type", String)
+    ], Profile.prototype, "name", void 0);
+    __decorate([
+        typeorm_1.Index(),
+        typeorm_1.Column({
+            nullable: true
+        }),
+        __metadata("design:type", String)
+    ], Profile.prototype, "fullname", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: 0
+        }),
+        __metadata("design:type", Number)
+    ], Profile.prototype, "activity_badge", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: false
+        }),
+        __metadata("design:type", Boolean)
+    ], Profile.prototype, "is_verified", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: true
+        }),
+        __metadata("design:type", Boolean)
+    ], Profile.prototype, "is_active", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: false
+        }),
+        __metadata("design:type", Boolean)
+    ], Profile.prototype, "is_hidden", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: false
+        }),
+        __metadata("design:type", Boolean)
+    ], Profile.prototype, "profile_completed", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: true
+        }),
+        __metadata("design:type", String)
+    ], Profile.prototype, "bio", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: 'point',
+            nullable: true
+        }),
+        __metadata("design:type", Object)
+    ], Profile.prototype, "geo_point", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: true
+        }),
+        __metadata("design:type", String)
+    ], Profile.prototype, "location", void 0);
+    __decorate([
+        typeorm_1.Column('varchar', {
+            array: true,
+            default: '{}'
+        }),
+        __metadata("design:type", Array)
+    ], Profile.prototype, "notifications_preferences", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: false
+        }),
+        __metadata("design:type", Boolean)
+    ], Profile.prototype, "neighborhood_visible", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: false
+        }),
+        __metadata("design:type", Boolean)
+    ], Profile.prototype, "is_analytics_profile", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: true
+        }),
+        __metadata("design:type", String)
+    ], Profile.prototype, "image_url", void 0);
+    __decorate([
+        typeorm_1.Column('varchar', {
+            array: true,
+            default: '{}'
+        }),
+        __metadata("design:type", Array)
+    ], Profile.prototype, "sees_polls_from", void 0);
+    __decorate([
         typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: 'creator_id'
@@ -35,7 +130,7 @@ var Profile = /** @class */ (function () {
         __metadata("design:type", user_entity_1.User)
     ], Profile.prototype, "creator", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return team_entity_1.Team; }, function (team) { return team.profiles; }, { nullable: false }),
+        typeorm_1.ManyToOne(function () { return team_entity_1.Team; }, function (team) { return team.profiles; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: 'team_id'
         }),

@@ -58,7 +58,7 @@ var User = /** @class */ (function () {
             nullable: true
         }),
         __metadata("design:type", String)
-    ], User.prototype, "profile_image_url", void 0);
+    ], User.prototype, "image_url", void 0);
     __decorate([
         typeorm_1.Column({
             type: "date",
@@ -74,18 +74,6 @@ var User = /** @class */ (function () {
         }),
         __metadata("design:type", String)
     ], User.prototype, "gender", void 0);
-    __decorate([
-        typeorm_1.Column({
-            nullable: true
-        }),
-        __metadata("design:type", String)
-    ], User.prototype, "bio", void 0);
-    __decorate([
-        typeorm_1.Column({
-            default: false
-        }),
-        __metadata("design:type", Boolean)
-    ], User.prototype, "neighborhood_visible", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: true
@@ -112,20 +100,6 @@ var User = /** @class */ (function () {
         __metadata("design:type", String)
     ], User.prototype, "location", void 0);
     __decorate([
-        typeorm_1.Column('varchar', {
-            array: true,
-            default: '{}'
-        }),
-        __metadata("design:type", Array)
-    ], User.prototype, "notifications_preferences", void 0);
-    __decorate([
-        typeorm_1.Column('varchar', {
-            array: true,
-            default: '{}'
-        }),
-        __metadata("design:type", Array)
-    ], User.prototype, "sees_polls_from", void 0);
-    __decorate([
         typeorm_1.Column({
             nullable: true
         }),
@@ -137,18 +111,6 @@ var User = /** @class */ (function () {
         }),
         __metadata("design:type", String)
     ], User.prototype, "installed_version", void 0);
-    __decorate([
-        typeorm_1.Column({
-            default: 0
-        }),
-        __metadata("design:type", Number)
-    ], User.prototype, "activity_badge", void 0);
-    __decorate([
-        typeorm_1.Column({
-            default: false
-        }),
-        __metadata("design:type", Boolean)
-    ], User.prototype, "profile_completed", void 0);
     __decorate([
         typeorm_1.Column({
             default: false
@@ -167,12 +129,6 @@ var User = /** @class */ (function () {
         }),
         __metadata("design:type", Boolean)
     ], User.prototype, "is_hidden", void 0);
-    __decorate([
-        typeorm_1.Column({
-            default: false
-        }),
-        __metadata("design:type", Boolean)
-    ], User.prototype, "is_verified", void 0);
     __decorate([
         typeorm_1.Column({
             type: 'timestamptz',
