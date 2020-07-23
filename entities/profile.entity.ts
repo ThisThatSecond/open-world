@@ -1,117 +1,118 @@
-import { Entity, Column, PrimaryColumn, Index, JoinColumn, ManyToOne, OneToOne, OneToMany } from 'typeorm';
-import { User } from './user.entity';
-import { Team } from './team.entity';
-import { Poll } from './poll.entity';
-import { NOTIFICATION_PREFERENCES } from '../shared/enums/notification_preferences.enum';
+import { Entity, Column, PrimaryColumn, Index, JoinColumn, ManyToOne, OneToOne, OneToMany } from "typeorm";
+import { User } from "./user.entity";
+import { Team } from "./team.entity";
+import { Poll } from "./poll.entity";
+import { NOTIFICATION_PREFERENCES } from "../shared/enums/notification_preferences.enum";
 
-@Entity('profiles')
+@Entity("profiles")
 export class Profile {
-    @PrimaryColumn()
-    profile_id: string;
+  @PrimaryColumn()
+  profile_id: string;
 
-    @OneToOne(() => User, { nullable: false })
-    @JoinColumn({
-        name: 'user_id'
-    })
-    user: User;
+  @ManyToOne(() => User, { nullable: false })
+  @JoinColumn({
+    name: "user_id",
+  })
+  user: User;
 
-    @Index()
-    @Column({
-        nullable: true
-    })
-    name?: string;
-    
-    @Index()
-    @Column({
-        nullable: true
-    })
-    fullname?: string;
+  @Index()
+  @Column({
+    nullable: true,
+  })
+  name?: string;
 
-    @Column({
-        default: 0
-    })
-    activity_badge?: number;
+  @Index()
+  @Column({
+    nullable: true,
+  })
+  fullname?: string;
 
-    @Column({
-        default: false
-    })
-    is_verified?: boolean;
+  @Column({
+    default: 0,
+  })
+  activity_badge?: number;
 
-    @Column({
-        default: true
-    })
-    is_active?: boolean;
+  @Column({
+    default: false,
+  })
+  is_verified?: boolean;
 
-    @Column({
-        default: false
-    })
-    is_hidden?: boolean;
+  @Column({
+    default: true,
+  })
+  is_active?: boolean;
 
-    @Column({
-        default: false
-    })
-    profile_completed?: boolean;
+  @Column({
+    default: false,
+  })
+  is_hidden?: boolean;
 
-    @Column({
-        nullable: true
-    })
-    bio?: string;
+  @Column({
+    default: false,
+  })
+  profile_completed?: boolean;
 
-    @Column({
-        type: 'point',
-        nullable: true
-    })
-    geo_point?: {
-        x: number,
-        y: number
-    } | string;
+  @Column({
+    nullable: true,
+  })
+  bio?: string;
 
-    @Column({
-        nullable: true
-    })
-    location?: string;
+  @Column({
+    type: "point",
+    nullable: true,
+  })
+  geo_point?:
+    | {
+        x: number;
+        y: number;
+      }
+    | string;
 
-    @Column('varchar', {
-        array: true,
-        default: '{}'
-    })
-    notifications_preferences?: NOTIFICATION_PREFERENCES[];
+  @Column({
+    nullable: true,
+  })
+  location?: string;
 
-    @Column({
-        default: false
-    })
-    neighborhood_visible?: boolean;
+  @Column("varchar", {
+    array: true,
+    default: "{}",
+  })
+  notifications_preferences?: NOTIFICATION_PREFERENCES[];
 
-    @Column({
-        default: false
-    })
-    is_analytics_profile?: boolean;
+  @Column({
+    default: false,
+  })
+  neighborhood_visible?: boolean;
 
-    @Column({
-        nullable: true
-    })
-    image_url?: string;
+  @Column({
+    default: false,
+  })
+  is_analytics_profile?: boolean;
 
-    @Column('varchar', {
-        array: true,
-        default: '{}'
-    })
-    sees_polls_from?: string[];
+  @Column({
+    nullable: true,
+  })
+  image_url?: string;
 
-    @ManyToOne(() => Team, team => team.profiles, { nullable: true })
-    @JoinColumn({
-        name: 'team_id'
-    })
-    team: Team;
+  @Column("varchar", {
+    array: true,
+    default: "{}",
+  })
+  sees_polls_from?: string[];
 
-    @OneToMany(() => Poll, poll => poll.profile)
-    polls?: Poll[]
+  @ManyToOne(() => Team, (team) => team.profiles, { nullable: true })
+  @JoinColumn({
+    name: "team_id",
+  })
+  team: Team;
 
-    @Column({
-        type: 'timestamptz',
-        default: () => 'CURRENT_TIMESTAMP',
-        nullable: false
-    })
-    created_at?: Date;
+  @OneToMany(() => Poll, (poll) => poll.profile)
+  polls?: Poll[];
 
+  @Column({
+    type: "timestamptz",
+    default: () => "CURRENT_TIMESTAMP",
+    nullable: false,
+  })
+  created_at?: Date;
 }
