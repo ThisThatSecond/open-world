@@ -10,49 +10,49 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
-var user_entity_1 = require("./user.entity");
 var option_entity_1 = require("./option.entity");
 var actions_enum_1 = require("../shared/enums/actions.enum");
+var profile_entity_1 = require("./profile.entity");
 var OptionVoteHistory = /** @class */ (function () {
     function OptionVoteHistory() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn('uuid'),
+        typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", String)
     ], OptionVoteHistory.prototype, "option_vote_history_id", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return option_entity_1.Option; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'option_id'
+            name: "option_id",
         }),
         __metadata("design:type", option_entity_1.Option)
     ], OptionVoteHistory.prototype, "option", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'enum',
+            type: "enum",
             enum: actions_enum_1.OptionVoteActions,
-            enumName: 'option_vote_action_enum',
-            nullable: false
+            enumName: "option_vote_action_enum",
+            nullable: false,
         }),
         __metadata("design:type", Number)
     ], OptionVoteHistory.prototype, "action", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
+        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'voter_id'
+            name: "voter_id",
         }),
-        __metadata("design:type", user_entity_1.User)
+        __metadata("design:type", profile_entity_1.Profile)
     ], OptionVoteHistory.prototype, "voter", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; },
-            nullable: false
+            type: "timestamptz",
+            default: function () { return "CURRENT_TIMESTAMP"; },
+            nullable: false,
         }),
         __metadata("design:type", Date)
     ], OptionVoteHistory.prototype, "created_at", void 0);
     OptionVoteHistory = __decorate([
-        typeorm_1.Entity('option_votes_history')
+        typeorm_1.Entity("option_votes_history")
     ], OptionVoteHistory);
     return OptionVoteHistory;
 }());

@@ -2,6 +2,7 @@ import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn, Unique }
 import { User } from './user.entity';
 import { Pair } from './pair.entity';
 import { PairVoteActions } from '../shared/enums/actions.enum';
+import { Profile } from './profile.entity';
 
 @Entity('pair_votes')
 @Unique("uniqe_pair_voter", ["pair", "voter"])
@@ -23,11 +24,11 @@ export class PairVote {
     })
     pair: Pair;
 
-    @ManyToOne(() => User, { nullable: false })
+    @ManyToOne(() => Profile, { nullable: false })
     @JoinColumn({
         name: 'voter_id'
     })
-    voter: User;
+    voter: Profile;
 
     @Column({
         type: 'timestamptz',

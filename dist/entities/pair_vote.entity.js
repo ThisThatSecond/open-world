@@ -10,9 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
-var user_entity_1 = require("./user.entity");
 var pair_entity_1 = require("./pair.entity");
 var actions_enum_1 = require("../shared/enums/actions.enum");
+var profile_entity_1 = require("./profile.entity");
 var PairVote = /** @class */ (function () {
     function PairVote() {
     }
@@ -37,11 +37,11 @@ var PairVote = /** @class */ (function () {
         __metadata("design:type", pair_entity_1.Pair)
     ], PairVote.prototype, "pair", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
+        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: 'voter_id'
         }),
-        __metadata("design:type", user_entity_1.User)
+        __metadata("design:type", profile_entity_1.Profile)
     ], PairVote.prototype, "voter", void 0);
     __decorate([
         typeorm_1.Column({
