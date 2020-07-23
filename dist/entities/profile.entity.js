@@ -123,13 +123,6 @@ var Profile = /** @class */ (function () {
         __metadata("design:type", Array)
     ], Profile.prototype, "sees_polls_from", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
-        typeorm_1.JoinColumn({
-            name: 'creator_id'
-        }),
-        __metadata("design:type", user_entity_1.User)
-    ], Profile.prototype, "creator", void 0);
-    __decorate([
         typeorm_1.ManyToOne(function () { return team_entity_1.Team; }, function (team) { return team.profiles; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: 'team_id'

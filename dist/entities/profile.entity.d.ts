@@ -23,7 +23,6 @@ export declare class Profile {
     is_analytics_profile?: boolean;
     image_url?: string;
     sees_polls_from?: string[];
-    creator: User;
     team: Team;
     polls?: Poll[];
     created_at?: Date;

@@ -98,12 +98,6 @@ export class Profile {
     })
     sees_polls_from?: string[];
 
-    @ManyToOne(() => User, { nullable: false })
-    @JoinColumn({
-        name: 'creator_id'
-    })
-    creator: User;
-
     @ManyToOne(() => Team, team => team.profiles, { nullable: true })
     @JoinColumn({
         name: 'team_id'
