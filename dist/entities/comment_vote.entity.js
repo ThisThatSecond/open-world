@@ -10,19 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
-var user_entity_1 = require("./user.entity");
 var comment_entity_1 = require("./comment.entity");
 var actions_enum_1 = require("../shared/enums/actions.enum");
+var profile_entity_1 = require("./profile.entity");
 var CommentVote = /** @class */ (function () {
     function CommentVote() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn('uuid'),
+        typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", String)
     ], CommentVote.prototype, "comment_vote_id", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'enum',
+            type: "enum",
             enum: actions_enum_1.CommentVoteActions,
             nullable: false,
         }),
@@ -31,27 +31,27 @@ var CommentVote = /** @class */ (function () {
     __decorate([
         typeorm_1.ManyToOne(function () { return comment_entity_1.Comment; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'comment_id'
+            name: "comment_id",
         }),
         __metadata("design:type", comment_entity_1.Comment)
     ], CommentVote.prototype, "comment", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
+        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'voter_id'
+            name: "voter_id",
         }),
-        __metadata("design:type", user_entity_1.User)
+        __metadata("design:type", profile_entity_1.Profile)
     ], CommentVote.prototype, "voter", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; },
-            nullable: false
+            type: "timestamptz",
+            default: function () { return "CURRENT_TIMESTAMP"; },
+            nullable: false,
         }),
         __metadata("design:type", Date)
     ], CommentVote.prototype, "created_at", void 0);
     CommentVote = __decorate([
-        typeorm_1.Entity('comment_votes')
+        typeorm_1.Entity("comment_votes")
     ], CommentVote);
     return CommentVote;
 }());
