@@ -198,7 +198,7 @@ var Poll = /** @class */ (function () {
     Poll = __decorate([
         typeorm_1.Entity("polls"),
         typeorm_1.Check("check_null_profile_id_for_collection", "(profile_id is not null and collection_id is null) or (profile_id is null and collection_id is not null)"),
-        typeorm_1.Check("check_analytics_requirements", "profile_id is null or is_draft or (\n    desired_votes_count > 0 and\n    has_anonymous_vote is not null and\n    is_private is not null and\n    is_hidden is not null and\n    is_active is not null and\n    (visibile_options_count is null or visibile_options_count >= 3) \n    )  \n  ")
+        typeorm_1.Check("check_analytics_requirements", "profile_id is null or is_draft or (\n      (visibile_options_count is null or desired_votes_count > 0) and\n      has_anonymous_vote is not null and\n      is_private is not null and\n      is_hidden is not null and\n      is_active is not null and\n      (visibile_options_count is null or visibile_options_count >= 3) \n    )  \n  ")
     ], Poll);
     return Poll;
 }());
