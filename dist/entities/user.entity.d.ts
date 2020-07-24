@@ -1,5 +1,6 @@
-import { Genders } from '../shared/enums/genders.enum';
-import { Poll } from './poll.entity';
+import { Genders } from "../shared/enums/genders.enum";
+import { Poll } from "./poll.entity";
+import { Profile } from "./profile.entity";
 export declare class User {
     user_id: string;
     username?: string;
@@ -26,5 +27,6 @@ export declare class User {
     last_opened_app?: Date;
     last_checked_activity?: Date;
     created_at?: Date;
+    profiles?: Profile[];
     polls?: Poll[];
 }
