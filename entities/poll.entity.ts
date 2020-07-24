@@ -10,8 +10,7 @@ import { Educations } from "../shared/enums/educations.enum";
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 
 @Entity("polls")
-@Check("check_null_profile_id_for_collection", `profile_id is null or collection_id is null`)
-@Check("check_is_analytics", `(profile_id is null and collection_id is null) or is_analytics_poll is not null`)
+@Check("check_null_profile_id_for_collection", `(profile_id is not null and collection_id is null) or (profile_id is null and collection_id is not null)`)
 @Check(
   "check_analytics_requirements",
   `profile_id is null or is_draft or (
