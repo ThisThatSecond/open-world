@@ -14,7 +14,7 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 @Check(
   "check_analytics_requirements",
   `profile_id is null or is_draft or (
-      (visibile_options_count is null or desired_votes_count > 0) and
+      (desired_votes_count is null or desired_votes_count > 0) and
       has_anonymous_vote is not null and
       is_private is not null and
       is_hidden is not null and
