@@ -11,18 +11,6 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 
 @Entity("polls")
 @Check("check_null_profile_id_or_collection", `(profile_id is not null and collection_id is null) or (profile_id is null and collection_id is not null)`)
-@Check(
-  "check_analytics_requirements",
-  `profile_id is null or is_draft or (
-      (desired_votes_count is null or desired_votes_count > 0) and
-      has_anonymous_vote is not null and
-      is_private is not null and
-      is_hidden is not null and
-      is_active is not null and
-      (visibile_options_count is null or visibile_options_count >= 3) 
-    )  
-  `
-)
 export class Poll {
   @PrimaryColumn()
   poll_id: string;
