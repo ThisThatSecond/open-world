@@ -2,6 +2,7 @@ import { Entity, Column, PrimaryColumn, Index, OneToMany } from "typeorm";
 import { Genders } from "../shared/enums/genders.enum";
 import { Poll } from "./poll.entity";
 import { Profile } from "./profile.entity";
+import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 
 @Entity("users")
 export class User {
@@ -69,12 +70,7 @@ export class User {
     type: "point",
     nullable: true,
   })
-  geo_point?:
-    | {
-        x: number;
-        y: number;
-      }
-    | string;
+  geo_point?: IGeoPoint | string;
 
   @Column({
     nullable: true,
