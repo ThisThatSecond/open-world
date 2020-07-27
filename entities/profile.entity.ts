@@ -3,6 +3,7 @@ import { User } from "./user.entity";
 import { Team } from "./team.entity";
 import { Poll } from "./poll.entity";
 import { NOTIFICATION_PREFERENCES } from "../shared/enums/notification_preferences.enum";
+import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 
 @Entity("profiles")
 export class Profile {
@@ -61,12 +62,7 @@ export class Profile {
     type: "point",
     nullable: true,
   })
-  geo_point?:
-    | {
-        x: number;
-        y: number;
-      }
-    | string;
+  geo_point?: IGeoPoint | string;
 
   @Column({
     nullable: true,

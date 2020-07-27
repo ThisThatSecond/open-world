@@ -2,6 +2,7 @@ import { User } from "./user.entity";
 import { Team } from "./team.entity";
 import { Poll } from "./poll.entity";
 import { NOTIFICATION_PREFERENCES } from "../shared/enums/notification_preferences.enum";
+import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 export declare class Profile {
     profile_id: string;
     user: User;
@@ -13,10 +14,7 @@ export declare class Profile {
     is_hidden?: boolean;
     profile_completed?: boolean;
     bio?: string;
-    geo_point?: {
-        x: number;
-        y: number;
-    } | string;
+    geo_point?: IGeoPoint | string;
     location?: string;
     notifications_preferences?: NOTIFICATION_PREFERENCES[];
     neighborhood_visible?: boolean;
