@@ -65,6 +65,11 @@ export class User {
     nullable: true,
   })
   language?: string;
+  
+  @Column({
+    nullable: true,
+  })
+  facebook_id?: string;
 
   @Column({
     type: "point",

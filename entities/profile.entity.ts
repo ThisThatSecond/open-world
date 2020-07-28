@@ -90,7 +90,7 @@ export class Profile {
     nullable: true,
   })
   image_url?: string;
-
+  
   @Column("varchar", {
     array: true,
     default: "{}",

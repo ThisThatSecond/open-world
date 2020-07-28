@@ -14,6 +14,7 @@ export declare class User {
     gender?: Genders;
     education?: string;
     language?: string;
+    facebook_id?: string;
     geo_point?: IGeoPoint | string;
     location?: string;
     fcm_token?: string;
