@@ -91,6 +91,11 @@ export class Profile {
   })
   image_url?: string;
   
+  @Column({
+    nullable: true,
+  })
+  fcm_token?: string;
+  
   @Column("varchar", {
     array: true,
     default: "{}",
