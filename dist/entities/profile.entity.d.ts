@@ -20,6 +20,7 @@ export declare class Profile {
     neighborhood_visible?: boolean;
     is_analytics_profile?: boolean;
     image_url?: string;
+    fcm_token?: string;
     sees_polls_from?: string[];
     team: Team;
     polls?: Poll[];

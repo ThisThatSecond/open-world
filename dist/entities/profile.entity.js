@@ -117,6 +117,12 @@ var Profile = /** @class */ (function () {
         __metadata("design:type", String)
     ], Profile.prototype, "image_url", void 0);
     __decorate([
+        typeorm_1.Column({
+            nullable: true,
+        }),
+        __metadata("design:type", String)
+    ], Profile.prototype, "fcm_token", void 0);
+    __decorate([
         typeorm_1.Column("varchar", {
             array: true,
             default: "{}",
