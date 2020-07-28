@@ -12,9 +12,9 @@ export class User {
   @Index()
   @Column({
     unique: true,
-    nullable: true,
+    nullable: false,
   })
-  username?: string;
+  username: string;
 
   @Index()
   @Column({

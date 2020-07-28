@@ -19,9 +19,9 @@ export class Profile {
   @Index()
   @Column({
     unique: true,
-    nullable: true,
+    nullable: false,
   })
-  name?: string;
+  name: string;
 
   @Index()
   @Column({

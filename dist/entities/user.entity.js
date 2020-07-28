@@ -24,7 +24,7 @@ var User = /** @class */ (function () {
         typeorm_1.Index(),
         typeorm_1.Column({
             unique: true,
-            nullable: true,
+            nullable: false,
         }),
         __metadata("design:type", String)
     ], User.prototype, "username", void 0);

@@ -4,7 +4,7 @@ import { Profile } from "./profile.entity";
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 export declare class User {
     user_id: string;
-    username?: string;
+    username: string;
     email?: string;
     name?: string;
     firstname?: string;

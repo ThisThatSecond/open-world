@@ -31,7 +31,7 @@ var Profile = /** @class */ (function () {
         typeorm_1.Index(),
         typeorm_1.Column({
             unique: true,
-            nullable: true,
+            nullable: false,
         }),
         __metadata("design:type", String)
     ], Profile.prototype, "name", void 0);

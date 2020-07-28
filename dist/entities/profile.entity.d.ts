@@ -6,7 +6,7 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 export declare class Profile {
     profile_id: string;
     user: User;
-    name?: string;
+    name: string;
     fullname?: string;
     activity_badge?: number;
     is_verified?: boolean;
