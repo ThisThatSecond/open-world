@@ -23,8 +23,6 @@ export declare class User {
     is_active?: boolean;
     is_hidden?: boolean;
     last_opened_analytics?: Date;
-    last_opened_app?: Date;
-    last_checked_activity?: Date;
     created_at?: Date;
     profiles?: Profile[];
     polls?: Poll[];

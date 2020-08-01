@@ -130,6 +130,20 @@ var Profile = /** @class */ (function () {
         __metadata("design:type", Array)
     ], Profile.prototype, "sees_polls_from", void 0);
     __decorate([
+        typeorm_1.Column({
+            type: "timestamptz",
+            nullable: true,
+        }),
+        __metadata("design:type", Date)
+    ], Profile.prototype, "last_opened_app", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: "timestamptz",
+            nullable: true,
+        }),
+        __metadata("design:type", Date)
+    ], Profile.prototype, "last_checked_activity", void 0);
+    __decorate([
         typeorm_1.ManyToOne(function () { return team_entity_1.Team; }, function (team) { return team.profiles; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: "team_id",

@@ -115,18 +115,6 @@ export class User {
 
   @Column({
     type: "timestamptz",
-    nullable: true,
-  })
-  last_opened_app?: Date;
-
-  @Column({
-    type: "timestamptz",
-    nullable: true,
-  })
-  last_checked_activity?: Date;
-
-  @Column({
-    type: "timestamptz",
     default: () => "CURRENT_TIMESTAMP",
     nullable: false,
   })

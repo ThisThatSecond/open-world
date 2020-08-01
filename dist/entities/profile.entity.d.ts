@@ -22,6 +22,8 @@ export declare class Profile {
     image_url?: string;
     fcm_token?: string;
     sees_polls_from?: string[];
+    last_opened_app?: Date;
+    last_checked_activity?: Date;
     team: Team;
     polls?: Poll[];
     created_at?: Date;

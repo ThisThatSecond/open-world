@@ -146,20 +146,6 @@ var User = /** @class */ (function () {
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
-            nullable: true,
-        }),
-        __metadata("design:type", Date)
-    ], User.prototype, "last_opened_app", void 0);
-    __decorate([
-        typeorm_1.Column({
-            type: "timestamptz",
-            nullable: true,
-        }),
-        __metadata("design:type", Date)
-    ], User.prototype, "last_checked_activity", void 0);
-    __decorate([
-        typeorm_1.Column({
-            type: "timestamptz",
             default: function () { return "CURRENT_TIMESTAMP"; },
             nullable: false,
         }),

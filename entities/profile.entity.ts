@@ -102,6 +102,18 @@ export class Profile {
   })
   sees_polls_from?: string[];
 
+  @Column({
+    type: "timestamptz",
+    nullable: true,
+  })
+  last_opened_app?: Date;
+
+  @Column({
+    type: "timestamptz",
+    nullable: true,
+  })
+  last_checked_activity?: Date;
+
   @ManyToOne(() => Team, (team) => team.profiles, { nullable: true })
   @JoinColumn({
     name: "team_id",
