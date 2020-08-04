@@ -138,11 +138,25 @@ var User = /** @class */ (function () {
     ], User.prototype, "is_hidden", void 0);
     __decorate([
         typeorm_1.Column({
+            default: false,
+        }),
+        __metadata("design:type", Boolean)
+    ], User.prototype, "email_verified", void 0);
+    __decorate([
+        typeorm_1.Column({
             type: "timestamptz",
             nullable: true,
         }),
         __metadata("design:type", Date)
     ], User.prototype, "last_opened_analytics", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: "jsonb",
+            array: false,
+            nullable: true,
+        }),
+        __metadata("design:type", Object)
+    ], User.prototype, "desc", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
@@ -160,6 +174,7 @@ var User = /** @class */ (function () {
         __metadata("design:type", Array)
     ], User.prototype, "polls", void 0);
     User = __decorate([
+        typeorm_1.Check("check_analytics_user_email", "not is_analytics_user or email is not null"),
         typeorm_1.Entity("users")
     ], User);
     return User;

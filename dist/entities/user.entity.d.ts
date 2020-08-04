@@ -22,7 +22,11 @@ export declare class User {
     is_analytics_user?: boolean;
     is_active?: boolean;
     is_hidden?: boolean;
+    email_verified?: boolean;
     last_opened_analytics?: Date;
+    desc?: {
+        age: string;
+    };
     created_at?: Date;
     profiles?: Profile[];
     polls?: Poll[];

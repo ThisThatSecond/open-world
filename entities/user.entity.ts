@@ -1,8 +1,10 @@
-import { Entity, Column, PrimaryColumn, Index, OneToMany } from "typeorm";
+import { Entity, Column, PrimaryColumn, Index, OneToMany, Check } from "typeorm";
 import { Genders } from "../shared/enums/genders.enum";
 import { Poll } from "./poll.entity";
 import { Profile } from "./profile.entity";
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
+
+@Check("check_analytics_user_email", `not is_analytics_user or email is not null`)
 
 @Entity("users")
 export class User {
@@ -65,7 +67,7 @@ export class User {
     nullable: true,
   })
   language?: string;
-  
+
   @Column({
     nullable: true,
   })
@@ -108,10 +110,22 @@ export class User {
   is_hidden?: boolean;
 
   @Column({
+    default: false,
+  })
+  email_verified?: boolean;
+
+  @Column({
     type: "timestamptz",
     nullable: true,
   })
   last_opened_analytics?: Date;
+
+  @Column({
+    type: "jsonb",
+    array: false,
+    nullable: true,
+  })
+  desc?: { age: string };
 
   @Column({
     type: "timestamptz",
