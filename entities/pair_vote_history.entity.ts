@@ -2,6 +2,7 @@ import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn } from 't
 import { User } from './user.entity';
 import { Pair } from './pair.entity';
 import { PairVoteActions } from '../shared/enums/actions.enum';
+import { Profile } from './profile.entity';
 
 @Entity('pair_votes_history')
 export class PairVoteHistory {
@@ -21,11 +22,11 @@ export class PairVoteHistory {
     })
     action: PairVoteActions;
 
-    @ManyToOne(() => User, { nullable: false })
+    @ManyToOne(() => Profile, { nullable: false })
     @JoinColumn({
         name: 'voter_id'
     })
-    voter: User;
+    voter: Profile;
 
 
     @Column({

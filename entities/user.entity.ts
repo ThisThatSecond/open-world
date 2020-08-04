@@ -1,174 +1,142 @@
-import { Entity, Column, PrimaryColumn, Index, OneToMany } from 'typeorm';
-import { NOTIFICATION_PREFERENCES } from '../shared/enums/notification_preferences.enum';
-import { Genders } from '../shared/enums/genders.enum';
-import { Poll } from './poll.entity';
+import { Entity, Column, PrimaryColumn, Index, OneToMany, Check } from "typeorm";
+import { Genders } from "../shared/enums/genders.enum";
+import { Poll } from "./poll.entity";
+import { Profile } from "./profile.entity";
+import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 
-@Entity('users')
+@Check("check_analytics_user_email", `not is_analytics_user or email is not null`)
+
+@Entity("users")
 export class User {
+  @PrimaryColumn()
+  user_id: string;
 
-    @PrimaryColumn()
-    user_id: string;
+  @Index()
+  @Column({
+    unique: true,
+    nullable: false,
+  })
+  username: string;
 
-    @Index()
-    @Column({
-        unique: true,
-        nullable: true,
-    })
-    username?: string;
+  @Index()
+  @Column({
+    nullable: true,
+  })
+  email?: string;
 
-    @Index()
-    @Column({
-        nullable: true,
-    })
-    email?: string;
+  @Index()
+  @Column({
+    nullable: true,
+  })
+  name?: string;
 
-    @Index()
-    @Column({
-        nullable: true
-    })
-    name?: string;
+  @Column({
+    nullable: true,
+  })
+  firstname?: string;
 
-    @Column({
-        nullable: true
-    })
-    firstname?: string;
+  @Column({
+    nullable: true,
+  })
+  surname?: string;
 
-    @Column({
-        nullable: true
-    })
-    surname?: string;
+  @Column({
+    nullable: true,
+  })
+  image_url?: string;
 
-    @Column({
-        nullable: true
-    })
-    profile_image_url?: string;
+  @Column({
+    type: "date",
+    nullable: true,
+  })
+  birthday?: Date;
 
-    @Column({
-        type: "date",
-        nullable: true
-    })
-    birthday?: Date;
+  @Column({
+    type: "enum",
+    enum: Genders,
+    nullable: true,
+  })
+  gender?: Genders;
 
-    @Column({
-        type: "enum",
-        enum: Genders,
-        nullable: true
-    })
-    gender?: Genders;
+  @Column({
+    nullable: true,
+  })
+  education?: string;
 
-    @Column({
-        nullable: true
-    })
-    bio?: string;
+  @Column({
+    nullable: true,
+  })
+  language?: string;
 
-    @Column({
-        default: false
-    })
-    neighborhood_visible?: boolean;
+  @Column({
+    nullable: true,
+  })
+  facebook_id?: string;
 
-    @Column({
-        nullable: true
-    })
-    education?: string;
+  @Column({
+    type: "point",
+    nullable: true,
+  })
+  geo_point?: IGeoPoint | string;
 
-    @Column({
-        nullable: true
-    })
-    language?: string;
+  @Column({
+    nullable: true,
+  })
+  location?: string;
 
-    @Column({
-        type: 'point',
-        nullable: true
-    })
-    geo_point?: {
-        x: number,
-        y: number
-    } | string;
+  @Column({
+    nullable: true,
+  })
+  fcm_token?: string;
 
-    @Column({
-        nullable: true
-    })
-    location?: string;
+  @Column({
+    nullable: true,
+  })
+  installed_version?: string;
 
-    @Column('varchar', {
-        array: true,
-        default: '{}'
-    })
-    notifications_preferences?: NOTIFICATION_PREFERENCES[];
+  @Column({
+    default: false,
+  })
+  is_analytics_user?: boolean;
 
-    @Column('varchar', {
-        array: true,
-        default: '{}'
-    })
-    sees_polls_from?: string[];
+  @Column({
+    default: true,
+  })
+  is_active?: boolean;
 
-    @Column({
-        nullable: true
-    })
-    fcm_token?: string;
+  @Column({
+    default: false,
+  })
+  is_hidden?: boolean;
 
-    @Column({
-        nullable: true
-    })
-    installed_version?: string;
+  @Column({
+    default: false,
+  })
+  email_verified?: boolean;
 
-    @Column({
-        default: 0
-    })
-    activity_badge?: number;
+  @Column({
+    type: "timestamptz",
+    nullable: true,
+  })
+  last_opened_analytics?: Date;
 
-    @Column({
-        default: false
-    })
-    profile_completed?: boolean;
+  @Column({
+    type: "jsonb",
+    array: false,
+    nullable: true,
+  })
+  desc?: { age: string };
 
-    @Column({
-        default: false
-    })
-    is_analytics_user?: boolean;
+  @Column({
+    type: "timestamptz",
+    default: () => "CURRENT_TIMESTAMP",
+    nullable: false,
+  })
+  created_at?: Date;
 
-    @Column({
-        default: true
-    })
-    is_active?: boolean;
+  @OneToMany(() => Profile, (profile) => profile.user)
+  profiles?: Profile[];
 
-    @Column({
-        default: false
-    })
-    is_hidden?: boolean;
-   
-    @Column({
-        default: false
-    })
-    is_verified?: boolean;
-
-    @Column({
-        type: 'timestamptz',
-        nullable: true,
-    })
-    last_opened_analytics?: Date;
-
-    @Column({
-        type: 'timestamptz',
-        nullable: true,
-    })
-    last_opened_app?: Date;
-
-    @Column({
-        type: 'timestamptz',
-        nullable: true,
-    })
-    last_checked_activity?: Date;
-
-    @Column({
-        type: 'timestamptz',
-        default: () => 'CURRENT_TIMESTAMP',
-        nullable: false
-    })
-    created_at?: Date;
-
-    @OneToMany(() => Poll, poll => poll.creator)
-    polls?: Poll[]
-
-
+  @OneToMany(() => Poll, (poll) => poll.creator)
+  polls?: Poll[];
 }
