@@ -176,7 +176,7 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "created_at", void 0);
     Collection = __decorate([
         typeorm_1.Entity("collections"),
-        typeorm_1.Check("check_requirements", "\n        is_draft or ( \n          title is not null and\n          visibile_options_count >= 3 and\n          desired_votes_count > 0 and\n          location is not null and\n          language is not null and \n          geo_point is not null\n        )\n    ")
+        typeorm_1.Check("check_requirements", "\n        is_draft or ( \n          title is not null and\n          visibile_options_count >= 3 and\n          desired_votes_count > 0 and\n          location is not null and\n          geo_point is not null\n        )\n    ")
     ], Collection);
     return Collection;
 }());

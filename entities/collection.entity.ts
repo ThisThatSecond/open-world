@@ -16,7 +16,6 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
           visibile_options_count >= 3 and
           desired_votes_count > 0 and
           location is not null and
-          language is not null and 
           geo_point is not null
         )
     `
