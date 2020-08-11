@@ -125,7 +125,7 @@ export class User {
     array: false,
     nullable: true,
   })
-  desc?: { age: string };
+  desc?: { gender: string };
 
   @Column({
     type: "timestamptz",

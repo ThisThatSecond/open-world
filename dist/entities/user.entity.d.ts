@@ -25,7 +25,7 @@ export declare class User {
     email_verified?: boolean;
     last_opened_analytics?: Date;
     desc?: {
-        age: string;
+        gender: string;
     };
     created_at?: Date;
     profiles?: Profile[];
