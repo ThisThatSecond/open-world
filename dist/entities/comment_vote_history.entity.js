@@ -10,39 +10,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
-var comment_entity_1 = require("./comment.entity");
 var actions_enum_1 = require("../shared/enums/actions.enum");
 var profile_entity_1 = require("./profile.entity");
-var CommentVote = /** @class */ (function () {
-    function CommentVote() {
+var comment_entity_1 = require("./comment.entity");
+var CommentVoteHistory = /** @class */ (function () {
+    function CommentVoteHistory() {
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", String)
-    ], CommentVote.prototype, "comment_vote_id", void 0);
-    __decorate([
-        typeorm_1.Column({
-            type: "enum",
-            enum: actions_enum_1.CommentVoteActions,
-            enumName: "option_vote_action_enum",
-            nullable: false,
-        }),
-        __metadata("design:type", Number)
-    ], CommentVote.prototype, "action", void 0);
+    ], CommentVoteHistory.prototype, "comment_vote_history_id", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return comment_entity_1.Comment; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "comment_id",
         }),
         __metadata("design:type", comment_entity_1.Comment)
-    ], CommentVote.prototype, "comment", void 0);
+    ], CommentVoteHistory.prototype, "comment", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: "enum",
+            enum: actions_enum_1.CommentVoteActions,
+            enumName: "comment_vote_action_enum",
+            nullable: false,
+        }),
+        __metadata("design:type", Number)
+    ], CommentVoteHistory.prototype, "action", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "voter_id",
         }),
         __metadata("design:type", profile_entity_1.Profile)
-    ], CommentVote.prototype, "voter", void 0);
+    ], CommentVoteHistory.prototype, "voter", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
@@ -50,11 +50,11 @@ var CommentVote = /** @class */ (function () {
             nullable: false,
         }),
         __metadata("design:type", Date)
-    ], CommentVote.prototype, "created_at", void 0);
-    CommentVote = __decorate([
-        typeorm_1.Entity("comment_votes")
-    ], CommentVote);
-    return CommentVote;
+    ], CommentVoteHistory.prototype, "created_at", void 0);
+    CommentVoteHistory = __decorate([
+        typeorm_1.Entity("comment_votes_history")
+    ], CommentVoteHistory);
+    return CommentVoteHistory;
 }());
-exports.CommentVote = CommentVote;
-//# sourceMappingURL=comment_vote.entity.js.map
+exports.CommentVoteHistory = CommentVoteHistory;
+//# sourceMappingURL=comment_vote_history.entity.js.map

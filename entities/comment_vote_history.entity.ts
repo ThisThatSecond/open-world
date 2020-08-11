@@ -1,27 +1,26 @@
 import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "./user.entity";
-import { Comment } from "./comment.entity";
 import { CommentVoteActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
+import { Comment } from "./comment.entity";
 
-@Entity("comment_votes")
-export class CommentVote {
+@Entity("comment_votes_history")
+export class CommentVoteHistory {
   @PrimaryGeneratedColumn("uuid")
-  comment_vote_id: string;
-
-  @Column({
-    type: "enum",
-    enum: CommentVoteActions,
-    enumName: "option_vote_action_enum",
-    nullable: false,
-  })
-  action: CommentVoteActions;
+  comment_vote_history_id: string;
 
   @ManyToOne(() => Comment, { nullable: false })
   @JoinColumn({
     name: "comment_id",
   })
   comment: Comment;
+
+  @Column({
+    type: "enum",
+    enum: CommentVoteActions,
+    enumName: "comment_vote_action_enum",
+    nullable: false,
+  })
+  action: CommentVoteActions;
 
   @ManyToOne(() => Profile, { nullable: false })
   @JoinColumn({
