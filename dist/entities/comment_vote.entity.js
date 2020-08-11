@@ -24,7 +24,7 @@ var CommentVote = /** @class */ (function () {
         typeorm_1.Column({
             type: "enum",
             enum: actions_enum_1.CommentVoteActions,
-            enumName: "option_vote_action_enum",
+            enumName: "comment_vote_action_enum",
             nullable: false,
         }),
         __metadata("design:type", Number)

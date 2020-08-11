@@ -12,7 +12,7 @@ export class CommentVote {
   @Column({
     type: "enum",
     enum: CommentVoteActions,
-    enumName: "option_vote_action_enum",
+    enumName: "comment_vote_action_enum",
     nullable: false,
   })
   action: CommentVoteActions;
