@@ -25,6 +25,7 @@ export class PollProfileAction {
   @Column({
     type: "enum",
     enum: PollProfileActions,
+    enumName: 'poll_profile_action_enum',
     nullable: false,
   })
   action: PollProfileActions;

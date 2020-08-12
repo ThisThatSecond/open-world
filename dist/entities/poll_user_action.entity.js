@@ -39,6 +39,7 @@ var PollProfileAction = /** @class */ (function () {
         typeorm_1.Column({
             type: "enum",
             enum: actions_enum_1.PollProfileActions,
+            enumName: 'poll_profile_action_enum',
             nullable: false,
         }),
         __metadata("design:type", Number)
