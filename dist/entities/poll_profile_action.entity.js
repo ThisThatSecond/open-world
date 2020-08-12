@@ -20,7 +20,7 @@ var PollProfileAction = /** @class */ (function () {
     __decorate([
         typeorm_1.PrimaryColumn(),
         __metadata("design:type", String)
-    ], PollProfileAction.prototype, "poll_user_action_id", void 0);
+    ], PollProfileAction.prototype, "poll_profile_action_id", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return poll_entity_1.Poll; }, { nullable: false }),
         typeorm_1.JoinColumn({

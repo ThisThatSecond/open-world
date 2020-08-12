@@ -8,7 +8,7 @@ import { PollProfileActions } from "../shared/enums/actions.enum";
 @Unique("uniqe_poll_voter", ["poll", "profile"])
 export class PollProfileAction {
   @PrimaryColumn()
-  poll_user_action_id: string;
+  poll_profile_action_id: string;
 
   @ManyToOne(() => Poll, { nullable: false })
   @JoinColumn({
