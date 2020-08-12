@@ -51,7 +51,8 @@ var PollUserAction = /** @class */ (function () {
         __metadata("design:type", Date)
     ], PollUserAction.prototype, "created_at", void 0);
     PollUserAction = __decorate([
-        typeorm_1.Entity('poll_user_actions')
+        typeorm_1.Entity('poll_user_actions'),
+        typeorm_1.Unique("uniqe_poll_voter", ["poll", "voter"])
     ], PollUserAction);
     return PollUserAction;
 }());

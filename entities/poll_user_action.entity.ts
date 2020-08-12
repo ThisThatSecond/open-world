@@ -4,6 +4,7 @@ import { Poll } from './poll.entity';
 import { PollUserActions } from '../shared/enums/actions.enum';
 
 @Entity('poll_user_actions')
+@Unique("uniqe_poll_voter", ["poll", "voter"])
 export class PollUserAction {
     @PrimaryColumn()
     poll_user_action_id: string;

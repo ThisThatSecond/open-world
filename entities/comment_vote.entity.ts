@@ -1,10 +1,12 @@
-import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn, Unique } from "typeorm";
 import { User } from "./user.entity";
 import { Comment } from "./comment.entity";
 import { CommentVoteActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
 
 @Entity("comment_votes")
+@Unique("uniqe_comment_voter", ["comment", "voter"])
+
 export class CommentVote {
   @PrimaryGeneratedColumn("uuid")
   comment_vote_id: string;

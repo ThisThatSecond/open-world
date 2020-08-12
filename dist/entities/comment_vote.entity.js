@@ -52,7 +52,8 @@ var CommentVote = /** @class */ (function () {
         __metadata("design:type", Date)
     ], CommentVote.prototype, "created_at", void 0);
     CommentVote = __decorate([
-        typeorm_1.Entity("comment_votes")
+        typeorm_1.Entity("comment_votes"),
+        typeorm_1.Unique("uniqe_comment_voter", ["comment", "voter"])
     ], CommentVote);
     return CommentVote;
 }());
