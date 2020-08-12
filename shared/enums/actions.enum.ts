@@ -17,6 +17,6 @@ export enum OptionVoteActions {
     REMOVED,
 }
 
-export enum PollUserActions {
+export enum PollProfileActions {
     SKIP,
 }

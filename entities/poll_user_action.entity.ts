@@ -1,41 +1,38 @@
-import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne, Unique } from 'typeorm';
-import { User } from './user.entity';
-import { Poll } from './poll.entity';
-import { PollUserActions } from '../shared/enums/actions.enum';
+import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne, Unique } from "typeorm";
+import { User } from "./user.entity";
+import { Poll } from "./poll.entity";
+import { Profile } from "./profile.entity";
+import { PollProfileActions } from "../shared/enums/actions.enum";
 
-@Entity('poll_user_actions')
-@Unique("uniqe_poll_voter", ["poll", "voter"])
-export class PollUserAction {
-    @PrimaryColumn()
-    poll_user_action_id: string;
+@Entity("poll_profile_actions")
+@Unique("uniqe_poll_voter", ["poll", "profile"])
+export class PollProfileAction {
+  @PrimaryColumn()
+  poll_user_action_id: string;
 
-    @ManyToOne(() => Poll, { nullable: false })
-    @JoinColumn({
-        name: 'poll_id'
-    })
+  @ManyToOne(() => Poll, { nullable: false })
+  @JoinColumn({
+    name: "poll_id",
+  })
+  poll: Poll;
 
-    poll: Poll;
+  @ManyToOne(() => User, { nullable: false })
+  @JoinColumn({
+    name: "profile_id",
+  })
+  profile: Profile;
 
-    @ManyToOne(() => User, { nullable: false })
-    @JoinColumn({
-        name: 'user_id'
-    })
-    user: User;
+  @Column({
+    type: "enum",
+    enum: PollProfileActions,
+    nullable: false,
+  })
+  action: PollProfileActions;
 
-    @Column({
-        type: 'enum',
-        enum: PollUserActions,
-        nullable: false
-    })
-    action: PollUserAction;
-
-    @Column({
-        type: 'timestamptz',
-        default: () => 'CURRENT_TIMESTAMP',
-        nullable: false
-    })
-    created_at?: Date;
-
-
-
+  @Column({
+    type: "timestamptz",
+    default: () => "CURRENT_TIMESTAMP",
+    nullable: false,
+  })
+  created_at?: Date;
 }

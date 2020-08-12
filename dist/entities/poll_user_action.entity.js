@@ -12,49 +12,50 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var user_entity_1 = require("./user.entity");
 var poll_entity_1 = require("./poll.entity");
+var profile_entity_1 = require("./profile.entity");
 var actions_enum_1 = require("../shared/enums/actions.enum");
-var PollUserAction = /** @class */ (function () {
-    function PollUserAction() {
+var PollProfileAction = /** @class */ (function () {
+    function PollProfileAction() {
     }
     __decorate([
         typeorm_1.PrimaryColumn(),
         __metadata("design:type", String)
-    ], PollUserAction.prototype, "poll_user_action_id", void 0);
+    ], PollProfileAction.prototype, "poll_user_action_id", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return poll_entity_1.Poll; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'poll_id'
+            name: "poll_id",
         }),
         __metadata("design:type", poll_entity_1.Poll)
-    ], PollUserAction.prototype, "poll", void 0);
+    ], PollProfileAction.prototype, "poll", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'user_id'
+            name: "profile_id",
         }),
-        __metadata("design:type", user_entity_1.User)
-    ], PollUserAction.prototype, "user", void 0);
+        __metadata("design:type", profile_entity_1.Profile)
+    ], PollProfileAction.prototype, "profile", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'enum',
-            enum: actions_enum_1.PollUserActions,
-            nullable: false
+            type: "enum",
+            enum: actions_enum_1.PollProfileActions,
+            nullable: false,
         }),
-        __metadata("design:type", PollUserAction)
-    ], PollUserAction.prototype, "action", void 0);
+        __metadata("design:type", Number)
+    ], PollProfileAction.prototype, "action", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; },
-            nullable: false
+            type: "timestamptz",
+            default: function () { return "CURRENT_TIMESTAMP"; },
+            nullable: false,
         }),
         __metadata("design:type", Date)
-    ], PollUserAction.prototype, "created_at", void 0);
-    PollUserAction = __decorate([
-        typeorm_1.Entity('poll_user_actions'),
-        typeorm_1.Unique("uniqe_poll_voter", ["poll", "voter"])
-    ], PollUserAction);
-    return PollUserAction;
+    ], PollProfileAction.prototype, "created_at", void 0);
+    PollProfileAction = __decorate([
+        typeorm_1.Entity("poll_profile_actions"),
+        typeorm_1.Unique("uniqe_poll_voter", ["poll", "profile"])
+    ], PollProfileAction);
+    return PollProfileAction;
 }());
-exports.PollUserAction = PollUserAction;
+exports.PollProfileAction = PollProfileAction;
 //# sourceMappingURL=poll_user_action.entity.js.map

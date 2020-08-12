@@ -1,9 +1,10 @@
-import { User } from './user.entity';
-import { Poll } from './poll.entity';
-export declare class PollUserAction {
+import { Poll } from "./poll.entity";
+import { Profile } from "./profile.entity";
+import { PollProfileActions } from "../shared/enums/actions.enum";
+export declare class PollProfileAction {
     poll_user_action_id: string;
     poll: Poll;
-    user: User;
-    action: PollUserAction;
+    profile: Profile;
+    action: PollProfileActions;
     created_at?: Date;
 }

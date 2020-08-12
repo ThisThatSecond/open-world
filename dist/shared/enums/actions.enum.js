@@ -19,8 +19,8 @@ var OptionVoteActions;
     OptionVoteActions[OptionVoteActions["DOWN"] = 1] = "DOWN";
     OptionVoteActions[OptionVoteActions["REMOVED"] = 2] = "REMOVED";
 })(OptionVoteActions = exports.OptionVoteActions || (exports.OptionVoteActions = {}));
-var PollUserActions;
-(function (PollUserActions) {
-    PollUserActions[PollUserActions["SKIP"] = 0] = "SKIP";
-})(PollUserActions = exports.PollUserActions || (exports.PollUserActions = {}));
+var PollProfileActions;
+(function (PollProfileActions) {
+    PollProfileActions[PollProfileActions["SKIP"] = 0] = "SKIP";
+})(PollProfileActions = exports.PollProfileActions || (exports.PollProfileActions = {}));
 //# sourceMappingURL=actions.enum.js.map
