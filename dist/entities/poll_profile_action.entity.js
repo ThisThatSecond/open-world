@@ -59,4 +59,4 @@ var PollProfileAction = /** @class */ (function () {
     return PollProfileAction;
 }());
 exports.PollProfileAction = PollProfileAction;
-//# sourceMappingURL=poll_user_action.entity.js.map
+//# sourceMappingURL=poll_profile_action.entity.js.map
