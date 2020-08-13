@@ -8,7 +8,7 @@ export declare class Team {
     avatar_url?: string;
     opinions_count?: number;
     is_active: boolean;
-    creator: User;
+    owner: User;
     profiles?: Profile[];
     created_at?: Date;
 }

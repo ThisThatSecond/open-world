@@ -42,9 +42,9 @@ export class Team {
 
     @ManyToOne(() => User, { nullable: false })
     @JoinColumn({
-        name: 'creator_id',
+        name: 'owner_id',
     })
-    creator: User;
+    owner: User;
 
     @OneToMany(() => Profile, profile => profile.team)
     profiles?: Profile[]

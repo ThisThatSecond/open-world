@@ -61,10 +61,10 @@ var Team = /** @class */ (function () {
     __decorate([
         typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'creator_id',
+            name: 'owner_id',
         }),
         __metadata("design:type", user_entity_1.User)
-    ], Team.prototype, "creator", void 0);
+    ], Team.prototype, "owner", void 0);
     __decorate([
         typeorm_1.OneToMany(function () { return profile_entity_1.Profile; }, function (profile) { return profile.team; }),
         __metadata("design:type", Array)
