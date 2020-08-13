@@ -7,7 +7,7 @@ import { InvitationStatus } from '../shared/enums/invitation_status.enum';
 
 @Entity('invitations')
 @Check("check_profile_or_team_invitation", `profile_id is not null or team_id is not null`)
-export class Membership {
+export class Invitation {
     @PrimaryColumn()
     invitation_id: string;
 

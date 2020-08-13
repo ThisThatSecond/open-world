@@ -3,7 +3,7 @@ import { Team } from './team.entity';
 import { Profile } from './profile.entity';
 import { InvitationTypes } from '../shared/enums/invitation_types.enum';
 import { InvitationStatus } from '../shared/enums/invitation_status.enum';
-export declare class Membership {
+export declare class Invitation {
     invitation_id: string;
     inviter: User;
     invitee: User;

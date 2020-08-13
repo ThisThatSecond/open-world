@@ -15,45 +15,45 @@ var team_entity_1 = require("./team.entity");
 var profile_entity_1 = require("./profile.entity");
 var invitation_types_enum_1 = require("../shared/enums/invitation_types.enum");
 var invitation_status_enum_1 = require("../shared/enums/invitation_status.enum");
-var Membership = /** @class */ (function () {
-    function Membership() {
+var Invitation = /** @class */ (function () {
+    function Invitation() {
     }
     __decorate([
         typeorm_1.PrimaryColumn(),
         __metadata("design:type", String)
-    ], Membership.prototype, "invitation_id", void 0);
+    ], Invitation.prototype, "invitation_id", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: 'inviter_id'
         }),
         __metadata("design:type", user_entity_1.User)
-    ], Membership.prototype, "inviter", void 0);
+    ], Invitation.prototype, "inviter", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: 'invitee_id'
         }),
         __metadata("design:type", user_entity_1.User)
-    ], Membership.prototype, "invitee", void 0);
+    ], Invitation.prototype, "invitee", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return team_entity_1.Team; }),
         typeorm_1.JoinColumn({
             name: 'team_id',
         }),
         __metadata("design:type", team_entity_1.Team)
-    ], Membership.prototype, "team", void 0);
+    ], Invitation.prototype, "team", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }),
         typeorm_1.JoinColumn({
             name: 'profile_id',
         }),
         __metadata("design:type", profile_entity_1.Profile)
-    ], Membership.prototype, "project", void 0);
+    ], Invitation.prototype, "project", void 0);
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Membership.prototype, "invitation_message", void 0);
+    ], Invitation.prototype, "invitation_message", void 0);
     __decorate([
         typeorm_1.Column({
             type: 'enum',
@@ -61,7 +61,7 @@ var Membership = /** @class */ (function () {
             nullable: false,
         }),
         __metadata("design:type", Number)
-    ], Membership.prototype, "status", void 0);
+    ], Invitation.prototype, "status", void 0);
     __decorate([
         typeorm_1.Column({
             type: "enum",
@@ -69,14 +69,14 @@ var Membership = /** @class */ (function () {
             nullable: false
         }),
         __metadata("design:type", Number)
-    ], Membership.prototype, "type", void 0);
+    ], Invitation.prototype, "type", void 0);
     __decorate([
         typeorm_1.Column({
             default: false,
             nullable: false
         }),
         __metadata("design:type", Boolean)
-    ], Membership.prototype, "is_active", void 0);
+    ], Invitation.prototype, "is_active", void 0);
     __decorate([
         typeorm_1.Column({
             type: 'timestamptz',
@@ -84,18 +84,18 @@ var Membership = /** @class */ (function () {
             nullable: false
         }),
         __metadata("design:type", Date)
-    ], Membership.prototype, "created_at", void 0);
+    ], Invitation.prototype, "created_at", void 0);
     __decorate([
         typeorm_1.Column({
             type: 'timestamptz',
         }),
         __metadata("design:type", Date)
-    ], Membership.prototype, "updated_at", void 0);
-    Membership = __decorate([
+    ], Invitation.prototype, "updated_at", void 0);
+    Invitation = __decorate([
         typeorm_1.Entity('invitations'),
         typeorm_1.Check("check_profile_or_team_invitation", "profile_id is not null or team_id is not null")
-    ], Membership);
-    return Membership;
+    ], Invitation);
+    return Invitation;
 }());
-exports.Membership = Membership;
-//# sourceMappingURL=membership.entity.js.map
+exports.Invitation = Invitation;
+//# sourceMappingURL=invitation.entity.js.map
