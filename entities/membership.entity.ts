@@ -1,13 +1,15 @@
-import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne, Check } from 'typeorm';
 import { User } from './user.entity';
 import { Team } from './team.entity';
 import { Profile } from './profile.entity';
-import { AnalyticsRoles } from '../shared/enums/analytics_roles.enum';
+import { InvitationTypes } from '../shared/enums/invitation_types.enum';
+import { InvitationStatus } from '../shared/enums/invitation_status.enum';
 
-@Entity('memberships')
+@Entity('invitations')
+@Check("check_profile_or_team_invitation", `profile_id is not null or team_id is not null`)
 export class Membership {
     @PrimaryColumn()
-    membership_id: string;
+    invitation_id: string;
 
     @ManyToOne(() => User, { nullable: false })
     @JoinColumn({
@@ -33,23 +35,22 @@ export class Membership {
     })
     project?: Profile;
 
-    @Column({
-        nullable: true,
-    })
+    @Column()
     invitation_message?: string;
 
     @Column({
-        default: true,
-        nullable: false
+        type: 'enum',
+        enum: InvitationStatus,
+        nullable: false,
     })
-    is_pending?: boolean;
+    status: InvitationStatus;
 
     @Column({
         type: "enum",
-        enum: AnalyticsRoles,
+        enum: InvitationTypes,
         nullable: false
     })
-    role: AnalyticsRoles;
+    type: InvitationTypes;
 
     @Column({
         default: false,
@@ -58,17 +59,16 @@ export class Membership {
     is_active?: boolean;
 
     @Column({
-        default: false,
-        nullable: false
-    })
-    send_email_required?: boolean;
-
-    @Column({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP',
         nullable: false
     })
     created_at?: Date;
+
+    @Column({
+        type: 'timestamptz',
+    })
+    updated_at?: Date;
 
 
 }

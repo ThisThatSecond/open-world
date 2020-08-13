@@ -13,14 +13,15 @@ var typeorm_1 = require("typeorm");
 var user_entity_1 = require("./user.entity");
 var team_entity_1 = require("./team.entity");
 var profile_entity_1 = require("./profile.entity");
-var analytics_roles_enum_1 = require("../shared/enums/analytics_roles.enum");
+var invitation_types_enum_1 = require("../shared/enums/invitation_types.enum");
+var invitation_status_enum_1 = require("../shared/enums/invitation_status.enum");
 var Membership = /** @class */ (function () {
     function Membership() {
     }
     __decorate([
         typeorm_1.PrimaryColumn(),
         __metadata("design:type", String)
-    ], Membership.prototype, "membership_id", void 0);
+    ], Membership.prototype, "invitation_id", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
         typeorm_1.JoinColumn({
@@ -50,26 +51,25 @@ var Membership = /** @class */ (function () {
         __metadata("design:type", profile_entity_1.Profile)
     ], Membership.prototype, "project", void 0);
     __decorate([
-        typeorm_1.Column({
-            nullable: true,
-        }),
+        typeorm_1.Column(),
         __metadata("design:type", String)
     ], Membership.prototype, "invitation_message", void 0);
     __decorate([
         typeorm_1.Column({
-            default: true,
-            nullable: false
+            type: 'enum',
+            enum: invitation_status_enum_1.InvitationStatus,
+            nullable: false,
         }),
-        __metadata("design:type", Boolean)
-    ], Membership.prototype, "is_pending", void 0);
+        __metadata("design:type", Number)
+    ], Membership.prototype, "status", void 0);
     __decorate([
         typeorm_1.Column({
             type: "enum",
-            enum: analytics_roles_enum_1.AnalyticsRoles,
+            enum: invitation_types_enum_1.InvitationTypes,
             nullable: false
         }),
         __metadata("design:type", Number)
-    ], Membership.prototype, "role", void 0);
+    ], Membership.prototype, "type", void 0);
     __decorate([
         typeorm_1.Column({
             default: false,
@@ -79,21 +79,21 @@ var Membership = /** @class */ (function () {
     ], Membership.prototype, "is_active", void 0);
     __decorate([
         typeorm_1.Column({
-            default: false,
-            nullable: false
-        }),
-        __metadata("design:type", Boolean)
-    ], Membership.prototype, "send_email_required", void 0);
-    __decorate([
-        typeorm_1.Column({
             type: 'timestamptz',
             default: function () { return 'CURRENT_TIMESTAMP'; },
             nullable: false
         }),
         __metadata("design:type", Date)
     ], Membership.prototype, "created_at", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: 'timestamptz',
+        }),
+        __metadata("design:type", Date)
+    ], Membership.prototype, "updated_at", void 0);
     Membership = __decorate([
-        typeorm_1.Entity('memberships')
+        typeorm_1.Entity('invitations'),
+        typeorm_1.Check("check_profile_or_team_invitation", "profile_id is not null or team_id is not null")
     ], Membership);
     return Membership;
 }());
