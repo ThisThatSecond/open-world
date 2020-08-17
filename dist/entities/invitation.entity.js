@@ -59,6 +59,7 @@ var Invitation = /** @class */ (function () {
             type: 'enum',
             enum: invitation_status_enum_1.InvitationStatus,
             nullable: false,
+            default: invitation_status_enum_1.InvitationStatus.PENDING
         }),
         __metadata("design:type", Number)
     ], Invitation.prototype, "status", void 0);
@@ -66,13 +67,13 @@ var Invitation = /** @class */ (function () {
         typeorm_1.Column({
             type: "enum",
             enum: invitation_types_enum_1.InvitationTypes,
-            nullable: false
+            nullable: false,
         }),
         __metadata("design:type", Number)
     ], Invitation.prototype, "type", void 0);
     __decorate([
         typeorm_1.Column({
-            default: false,
+            default: true,
             nullable: false
         }),
         __metadata("design:type", Boolean)

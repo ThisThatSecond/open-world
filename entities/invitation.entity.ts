@@ -42,18 +42,19 @@ export class Invitation {
         type: 'enum',
         enum: InvitationStatus,
         nullable: false,
+        default: InvitationStatus.PENDING
     })
     status: InvitationStatus;
 
     @Column({
         type: "enum",
         enum: InvitationTypes,
-        nullable: false
+        nullable: false,
     })
     type: InvitationTypes;
 
     @Column({
-        default: false,
+        default: true,
         nullable: false
     })
     is_active?: boolean;
