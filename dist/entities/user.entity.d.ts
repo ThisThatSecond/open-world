@@ -2,6 +2,7 @@ import { Genders } from "../shared/enums/genders.enum";
 import { Poll } from "./poll.entity";
 import { Profile } from "./profile.entity";
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
+import { Invitation } from "./invitation.entity";
 export declare class User {
     user_id: string;
     username: string;
@@ -30,4 +31,5 @@ export declare class User {
     created_at?: Date;
     profiles?: Profile[];
     polls?: Poll[];
+    invitations?: Invitation[];
 }

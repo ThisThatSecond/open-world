@@ -3,6 +3,7 @@ import { Genders } from "../shared/enums/genders.enum";
 import { Poll } from "./poll.entity";
 import { Profile } from "./profile.entity";
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
+import { Invitation } from "./invitation.entity";
 
 @Check("check_analytics_user_email", `not is_analytics_user or email is not null`)
 
@@ -139,4 +140,7 @@ export class User {
 
   @OneToMany(() => Poll, (poll) => poll.creator)
   polls?: Poll[];
+
+  @OneToMany(() => Invitation, invitation => invitation.invitee)
+  invitations?: Invitation[]
 }

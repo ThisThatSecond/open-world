@@ -13,6 +13,7 @@ var typeorm_1 = require("typeorm");
 var genders_enum_1 = require("../shared/enums/genders.enum");
 var poll_entity_1 = require("./poll.entity");
 var profile_entity_1 = require("./profile.entity");
+var invitation_entity_1 = require("./invitation.entity");
 var User = /** @class */ (function () {
     function User() {
     }
@@ -173,6 +174,10 @@ var User = /** @class */ (function () {
         typeorm_1.OneToMany(function () { return poll_entity_1.Poll; }, function (poll) { return poll.creator; }),
         __metadata("design:type", Array)
     ], User.prototype, "polls", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return invitation_entity_1.Invitation; }, function (invitation) { return invitation.invitee; }),
+        __metadata("design:type", Array)
+    ], User.prototype, "invitations", void 0);
     User = __decorate([
         typeorm_1.Check("check_analytics_user_email", "not is_analytics_user or email is not null"),
         typeorm_1.Entity("users")
