@@ -25,7 +25,7 @@ export class Comment {
     @JoinColumn({
         name: 'collection_id'
     })
-    collection: Collection;
+    collection?: Collection;
 
     @ManyToOne(() => Profile, { nullable: false })
     @JoinColumn({

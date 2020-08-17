@@ -5,7 +5,7 @@ export declare class Comment {
     comment_id: string;
     text: string;
     poll: Poll;
-    collection: Collection;
+    collection?: Collection;
     creator: Profile;
     is_hidden?: boolean;
     created_at?: Date;
