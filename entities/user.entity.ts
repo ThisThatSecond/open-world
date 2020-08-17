@@ -4,9 +4,9 @@ import { Poll } from "./poll.entity";
 import { Profile } from "./profile.entity";
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 import { Invitation } from "./invitation.entity";
+import { Team } from "./team.entity";
 
 @Check("check_analytics_user_email", `not is_analytics_user or email is not null`)
-
 @Entity("users")
 export class User {
   @PrimaryColumn()
@@ -135,12 +135,15 @@ export class User {
   })
   created_at?: Date;
 
+  @OneToMany(() => Team, (team) => team.owner)
+  teams?: Team[];
+
   @OneToMany(() => Profile, (profile) => profile.user)
   profiles?: Profile[];
 
   @OneToMany(() => Poll, (poll) => poll.creator)
   polls?: Poll[];
 
-  @OneToMany(() => Invitation, invitation => invitation.invitee)
-  invitations?: Invitation[]
+  @OneToMany(() => Invitation, (invitation) => invitation.invitee)
+  invitations?: Invitation[];
 }

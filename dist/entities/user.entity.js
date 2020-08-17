@@ -14,6 +14,7 @@ var genders_enum_1 = require("../shared/enums/genders.enum");
 var poll_entity_1 = require("./poll.entity");
 var profile_entity_1 = require("./profile.entity");
 var invitation_entity_1 = require("./invitation.entity");
+var team_entity_1 = require("./team.entity");
 var User = /** @class */ (function () {
     function User() {
     }
@@ -166,6 +167,10 @@ var User = /** @class */ (function () {
         }),
         __metadata("design:type", Date)
     ], User.prototype, "created_at", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return team_entity_1.Team; }, function (team) { return team.owner; }),
+        __metadata("design:type", Array)
+    ], User.prototype, "teams", void 0);
     __decorate([
         typeorm_1.OneToMany(function () { return profile_entity_1.Profile; }, function (profile) { return profile.user; }),
         __metadata("design:type", Array)
