@@ -1,8 +1,8 @@
-import { User } from './user.entity';
-import { Team } from './team.entity';
-import { Profile } from './profile.entity';
-import { InvitationTypes } from '../shared/enums/invitation_types.enum';
-import { InvitationStatus } from '../shared/enums/invitation_status.enum';
+import { User } from "./user.entity";
+import { Team } from "./team.entity";
+import { Profile } from "./profile.entity";
+import { InvitationTypes } from "../shared/enums/invitation_types.enum";
+import { InvitationStatus } from "../shared/enums/invitation_status.enum";
 export declare class Invitation {
     invitation_id: string;
     inviter: User;

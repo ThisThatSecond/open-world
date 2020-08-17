@@ -19,47 +19,49 @@ var Invitation = /** @class */ (function () {
     function Invitation() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn('uuid'),
+        typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", String)
     ], Invitation.prototype, "invitation_id", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'inviter_id'
+            name: "inviter_id",
         }),
         __metadata("design:type", user_entity_1.User)
     ], Invitation.prototype, "inviter", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'invitee_id'
+            name: "invitee_id",
         }),
         __metadata("design:type", user_entity_1.User)
     ], Invitation.prototype, "invitee", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return team_entity_1.Team; }),
         typeorm_1.JoinColumn({
-            name: 'team_id',
+            name: "team_id",
         }),
         __metadata("design:type", team_entity_1.Team)
     ], Invitation.prototype, "team", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }),
         typeorm_1.JoinColumn({
-            name: 'profile_id',
+            name: "profile_id",
         }),
         __metadata("design:type", profile_entity_1.Profile)
     ], Invitation.prototype, "profile", void 0);
     __decorate([
-        typeorm_1.Column(),
+        typeorm_1.Column({
+            nullable: true,
+        }),
         __metadata("design:type", String)
     ], Invitation.prototype, "invitation_message", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'enum',
+            type: "enum",
             enum: invitation_status_enum_1.InvitationStatus,
             nullable: false,
-            default: invitation_status_enum_1.InvitationStatus.PENDING
+            default: invitation_status_enum_1.InvitationStatus.PENDING,
         }),
         __metadata("design:type", Number)
     ], Invitation.prototype, "status", void 0);
@@ -74,26 +76,26 @@ var Invitation = /** @class */ (function () {
     __decorate([
         typeorm_1.Column({
             default: true,
-            nullable: false
+            nullable: false,
         }),
         __metadata("design:type", Boolean)
     ], Invitation.prototype, "is_active", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; },
-            nullable: false
+            type: "timestamptz",
+            default: function () { return "CURRENT_TIMESTAMP"; },
+            nullable: false,
         }),
         __metadata("design:type", Date)
     ], Invitation.prototype, "created_at", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'timestamptz',
+            type: "timestamptz",
         }),
         __metadata("design:type", Date)
     ], Invitation.prototype, "updated_at", void 0);
     Invitation = __decorate([
-        typeorm_1.Entity('invitations'),
+        typeorm_1.Entity("invitations"),
         typeorm_1.Check("check_profile_or_team_invitation", "profile_id is not null or team_id is not null")
     ], Invitation);
     return Invitation;
