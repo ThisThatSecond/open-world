@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne, Check } from 'typeorm';
+import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne, Check, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from './user.entity';
 import { Team } from './team.entity';
 import { Profile } from './profile.entity';
@@ -8,7 +8,7 @@ import { InvitationStatus } from '../shared/enums/invitation_status.enum';
 @Entity('invitations')
 @Check("check_profile_or_team_invitation", `profile_id is not null or team_id is not null`)
 export class Invitation {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn('uuid')
     invitation_id: string;
 
     @ManyToOne(() => User, { nullable: false })

@@ -19,7 +19,7 @@ var Invitation = /** @class */ (function () {
     function Invitation() {
     }
     __decorate([
-        typeorm_1.PrimaryColumn(),
+        typeorm_1.PrimaryGeneratedColumn('uuid'),
         __metadata("design:type", String)
     ], Invitation.prototype, "invitation_id", void 0);
     __decorate([
