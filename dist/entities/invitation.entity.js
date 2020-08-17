@@ -49,7 +49,7 @@ var Invitation = /** @class */ (function () {
             name: 'profile_id',
         }),
         __metadata("design:type", profile_entity_1.Profile)
-    ], Invitation.prototype, "project", void 0);
+    ], Invitation.prototype, "profile", void 0);
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)

@@ -33,7 +33,7 @@ export class Invitation {
     @JoinColumn({
         name: 'profile_id',
     })
-    project?: Profile;
+    profile?: Profile;
 
     @Column()
     invitation_message?: string;

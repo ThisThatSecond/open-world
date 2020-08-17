@@ -8,7 +8,7 @@ export declare class Invitation {
     inviter: User;
     invitee: User;
     team?: Team;
-    project?: Profile;
+    profile?: Profile;
     invitation_message?: string;
     status: InvitationStatus;
     type: InvitationTypes;
