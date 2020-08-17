@@ -28,4 +28,6 @@ var user_entity_1 = require("./user.entity");
 exports.User = user_entity_1.User;
 var collection_entity_1 = require("./collection.entity");
 exports.Collection = collection_entity_1.Collection;
+var invitation_entity_2 = require("./invitation.entity");
+exports.Invitation = invitation_entity_2.Invitation;
 //# sourceMappingURL=index.js.map
