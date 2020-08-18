@@ -30,4 +30,6 @@ var collection_entity_1 = require("./collection.entity");
 exports.Collection = collection_entity_1.Collection;
 var invitation_entity_2 = require("./invitation.entity");
 exports.Invitation = invitation_entity_2.Invitation;
+var followership_entity_1 = require("./followership.entity");
+exports.Followership = followership_entity_1.Followership;
 //# sourceMappingURL=index.js.map

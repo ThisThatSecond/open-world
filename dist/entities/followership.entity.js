@@ -12,27 +12,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var profile_entity_1 = require("./profile.entity");
 var followership_status_enum_1 = require("../shared/enums/followership_status.enum");
-var Collection = /** @class */ (function () {
-    function Collection() {
+var Followership = /** @class */ (function () {
+    function Followership() {
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", String)
-    ], Collection.prototype, "followership_id", void 0);
+    ], Followership.prototype, "followership_id", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "follower_id",
         }),
         __metadata("design:type", profile_entity_1.Profile)
-    ], Collection.prototype, "follower", void 0);
+    ], Followership.prototype, "follower", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "following_id",
         }),
         __metadata("design:type", profile_entity_1.Profile)
-    ], Collection.prototype, "following", void 0);
+    ], Followership.prototype, "following", void 0);
     __decorate([
         typeorm_1.Column({
             type: "enum",
@@ -41,7 +41,7 @@ var Collection = /** @class */ (function () {
             default: followership_status_enum_1.FollowershipStatus.PENDING,
         }),
         __metadata("design:type", Number)
-    ], Collection.prototype, "status", void 0);
+    ], Followership.prototype, "status", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
@@ -49,7 +49,7 @@ var Collection = /** @class */ (function () {
             nullable: false,
         }),
         __metadata("design:type", Date)
-    ], Collection.prototype, "created_at", void 0);
+    ], Followership.prototype, "created_at", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
@@ -57,12 +57,12 @@ var Collection = /** @class */ (function () {
             nullable: false,
         }),
         __metadata("design:type", Date)
-    ], Collection.prototype, "updated_at", void 0);
-    Collection = __decorate([
+    ], Followership.prototype, "updated_at", void 0);
+    Followership = __decorate([
         typeorm_1.Entity("followerships"),
         typeorm_1.Unique("unique_follwership", ["follower", "following"])
-    ], Collection);
-    return Collection;
+    ], Followership);
+    return Followership;
 }());
-exports.Collection = Collection;
+exports.Followership = Followership;
 //# sourceMappingURL=followership.entity.js.map

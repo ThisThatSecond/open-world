@@ -1,6 +1,6 @@
 import { Profile } from "./profile.entity";
 import { FollowershipStatus } from "../shared/enums/followership_status.enum";
-export declare class Collection {
+export declare class Followership {
     followership_id: string;
     follower: Profile;
     following: Profile;

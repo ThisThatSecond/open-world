@@ -4,7 +4,7 @@ import { FollowershipStatus } from "../shared/enums/followership_status.enum";
 
 @Entity("followerships")
 @Unique("unique_follwership", ["follower", "following"])
-export class Collection {
+export class Followership {
   @PrimaryGeneratedColumn("uuid")
   followership_id: string;
 

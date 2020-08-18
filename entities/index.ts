@@ -13,3 +13,4 @@ export { Team } from "./team.entity";
 export { User } from "./user.entity";
 export { Collection } from "./collection.entity";
 export {Invitation} from "./invitation.entity";
+export {Followership} from "./followership.entity";
