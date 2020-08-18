@@ -1,4 +1,4 @@
-import { Entity, Column, JoinColumn, PrimaryGeneratedColumn, ManyToOne, Check, Unique } from "typeorm";
+import { Entity, Column, JoinColumn, PrimaryGeneratedColumn, ManyToOne, Unique } from "typeorm";
 import { Profile } from "./profile.entity";
 import { FollowershipStatus } from "../shared/enums/followership_status.enum";
 
