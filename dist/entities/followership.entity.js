@@ -60,7 +60,7 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "updated_at", void 0);
     Collection = __decorate([
         typeorm_1.Entity("followerships"),
-        typeorm_1.Unique("unique_follwership", ["follower", "follwing"])
+        typeorm_1.Unique("unique_follwership", ["follower", "following"])
     ], Collection);
     return Collection;
 }());

@@ -3,7 +3,7 @@ import { Profile } from "./profile.entity";
 import { FollowershipStatus } from "../shared/enums/followership_status.enum";
 
 @Entity("followerships")
-@Unique("unique_follwership", ["follower", "follwing"])
+@Unique("unique_follwership", ["follower", "following"])
 export class Collection {
   @PrimaryGeneratedColumn("uuid")
   followership_id: string;
