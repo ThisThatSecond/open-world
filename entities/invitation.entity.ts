@@ -70,6 +70,8 @@ export class Invitation {
 
   @Column({
     type: "timestamptz",
+    default: () => "CURRENT_TIMESTAMP",
+    nullable: false,
   })
-  updated_at?: Date;
+  updated_at: Date;
 }

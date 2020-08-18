@@ -91,6 +91,8 @@ var Invitation = /** @class */ (function () {
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
+            default: function () { return "CURRENT_TIMESTAMP"; },
+            nullable: false,
         }),
         __metadata("design:type", Date)
     ], Invitation.prototype, "updated_at", void 0);
