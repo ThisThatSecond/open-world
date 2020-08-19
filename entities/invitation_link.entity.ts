@@ -1,5 +1,7 @@
 import { Entity, Column, JoinColumn, ManyToOne, Check, PrimaryGeneratedColumn, Index } from "typeorm";
 import { User } from "./user.entity";
+import { Team } from "./team.entity";
+import { Profile } from "./profile.entity";
 
 @Entity("invitation_link")
 @Check("check_email_or_user_id", `user_id is not null or email is not null`)
@@ -18,6 +20,18 @@ export class InvitationLink {
     nullable: true,
   })
   email?: string;
+
+  @ManyToOne(() => Team)
+  @JoinColumn({
+    name: "team_id",
+  })
+  team?: Team;
+
+  @ManyToOne(() => Profile)
+  @JoinColumn({
+    name: "profile_id",
+  })
+  profile?: Profile;
 
   @Column({
     nullable: true,

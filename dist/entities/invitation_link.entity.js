@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var user_entity_1 = require("./user.entity");
+var team_entity_1 = require("./team.entity");
+var profile_entity_1 = require("./profile.entity");
 var InvitationLink = /** @class */ (function () {
     function InvitationLink() {
     }
@@ -32,6 +34,20 @@ var InvitationLink = /** @class */ (function () {
         }),
         __metadata("design:type", String)
     ], InvitationLink.prototype, "email", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return team_entity_1.Team; }),
+        typeorm_1.JoinColumn({
+            name: "team_id",
+        }),
+        __metadata("design:type", team_entity_1.Team)
+    ], InvitationLink.prototype, "team", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }),
+        typeorm_1.JoinColumn({
+            name: "profile_id",
+        }),
+        __metadata("design:type", profile_entity_1.Profile)
+    ], InvitationLink.prototype, "profile", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: true,
