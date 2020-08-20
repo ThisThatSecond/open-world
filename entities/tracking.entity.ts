@@ -19,13 +19,13 @@ export class Tracking {
   @JoinColumn({
     name: "poll_id",
   })
-  poll: Poll;
+  poll?: Poll;
 
-  @ManyToOne(() => Poll, { nullable: true })
+  @ManyToOne(() => Collection, { nullable: true })
   @JoinColumn({
     name: "collection_id",
   })
-  collection: Collection;
+  collection?: Collection;
 
   @Column({
     type: "timestamptz",

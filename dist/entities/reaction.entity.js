@@ -36,7 +36,7 @@ var Reaction = /** @class */ (function () {
         __metadata("design:type", poll_entity_1.Poll)
     ], Reaction.prototype, "poll", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return poll_entity_1.Poll; }, { nullable: true }),
+        typeorm_1.ManyToOne(function () { return collection_entity_1.Collection; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: "collection_id",
         }),

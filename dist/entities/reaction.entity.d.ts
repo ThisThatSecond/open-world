@@ -5,8 +5,8 @@ import { Reactions } from "../shared/enums/reactions.enum";
 export declare class Reaction {
     reaction_id: string;
     profile: Profile;
-    poll: Poll;
-    collection: Collection;
+    poll?: Poll;
+    collection?: Collection;
     reaction: Reactions;
     created_at?: Date;
 }
