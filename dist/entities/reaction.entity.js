@@ -27,7 +27,7 @@ var Reaction = /** @class */ (function () {
             name: "profile_id",
         }),
         __metadata("design:type", profile_entity_1.Profile)
-    ], Reaction.prototype, "tracker", void 0);
+    ], Reaction.prototype, "profile", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return poll_entity_1.Poll; }, { nullable: true }),
         typeorm_1.JoinColumn({

@@ -15,7 +15,7 @@ export class Reaction {
   @JoinColumn({
     name: "profile_id",
   })
-  tracker: Profile;
+  profile: Profile;
 
   @ManyToOne(() => Poll, { nullable: true })
   @JoinColumn({
