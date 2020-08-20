@@ -3,7 +3,7 @@ import { User } from "./user.entity";
 import { Team } from "./team.entity";
 import { Profile } from "./profile.entity";
 
-@Entity("invitation_link")
+@Entity("invitation_links")
 @Check("check_email_or_user_id", `user_id is not null or email is not null`)
 export class InvitationLink {
   @PrimaryGeneratedColumn("uuid")

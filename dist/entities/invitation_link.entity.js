@@ -70,7 +70,7 @@ var InvitationLink = /** @class */ (function () {
         __metadata("design:type", Date)
     ], InvitationLink.prototype, "created_at", void 0);
     InvitationLink = __decorate([
-        typeorm_1.Entity("invitation_link"),
+        typeorm_1.Entity("invitation_links"),
         typeorm_1.Check("check_email_or_user_id", "user_id is not null or email is not null")
     ], InvitationLink);
     return InvitationLink;
