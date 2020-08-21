@@ -27,7 +27,7 @@ export class Share {
   })
   collection?: Collection;
 
-  @ManyToOne(() => Collection, { nullable: true })
+  @ManyToOne(() => Profile, { nullable: true })
   @JoinColumn({
     name: "profile_id",
   })

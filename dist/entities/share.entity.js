@@ -42,7 +42,7 @@ var Share = /** @class */ (function () {
         __metadata("design:type", collection_entity_1.Collection)
     ], Share.prototype, "collection", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return collection_entity_1.Collection; }, { nullable: true }),
+        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: "profile_id",
         }),
