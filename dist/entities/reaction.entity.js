@@ -59,7 +59,7 @@ var Reaction = /** @class */ (function () {
         __metadata("design:type", Date)
     ], Reaction.prototype, "created_at", void 0);
     Reaction = __decorate([
-        typeorm_1.Entity("ractions"),
+        typeorm_1.Entity("reactions"),
         typeorm_1.Check("check_poll_or_collection_reaction", "poll_id is not null or collection_id is not null")
     ], Reaction);
     return Reaction;

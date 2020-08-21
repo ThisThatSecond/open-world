@@ -1,11 +1,10 @@
 import { Entity, Column, JoinColumn, ManyToOne, Check, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "./user.entity";
 import { Poll } from "./poll.entity";
 import { Collection } from "./collection.entity";
 import { Profile } from "./profile.entity";
 import { Reactions } from "../shared/enums/reactions.enum";
 
-@Entity("ractions")
+@Entity("reactions")
 @Check("check_poll_or_collection_reaction", `poll_id is not null or collection_id is not null`)
 export class Reaction {
   @PrimaryGeneratedColumn("uuid")
