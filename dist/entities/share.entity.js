@@ -23,7 +23,7 @@ var Share = /** @class */ (function () {
     __decorate([
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: "profile_id",
+            name: "sharing_profile_id",
         }),
         __metadata("design:type", profile_entity_1.Profile)
     ], Share.prototype, "sharingProfile", void 0);

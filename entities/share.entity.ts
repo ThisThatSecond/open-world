@@ -11,7 +11,7 @@ export class Share {
 
   @ManyToOne(() => Profile, { nullable: false })
   @JoinColumn({
-    name: "profile_id",
+    name: "sharing_profile_id",
   })
   sharingProfile: Profile;
 
