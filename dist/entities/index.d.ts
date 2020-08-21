@@ -17,3 +17,4 @@ export { InvitationLink } from "./invitation_link.entity";
 export { Followership } from "./followership.entity";
 export { Tracking } from "./tracking.entity";
 export { Reaction } from "./reaction.entity";
+export { Share } from "./share.entity";

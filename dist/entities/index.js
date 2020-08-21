@@ -38,4 +38,6 @@ var tracking_entity_1 = require("./tracking.entity");
 exports.Tracking = tracking_entity_1.Tracking;
 var reaction_entity_1 = require("./reaction.entity");
 exports.Reaction = reaction_entity_1.Reaction;
+var share_entity_1 = require("./share.entity");
+exports.Share = share_entity_1.Share;
 //# sourceMappingURL=index.js.map
