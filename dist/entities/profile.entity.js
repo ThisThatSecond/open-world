@@ -144,6 +144,7 @@ var Profile = /** @class */ (function () {
         __metadata("design:type", Date)
     ], Profile.prototype, "last_checked_activity", void 0);
     __decorate([
+        typeorm_1.Index(),
         typeorm_1.Column({
             nullable: true,
         }),

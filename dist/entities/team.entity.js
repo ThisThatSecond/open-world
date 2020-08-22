@@ -27,6 +27,7 @@ var Team = /** @class */ (function () {
         __metadata("design:type", String)
     ], Team.prototype, "name", void 0);
     __decorate([
+        typeorm_1.Index(),
         typeorm_1.Column({
             nullable: true
         }),

@@ -115,6 +115,7 @@ export class Profile {
   })
   last_checked_activity?: Date;
 
+  @Index()
   @Column({
     nullable: true,
   })

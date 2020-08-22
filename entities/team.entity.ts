@@ -14,6 +14,7 @@ export class Team {
     })
     name: string;
 
+    @Index()
     @Column({
         nullable: true
     })
