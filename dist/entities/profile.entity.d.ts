@@ -24,6 +24,7 @@ export declare class Profile {
     sees_polls_from?: string[];
     last_opened_app?: Date;
     last_checked_activity?: Date;
+    join_link?: string;
     team: Team;
     polls?: Poll[];
     created_at?: Date;

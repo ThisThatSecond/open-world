@@ -90,12 +90,12 @@ export class Profile {
     nullable: true,
   })
   image_url?: string;
-  
+
   @Column({
     nullable: true,
   })
   fcm_token?: string;
-  
+
   @Column("varchar", {
     array: true,
     default: "{}",
@@ -113,6 +113,11 @@ export class Profile {
     nullable: true,
   })
   last_checked_activity?: Date;
+
+  @Column({
+    nullable: true,
+  })
+  join_link?: string;
 
   @ManyToOne(() => Team, (team) => team.profiles, { nullable: true })
   @JoinColumn({
