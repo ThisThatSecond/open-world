@@ -1,8 +1,9 @@
-import { Entity, Column, PrimaryColumn, Index, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryColumn, Index, JoinColumn, ManyToOne, OneToMany, Unique } from 'typeorm';
 import { User } from './user.entity';
 import { Profile } from './profile.entity';
 
 @Entity('teams')
+@Unique("uniqe_join_link", ["join_link"])
 export class Team {
     @PrimaryColumn()
     team_id: string;

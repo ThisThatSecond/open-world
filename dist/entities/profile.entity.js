@@ -169,7 +169,8 @@ var Profile = /** @class */ (function () {
         __metadata("design:type", Date)
     ], Profile.prototype, "created_at", void 0);
     Profile = __decorate([
-        typeorm_1.Entity("profiles")
+        typeorm_1.Entity("profiles"),
+        typeorm_1.Unique("uniqe_join_link", ["join_link"])
     ], Profile);
     return Profile;
 }());

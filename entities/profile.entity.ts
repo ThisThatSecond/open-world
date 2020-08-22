@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, Index, JoinColumn, ManyToOne, OneToOne, OneToMany } from "typeorm";
+import { Entity, Column, PrimaryColumn, Index, JoinColumn, ManyToOne, OneToOne, OneToMany, Unique } from "typeorm";
 import { User } from "./user.entity";
 import { Team } from "./team.entity";
 import { Poll } from "./poll.entity";
@@ -6,6 +6,7 @@ import { NOTIFICATION_PREFERENCES } from "../shared/enums/notification_preferenc
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 
 @Entity("profiles")
+@Unique("uniqe_join_link", ["join_link"])
 export class Profile {
   @PrimaryColumn()
   profile_id: string;
