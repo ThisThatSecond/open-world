@@ -152,7 +152,7 @@ var Profile = /** @class */ (function () {
     ], Profile.prototype, "join_link", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true,
+            default: false,
         }),
         __metadata("design:type", Boolean)
     ], Profile.prototype, "is_private", void 0);
@@ -177,7 +177,8 @@ var Profile = /** @class */ (function () {
     ], Profile.prototype, "created_at", void 0);
     Profile = __decorate([
         typeorm_1.Entity("profiles"),
-        typeorm_1.Unique("uniqe_join_link", ["join_link"])
+        typeorm_1.Unique("uniqe_join_link", ["join_link"]),
+        typeorm_1.Check("check_anlaytics_profile_join_link", "not is_analytics_profile or join_link is not null")
     ], Profile);
     return Profile;
 }());

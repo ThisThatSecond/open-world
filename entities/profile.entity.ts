@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, Index, JoinColumn, ManyToOne, OneToOne, OneToMany, Unique } from "typeorm";
+import { Entity, Column, PrimaryColumn, Index, JoinColumn, ManyToOne, OneToOne, OneToMany, Unique, Check } from "typeorm";
 import { User } from "./user.entity";
 import { Team } from "./team.entity";
 import { Poll } from "./poll.entity";
@@ -7,6 +7,7 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 
 @Entity("profiles")
 @Unique("uniqe_join_link", ["join_link"])
+@Check("check_anlaytics_profile_join_link", `not is_analytics_profile or join_link is not null`)
 export class Profile {
   @PrimaryColumn()
   profile_id: string;
@@ -122,7 +123,7 @@ export class Profile {
   join_link?: string;
 
   @Column({
-    nullable: true,
+    default: false,
   })
   is_private?: boolean;
 
