@@ -121,6 +121,11 @@ export class Profile {
   })
   join_link?: string;
 
+  @Column({
+    nullable: true,
+  })
+  is_private?: boolean;
+
   @ManyToOne(() => Team, (team) => team.profiles, { nullable: true })
   @JoinColumn({
     name: "team_id",

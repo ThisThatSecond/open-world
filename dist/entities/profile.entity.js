@@ -151,6 +151,12 @@ var Profile = /** @class */ (function () {
         __metadata("design:type", String)
     ], Profile.prototype, "join_link", void 0);
     __decorate([
+        typeorm_1.Column({
+            nullable: true,
+        }),
+        __metadata("design:type", Boolean)
+    ], Profile.prototype, "is_private", void 0);
+    __decorate([
         typeorm_1.ManyToOne(function () { return team_entity_1.Team; }, function (team) { return team.profiles; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: "team_id",
