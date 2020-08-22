@@ -6,7 +6,6 @@ import { NOTIFICATION_PREFERENCES } from "../shared/enums/notification_preferenc
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 
 @Entity("profiles")
-@Unique("uniqe_join_link", ["join_link"])
 @Check("check_anlaytics_profile_join_link", `not is_analytics_profile or join_link is not null`)
 export class Profile {
   @PrimaryColumn()
@@ -118,6 +117,7 @@ export class Profile {
 
   @Index()
   @Column({
+    unique: true,
     nullable: true,
   })
   join_link?: string;

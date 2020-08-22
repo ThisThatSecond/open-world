@@ -16,6 +16,7 @@ export class Team {
 
     @Index()
     @Column({
+        unique: true,
         nullable: false
     })
     join_link?: string;
