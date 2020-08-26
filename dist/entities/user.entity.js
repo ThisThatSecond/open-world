@@ -110,6 +110,12 @@ var User = /** @class */ (function () {
     ], User.prototype, "location", void 0);
     __decorate([
         typeorm_1.Column({
+            default: false,
+        }),
+        __metadata("design:type", Boolean)
+    ], User.prototype, "neighborhood_visible", void 0);
+    __decorate([
+        typeorm_1.Column({
             nullable: true,
         }),
         __metadata("design:type", String)

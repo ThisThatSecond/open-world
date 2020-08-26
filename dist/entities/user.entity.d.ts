@@ -19,6 +19,7 @@ export declare class User {
     facebook_id?: string;
     geo_point?: IGeoPoint | string;
     location?: string;
+    neighborhood_visible?: boolean;
     fcm_token?: string;
     installed_version?: string;
     is_analytics_user?: boolean;

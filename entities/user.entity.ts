@@ -86,6 +86,11 @@ export class User {
   location?: string;
 
   @Column({
+    default: false,
+  })
+  neighborhood_visible?: boolean;
+
+  @Column({
     nullable: true,
   })
   fcm_token?: string;
