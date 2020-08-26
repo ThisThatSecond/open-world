@@ -25,6 +25,7 @@ export declare class User {
     is_active?: boolean;
     is_hidden?: boolean;
     email_verified?: boolean;
+    bio?: string;
     last_opened_analytics?: Date;
     desc?: {
         gender: string;

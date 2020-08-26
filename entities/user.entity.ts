@@ -116,6 +116,11 @@ export class User {
   email_verified?: boolean;
 
   @Column({
+    nullable: true,
+  })
+  bio?: string;
+
+  @Column({
     type: "timestamptz",
     nullable: true,
   })

@@ -146,6 +146,12 @@ var User = /** @class */ (function () {
     ], User.prototype, "email_verified", void 0);
     __decorate([
         typeorm_1.Column({
+            nullable: true,
+        }),
+        __metadata("design:type", String)
+    ], User.prototype, "bio", void 0);
+    __decorate([
+        typeorm_1.Column({
             type: "timestamptz",
             nullable: true,
         }),
