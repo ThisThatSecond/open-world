@@ -21,6 +21,13 @@ var InvitationLink = /** @class */ (function () {
         __metadata("design:type", String)
     ], InvitationLink.prototype, "invitation_link_id", void 0);
     __decorate([
+        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
+        typeorm_1.JoinColumn({
+            name: "creator_id",
+        }),
+        __metadata("design:type", user_entity_1.User)
+    ], InvitationLink.prototype, "creator", void 0);
+    __decorate([
         typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: "user_id",

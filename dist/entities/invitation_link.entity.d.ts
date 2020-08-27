@@ -3,6 +3,7 @@ import { Team } from "./team.entity";
 import { Profile } from "./profile.entity";
 export declare class InvitationLink {
     invitation_link_id: string;
+    creator: User;
     user: User;
     email?: string;
     team?: Team;

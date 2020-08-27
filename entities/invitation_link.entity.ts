@@ -9,12 +9,18 @@ export class InvitationLink {
   @PrimaryGeneratedColumn("uuid")
   invitation_link_id: string;
 
+  @ManyToOne(() => User, { nullable: false })
+  @JoinColumn({
+    name: "creator_id",
+  })
+  creator: User;
+
   @ManyToOne(() => User, { nullable: true })
   @JoinColumn({
     name: "user_id",
   })
   user: User;
-
+  
   @Index()
   @Column({
     nullable: true,
