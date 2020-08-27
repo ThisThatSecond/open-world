@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne, Check, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne, Check, PrimaryGeneratedColumn, Unique } from "typeorm";
 import { User } from "./user.entity";
 import { Team } from "./team.entity";
 import { Profile } from "./profile.entity";
@@ -7,6 +7,9 @@ import { InvitationStatus } from "../shared/enums/invitation_status.enum";
 
 @Entity("invitations")
 @Check("check_profile_or_team_invitation", `profile_id is not null or team_id is not null`)
+@Unique("unique_team_invitee", ["team", "invitee"])
+@Unique("unique_profile_invitee", ["profile", "invitee"])
+
 export class Invitation {
   @PrimaryGeneratedColumn("uuid")
   invitation_id: string;
