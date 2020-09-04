@@ -79,7 +79,7 @@ var Payment = /** @class */ (function () {
     ], Payment.prototype, "created_at", void 0);
     Payment = __decorate([
         typeorm_1.Entity("payments"),
-        typeorm_1.Check("check_completed_payment", "not is_complete or desc is not null"),
+        typeorm_1.Check("check_completed_payment", "not is_complete or \"desc\" is not null"),
         typeorm_1.Check("check_opinions_count", "opinions_count > 0")
     ], Payment);
     return Payment;

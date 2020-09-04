@@ -4,7 +4,7 @@ import { Team } from "./team.entity";
 import { PaymentSetting } from "./payment_setting.entity";
 
 @Entity("payments")
-@Check("check_completed_payment", `not is_complete or desc is not null`)
+@Check("check_completed_payment", `not is_complete or "desc" is not null`)
 @Check("check_opinions_count", `opinions_count > 0`)
 export class Payment {
   @PrimaryGeneratedColumn("uuid")
