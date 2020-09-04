@@ -12,59 +12,55 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var user_entity_1 = require("./user.entity");
 var team_entity_1 = require("./team.entity");
-var Followership = /** @class */ (function () {
-    function Followership() {
+var payment_setting_entity_1 = require("./payment_setting.entity");
+var Payment = /** @class */ (function () {
+    function Payment() {
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", String)
-    ], Followership.prototype, "payment_id", void 0);
+    ], Payment.prototype, "payment_id", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: "payer_id",
         }),
         __metadata("design:type", user_entity_1.User)
-    ], Followership.prototype, "payer", void 0);
+    ], Payment.prototype, "payer", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return team_entity_1.Team; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "team_id",
         }),
         __metadata("design:type", team_entity_1.Team)
-    ], Followership.prototype, "team", void 0);
+    ], Payment.prototype, "team", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return payment_setting_entity_1.PaymentSetting; }, { nullable: false }),
+        typeorm_1.JoinColumn({
+            name: "payment_setting_id",
+        }),
+        __metadata("design:type", payment_setting_entity_1.PaymentSetting)
+    ], Payment.prototype, "paymentSetting", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: false,
             unique: true,
         }),
         __metadata("design:type", String)
-    ], Followership.prototype, "stripe_session_id", void 0);
+    ], Payment.prototype, "stripe_session_id", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: false,
         }),
         __metadata("design:type", Number)
-    ], Followership.prototype, "base_price", void 0);
-    __decorate([
-        typeorm_1.Column({
-            nullable: false,
-        }),
-        __metadata("design:type", String)
-    ], Followership.prototype, "currency", void 0);
-    __decorate([
-        typeorm_1.Column({
-            nullable: false,
-        }),
-        __metadata("design:type", Number)
-    ], Followership.prototype, "opinions_count", void 0);
+    ], Payment.prototype, "opinions_count", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: false,
             default: false,
         }),
         __metadata("design:type", Boolean)
-    ], Followership.prototype, "is_complete", void 0);
+    ], Payment.prototype, "is_complete", void 0);
     __decorate([
         typeorm_1.Column({
             type: "jsonb",
@@ -72,7 +68,7 @@ var Followership = /** @class */ (function () {
             nullable: true,
         }),
         __metadata("design:type", Object)
-    ], Followership.prototype, "desc", void 0);
+    ], Payment.prototype, "desc", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
@@ -80,13 +76,13 @@ var Followership = /** @class */ (function () {
             nullable: false,
         }),
         __metadata("design:type", Date)
-    ], Followership.prototype, "created_at", void 0);
-    Followership = __decorate([
-        typeorm_1.Entity("followerships"),
+    ], Payment.prototype, "created_at", void 0);
+    Payment = __decorate([
+        typeorm_1.Entity("payments"),
         typeorm_1.Check("check_completed_payment", "not is_complete or desc is not null"),
-        typeorm_1.Check("check_opinions_count_and_price", "opinions_count > 0 && base_price > 0")
-    ], Followership);
-    return Followership;
+        typeorm_1.Check("check_opinions_count", "opinions_count > 0")
+    ], Payment);
+    return Payment;
 }());
-exports.Followership = Followership;
+exports.Payment = Payment;
 //# sourceMappingURL=payment.entity.js.map

@@ -1,12 +1,12 @@
 import { User } from "./user.entity";
 import { Team } from "./team.entity";
-export declare class Followership {
+import { PaymentSetting } from "./payment_setting.entity";
+export declare class Payment {
     payment_id: string;
     payer: User;
     team: Team;
+    paymentSetting: PaymentSetting;
     stripe_session_id: string;
-    base_price: number;
-    currency: string;
     opinions_count: number;
     is_complete?: boolean;
     desc?: {

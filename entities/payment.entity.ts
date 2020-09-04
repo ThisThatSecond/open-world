@@ -1,11 +1,12 @@
 import { Entity, Column, JoinColumn, PrimaryGeneratedColumn, ManyToOne, Check } from "typeorm";
 import { User } from "./user.entity";
 import { Team } from "./team.entity";
+import { PaymentSetting } from "./payment_setting.entity";
 
-@Entity("followerships")
+@Entity("payments")
 @Check("check_completed_payment", `not is_complete or desc is not null`)
-@Check("check_opinions_count_and_price", `opinions_count > 0 && base_price > 0`)
-export class Followership {
+@Check("check_opinions_count", `opinions_count > 0`)
+export class Payment {
   @PrimaryGeneratedColumn("uuid")
   payment_id: string;
 
@@ -21,21 +22,17 @@ export class Followership {
   })
   team: Team;
 
+  @ManyToOne(() => PaymentSetting, { nullable: false })
+  @JoinColumn({
+    name: "payment_setting_id",
+  })
+  paymentSetting: PaymentSetting;
+
   @Column({
     nullable: false,
     unique: true,
   })
   stripe_session_id: string;
-
-  @Column({
-    nullable: false,
-  })
-  base_price: number;
-
-  @Column({
-    nullable: false,
-  })
-  currency: string;
 
   @Column({
     nullable: false,
