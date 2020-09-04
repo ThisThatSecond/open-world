@@ -1,0 +1,92 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var typeorm_1 = require("typeorm");
+var user_entity_1 = require("./user.entity");
+var team_entity_1 = require("./team.entity");
+var Followership = /** @class */ (function () {
+    function Followership() {
+    }
+    __decorate([
+        typeorm_1.PrimaryGeneratedColumn("uuid"),
+        __metadata("design:type", String)
+    ], Followership.prototype, "payment_id", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: true }),
+        typeorm_1.JoinColumn({
+            name: "payer_id",
+        }),
+        __metadata("design:type", user_entity_1.User)
+    ], Followership.prototype, "payer", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return team_entity_1.Team; }, { nullable: false }),
+        typeorm_1.JoinColumn({
+            name: "team_id",
+        }),
+        __metadata("design:type", team_entity_1.Team)
+    ], Followership.prototype, "team", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: false,
+            unique: true,
+        }),
+        __metadata("design:type", String)
+    ], Followership.prototype, "stripe_session_id", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: false,
+        }),
+        __metadata("design:type", Number)
+    ], Followership.prototype, "base_price", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: false,
+        }),
+        __metadata("design:type", String)
+    ], Followership.prototype, "currency", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: false,
+        }),
+        __metadata("design:type", Number)
+    ], Followership.prototype, "opinions_count", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: false,
+            default: false,
+        }),
+        __metadata("design:type", Boolean)
+    ], Followership.prototype, "is_complete", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: "jsonb",
+            array: false,
+            nullable: true,
+        }),
+        __metadata("design:type", Object)
+    ], Followership.prototype, "desc", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: "timestamptz",
+            default: function () { return "CURRENT_TIMESTAMP"; },
+            nullable: false,
+        }),
+        __metadata("design:type", Date)
+    ], Followership.prototype, "created_at", void 0);
+    Followership = __decorate([
+        typeorm_1.Entity("followerships"),
+        typeorm_1.Check("check_completed_payment", "not is_complete or desc is not null"),
+        typeorm_1.Check("check_opinions_count_and_price", "opinions_count > 0 && base_price > 0")
+    ], Followership);
+    return Followership;
+}());
+exports.Followership = Followership;
+//# sourceMappingURL=payment.entity.js.map
