@@ -8,6 +8,7 @@ export class PaymentSetting {
 
   @Column({
     nullable: false,
+    type: 'float'
   })
   base_price: number;
 

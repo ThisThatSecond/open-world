@@ -20,6 +20,7 @@ var PaymentSetting = /** @class */ (function () {
     __decorate([
         typeorm_1.Column({
             nullable: false,
+            type: 'float'
         }),
         __metadata("design:type", Number)
     ], PaymentSetting.prototype, "base_price", void 0);
