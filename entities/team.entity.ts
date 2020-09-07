@@ -54,7 +54,7 @@ export class Team {
     profiles?: Profile[]
     
     @OneToMany(() => Invitation, Invitation => Invitation.team)
-    invitation?: Invitation[]
+    invitations?: Invitation[]
 
     @Column({
         type: 'timestamptz',

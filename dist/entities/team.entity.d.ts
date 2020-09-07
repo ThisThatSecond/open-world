@@ -11,6 +11,6 @@ export declare class Team {
     is_active: boolean;
     owner: User;
     profiles?: Profile[];
-    invitation?: Invitation[];
+    invitations?: Invitation[];
     created_at?: Date;
 }

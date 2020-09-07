@@ -75,7 +75,7 @@ var Team = /** @class */ (function () {
     __decorate([
         typeorm_1.OneToMany(function () { return invitation_entity_1.Invitation; }, function (Invitation) { return Invitation.team; }),
         __metadata("design:type", Array)
-    ], Team.prototype, "invitation", void 0);
+    ], Team.prototype, "invitations", void 0);
     __decorate([
         typeorm_1.Column({
             type: 'timestamptz',
