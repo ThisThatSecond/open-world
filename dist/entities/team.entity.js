@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var user_entity_1 = require("./user.entity");
 var profile_entity_1 = require("./profile.entity");
+var invitation_entity_1 = require("./invitation.entity");
 var Team = /** @class */ (function () {
     function Team() {
     }
@@ -71,6 +72,10 @@ var Team = /** @class */ (function () {
         typeorm_1.OneToMany(function () { return profile_entity_1.Profile; }, function (profile) { return profile.team; }),
         __metadata("design:type", Array)
     ], Team.prototype, "profiles", void 0);
+    __decorate([
+        typeorm_1.OneToMany(function () { return invitation_entity_1.Invitation; }, function (Invitation) { return Invitation.team; }),
+        __metadata("design:type", Array)
+    ], Team.prototype, "invitation", void 0);
     __decorate([
         typeorm_1.Column({
             type: 'timestamptz',

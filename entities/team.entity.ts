@@ -1,6 +1,7 @@
 import { Entity, Column, PrimaryColumn, Index, JoinColumn, ManyToOne, OneToMany, Unique } from 'typeorm';
 import { User } from './user.entity';
 import { Profile } from './profile.entity';
+import { Invitation } from './invitation.entity';
 
 @Entity('teams')
 @Unique("uniqe_join_link", ["join_link"])
@@ -51,6 +52,9 @@ export class Team {
 
     @OneToMany(() => Profile, profile => profile.team)
     profiles?: Profile[]
+    
+    @OneToMany(() => Invitation, Invitation => Invitation.team)
+    invitation?: Invitation[]
 
     @Column({
         type: 'timestamptz',
