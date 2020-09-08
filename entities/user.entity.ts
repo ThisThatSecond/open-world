@@ -7,7 +7,8 @@ import { Invitation } from "./invitation.entity";
 import { Team } from "./team.entity";
 
 @Check("check_analytics_user_email", `not is_analytics_user or email is not null`)
-@Check("check_anonymous_user", `not is_anonymous_user or is_analytics_user is false`)
+@Check("check_anonymous_user", `not is_anonymous_user or not is_analytics_user`)
+@Check("check_username", `is_anonymous_user or username is not null`)
 @Entity("users")
 export class User {
   @PrimaryColumn()
@@ -16,7 +17,7 @@ export class User {
   @Index()
   @Column({
     unique: true,
-    nullable: false,
+    nullable: true,
   })
   username: string;
 

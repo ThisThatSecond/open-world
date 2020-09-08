@@ -19,6 +19,7 @@ export declare class Profile {
     notifications_preferences?: NOTIFICATION_PREFERENCES[];
     neighborhood_visible?: boolean;
     is_analytics_profile?: boolean;
+    is_anonymous_profile?: boolean;
     image_url?: string;
     fcm_token?: string;
     sees_polls_from?: string[];

@@ -26,7 +26,7 @@ var User = /** @class */ (function () {
         typeorm_1.Index(),
         typeorm_1.Column({
             unique: true,
-            nullable: false,
+            nullable: true,
         }),
         __metadata("design:type", String)
     ], User.prototype, "username", void 0);
@@ -204,7 +204,8 @@ var User = /** @class */ (function () {
     ], User.prototype, "invitations", void 0);
     User = __decorate([
         typeorm_1.Check("check_analytics_user_email", "not is_analytics_user or email is not null"),
-        typeorm_1.Check("check_anonymous_user", "not is_anonymous_user or is_analytics_user is false"),
+        typeorm_1.Check("check_anonymous_user", "not is_anonymous_user or not is_analytics_user"),
+        typeorm_1.Check("check_username", "is_anonymous_user or username is not null"),
         typeorm_1.Entity("users")
     ], User);
     return User;

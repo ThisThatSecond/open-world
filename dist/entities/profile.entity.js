@@ -31,7 +31,7 @@ var Profile = /** @class */ (function () {
         typeorm_1.Index(),
         typeorm_1.Column({
             unique: true,
-            nullable: false,
+            nullable: true,
         }),
         __metadata("design:type", String)
     ], Profile.prototype, "name", void 0);
@@ -112,6 +112,12 @@ var Profile = /** @class */ (function () {
     ], Profile.prototype, "is_analytics_profile", void 0);
     __decorate([
         typeorm_1.Column({
+            default: false,
+        }),
+        __metadata("design:type", Boolean)
+    ], Profile.prototype, "is_anonymous_profile", void 0);
+    __decorate([
+        typeorm_1.Column({
             nullable: true,
         }),
         __metadata("design:type", String)
@@ -178,7 +184,9 @@ var Profile = /** @class */ (function () {
     ], Profile.prototype, "created_at", void 0);
     Profile = __decorate([
         typeorm_1.Entity("profiles"),
-        typeorm_1.Check("check_anlaytics_profile_join_link", "not is_analytics_profile or join_link is not null")
+        typeorm_1.Check("check_analytics_profile_join_link", "not is_analytics_profile or join_link is not null"),
+        typeorm_1.Check("check_anonymous_profile", "not is_anonymous_profile or not is_analytics_profile"),
+        typeorm_1.Check("check_name", "is_anonymous_user or name is not null")
     ], Profile);
     return Profile;
 }());

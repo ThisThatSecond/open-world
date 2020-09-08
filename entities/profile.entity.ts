@@ -6,7 +6,9 @@ import { NOTIFICATION_PREFERENCES } from "../shared/enums/notification_preferenc
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 
 @Entity("profiles")
-@Check("check_anlaytics_profile_join_link", `not is_analytics_profile or join_link is not null`)
+@Check("check_analytics_profile_join_link", `not is_analytics_profile or join_link is not null`)
+@Check("check_anonymous_profile", `not is_anonymous_profile or not is_analytics_profile`)
+@Check("check_name", `is_anonymous_user or name is not null`)
 export class Profile {
   @PrimaryColumn()
   profile_id: string;
@@ -20,7 +22,7 @@ export class Profile {
   @Index()
   @Column({
     unique: true,
-    nullable: false,
+    nullable: true,
   })
   name: string;
 
@@ -86,6 +88,11 @@ export class Profile {
     default: false,
   })
   is_analytics_profile?: boolean;
+
+  @Column({
+    default: false,
+  })
+  is_anonymous_profile?: boolean;
 
   @Column({
     nullable: true,
