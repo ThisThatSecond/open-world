@@ -23,6 +23,7 @@ export declare class User {
     fcm_token?: string;
     installed_version?: string;
     is_analytics_user?: boolean;
+    is_anonymous_user?: boolean;
     is_active?: boolean;
     is_hidden?: boolean;
     email_verified?: boolean;

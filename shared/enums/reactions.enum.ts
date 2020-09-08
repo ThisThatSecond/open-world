@@ -5,5 +5,5 @@ export enum Reactions {
     WOW,
     SAD,
     ANGRY,
-    SHRUG,
+    SHRUG',
 }

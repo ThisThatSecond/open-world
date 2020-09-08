@@ -5,5 +5,6 @@ export declare enum Reactions {
     WOW = 3,
     SAD = 4,
     ANGRY = 5,
-    SHRUG = 6
+    SHRUG = 6,
+    ', = 7
 }
