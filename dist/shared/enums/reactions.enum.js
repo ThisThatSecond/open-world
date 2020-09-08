@@ -9,6 +9,5 @@ var Reactions;
     Reactions[Reactions["SAD"] = 4] = "SAD";
     Reactions[Reactions["ANGRY"] = 5] = "ANGRY";
     Reactions[Reactions["SHRUG"] = 6] = "SHRUG";
-    Reactions[Reactions[","] = 7] = ",";
 })(Reactions = exports.Reactions || (exports.Reactions = {}));
 //# sourceMappingURL=reactions.enum.js.map
