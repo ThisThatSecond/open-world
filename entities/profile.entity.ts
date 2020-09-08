@@ -10,6 +10,11 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 @Check("check_anonymous_profile", `not is_anonymous_profile or not is_analytics_profile`)
 @Check("check_name", `is_anonymous_profile or name is not null`)
 @Unique("single_anonymous_profile", ["user", "is_anonymous_profile"])
+/**
+  there is a unique constraint for: `user and is_analytics_profile where not is_analytics_profile`
+  which is not declared here. 
+ * 
+ */
 export class Profile {
   @PrimaryColumn()
   profile_id: string;

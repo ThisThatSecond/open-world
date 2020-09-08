@@ -14,6 +14,11 @@ var user_entity_1 = require("./user.entity");
 var team_entity_1 = require("./team.entity");
 var poll_entity_1 = require("./poll.entity");
 var Profile = /** @class */ (function () {
+    /**
+      there is a unique constraint for: `user and is_analytics_profile where not is_analytics_profile`
+      which is not declared here.
+     *
+     */
     function Profile() {
     }
     __decorate([
@@ -188,6 +193,11 @@ var Profile = /** @class */ (function () {
         typeorm_1.Check("check_anonymous_profile", "not is_anonymous_profile or not is_analytics_profile"),
         typeorm_1.Check("check_name", "is_anonymous_profile or name is not null"),
         typeorm_1.Unique("single_anonymous_profile", ["user", "is_anonymous_profile"])
+        /**
+          there is a unique constraint for: `user and is_analytics_profile where not is_analytics_profile`
+          which is not declared here.
+         *
+         */
     ], Profile);
     return Profile;
 }());
