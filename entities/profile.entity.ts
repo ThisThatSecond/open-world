@@ -8,7 +8,7 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 @Entity("profiles")
 @Check("check_analytics_profile_join_link", `not is_analytics_profile or join_link is not null`)
 @Check("check_anonymous_profile", `not is_anonymous_profile or not is_analytics_profile`)
-@Check("check_name", `is_anonymous_user or name is not null`)
+@Check("check_name", `is_anonymous_profile or name is not null`)
 export class Profile {
   @PrimaryColumn()
   profile_id: string;
