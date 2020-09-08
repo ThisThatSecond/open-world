@@ -186,7 +186,8 @@ var Profile = /** @class */ (function () {
         typeorm_1.Entity("profiles"),
         typeorm_1.Check("check_analytics_profile_join_link", "not is_analytics_profile or join_link is not null"),
         typeorm_1.Check("check_anonymous_profile", "not is_anonymous_profile or not is_analytics_profile"),
-        typeorm_1.Check("check_name", "is_anonymous_user or name is not null")
+        typeorm_1.Check("check_name", "is_anonymous_profile or name is not null"),
+        typeorm_1.Unique("single_anonymous_profile", ["user", "is_anonymous_profile"])
     ], Profile);
     return Profile;
 }());

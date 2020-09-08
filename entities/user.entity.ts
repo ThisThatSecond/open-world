@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, Index, OneToMany, Check } from "typeorm";
+import { Entity, Column, PrimaryColumn, Index, OneToMany, Check, Unique } from "typeorm";
 import { Genders } from "../shared/enums/genders.enum";
 import { Poll } from "./poll.entity";
 import { Profile } from "./profile.entity";
