@@ -9,10 +9,12 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 @Check("check_analytics_profile_join_link", `not is_analytics_profile or join_link is not null`)
 @Check("check_anonymous_profile", `not is_anonymous_profile or not is_analytics_profile`)
 @Check("check_name", `is_anonymous_profile or name is not null`)
-@Unique("single_anonymous_profile", ["user", "is_anonymous_profile"])
 /**
-  there is a unique constraint for: `user and is_analytics_profile where not is_analytics_profile`
-  which is not declared here. 
+  there are two unique constraint for: 
+  CREATE UNIQUE INDEX unique_mobile_profile ON profiles (user_id) WHERE (not is_analytics_profile)
+  and
+  CREATE UNIQUE INDEX unique_anonymous_profile ON profiles (user_id) WHERE (is_anonymous_profile)
+  which are not declared here. 
  * 
  */
 export class Profile {
