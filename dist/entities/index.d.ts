@@ -19,3 +19,4 @@ export { Reaction } from "./reaction.entity";
 export { Share } from "./share.entity";
 export { Payment } from "./payment.entity";
 export { PaymentSetting } from "./payment_setting.entity";
+export { Block } from "./block.entity";

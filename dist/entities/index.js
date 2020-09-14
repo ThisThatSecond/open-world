@@ -42,4 +42,6 @@ var payment_entity_1 = require("./payment.entity");
 exports.Payment = payment_entity_1.Payment;
 var payment_setting_entity_1 = require("./payment_setting.entity");
 exports.PaymentSetting = payment_setting_entity_1.PaymentSetting;
+var block_entity_1 = require("./block.entity");
+exports.Block = block_entity_1.Block;
 //# sourceMappingURL=index.js.map
