@@ -5,7 +5,7 @@ import { Profile } from "./profile.entity";
 import { Comment } from "./comment.entity";
 
 @Entity("reports")
-@Check("check_comment_or_poll_or_collection_or_profile_report", `comment_id is not null or poll_id is not null or collection_id is not null or profile_id id not null`)
+@Check("check_comment_or_poll_or_collection_or_profile_report", `comment_id is not null or poll_id is not null or collection_id is not null or profile_id is not null`)
 export class Report {
   @PrimaryGeneratedColumn("uuid")
   report_id: string;
