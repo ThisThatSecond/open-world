@@ -119,7 +119,7 @@ export class Poll {
   is_draft?: boolean;
 
   @Column({
-    nullable: true,
+    default: false,
   })
   is_hidden?: boolean;
 

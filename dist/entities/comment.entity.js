@@ -50,7 +50,6 @@ var Comment = /** @class */ (function () {
     __decorate([
         typeorm_1.Column({
             default: false,
-            nullable: false
         }),
         __metadata("design:type", Boolean)
     ], Comment.prototype, "is_hidden", void 0);

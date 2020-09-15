@@ -17,6 +17,7 @@ export declare class Collection {
     desired_votes_count: number;
     release_date?: Date;
     is_draft?: boolean;
+    is_hidden?: boolean;
     is_active?: boolean;
     is_private?: boolean;
     audience_age_groups?: Array<{

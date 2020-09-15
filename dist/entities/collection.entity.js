@@ -90,6 +90,12 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "is_draft", void 0);
     __decorate([
         typeorm_1.Column({
+            nullable: true,
+        }),
+        __metadata("design:type", Boolean)
+    ], Collection.prototype, "is_hidden", void 0);
+    __decorate([
+        typeorm_1.Column({
             default: true,
             nullable: false,
         }),

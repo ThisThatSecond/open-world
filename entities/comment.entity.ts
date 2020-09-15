@@ -35,7 +35,6 @@ export class Comment {
 
     @Column({
         default: false,
-        nullable: false
     })
     is_hidden?: boolean;
 
