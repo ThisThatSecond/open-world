@@ -82,7 +82,7 @@ export class Collection {
   is_draft?: boolean;
 
   @Column({
-    nullable: true,
+    default: false,
   })
   is_hidden?: boolean;
 
