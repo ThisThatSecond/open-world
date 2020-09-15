@@ -20,3 +20,4 @@ export { Share } from "./share.entity";
 export { Payment } from "./payment.entity";
 export { PaymentSetting } from "./payment_setting.entity";
 export { Block } from "./block.entity";
+export { Report } from "./report.entity";
