@@ -66,7 +66,11 @@ var Report = /** @class */ (function () {
     ], Report.prototype, "created_at", void 0);
     Report = __decorate([
         typeorm_1.Entity("reports"),
-        typeorm_1.Check("check_comment_or_poll_or_collection_or_profile_report", "comment_id is not null or poll_id is not null or collection_id is not null or profile_id id not null")
+        typeorm_1.Check("check_comment_or_poll_or_collection_or_profile_report", "comment_id is not null or poll_id is not null or collection_id is not null or profile_id is not null"),
+        typeorm_1.Unique("unique_reporter_comment", ["reporter", "comment"]),
+        typeorm_1.Unique("unique_reporter_poll", ["reporter", "poll"]),
+        typeorm_1.Unique("unique_reporter_collection", ["reporter", "collection"]),
+        typeorm_1.Unique("unique_reporter_profile", ["reporter", "profile"])
     ], Report);
     return Report;
 }());
