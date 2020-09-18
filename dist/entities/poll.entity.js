@@ -34,6 +34,12 @@ var Poll = /** @class */ (function () {
             nullable: true,
         }),
         __metadata("design:type", String)
+    ], Poll.prototype, "thumbnail_url", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: true,
+        }),
+        __metadata("design:type", String)
     ], Poll.prototype, "caption", void 0);
     __decorate([
         typeorm_1.Column({

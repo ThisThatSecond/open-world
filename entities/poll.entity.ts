@@ -19,6 +19,11 @@ export class Poll {
     nullable: false,
   })
   question: string;
+  
+  @Column({
+    nullable: true,
+  })
+  thumbnail_url: string;
 
   @Column({
     nullable: true,

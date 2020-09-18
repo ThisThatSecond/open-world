@@ -29,6 +29,12 @@ var Collection = /** @class */ (function () {
         __metadata("design:type", String)
     ], Collection.prototype, "title", void 0);
     __decorate([
+        typeorm_1.Column({
+            nullable: true,
+        }),
+        __metadata("design:type", String)
+    ], Collection.prototype, "thumbnail_url", void 0);
+    __decorate([
         typeorm_1.Index(),
         typeorm_1.Column({
             nullable: true,

@@ -10,6 +10,7 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 export declare class Poll {
     poll_id: string;
     question: string;
+    thumbnail_url: string;
     caption?: string;
     language?: string;
     geo_point?: IGeoPoint | string;

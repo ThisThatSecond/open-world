@@ -8,6 +8,7 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 export declare class Collection {
     collection_id: string;
     title: string;
+    thumbnail_url: string;
     caption: string;
     category?: CATEGORIES;
     location: string;

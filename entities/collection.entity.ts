@@ -30,6 +30,11 @@ export class Collection {
   })
   title: string;
 
+  @Column({
+    nullable: true,
+  })
+  thumbnail_url: string;
+
   @Index()
   @Column({
     nullable: true,
