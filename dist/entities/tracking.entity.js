@@ -51,7 +51,9 @@ var Tracking = /** @class */ (function () {
     ], Tracking.prototype, "created_at", void 0);
     Tracking = __decorate([
         typeorm_1.Entity("trackings"),
-        typeorm_1.Check("check_poll_or_collection_tracking", "poll_id is not null or collection_id is not null")
+        typeorm_1.Check("check_poll_or_collection_tracking", "poll_id is not null or collection_id is not null"),
+        typeorm_1.Unique('unique_profile_poll_tracking', ['tracker', 'poll']),
+        typeorm_1.Unique('unique_profile_collection_tracking', ['tracker', 'collection'])
     ], Tracking);
     return Tracking;
 }());

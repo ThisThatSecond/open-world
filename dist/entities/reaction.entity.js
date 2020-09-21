@@ -60,7 +60,9 @@ var Reaction = /** @class */ (function () {
     ], Reaction.prototype, "created_at", void 0);
     Reaction = __decorate([
         typeorm_1.Entity("reactions"),
-        typeorm_1.Check("check_poll_or_collection_reaction", "poll_id is not null or collection_id is not null")
+        typeorm_1.Check("check_poll_or_collection_reaction", "poll_id is not null or collection_id is not null"),
+        typeorm_1.Unique("unique_profile_poll_reaction", ['poll', 'profile']),
+        typeorm_1.Unique("unique_profile_collection_reaction", ['collection', 'profile'])
     ], Reaction);
     return Reaction;
 }());
