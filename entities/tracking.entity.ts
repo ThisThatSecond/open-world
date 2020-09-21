@@ -1,10 +1,12 @@
-import { Entity, Column, JoinColumn, ManyToOne, Check, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, JoinColumn, ManyToOne, Check, PrimaryGeneratedColumn, Unique } from "typeorm";
 import { Poll } from "./poll.entity";
 import { Collection } from "./collection.entity";
 import { Profile } from "./profile.entity";
 
 @Entity("trackings")
 @Check("check_poll_or_collection_tracking", `poll_id is not null or collection_id is not null`)
+@Unique('unique_profile_poll_tracking', ['tracker', 'poll'])
+@Unique('unique_profile_collection_tracking', ['tracker', 'collection'])
 export class Tracking {
   @PrimaryGeneratedColumn("uuid")
   tracking_id: string;
