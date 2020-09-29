@@ -20,6 +20,13 @@ var PricingPackage = /** @class */ (function () {
     __decorate([
         typeorm_1.Column({
             nullable: false,
+            unique: true,
+        }),
+        __metadata("design:type", String)
+    ], PricingPackage.prototype, "name", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: false,
             type: "float",
         }),
         __metadata("design:type", Number)

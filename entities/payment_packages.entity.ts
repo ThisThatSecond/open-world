@@ -8,6 +8,12 @@ export class PricingPackage {
 
   @Column({
     nullable: false,
+    unique: true,
+  })
+  name: string;
+
+  @Column({
+    nullable: false,
     type: "float",
   })
   price: number;
