@@ -1,4 +1,4 @@
-export declare class PricingPackage {
+export declare class PaymentPackage {
     price_package_id: string;
     name: string;
     price: number;

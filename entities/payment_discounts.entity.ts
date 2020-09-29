@@ -1,8 +1,8 @@
 import { Entity, Column, PrimaryGeneratedColumn, Check } from "typeorm";
 
-@Entity("payment_packages")
-@Check("check_package_price", `price > 0 and credit > 0`)
-export class PaymentPackage {
+@Entity("payment_discounts")
+@Check("check_discount", `value > 0`)
+export class PaymentDiscount {
   @PrimaryGeneratedColumn("uuid")
   price_package_id: string;
 
@@ -10,23 +10,13 @@ export class PaymentPackage {
     nullable: false,
     unique: true,
   })
-  name: string;
+  code: string;
 
   @Column({
     nullable: false,
     type: "float",
   })
-  price: number;
-
-  @Column({
-    nullable: false,
-  })
-  credit: number;
-
-  @Column({
-    nullable: false,
-  })
-  currency: string;
+  value: number;
 
   @Column({
     nullable: true,
