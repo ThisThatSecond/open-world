@@ -50,7 +50,19 @@ export class Payment {
     array: false,
     nullable: true,
   })
-  desc?: { gender: string };
+  vat_info?: {
+    vat_number: number;
+    country_code: string;
+    company_name: string;
+    company_address: string;
+  };
+
+  @Column({
+    type: "jsonb",
+    array: false,
+    nullable: true,
+  })
+  desc?: {};
 
   @Column({
     type: "timestamptz",

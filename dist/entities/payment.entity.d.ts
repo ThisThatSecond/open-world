@@ -9,8 +9,12 @@ export declare class Payment {
     stripe_session_id: string;
     opinions_count: number;
     is_complete?: boolean;
-    desc?: {
-        gender: string;
+    vat_info?: {
+        vat_number: number;
+        country_code: string;
+        company_name: string;
+        company_address: string;
     };
+    desc?: {};
     created_at: Date;
 }

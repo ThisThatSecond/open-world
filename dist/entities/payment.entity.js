@@ -68,6 +68,14 @@ var Payment = /** @class */ (function () {
             nullable: true,
         }),
         __metadata("design:type", Object)
+    ], Payment.prototype, "vat_info", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: "jsonb",
+            array: false,
+            nullable: true,
+        }),
+        __metadata("design:type", Object)
     ], Payment.prototype, "desc", void 0);
     __decorate([
         typeorm_1.Column({
