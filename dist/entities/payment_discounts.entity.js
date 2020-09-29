@@ -33,6 +33,13 @@ var PaymentDiscount = /** @class */ (function () {
     ], PaymentDiscount.prototype, "value", void 0);
     __decorate([
         typeorm_1.Column({
+            type: "timestamptz",
+            nullable: false,
+        }),
+        __metadata("design:type", Date)
+    ], PaymentDiscount.prototype, "expired_at", void 0);
+    __decorate([
+        typeorm_1.Column({
             nullable: true,
         }),
         __metadata("design:type", String)

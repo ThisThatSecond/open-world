@@ -17,6 +17,12 @@ export class PaymentDiscount {
     type: "float",
   })
   value: number;
+  
+  @Column({
+    type: "timestamptz",
+    nullable: false,
+  })
+  expired_at: Date;
 
   @Column({
     nullable: true,
