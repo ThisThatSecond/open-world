@@ -2,10 +2,13 @@ import { Entity, Column, JoinColumn, PrimaryGeneratedColumn, ManyToOne, Check } 
 import { User } from "./user.entity";
 import { Team } from "./team.entity";
 import { PaymentSetting } from "./payment_setting.entity";
+import { PaymentPackage } from "./payment_packages.entity";
+import { PaymentDiscount } from "./payment_discounts.entity";
 
 @Entity("payments")
 @Check("check_completed_payment", `not is_complete or "desc" is not null`)
 @Check("check_opinions_count", `opinions_count > 0`)
+@Check("check_setting_or_package", `(payment_setting_id is not and payment_package_id is null) or (payment_setting_id is null and payment_package_id is not null)`)
 export class Payment {
   @PrimaryGeneratedColumn("uuid")
   payment_id: string;
@@ -22,11 +25,23 @@ export class Payment {
   })
   team: Team;
 
-  @ManyToOne(() => PaymentSetting, { nullable: false })
+  @ManyToOne(() => PaymentSetting, { nullable: true })
   @JoinColumn({
     name: "payment_setting_id",
   })
   paymentSetting: PaymentSetting;
+
+  @ManyToOne(() => PaymentPackage, { nullable: true })
+  @JoinColumn({
+    name: "payment_package_id",
+  })
+  paymentPackage: PaymentPackage;
+
+  @ManyToOne(() => PaymentDiscount, { nullable: true })
+  @JoinColumn({
+    name: "payment_discount_id",
+  })
+  paymentDiscount: PaymentDiscount;
 
   @Column({
     nullable: false,

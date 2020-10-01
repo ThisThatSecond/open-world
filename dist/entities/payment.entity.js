@@ -13,6 +13,8 @@ var typeorm_1 = require("typeorm");
 var user_entity_1 = require("./user.entity");
 var team_entity_1 = require("./team.entity");
 var payment_setting_entity_1 = require("./payment_setting.entity");
+var payment_packages_entity_1 = require("./payment_packages.entity");
+var payment_discounts_entity_1 = require("./payment_discounts.entity");
 var Payment = /** @class */ (function () {
     function Payment() {
     }
@@ -35,12 +37,26 @@ var Payment = /** @class */ (function () {
         __metadata("design:type", team_entity_1.Team)
     ], Payment.prototype, "team", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return payment_setting_entity_1.PaymentSetting; }, { nullable: false }),
+        typeorm_1.ManyToOne(function () { return payment_setting_entity_1.PaymentSetting; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: "payment_setting_id",
         }),
         __metadata("design:type", payment_setting_entity_1.PaymentSetting)
     ], Payment.prototype, "paymentSetting", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return payment_packages_entity_1.PaymentPackage; }, { nullable: true }),
+        typeorm_1.JoinColumn({
+            name: "payment_package_id",
+        }),
+        __metadata("design:type", payment_packages_entity_1.PaymentPackage)
+    ], Payment.prototype, "paymentPackage", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return payment_discounts_entity_1.PaymentDiscount; }, { nullable: true }),
+        typeorm_1.JoinColumn({
+            name: "payment_discount_id",
+        }),
+        __metadata("design:type", payment_discounts_entity_1.PaymentDiscount)
+    ], Payment.prototype, "paymentDiscount", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: false,
@@ -88,7 +104,8 @@ var Payment = /** @class */ (function () {
     Payment = __decorate([
         typeorm_1.Entity("payments"),
         typeorm_1.Check("check_completed_payment", "not is_complete or \"desc\" is not null"),
-        typeorm_1.Check("check_opinions_count", "opinions_count > 0")
+        typeorm_1.Check("check_opinions_count", "opinions_count > 0"),
+        typeorm_1.Check("check_setting_or_package", "(payment_setting_id is not and payment_package_id is null) or (payment_setting_id is null and payment_package_id is not null)")
     ], Payment);
     return Payment;
 }());
