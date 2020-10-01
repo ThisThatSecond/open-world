@@ -66,10 +66,12 @@ export class Payment {
     nullable: true,
   })
   vat_info?: {
-    vat_number: number;
+    vat_number: string;
     country_code: string;
     company_name: string;
     company_address: string;
+    is_valid: boolean;
+    rate: number;
   };
 
   @Column({
