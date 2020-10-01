@@ -40,6 +40,12 @@ var PaymentDiscount = /** @class */ (function () {
     ], PaymentDiscount.prototype, "expired_at", void 0);
     __decorate([
         typeorm_1.Column({
+            default: true,
+        }),
+        __metadata("design:type", Boolean)
+    ], PaymentDiscount.prototype, "is_active", void 0);
+    __decorate([
+        typeorm_1.Column({
             nullable: true,
         }),
         __metadata("design:type", String)

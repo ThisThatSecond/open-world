@@ -51,6 +51,12 @@ var PaymentPackage = /** @class */ (function () {
     ], PaymentPackage.prototype, "desc", void 0);
     __decorate([
         typeorm_1.Column({
+            default: true,
+        }),
+        __metadata("design:type", Boolean)
+    ], PaymentPackage.prototype, "is_active", void 0);
+    __decorate([
+        typeorm_1.Column({
             type: "timestamptz",
             default: function () { return "CURRENT_TIMESTAMP"; },
             nullable: false,

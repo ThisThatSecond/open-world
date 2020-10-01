@@ -34,6 +34,11 @@ export class PaymentPackage {
   desc: string;
 
   @Column({
+    default: true,
+  })
+  is_active?: boolean;
+
+  @Column({
     type: "timestamptz",
     default: () => "CURRENT_TIMESTAMP",
     nullable: false,

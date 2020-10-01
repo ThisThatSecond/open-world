@@ -3,6 +3,7 @@ export declare class PaymentDiscount {
     code: string;
     value: number;
     expired_at: Date;
+    is_active?: boolean;
     desc: string;
     updated_at: Date;
 }
