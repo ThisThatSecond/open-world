@@ -70,6 +70,8 @@ export class Payment {
     country_code: string;
     company_name: string;
     company_address: string;
+    claimed_company_name: string;
+    claimed_company_address: string;
     is_valid: boolean;
     rate: number;
   };
