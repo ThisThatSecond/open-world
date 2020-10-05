@@ -30,6 +30,7 @@ export declare class Collection {
     audience_locations?: string[];
     is_familiarity_required?: boolean;
     has_anonymous_vote?: boolean;
+    votes_count: number;
     polls?: Poll[];
     profile: Profile;
     creator: User;

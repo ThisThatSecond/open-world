@@ -42,6 +42,18 @@ var Pair = /** @class */ (function () {
         __metadata("design:type", option_entity_1.Option)
     ], Pair.prototype, "option2", void 0);
     __decorate([
+        typeorm_1.Column({
+            default: 0,
+        }),
+        __metadata("design:type", Number)
+    ], Pair.prototype, "option1_wins_count", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: 0,
+        }),
+        __metadata("design:type", Number)
+    ], Pair.prototype, "option2_wins_count", void 0);
+    __decorate([
         typeorm_1.OneToMany(function () { return pair_vote_entity_1.PairVote; }, function (pairVote) { return pairVote.pair; }),
         __metadata("design:type", Array)
     ], Pair.prototype, "pairVotes", void 0);
