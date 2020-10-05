@@ -41,7 +41,12 @@ export class Comment {
   @Column({
     default: 0,
   })
-  votes_count: number;
+  upvotes_count: number;
+  
+  @Column({
+    default: 0,
+  })
+  downvotes_count: number;
 
   @Column({
     type: "timestamptz",

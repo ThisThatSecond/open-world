@@ -8,6 +8,7 @@ export declare class Comment {
     collection?: Collection;
     creator: Profile;
     is_hidden?: boolean;
-    votes_count: number;
+    upvotes_count: number;
+    downvotes_count: number;
     created_at?: Date;
 }

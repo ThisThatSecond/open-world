@@ -58,7 +58,13 @@ var Comment = /** @class */ (function () {
             default: 0,
         }),
         __metadata("design:type", Number)
-    ], Comment.prototype, "votes_count", void 0);
+    ], Comment.prototype, "upvotes_count", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: 0,
+        }),
+        __metadata("design:type", Number)
+    ], Comment.prototype, "downvotes_count", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
