@@ -1,12 +1,4 @@
-import {
-  Entity,
-  ManyToOne,
-  JoinColumn,
-  Column,
-  PrimaryGeneratedColumn,
-  Unique,
-  OneToMany,
-} from "typeorm";
+import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn, Unique, OneToMany } from "typeorm";
 import { Poll } from "./poll.entity";
 import { Option } from "./option.entity";
 import { PairVote } from "./pair_vote.entity";
@@ -34,6 +26,16 @@ export class Pair {
     name: "option2_id",
   })
   option2: Option;
+
+  @Column({
+    default: 0,
+  })
+  option1_wins_count: number;
+
+  @Column({
+    default: 0,
+  })
+  option2_wins_count: number;
 
   @OneToMany(() => PairVote, (pairVote) => pairVote.pair)
   pairVotes?: PairVote[];

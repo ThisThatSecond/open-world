@@ -5,6 +5,8 @@ export declare class Option {
     title: string;
     image_url?: string;
     is_this?: boolean;
+    upvotes_count: number;
+    downvotes_count: number;
     optionVotes?: OptionVote[];
     poll: Poll;
 }

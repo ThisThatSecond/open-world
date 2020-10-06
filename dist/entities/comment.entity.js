@@ -22,28 +22,28 @@ var Comment = /** @class */ (function () {
     ], Comment.prototype, "comment_id", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: false
+            nullable: false,
         }),
         __metadata("design:type", String)
     ], Comment.prototype, "text", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return poll_entity_1.Poll; }, { nullable: true }),
         typeorm_1.JoinColumn({
-            name: 'poll_id'
+            name: "poll_id",
         }),
         __metadata("design:type", poll_entity_1.Poll)
     ], Comment.prototype, "poll", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return collection_entity_1.Collection; }, { nullable: true }),
         typeorm_1.JoinColumn({
-            name: 'collection_id'
+            name: "collection_id",
         }),
         __metadata("design:type", collection_entity_1.Collection)
     ], Comment.prototype, "collection", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'creator_id'
+            name: "creator_id",
         }),
         __metadata("design:type", profile_entity_1.Profile)
     ], Comment.prototype, "creator", void 0);
@@ -55,14 +55,26 @@ var Comment = /** @class */ (function () {
     ], Comment.prototype, "is_hidden", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; },
-            nullable: false
+            default: 0,
+        }),
+        __metadata("design:type", Number)
+    ], Comment.prototype, "upvotes_count", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: 0,
+        }),
+        __metadata("design:type", Number)
+    ], Comment.prototype, "downvotes_count", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: "timestamptz",
+            default: function () { return "CURRENT_TIMESTAMP"; },
+            nullable: false,
         }),
         __metadata("design:type", Date)
     ], Comment.prototype, "created_at", void 0);
     Comment = __decorate([
-        typeorm_1.Entity('comments'),
+        typeorm_1.Entity("comments"),
         typeorm_1.Check("check_null_poll_for_collection", "(poll_id is not null and collection_id is null) or (poll_id is null and collection_id is not null)")
     ], Comment);
     return Comment;

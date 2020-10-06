@@ -133,6 +133,11 @@ export class Poll {
   })
   is_active?: boolean;
 
+  @Column({
+    default: 0,
+  })
+  votes_count: number;
+
   @ManyToOne(() => User, (user) => user.polls, { nullable: false })
   @JoinColumn({
     name: "creator_id",

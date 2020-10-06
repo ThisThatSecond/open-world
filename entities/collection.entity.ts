@@ -143,6 +143,11 @@ export class Collection {
   })
   has_anonymous_vote?: boolean;
 
+  @Column({
+    default: 0,
+  })
+  votes_count: number;
+
   @OneToMany(() => Poll, (poll) => poll.collection)
   polls?: Poll[];
 

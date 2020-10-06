@@ -30,6 +30,16 @@ export class Option {
   })
   is_this?: boolean;
 
+  @Column({
+    default: 0,
+  })
+  upvotes_count: number;
+  
+  @Column({
+    default: 0,
+  })
+  downvotes_count: number;
+  
   @OneToMany(() => OptionVote, (optionVote) => optionVote.option)
   optionVotes?: OptionVote[];
 

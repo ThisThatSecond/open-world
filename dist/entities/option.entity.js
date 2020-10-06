@@ -38,6 +38,18 @@ var Option = /** @class */ (function () {
         __metadata("design:type", Boolean)
     ], Option.prototype, "is_this", void 0);
     __decorate([
+        typeorm_1.Column({
+            default: 0,
+        }),
+        __metadata("design:type", Number)
+    ], Option.prototype, "upvotes_count", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: 0,
+        }),
+        __metadata("design:type", Number)
+    ], Option.prototype, "downvotes_count", void 0);
+    __decorate([
         typeorm_1.OneToMany(function () { return option_vote_entity_1.OptionVote; }, function (optionVote) { return optionVote.option; }),
         __metadata("design:type", Array)
     ], Option.prototype, "optionVotes", void 0);
