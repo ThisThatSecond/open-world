@@ -66,7 +66,7 @@ var Payment = /** @class */ (function () {
     ], Payment.prototype, "stripe_session_id", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: false,
+            nullable: true,
         }),
         __metadata("design:type", Number)
     ], Payment.prototype, "opinions_count", void 0);
@@ -104,7 +104,7 @@ var Payment = /** @class */ (function () {
     Payment = __decorate([
         typeorm_1.Entity("payments"),
         typeorm_1.Check("check_completed_payment", "not is_complete or \"desc\" is not null"),
-        typeorm_1.Check("check_opinions_count", "opinions_count > 0"),
+        typeorm_1.Check("check_opinions_count", "opinions_count is null or opinions_count > 0"),
         typeorm_1.Check("check_setting_or_package", "(payment_setting_id is not null and payment_package_id is null) or (payment_setting_id is null and payment_package_id is not null)")
     ], Payment);
     return Payment;
