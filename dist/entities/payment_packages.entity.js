@@ -51,6 +51,12 @@ var PaymentPackage = /** @class */ (function () {
     ], PaymentPackage.prototype, "desc", void 0);
     __decorate([
         typeorm_1.Column({
+            nullable: false,
+        }),
+        __metadata("design:type", Number)
+    ], PaymentPackage.prototype, "rank", void 0);
+    __decorate([
+        typeorm_1.Column({
             default: true,
         }),
         __metadata("design:type", Boolean)

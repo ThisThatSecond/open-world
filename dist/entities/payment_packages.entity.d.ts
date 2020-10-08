@@ -5,6 +5,7 @@ export declare class PaymentPackage {
     credit: number;
     currency: string;
     desc: string;
+    rank: number;
     is_active?: boolean;
     updated_at: Date;
 }

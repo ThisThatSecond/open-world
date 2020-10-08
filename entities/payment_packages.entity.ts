@@ -34,6 +34,11 @@ export class PaymentPackage {
   desc: string;
 
   @Column({
+    nullable: false,
+  })
+  rank: number;
+
+  @Column({
     default: true,
   })
   is_active?: boolean;
