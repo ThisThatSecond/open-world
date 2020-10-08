@@ -1,5 +1,5 @@
 export declare class PaymentDiscount {
-    price_package_id: string;
+    payment_discount_id: string;
     code: string;
     value: number;
     expired_at: Date;

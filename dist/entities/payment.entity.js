@@ -42,21 +42,21 @@ var Payment = /** @class */ (function () {
             name: "payment_setting_id",
         }),
         __metadata("design:type", payment_setting_entity_1.PaymentSetting)
-    ], Payment.prototype, "paymentSetting", void 0);
+    ], Payment.prototype, "payment_setting", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return payment_packages_entity_1.PaymentPackage; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: "payment_package_id",
         }),
         __metadata("design:type", payment_packages_entity_1.PaymentPackage)
-    ], Payment.prototype, "paymentPackage", void 0);
+    ], Payment.prototype, "payment_package", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return payment_discounts_entity_1.PaymentDiscount; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: "payment_discount_id",
         }),
         __metadata("design:type", payment_discounts_entity_1.PaymentDiscount)
-    ], Payment.prototype, "paymentDiscount", void 0);
+    ], Payment.prototype, "payment_discount", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: false,

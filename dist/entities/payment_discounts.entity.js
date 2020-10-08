@@ -16,7 +16,7 @@ var PaymentDiscount = /** @class */ (function () {
     __decorate([
         typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", String)
-    ], PaymentDiscount.prototype, "price_package_id", void 0);
+    ], PaymentDiscount.prototype, "payment_discount_id", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: false,

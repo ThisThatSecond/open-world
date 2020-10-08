@@ -4,7 +4,7 @@ import { Entity, Column, PrimaryGeneratedColumn, Check } from "typeorm";
 @Check("check_discount", `value > 0`)
 export class PaymentDiscount {
   @PrimaryGeneratedColumn("uuid")
-  price_package_id: string;
+  payment_discount_id: string;
 
   @Column({
     nullable: false,

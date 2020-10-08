@@ -29,19 +29,19 @@ export class Payment {
   @JoinColumn({
     name: "payment_setting_id",
   })
-  paymentSetting: PaymentSetting;
+  payment_setting: PaymentSetting;
 
   @ManyToOne(() => PaymentPackage, { nullable: true })
   @JoinColumn({
     name: "payment_package_id",
   })
-  paymentPackage: PaymentPackage;
+  payment_package: PaymentPackage;
 
   @ManyToOne(() => PaymentDiscount, { nullable: true })
   @JoinColumn({
     name: "payment_discount_id",
   })
-  paymentDiscount: PaymentDiscount;
+  payment_discount: PaymentDiscount;
 
   @Column({
     nullable: false,

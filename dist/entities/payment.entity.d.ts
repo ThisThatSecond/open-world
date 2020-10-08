@@ -7,9 +7,9 @@ export declare class Payment {
     payment_id: string;
     payer: User;
     team: Team;
-    paymentSetting: PaymentSetting;
-    paymentPackage: PaymentPackage;
-    paymentDiscount: PaymentDiscount;
+    payment_setting: PaymentSetting;
+    payment_package: PaymentPackage;
+    payment_discount: PaymentDiscount;
     stripe_session_id: string;
     opinions_count: number;
     is_complete?: boolean;

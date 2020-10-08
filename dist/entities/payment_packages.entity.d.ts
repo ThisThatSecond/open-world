@@ -1,5 +1,5 @@
 export declare class PaymentPackage {
-    price_package_id: string;
+    payment_package_id: string;
     name: string;
     price: number;
     credit: number;
