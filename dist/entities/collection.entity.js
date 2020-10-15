@@ -167,6 +167,12 @@ var Collection = /** @class */ (function () {
         __metadata("design:type", Number)
     ], Collection.prototype, "votes_count", void 0);
     __decorate([
+        typeorm_1.Column({
+            default: 0,
+        }),
+        __metadata("design:type", Number)
+    ], Collection.prototype, "responses_count", void 0);
+    __decorate([
         typeorm_1.OneToMany(function () { return poll_entity_1.Poll; }, function (poll) { return poll.collection; }),
         __metadata("design:type", Array)
     ], Collection.prototype, "polls", void 0);

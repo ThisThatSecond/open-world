@@ -31,6 +31,7 @@ export declare class Collection {
     is_familiarity_required?: boolean;
     has_anonymous_vote?: boolean;
     votes_count: number;
+    responses_count: number;
     polls?: Poll[];
     profile: Profile;
     creator: User;

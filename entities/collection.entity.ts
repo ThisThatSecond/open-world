@@ -149,6 +149,12 @@ export class Collection {
   })
   votes_count: number;
 
+  @Column({
+    default: 0,
+  })
+  responses_count: number;
+
+
   @OneToMany(() => Poll, (poll) => poll.collection)
   polls?: Poll[];
 

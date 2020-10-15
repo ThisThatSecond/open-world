@@ -138,6 +138,11 @@ export class Poll {
     default: 0,
   })
   votes_count: number;
+  
+  @Column({
+    default: 0,
+  })
+  responses_count: number;
 
   @ManyToOne(() => User, (user) => user.polls, { nullable: false })
   @JoinColumn({
