@@ -35,4 +35,5 @@ export declare class Collection {
     profile: Profile;
     creator: User;
     created_at?: Date;
+    finalized_at?: Date;
 }

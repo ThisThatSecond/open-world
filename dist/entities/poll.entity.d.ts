@@ -40,4 +40,5 @@ export declare class Poll {
     options?: Option[];
     pairs?: Pair[];
     created_at?: Date;
+    finalized_at?: Date;
 }
