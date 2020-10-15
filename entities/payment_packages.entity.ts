@@ -34,6 +34,7 @@ export class PaymentPackage {
   desc: string;
 
   @Column({
+    default: 0,
     nullable: false,
   })
   rank: number;
