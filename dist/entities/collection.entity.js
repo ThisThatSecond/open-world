@@ -79,7 +79,7 @@ var Collection = /** @class */ (function () {
             nullable: true,
         }),
         __metadata("design:type", Number)
-    ], Collection.prototype, "desired_votes_count", void 0);
+    ], Collection.prototype, "desired_responses_count", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",

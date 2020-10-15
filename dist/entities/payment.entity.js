@@ -69,7 +69,7 @@ var Payment = /** @class */ (function () {
             nullable: true,
         }),
         __metadata("design:type", Number)
-    ], Payment.prototype, "opinions_count", void 0);
+    ], Payment.prototype, "response_credit", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: false,

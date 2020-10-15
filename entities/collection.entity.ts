@@ -73,7 +73,7 @@ export class Collection {
   @Column({
     nullable: true,
   })
-  desired_votes_count: number;
+  desired_responses_count: number;
 
   @Column({
     type: "timestamptz",
@@ -153,7 +153,6 @@ export class Collection {
     default: 0,
   })
   responses_count: number;
-
 
   @OneToMany(() => Poll, (poll) => poll.collection)
   polls?: Poll[];

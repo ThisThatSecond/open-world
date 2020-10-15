@@ -52,7 +52,7 @@ export class Payment {
   @Column({
     nullable: true,
   })
-  opinions_count: number;
+  response_credit: number;
 
   @Column({
     nullable: false,

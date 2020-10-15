@@ -23,7 +23,7 @@ var Team = /** @class */ (function () {
     __decorate([
         typeorm_1.Index(),
         typeorm_1.Column({
-            nullable: false
+            nullable: false,
         }),
         __metadata("design:type", String)
     ], Team.prototype, "name", void 0);
@@ -31,40 +31,40 @@ var Team = /** @class */ (function () {
         typeorm_1.Index(),
         typeorm_1.Column({
             unique: true,
-            nullable: false
+            nullable: false,
         }),
         __metadata("design:type", String)
     ], Team.prototype, "join_link", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: false
+            nullable: false,
         }),
         __metadata("design:type", String)
     ], Team.prototype, "description", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true
+            nullable: true,
         }),
         __metadata("design:type", String)
     ], Team.prototype, "avatar_url", void 0);
     __decorate([
         typeorm_1.Column({
             default: 0,
-            nullable: false
+            nullable: false,
         }),
         __metadata("design:type", Number)
-    ], Team.prototype, "opinions_count", void 0);
+    ], Team.prototype, "response_credit", void 0);
     __decorate([
         typeorm_1.Column({
             default: true,
-            nullable: false
+            nullable: false,
         }),
         __metadata("design:type", Boolean)
     ], Team.prototype, "is_active", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'owner_id',
+            name: "owner_id",
         }),
         __metadata("design:type", user_entity_1.User)
     ], Team.prototype, "owner", void 0);
@@ -78,14 +78,14 @@ var Team = /** @class */ (function () {
     ], Team.prototype, "invitations", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; },
-            nullable: false
+            type: "timestamptz",
+            default: function () { return "CURRENT_TIMESTAMP"; },
+            nullable: false,
         }),
         __metadata("design:type", Date)
     ], Team.prototype, "created_at", void 0);
     Team = __decorate([
-        typeorm_1.Entity('teams'),
+        typeorm_1.Entity("teams"),
         typeorm_1.Unique("uniqe_join_link", ["join_link"])
     ], Team);
     return Team;

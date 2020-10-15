@@ -11,7 +11,7 @@ export declare class Payment {
     payment_package: PaymentPackage;
     payment_discount: PaymentDiscount;
     stripe_session_id: string;
-    opinions_count: number;
+    response_credit: number;
     is_complete?: boolean;
     vat_info?: {
         vat_number: string;

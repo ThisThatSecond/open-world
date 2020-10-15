@@ -62,7 +62,7 @@ export class Poll {
   @Column({
     nullable: true,
   })
-  desired_votes_count?: number;
+  desired_responses_count?: number;
 
   @Column({
     type: "timestamptz",

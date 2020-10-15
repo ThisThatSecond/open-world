@@ -15,7 +15,7 @@ export declare class Collection {
     language: string;
     geo_point?: IGeoPoint | string;
     visibile_options_count: number;
-    desired_votes_count: number;
+    desired_responses_count: number;
     release_date?: Date;
     is_draft?: boolean;
     is_hidden?: boolean;
