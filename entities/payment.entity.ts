@@ -7,7 +7,7 @@ import { PaymentDiscount } from "./payment_discounts.entity";
 
 @Entity("payments")
 @Check("check_completed_payment", `not is_complete or "desc" is not null`)
-@Check("check_opinions_count", `(opinions_count is null and payment_package_id is not null) or opinions_count > 0`)
+@Check("check_opinions_count", `(response_credit is null and payment_package_id is not null) or response_credit > 0`)
 @Check("check_setting_or_package", `(payment_setting_id is not null and payment_package_id is null) or (payment_setting_id is null and payment_package_id is not null)`)
 export class Payment {
   @PrimaryGeneratedColumn("uuid")
