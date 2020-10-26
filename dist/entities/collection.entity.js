@@ -207,7 +207,7 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "finalized_at", void 0);
     Collection = __decorate([
         typeorm_1.Entity("collections"),
-        typeorm_1.Check("check_requirements", "\n        is_draft or ( \n          title is not null and\n          visibile_options_count >= 3 and\n          desired_votes_count > 0 and\n          location is not null and\n          geo_point is not null\n        )\n    "),
+        typeorm_1.Check("check_requirements", "\n        is_draft or ( \n          title is not null and\n          visibile_options_count >= 3 and\n          desired_responses_count > 0 and\n          location is not null and\n          geo_point is not null\n        )\n    "),
         typeorm_1.Check("check_collection_finalized", "(is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)"),
         typeorm_1.Check("check_poll_responses_count", "responses_count <= desired_responses_count")
     ], Collection);

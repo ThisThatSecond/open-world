@@ -51,6 +51,7 @@ var PaymentPackage = /** @class */ (function () {
     ], PaymentPackage.prototype, "desc", void 0);
     __decorate([
         typeorm_1.Column({
+            default: 0,
             nullable: false,
         }),
         __metadata("design:type", Number)
