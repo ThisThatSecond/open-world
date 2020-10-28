@@ -1,15 +1,8 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  ManyToOne,
-  JoinColumn,
-  PrimaryColumn,
-  OneToMany,
-} from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, PrimaryColumn, OneToMany, Check } from "typeorm";
 import { Poll } from "./poll.entity";
 import { OptionVote } from "./option_vote.entity";
 
+@Check("video_image_check", "video_url is null or image_url is not null")
 @Entity("options")
 export class Option {
   @PrimaryColumn()
@@ -24,7 +17,7 @@ export class Option {
     nullable: true,
   })
   image_url?: string;
-  
+
   @Column({
     nullable: true,
   })
@@ -39,12 +32,12 @@ export class Option {
     default: 0,
   })
   upvotes_count: number;
-  
+
   @Column({
     default: 0,
   })
   downvotes_count: number;
-  
+
   @OneToMany(() => OptionVote, (optionVote) => optionVote.option)
   optionVotes?: OptionVote[];
 
@@ -53,5 +46,4 @@ export class Option {
     name: "poll_id",
   })
   poll: Poll;
-
 }
