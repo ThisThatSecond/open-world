@@ -35,6 +35,12 @@ var Option = /** @class */ (function () {
         typeorm_1.Column({
             nullable: true,
         }),
+        __metadata("design:type", String)
+    ], Option.prototype, "video_url", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: true,
+        }),
         __metadata("design:type", Boolean)
     ], Option.prototype, "is_this", void 0);
     __decorate([

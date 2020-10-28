@@ -24,6 +24,11 @@ export class Option {
     nullable: true,
   })
   image_url?: string;
+  
+  @Column({
+    nullable: true,
+  })
+  video_url?: string;
 
   @Column({
     nullable: true,
