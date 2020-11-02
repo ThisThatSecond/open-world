@@ -163,7 +163,7 @@ export class Poll {
   })
   profile?: Profile;
 
-  @Index("collection-id-idx")
+  @Index()
   @ManyToOne(() => Collection, (collection) => collection.polls, {
     nullable: true,
   })

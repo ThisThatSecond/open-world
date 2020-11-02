@@ -14,21 +14,21 @@ export class User {
   @PrimaryColumn()
   user_id: string;
 
-  @Index("username-idx")
+  @Index()
   @Column({
     unique: true,
     nullable: true,
   })
   username: string;
 
-  @Index("email-idx")
+  @Index()
   @Column({
     nullable: true,
     unique: true,
   })
   email?: string;
 
-  @Index("name-idx")
+  @Index()
   @Column({
     nullable: true,
   })

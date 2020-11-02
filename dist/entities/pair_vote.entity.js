@@ -30,7 +30,7 @@ var PairVote = /** @class */ (function () {
         __metadata("design:type", Number)
     ], PairVote.prototype, "action", void 0);
     __decorate([
-        typeorm_1.Index("pair-id-idx"),
+        typeorm_1.Index(),
         typeorm_1.ManyToOne(function () { return pair_entity_1.Pair; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "pair_id",
@@ -38,7 +38,7 @@ var PairVote = /** @class */ (function () {
         __metadata("design:type", pair_entity_1.Pair)
     ], PairVote.prototype, "pair", void 0);
     __decorate([
-        typeorm_1.Index("voter-id-idx"),
+        typeorm_1.Index(),
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "voter_id",

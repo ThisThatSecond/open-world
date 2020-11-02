@@ -22,7 +22,7 @@ var Collection = /** @class */ (function () {
         __metadata("design:type", String)
     ], Collection.prototype, "collection_id", void 0);
     __decorate([
-        typeorm_1.Index("title-idx") // is it needed?
+        typeorm_1.Index() // is it needed?
         ,
         typeorm_1.Column({
             nullable: false,
@@ -36,7 +36,7 @@ var Collection = /** @class */ (function () {
         __metadata("design:type", String)
     ], Collection.prototype, "thumbnail_url", void 0);
     __decorate([
-        typeorm_1.Index("caption-idx") // is it needed?
+        typeorm_1.Index() // is it needed?
         ,
         typeorm_1.Column({
             nullable: true,

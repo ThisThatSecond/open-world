@@ -9,7 +9,7 @@ export class Pair {
   @PrimaryGeneratedColumn("uuid")
   pair_id: string;
 
-  @Index("poll-id-idx")
+  @Index()
   @ManyToOne(() => Poll, { nullable: false })
   @JoinColumn({
     name: "poll_id",

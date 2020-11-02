@@ -60,7 +60,7 @@ var Option = /** @class */ (function () {
         __metadata("design:type", Array)
     ], Option.prototype, "optionVotes", void 0);
     __decorate([
-        typeorm_1.Index("poll-id-idx"),
+        typeorm_1.Index(),
         typeorm_1.ManyToOne(function () { return poll_entity_1.Poll; }, function (poll) { return poll.options; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "poll_id",

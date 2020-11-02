@@ -9,7 +9,7 @@ export class OptionVote {
   @PrimaryGeneratedColumn("uuid")
   option_vote_id: string;
 
-  @Index("option-id-idx")
+  @Index()
   @ManyToOne(() => Option, { nullable: false })
   @JoinColumn({
     name: "option_id",
@@ -24,7 +24,7 @@ export class OptionVote {
   })
   action: OptionVoteActions;
 
-  @Index("voter-id-idx")
+  @Index()
   @ManyToOne(() => Profile, { nullable: false })
   @JoinColumn({
     name: "voter_id",

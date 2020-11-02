@@ -9,7 +9,7 @@ export class PairVoteHistory {
   @PrimaryGeneratedColumn("uuid")
   pair_vote_history_id: string;
 
-  @Index("pair-id-idx")
+  @Index()
   @ManyToOne(() => Pair, { nullable: false })
   @JoinColumn({
     name: "pair_id",
@@ -23,7 +23,7 @@ export class PairVoteHistory {
   })
   action: PairVoteActions;
 
-  @Index("voter_id-idx")
+  @Index()
   @ManyToOne(() => Profile, { nullable: false })
   @JoinColumn({
     name: "voter_id",

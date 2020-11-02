@@ -18,14 +18,14 @@ export class PairVote {
   })
   action: PairVoteActions;
 
-  @Index("pair-id-idx")
+  @Index()
   @ManyToOne(() => Pair, { nullable: false })
   @JoinColumn({
     name: "pair_id",
   })
   pair: Pair;
 
-  @Index("voter-id-idx")
+  @Index()
   @ManyToOne(() => Profile, { nullable: false })
   @JoinColumn({
     name: "voter_id",

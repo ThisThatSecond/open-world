@@ -21,14 +21,14 @@ var Team = /** @class */ (function () {
         __metadata("design:type", String)
     ], Team.prototype, "team_id", void 0);
     __decorate([
-        typeorm_1.Index('name-idx'),
+        typeorm_1.Index(),
         typeorm_1.Column({
             nullable: false,
         }),
         __metadata("design:type", String)
     ], Team.prototype, "name", void 0);
     __decorate([
-        typeorm_1.Index('joinlink-idx'),
+        typeorm_1.Index(),
         typeorm_1.Column({
             unique: true,
             nullable: false,

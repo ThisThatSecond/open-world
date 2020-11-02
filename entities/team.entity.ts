@@ -9,13 +9,13 @@ export class Team {
   @PrimaryColumn()
   team_id: string;
 
-  @Index('name-idx')
+  @Index()
   @Column({
     nullable: false,
   })
   name: string;
 
-  @Index('joinlink-idx')
+  @Index()
   @Column({
     unique: true,
     nullable: false,

@@ -195,7 +195,7 @@ var Poll = /** @class */ (function () {
         __metadata("design:type", profile_entity_1.Profile)
     ], Poll.prototype, "profile", void 0);
     __decorate([
-        typeorm_1.Index("collection-id-idx"),
+        typeorm_1.Index(),
         typeorm_1.ManyToOne(function () { return collection_entity_1.Collection; }, function (collection) { return collection.polls; }, {
             nullable: true,
         }),

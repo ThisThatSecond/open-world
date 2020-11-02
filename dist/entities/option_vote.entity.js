@@ -21,7 +21,7 @@ var OptionVote = /** @class */ (function () {
         __metadata("design:type", String)
     ], OptionVote.prototype, "option_vote_id", void 0);
     __decorate([
-        typeorm_1.Index("option-id-idx"),
+        typeorm_1.Index(),
         typeorm_1.ManyToOne(function () { return option_entity_1.Option; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "option_id",
@@ -38,7 +38,7 @@ var OptionVote = /** @class */ (function () {
         __metadata("design:type", Number)
     ], OptionVote.prototype, "action", void 0);
     __decorate([
-        typeorm_1.Index("voter-id-idx"),
+        typeorm_1.Index(),
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "voter_id",

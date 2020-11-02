@@ -41,7 +41,7 @@ export class Option {
   @OneToMany(() => OptionVote, (optionVote) => optionVote.option)
   optionVotes?: OptionVote[];
 
-  @Index("poll-id-idx")
+  @Index()
   @ManyToOne(() => Poll, (poll) => poll.options, { nullable: false })
   @JoinColumn({
     name: "poll_id",

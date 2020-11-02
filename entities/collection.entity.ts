@@ -27,7 +27,7 @@ export class Collection {
   @PrimaryGeneratedColumn("uuid")
   collection_id: string;
 
-  @Index("title-idx") // is it needed?
+  @Index() // is it needed?
   @Column({
     nullable: false,
   })
@@ -38,7 +38,7 @@ export class Collection {
   })
   thumbnail_url: string;
 
-  @Index("caption-idx") // is it needed?
+  @Index() // is it needed?
   @Column({
     nullable: true,
   })
