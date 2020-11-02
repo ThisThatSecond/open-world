@@ -163,7 +163,6 @@ var Poll = /** @class */ (function () {
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_active", void 0);
     __decorate([
-        Min(0),
         typeorm_1.Column({
             default: 0,
         }),

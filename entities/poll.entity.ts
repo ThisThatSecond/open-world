@@ -136,7 +136,6 @@ export class Poll {
   })
   is_active?: boolean;
 
-  @Min(0)
   @Column({
     default: 0,
   })
