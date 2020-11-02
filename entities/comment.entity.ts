@@ -5,7 +5,7 @@ import { Collection } from "./collection.entity";
 import { Profile } from "./profile.entity";
 
 @Entity("comments")
-@Check("check_null_poll_for_collection", `(poll_id is not null and collection_id is null) or (poll_id is null and collection_id is not null)`)
+@Check("check_null_poll_or_collection", `(poll_id is not null and collection_id is null) or (poll_id is null and collection_id is not null)`)
 export class Comment {
   @PrimaryColumn()
   comment_id: string;

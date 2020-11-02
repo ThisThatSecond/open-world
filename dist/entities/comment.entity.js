@@ -75,7 +75,7 @@ var Comment = /** @class */ (function () {
     ], Comment.prototype, "created_at", void 0);
     Comment = __decorate([
         typeorm_1.Entity("comments"),
-        typeorm_1.Check("check_null_poll_for_collection", "(poll_id is not null and collection_id is null) or (poll_id is null and collection_id is not null)")
+        typeorm_1.Check("check_null_poll_or_collection", "(poll_id is not null and collection_id is null) or (poll_id is null and collection_id is not null)")
     ], Comment);
     return Comment;
 }());
