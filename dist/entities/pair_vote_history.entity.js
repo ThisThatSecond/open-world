@@ -17,41 +17,43 @@ var PairVoteHistory = /** @class */ (function () {
     function PairVoteHistory() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn('uuid'),
+        typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", String)
     ], PairVoteHistory.prototype, "pair_vote_history_id", void 0);
     __decorate([
+        typeorm_1.Index("pair-id-idx"),
         typeorm_1.ManyToOne(function () { return pair_entity_1.Pair; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'pair_id'
+            name: "pair_id",
         }),
         __metadata("design:type", pair_entity_1.Pair)
     ], PairVoteHistory.prototype, "pair", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'enum',
+            type: "enum",
             enum: actions_enum_1.PairVoteActions,
-            enumName: 'pair_vote_action_enum'
+            enumName: "pair_vote_action_enum",
         }),
         __metadata("design:type", Number)
     ], PairVoteHistory.prototype, "action", void 0);
     __decorate([
+        typeorm_1.Index("voter_id-idx"),
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'voter_id'
+            name: "voter_id",
         }),
         __metadata("design:type", profile_entity_1.Profile)
     ], PairVoteHistory.prototype, "voter", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; },
-            nullable: false
+            type: "timestamptz",
+            default: function () { return "CURRENT_TIMESTAMP"; },
+            nullable: false,
         }),
         __metadata("design:type", Date)
     ], PairVoteHistory.prototype, "created_at", void 0);
     PairVoteHistory = __decorate([
-        typeorm_1.Entity('pair_votes_history')
+        typeorm_1.Entity("pair_votes_history")
     ], PairVoteHistory);
     return PairVoteHistory;
 }());

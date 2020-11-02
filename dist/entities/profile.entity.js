@@ -36,7 +36,7 @@ var Profile = /** @class */ (function () {
         __metadata("design:type", user_entity_1.User)
     ], Profile.prototype, "user", void 0);
     __decorate([
-        typeorm_1.Index(),
+        typeorm_1.Index('name-idx'),
         typeorm_1.Column({
             unique: true,
             nullable: true,
@@ -44,7 +44,7 @@ var Profile = /** @class */ (function () {
         __metadata("design:type", String)
     ], Profile.prototype, "name", void 0);
     __decorate([
-        typeorm_1.Index(),
+        typeorm_1.Index('fullname-idx'),
         typeorm_1.Column({
             nullable: true,
         }),
@@ -158,7 +158,7 @@ var Profile = /** @class */ (function () {
         __metadata("design:type", Date)
     ], Profile.prototype, "last_checked_activity", void 0);
     __decorate([
-        typeorm_1.Index(),
+        typeorm_1.Index('joinlink-idx'),
         typeorm_1.Column({
             unique: true,
             nullable: true,

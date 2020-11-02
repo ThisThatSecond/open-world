@@ -35,7 +35,7 @@ var InvitationLink = /** @class */ (function () {
         __metadata("design:type", user_entity_1.User)
     ], InvitationLink.prototype, "user", void 0);
     __decorate([
-        typeorm_1.Index(),
+        typeorm_1.Index('email-idx'),
         typeorm_1.Column({
             nullable: true,
         }),

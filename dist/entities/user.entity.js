@@ -23,7 +23,7 @@ var User = /** @class */ (function () {
         __metadata("design:type", String)
     ], User.prototype, "user_id", void 0);
     __decorate([
-        typeorm_1.Index(),
+        typeorm_1.Index("username-idx"),
         typeorm_1.Column({
             unique: true,
             nullable: true,
@@ -31,7 +31,7 @@ var User = /** @class */ (function () {
         __metadata("design:type", String)
     ], User.prototype, "username", void 0);
     __decorate([
-        typeorm_1.Index(),
+        typeorm_1.Index("email-idx"),
         typeorm_1.Column({
             nullable: true,
             unique: true,
@@ -39,7 +39,7 @@ var User = /** @class */ (function () {
         __metadata("design:type", String)
     ], User.prototype, "email", void 0);
     __decorate([
-        typeorm_1.Index(),
+        typeorm_1.Index("name-idx"),
         typeorm_1.Column({
             nullable: true,
         }),

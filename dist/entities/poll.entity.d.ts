@@ -35,6 +35,7 @@ export declare class Poll {
     is_active?: boolean;
     votes_count: number;
     responses_count: number;
+    complete_responses_count: number;
     creator: User;
     profile?: Profile;
     collection?: Collection;

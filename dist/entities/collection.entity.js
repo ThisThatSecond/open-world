@@ -22,7 +22,8 @@ var Collection = /** @class */ (function () {
         __metadata("design:type", String)
     ], Collection.prototype, "collection_id", void 0);
     __decorate([
-        typeorm_1.Index(),
+        typeorm_1.Index("title-idx") // is it needed?
+        ,
         typeorm_1.Column({
             nullable: false,
         }),
@@ -35,7 +36,8 @@ var Collection = /** @class */ (function () {
         __metadata("design:type", String)
     ], Collection.prototype, "thumbnail_url", void 0);
     __decorate([
-        typeorm_1.Index(),
+        typeorm_1.Index("caption-idx") // is it needed?
+        ,
         typeorm_1.Column({
             nullable: true,
         }),
@@ -173,6 +175,12 @@ var Collection = /** @class */ (function () {
         __metadata("design:type", Number)
     ], Collection.prototype, "responses_count", void 0);
     __decorate([
+        typeorm_1.Column({
+            default: 0,
+        }),
+        __metadata("design:type", Number)
+    ], Collection.prototype, "complete_responses_count", void 0);
+    __decorate([
         typeorm_1.OneToMany(function () { return poll_entity_1.Poll; }, function (poll) { return poll.collection; }),
         __metadata("design:type", Array)
     ], Collection.prototype, "polls", void 0);
@@ -209,7 +217,8 @@ var Collection = /** @class */ (function () {
         typeorm_1.Entity("collections"),
         typeorm_1.Check("check_requirements", "\n        is_draft or ( \n          title is not null and\n          visibile_options_count >= 3 and\n          desired_responses_count > 0 and\n          location is not null and\n          geo_point is not null\n        )\n    "),
         typeorm_1.Check("check_collection_finalized", "(is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)"),
-        typeorm_1.Check("check_poll_responses_count", "responses_count <= desired_responses_count")
+        typeorm_1.Check("check_poll_responses_count", "responses_count <= desired_responses_count and responses_count > 0"),
+        typeorm_1.Check("check_poll_complete_responses_count", "complete_responses_count <=  responses_count and complete_responses_count > 0")
     ], Collection);
     return Collection;
 }());

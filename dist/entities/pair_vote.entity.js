@@ -17,42 +17,44 @@ var PairVote = /** @class */ (function () {
     function PairVote() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn('uuid'),
+        typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", String)
     ], PairVote.prototype, "pair_vote_id", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'enum',
+            type: "enum",
             enum: actions_enum_1.PairVoteActions,
-            enumName: 'pair_vote_action_enum',
-            nullable: false
+            enumName: "pair_vote_action_enum",
+            nullable: false,
         }),
         __metadata("design:type", Number)
     ], PairVote.prototype, "action", void 0);
     __decorate([
+        typeorm_1.Index("pair-id-idx"),
         typeorm_1.ManyToOne(function () { return pair_entity_1.Pair; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'pair_id'
+            name: "pair_id",
         }),
         __metadata("design:type", pair_entity_1.Pair)
     ], PairVote.prototype, "pair", void 0);
     __decorate([
+        typeorm_1.Index("voter-id-idx"),
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: 'voter_id'
+            name: "voter_id",
         }),
         __metadata("design:type", profile_entity_1.Profile)
     ], PairVote.prototype, "voter", void 0);
     __decorate([
         typeorm_1.Column({
-            type: 'timestamptz',
-            default: function () { return 'CURRENT_TIMESTAMP'; },
-            nullable: false
+            type: "timestamptz",
+            default: function () { return "CURRENT_TIMESTAMP"; },
+            nullable: false,
         }),
         __metadata("design:type", Date)
     ], PairVote.prototype, "created_at", void 0);
     PairVote = __decorate([
-        typeorm_1.Entity('pair_votes'),
+        typeorm_1.Entity("pair_votes"),
         typeorm_1.Unique("uniqe_pair_voter", ["pair", "voter"])
     ], PairVote);
     return PairVote;
