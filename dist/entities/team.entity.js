@@ -86,7 +86,7 @@ var Team = /** @class */ (function () {
     ], Team.prototype, "created_at", void 0);
     Team = __decorate([
         typeorm_1.Entity("teams"),
-        typeorm_1.Unique("uniqe_join_link", ["join_link"])
+        typeorm_1.Unique("unique_join_link", ["join_link"])
     ], Team);
     return Team;
 }());

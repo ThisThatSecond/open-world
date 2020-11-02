@@ -4,7 +4,7 @@ import { Profile } from "./profile.entity";
 import { Invitation } from "./invitation.entity";
 
 @Entity("teams")
-@Unique("uniqe_join_link", ["join_link"])
+@Unique("unique_join_link", ["join_link"])
 export class Team {
   @PrimaryColumn()
   team_id: string;
