@@ -1,4 +1,4 @@
-import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn, Unique, OneToMany } from "typeorm";
+import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn, Unique, OneToMany, Index } from "typeorm";
 import { Poll } from "./poll.entity";
 import { Option } from "./option.entity";
 import { PairVote } from "./pair_vote.entity";
@@ -9,6 +9,7 @@ export class Pair {
   @PrimaryGeneratedColumn("uuid")
   pair_id: string;
 
+  @Index("poll-id-idx")
   @ManyToOne(() => Poll, { nullable: false })
   @JoinColumn({
     name: "poll_id",

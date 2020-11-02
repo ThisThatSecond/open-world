@@ -27,14 +27,14 @@ export class Profile {
   })
   user: User;
 
-  @Index()
+  @Index('name-idx')
   @Column({
     unique: true,
     nullable: true,
   })
   name: string;
 
-  @Index()
+  @Index('fullname-idx')
   @Column({
     nullable: true,
   })
@@ -130,7 +130,7 @@ export class Profile {
   })
   last_checked_activity?: Date;
 
-  @Index()
+  @Index('joinlink-idx')
   @Column({
     unique: true,
     nullable: true,

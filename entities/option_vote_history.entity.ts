@@ -1,4 +1,4 @@
-import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn, Index } from "typeorm";
 import { User } from "./user.entity";
 import { Option } from "./option.entity";
 import { OptionVoteActions } from "../shared/enums/actions.enum";
@@ -9,6 +9,7 @@ export class OptionVoteHistory {
   @PrimaryGeneratedColumn("uuid")
   option_vote_history_id: string;
 
+  @Index("option-id-idx")
   @ManyToOne(() => Option, { nullable: false })
   @JoinColumn({
     name: "option_id",
@@ -23,6 +24,7 @@ export class OptionVoteHistory {
   })
   action: OptionVoteActions;
 
+  @Index("voter-id-idx")
   @ManyToOne(() => Profile, { nullable: false })
   @JoinColumn({
     name: "voter_id",

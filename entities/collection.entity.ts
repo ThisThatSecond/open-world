@@ -21,12 +21,13 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
     `
 )
 @Check("check_collection_finalized", `(is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)`)
-@Check("check_poll_responses_count", `responses_count <= desired_responses_count`)
+@Check("check_poll_responses_count", `responses_count <= desired_responses_count and responses_count > 0`)
+@Check("check_poll_complete_responses_count", `complete_responses_count <=  responses_count and complete_responses_count > 0`)
 export class Collection {
   @PrimaryGeneratedColumn("uuid")
   collection_id: string;
 
-  @Index()
+  @Index("title-idx") // is it needed?
   @Column({
     nullable: false,
   })
@@ -37,7 +38,7 @@ export class Collection {
   })
   thumbnail_url: string;
 
-  @Index()
+  @Index("caption-idx") // is it needed?
   @Column({
     nullable: true,
   })
@@ -154,6 +155,11 @@ export class Collection {
     default: 0,
   })
   responses_count: number;
+
+  @Column({
+    default: 0,
+  })
+  complete_responses_count: number;
 
   @OneToMany(() => Poll, (poll) => poll.collection)
   polls?: Poll[];

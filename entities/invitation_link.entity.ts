@@ -21,7 +21,7 @@ export class InvitationLink {
   })
   user: User;
   
-  @Index()
+  @Index('email-idx')
   @Column({
     nullable: true,
   })

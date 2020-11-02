@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, PrimaryColumn, OneToMany, Check } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, PrimaryColumn, OneToMany, Check, In, Index } from "typeorm";
 import { Poll } from "./poll.entity";
 import { OptionVote } from "./option_vote.entity";
 
@@ -41,6 +41,7 @@ export class Option {
   @OneToMany(() => OptionVote, (optionVote) => optionVote.option)
   optionVotes?: OptionVote[];
 
+  @Index("poll-id-idx")
   @ManyToOne(() => Poll, (poll) => poll.options, { nullable: false })
   @JoinColumn({
     name: "poll_id",

@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne, OneToMany, Check } from "typeorm";
+import { Entity, Column, PrimaryColumn, JoinColumn, ManyToOne, OneToMany, Check, Index } from "typeorm";
 import { User } from "./user.entity";
 import { CATEGORIES } from "../shared/enums/categories.enum";
 import { Profile } from "./profile.entity";
@@ -12,7 +12,8 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 @Entity("polls")
 @Check("check_null_profile_id_or_collection", `(profile_id is not null and collection_id is null) or (profile_id is null and collection_id is not null)`)
 @Check("check_poll_finalized", `is_draft is null or (is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)`)
-@Check("check_poll_responses_count", `responses_count <= desired_responses_count`)
+@Check("check_poll_responses_count", `responses_count <= desired_responses_count and responses_count > 0`)
+@Check("check_poll_complete_responses_count", `complete_responses_count <=  responses_count and complete_responses_count > 0`)
 export class Poll {
   @PrimaryColumn()
   poll_id: string;
@@ -135,15 +136,21 @@ export class Poll {
   })
   is_active?: boolean;
 
+  @Min(0)
   @Column({
     default: 0,
   })
   votes_count: number;
-  
+
   @Column({
     default: 0,
   })
   responses_count: number;
+
+  @Column({
+    default: 0,
+  })
+  complete_responses_count: number;
 
   @ManyToOne(() => User, (user) => user.polls, { nullable: false })
   @JoinColumn({
@@ -157,6 +164,7 @@ export class Poll {
   })
   profile?: Profile;
 
+  @Index("collection-id-idx")
   @ManyToOne(() => Collection, (collection) => collection.polls, {
     nullable: true,
   })
