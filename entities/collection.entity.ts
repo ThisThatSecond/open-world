@@ -22,7 +22,7 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 )
 @Check("check_collection_finalized", `(is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)`)
 @Check("check_poll_responses_count", `responses_count <= desired_responses_count and responses_count >= 0`)
-@Check("check_poll_complete_responses_count", `complete_responses_count <=  responses_count and complete_responses_count >= 0`)
+@Check("check_collection_complete_responses_count", `complete_responses_count <=  responses_count and complete_responses_count >= 0`)
 export class Collection {
   @PrimaryGeneratedColumn("uuid")
   collection_id: string;
