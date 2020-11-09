@@ -33,6 +33,7 @@ export class Team {
   avatar_url?: string;
 
   @Column({
+    type: "float",
     default: 0,
     nullable: false,
   })

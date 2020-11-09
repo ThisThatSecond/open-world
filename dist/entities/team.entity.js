@@ -49,6 +49,7 @@ var Team = /** @class */ (function () {
     ], Team.prototype, "avatar_url", void 0);
     __decorate([
         typeorm_1.Column({
+            type: "float",
             default: 0,
             nullable: false,
         }),
