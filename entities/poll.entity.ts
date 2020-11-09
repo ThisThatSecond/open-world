@@ -184,4 +184,11 @@ export class Poll {
     nullable: true,
   })
   finalized_at?: Date;
+
+  @Column({
+    type: "jsonb",
+    array: false,
+    nullable: true,
+  })
+  extra?: {};
 }
