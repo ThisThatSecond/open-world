@@ -221,6 +221,14 @@ var Poll = /** @class */ (function () {
         }),
         __metadata("design:type", Date)
     ], Poll.prototype, "finalized_at", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: "jsonb",
+            array: false,
+            nullable: true,
+        }),
+        __metadata("design:type", Object)
+    ], Poll.prototype, "extra", void 0);
     Poll = __decorate([
         typeorm_1.Entity("polls"),
         typeorm_1.Check("check_null_profile_id_or_collection", "(profile_id is not null and collection_id is null) or (profile_id is null and collection_id is not null)"),
