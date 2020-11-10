@@ -194,5 +194,5 @@ export class Collection {
     array: false,
     nullable: true,
   })
-  extra?: {};
+  extra?: any;
 }

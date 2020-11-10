@@ -38,5 +38,5 @@ export declare class Collection {
     creator: User;
     created_at?: Date;
     finalized_at?: Date;
-    extra?: {};
+    extra?: any;
 }

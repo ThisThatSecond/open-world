@@ -190,5 +190,5 @@ export class Poll {
     array: false,
     nullable: true,
   })
-  extra?: {};
+  extra?: any;
 }
