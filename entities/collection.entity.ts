@@ -2,8 +2,6 @@ import { Entity, Column, Index, JoinColumn, PrimaryGeneratedColumn, ManyToOne, O
 import { Profile } from "./profile.entity";
 import { User } from "./user.entity";
 import { Poll } from "./poll.entity";
-import { Genders } from "../shared/enums/genders.enum";
-import { Educations } from "../shared/enums/educations.enum";
 import { CATEGORIES } from "../shared/enums/categories.enum";
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 
@@ -13,7 +11,6 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
   `
         is_draft or ( 
           title is not null and
-          visibile_options_count >= 3 and
           desired_responses_count > 0 and
           location is not null and
           geo_point is not null
@@ -30,7 +27,7 @@ export class Collection {
 
   @Index() // is it needed?
   @Column({
-    nullable: false,
+    nullable: true,
   })
   title: string;
 
@@ -71,11 +68,6 @@ export class Collection {
   @Column({
     nullable: true,
   })
-  visibile_options_count: number;
-
-  @Column({
-    nullable: true,
-  })
   desired_responses_count: number;
 
   @Column({
@@ -106,46 +98,6 @@ export class Collection {
     nullable: false,
   })
   is_private?: boolean;
-
-  @Column({
-    type: "jsonb",
-    array: false,
-    nullable: true,
-  })
-  audience_age_groups?: Array<{ start: number; end: number }>;
-
-  @Column({
-    nullable: true,
-  })
-  @Column("varchar", {
-    array: true,
-    nullable: true,
-  })
-  audience_genders?: Genders[];
-
-  @Column("varchar", {
-    array: true,
-    nullable: true,
-  })
-  audience_educations?: Educations[];
-
-  @Column("varchar", {
-    array: true,
-    nullable: true,
-  })
-  audience_locations?: string[];
-
-  @Column({
-    default: false,
-    nullable: false,
-  })
-  is_familiarity_required?: boolean;
-
-  @Column({
-    default: true,
-    nullable: false,
-  })
-  has_anonymous_vote?: boolean;
 
   @Column({
     default: 0,

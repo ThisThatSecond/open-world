@@ -89,49 +89,11 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "release_date", void 0);
     __decorate([
         typeorm_1.Column({
-            type: "jsonb",
-            array: false,
-            nullable: true,
-        }),
-        __metadata("design:type", Array)
-    ], Poll.prototype, "audience_age_groups", void 0);
-    __decorate([
-        typeorm_1.Column({
-            nullable: true,
-        }),
-        typeorm_1.Column("varchar", {
-            array: true,
-            nullable: true,
-        }),
-        __metadata("design:type", Array)
-    ], Poll.prototype, "audience_genders", void 0);
-    __decorate([
-        typeorm_1.Column("varchar", {
-            array: true,
-            nullable: true,
-        }),
-        __metadata("design:type", Array)
-    ], Poll.prototype, "audience_educations", void 0);
-    __decorate([
-        typeorm_1.Column("varchar", {
-            array: true,
-            nullable: true,
-        }),
-        __metadata("design:type", Array)
-    ], Poll.prototype, "audience_locations", void 0);
-    __decorate([
-        typeorm_1.Column({
             default: false,
             nullable: false,
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_analytics_poll", void 0);
-    __decorate([
-        typeorm_1.Column({
-            nullable: true,
-        }),
-        __metadata("design:type", Boolean)
-    ], Poll.prototype, "has_anonymous_vote", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: true,
