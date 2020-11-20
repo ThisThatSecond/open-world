@@ -14,7 +14,7 @@ export declare class Poll {
     geo_point?: IGeoPoint | string;
     location?: string;
     category?: CATEGORIES;
-    visibile_options_count?: number;
+    visible_options_count?: number;
     desired_responses_count?: number;
     release_date?: Date;
     is_analytics_poll?: boolean;

@@ -73,7 +73,7 @@ var Poll = /** @class */ (function () {
             nullable: true,
         }),
         __metadata("design:type", Number)
-    ], Poll.prototype, "visibile_options_count", void 0);
+    ], Poll.prototype, "visible_options_count", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: true,
