@@ -57,7 +57,7 @@ export class Poll {
   @Column({
     nullable: true,
   })
-  visibile_options_count?: number;
+  visible_options_count?: number;
 
   @Column({
     nullable: true,
