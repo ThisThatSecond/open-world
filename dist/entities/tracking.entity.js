@@ -42,6 +42,13 @@ var Tracking = /** @class */ (function () {
         __metadata("design:type", collection_entity_1.Collection)
     ], Tracking.prototype, "collection", void 0);
     __decorate([
+        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: true }),
+        typeorm_1.JoinColumn({
+            name: "sharing_profile_id",
+        }),
+        __metadata("design:type", profile_entity_1.Profile)
+    ], Tracking.prototype, "sharing_profile", void 0);
+    __decorate([
         typeorm_1.Column({
             type: "timestamptz",
             default: function () { return "CURRENT_TIMESTAMP"; },

@@ -1,5 +1,4 @@
 import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn, Unique, Index } from "typeorm";
-import { User } from "./user.entity";
 import { Pair } from "./pair.entity";
 import { PairVoteActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
@@ -30,7 +29,14 @@ export class PairVote {
   @JoinColumn({
     name: "voter_id",
   })
+
   voter: Profile;
+  @ManyToOne(() => Profile, { nullable: true })
+  @JoinColumn({
+    name: "sharing_profile_id",
+  })
+  sharing_profile: Profile;
+
 
   @Column({
     type: "timestamptz",

@@ -6,5 +6,6 @@ export declare class OptionVote {
     option: Option;
     action: OptionVoteActions;
     voter: Profile;
+    sharing_profile: Profile;
     created_at?: Date;
 }

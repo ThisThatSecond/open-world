@@ -5,6 +5,7 @@ export declare class Followership {
     follower: Profile;
     following: Profile;
     status: FollowershipStatus;
+    sharing_profile: Profile;
     created_at?: Date;
     updated_at: Date;
 }
