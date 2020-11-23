@@ -8,5 +8,6 @@ export declare class Reaction {
     poll?: Poll;
     collection?: Collection;
     reaction: Reactions;
+    sharing_profile: Profile;
     created_at?: Date;
 }

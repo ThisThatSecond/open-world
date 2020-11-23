@@ -6,5 +6,6 @@ export declare class PairVoteHistory {
     pair: Pair;
     action: PairVoteActions;
     voter: Profile;
+    sharing_profile: Profile;
     created_at?: Date;
 }

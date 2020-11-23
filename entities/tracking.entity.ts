@@ -29,6 +29,12 @@ export class Tracking {
   })
   collection?: Collection;
 
+  @ManyToOne(() => Profile, { nullable: true })
+  @JoinColumn({
+    name: "sharing_profile_id",
+  })
+  sharing_profile: Profile;
+
   @Column({
     type: "timestamptz",
     default: () => "CURRENT_TIMESTAMP",

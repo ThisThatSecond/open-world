@@ -6,5 +6,6 @@ export declare class CommentVoteHistory {
     comment: Comment;
     action: CommentVoteActions;
     voter: Profile;
+    sharing_profile: Profile;
     created_at?: Date;
 }

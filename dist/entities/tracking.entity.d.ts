@@ -6,5 +6,6 @@ export declare class Tracking {
     tracker: Profile;
     poll?: Poll;
     collection?: Collection;
+    sharing_profile: Profile;
     created_at?: Date;
 }

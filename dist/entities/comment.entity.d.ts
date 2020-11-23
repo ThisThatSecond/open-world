@@ -7,6 +7,7 @@ export declare class Comment {
     poll: Poll;
     collection?: Collection;
     creator: Profile;
+    sharing_profile: Profile;
     is_hidden?: boolean;
     upvotes_count: number;
     downvotes_count: number;
