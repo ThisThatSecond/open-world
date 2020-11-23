@@ -25,7 +25,7 @@ var Collection = /** @class */ (function () {
         typeorm_1.Index() // is it needed?
         ,
         typeorm_1.Column({
-            nullable: false,
+            nullable: true,
         }),
         __metadata("design:type", String)
     ], Collection.prototype, "title", void 0);
@@ -75,12 +75,6 @@ var Collection = /** @class */ (function () {
             nullable: true,
         }),
         __metadata("design:type", Number)
-    ], Collection.prototype, "visibile_options_count", void 0);
-    __decorate([
-        typeorm_1.Column({
-            nullable: true,
-        }),
-        __metadata("design:type", Number)
     ], Collection.prototype, "desired_responses_count", void 0);
     __decorate([
         typeorm_1.Column({
@@ -116,52 +110,6 @@ var Collection = /** @class */ (function () {
         }),
         __metadata("design:type", Boolean)
     ], Collection.prototype, "is_private", void 0);
-    __decorate([
-        typeorm_1.Column({
-            type: "jsonb",
-            array: false,
-            nullable: true,
-        }),
-        __metadata("design:type", Array)
-    ], Collection.prototype, "audience_age_groups", void 0);
-    __decorate([
-        typeorm_1.Column({
-            nullable: true,
-        }),
-        typeorm_1.Column("varchar", {
-            array: true,
-            nullable: true,
-        }),
-        __metadata("design:type", Array)
-    ], Collection.prototype, "audience_genders", void 0);
-    __decorate([
-        typeorm_1.Column("varchar", {
-            array: true,
-            nullable: true,
-        }),
-        __metadata("design:type", Array)
-    ], Collection.prototype, "audience_educations", void 0);
-    __decorate([
-        typeorm_1.Column("varchar", {
-            array: true,
-            nullable: true,
-        }),
-        __metadata("design:type", Array)
-    ], Collection.prototype, "audience_locations", void 0);
-    __decorate([
-        typeorm_1.Column({
-            default: false,
-            nullable: false,
-        }),
-        __metadata("design:type", Boolean)
-    ], Collection.prototype, "is_familiarity_required", void 0);
-    __decorate([
-        typeorm_1.Column({
-            default: true,
-            nullable: false,
-        }),
-        __metadata("design:type", Boolean)
-    ], Collection.prototype, "has_anonymous_vote", void 0);
     __decorate([
         typeorm_1.Column({
             default: 0,
@@ -229,7 +177,7 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "extra", void 0);
     Collection = __decorate([
         typeorm_1.Entity("collections"),
-        typeorm_1.Check("check_requirements", "\n        is_draft or ( \n          title is not null and\n          visibile_options_count >= 3 and\n          desired_responses_count > 0 and\n          location is not null and\n          geo_point is not null\n        )\n    "),
+        typeorm_1.Check("check_requirements", "\n        is_draft or ( \n          title is not null and\n          desired_responses_count > 0 and\n          location is not null and\n          geo_point is not null\n        )\n    "),
         typeorm_1.Check("check_collection_finalized", "(is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)"),
         typeorm_1.Check("check_collection_responses_count", "responses_count <= desired_responses_count and responses_count >= 0"),
         typeorm_1.Check("check_collection_complete_responses_count", "complete_responses_count <=  responses_count and complete_responses_count >= 0"),

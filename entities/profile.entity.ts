@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, Index, JoinColumn, ManyToOne, OneToOne, OneToMany, Unique, Check } from "typeorm";
+import { Entity, Column, PrimaryColumn, Index, JoinColumn, ManyToOne, OneToMany, Check } from "typeorm";
 import { User } from "./user.entity";
 import { Team } from "./team.entity";
 import { Poll } from "./poll.entity";
