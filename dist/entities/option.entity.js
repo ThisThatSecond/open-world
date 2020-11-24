@@ -39,10 +39,10 @@ var Option = /** @class */ (function () {
     ], Option.prototype, "video_url", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true,
+            nullable: false,
         }),
-        __metadata("design:type", Boolean)
-    ], Option.prototype, "is_this", void 0);
+        __metadata("design:type", Number)
+    ], Option.prototype, "rank", void 0);
     __decorate([
         typeorm_1.Column({
             default: 0,

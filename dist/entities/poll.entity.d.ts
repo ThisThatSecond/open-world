@@ -23,6 +23,7 @@ export declare class Poll {
     is_draft?: boolean;
     is_hidden?: boolean;
     is_active?: boolean;
+    rank: number;
     votes_count: number;
     responses_count: number;
     comments_count: number;
