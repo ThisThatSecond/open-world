@@ -42,7 +42,7 @@ var Option = /** @class */ (function () {
             nullable: false,
         }),
         __metadata("design:type", Number)
-    ], Option.prototype, "rank", void 0);
+    ], Option.prototype, "position", void 0);
     __decorate([
         typeorm_1.Column({
             default: 0,

@@ -26,7 +26,7 @@ export class Option {
   @Column({
     nullable: false,
   })
-  rank: number;
+  position: number;
 
   @Column({
     default: 0,

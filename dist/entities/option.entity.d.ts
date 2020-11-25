@@ -5,7 +5,7 @@ export declare class Option {
     title: string;
     image_url?: string;
     video_url?: string;
-    rank: number;
+    position: number;
     upvotes_count: number;
     downvotes_count: number;
     optionVotes?: OptionVote[];
