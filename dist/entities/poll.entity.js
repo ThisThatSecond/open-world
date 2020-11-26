@@ -126,6 +126,12 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "is_active", void 0);
     __decorate([
         typeorm_1.Column({
+            nullable: true,
+        }),
+        __metadata("design:type", Number)
+    ], Poll.prototype, "position", void 0);
+    __decorate([
+        typeorm_1.Column({
             default: 0,
         }),
         __metadata("design:type", Number)
@@ -202,7 +208,8 @@ var Poll = /** @class */ (function () {
         typeorm_1.Check("check_null_profile_id_or_collection", "(profile_id is not null and collection_id is null) or (profile_id is null and collection_id is not null)"),
         typeorm_1.Check("check_poll_finalized", "is_draft is null or (is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)"),
         typeorm_1.Check("check_poll_responses_count", "responses_count <= desired_responses_count and responses_count >= 0"),
-        typeorm_1.Check("check_poll_comments_count", "comments_count >=  0")
+        typeorm_1.Check("check_poll_comments_count", "comments_count >=  0"),
+        typeorm_1.Check("check_poll_position_in_collection", "collection_id is null or position is not null")
     ], Poll);
     return Poll;
 }());

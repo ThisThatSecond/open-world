@@ -24,9 +24,9 @@ export class Option {
   video_url?: string;
 
   @Column({
-    nullable: true,
+    nullable: false,
   })
-  is_this?: boolean;
+  position: number;
 
   @Column({
     default: 0,
