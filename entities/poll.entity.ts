@@ -98,7 +98,7 @@ export class Poll {
   is_hidden?: boolean;
 
   @Column({
-    nullable: true,
+    default: true,
   })
   is_active?: boolean;
 
