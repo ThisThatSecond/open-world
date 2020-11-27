@@ -13,6 +13,7 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
           title is not null and
           desired_responses_count > 0 and
           location is not null and
+          language is not null and
           geo_point is not null
         )
     `
