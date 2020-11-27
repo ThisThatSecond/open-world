@@ -13,20 +13,6 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 @Check("check_poll_responses_count", `responses_count <= desired_responses_count and responses_count >= 0`)
 @Check("check_poll_comments_count", `comments_count >=  0`)
 @Check("check_poll_position_in_collection", `collection_id is null or position is not null`)
-@Check(
-  "check_poll__collection_requirements",
-  `collection_id is not null or is_draft or (
-    question is not null and
-    location is not null and
-    language is not null and
-    geo_point is not null and
-    desired_responses_count is not null and
-    is_analytics_poll is not null and 
-    is_active is not null and
-    is_draft is not null and
-    profile_id is not null
-)`
-)
 export class Poll {
   @PrimaryColumn()
   poll_id: string;

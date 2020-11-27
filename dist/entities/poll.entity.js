@@ -208,8 +208,7 @@ var Poll = /** @class */ (function () {
         typeorm_1.Check("check_poll_finalized", "is_draft is null or (is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)"),
         typeorm_1.Check("check_poll_responses_count", "responses_count <= desired_responses_count and responses_count >= 0"),
         typeorm_1.Check("check_poll_comments_count", "comments_count >=  0"),
-        typeorm_1.Check("check_poll_position_in_collection", "collection_id is null or position is not null"),
-        typeorm_1.Check("check_poll__collection_requirements", "collection_id is not null or is_draft or (\n    question is not null and\n    location is not null and\n    language is not null and\n    geo_point is not null and\n    desired_responses_count is not null and\n    is_analytics_poll is not null and \n    is_active is not null and\n    is_draft is not null and\n    profile_id is not null\n)")
+        typeorm_1.Check("check_poll_position_in_collection", "collection_id is null or position is not null")
     ], Poll);
     return Poll;
 }());
