@@ -121,7 +121,7 @@ export class Poll {
   })
   comments_count: number;
 
-  @ManyToOne(() => User, (user) => user.polls, { nullable: false })
+  @ManyToOne(() => User, (user) => user.polls, { nullable: true })
   @JoinColumn({
     name: "creator_id",
   })

@@ -148,7 +148,7 @@ var Poll = /** @class */ (function () {
         __metadata("design:type", Number)
     ], Poll.prototype, "comments_count", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, function (user) { return user.polls; }, { nullable: false }),
+        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, function (user) { return user.polls; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: "creator_id",
         }),
