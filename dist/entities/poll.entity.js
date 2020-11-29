@@ -204,7 +204,7 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "extra", void 0);
     Poll = __decorate([
         typeorm_1.Entity("polls"),
-        typeorm_1.Check("check_null_profile_id_or_collection", "(profile_id is not null and collection_id is null) or (profile_id is null and collection_id is not null)"),
+        typeorm_1.Check("check_null_profile_id_or_collection", "(profile_id is not null and creator_id is not null and collection_id is null) or (profile_id is null and creator_id is null and collection_id is not null)"),
         typeorm_1.Check("check_poll_finalized", "is_draft is null or (is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)"),
         typeorm_1.Check("check_poll_responses_count", "responses_count <= desired_responses_count and responses_count >= 0"),
         typeorm_1.Check("check_poll_comments_count", "comments_count >=  0"),
