@@ -100,7 +100,8 @@ var Invitation = /** @class */ (function () {
         typeorm_1.Entity("invitations"),
         typeorm_1.Check("check_profile_or_team_invitation", "profile_id is not null or team_id is not null"),
         typeorm_1.Unique("unique_team_invitee", ["team", "invitee"]),
-        typeorm_1.Unique("unique_profile_invitee", ["profile", "invitee"])
+        typeorm_1.Unique("unique_profile_invitee", ["profile", "invitee"]),
+        typeorm_1.Check("check_self_invitation", "inviter_id != invitee_id")
     ], Invitation);
     return Invitation;
 }());

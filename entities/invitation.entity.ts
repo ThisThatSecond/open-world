@@ -9,7 +9,7 @@ import { InvitationStatus } from "../shared/enums/invitation_status.enum";
 @Check("check_profile_or_team_invitation", `profile_id is not null or team_id is not null`)
 @Unique("unique_team_invitee", ["team", "invitee"])
 @Unique("unique_profile_invitee", ["profile", "invitee"])
-
+@Check("check_self_invitation", `inviter_id != invitee_id`)
 export class Invitation {
   @PrimaryGeneratedColumn("uuid")
   invitation_id: string;
