@@ -5,6 +5,7 @@ import { Profile } from "./profile.entity";
 
 @Entity("invitation_links")
 @Check("check_email_or_user_id", `user_id is not null or email is not null`)
+@Check("check_self_invitation_link", `creator_id != user_id`)
 export class InvitationLink {
   @PrimaryGeneratedColumn("uuid")
   invitation_link_id: string;
