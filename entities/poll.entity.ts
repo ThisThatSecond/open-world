@@ -85,7 +85,7 @@ export class Poll {
   is_private?: boolean;
 
   @Column({
-    nullable: true,
+    nullable: false,
   })
   is_familiarity_required?: boolean;
 
