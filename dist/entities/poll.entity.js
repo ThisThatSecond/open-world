@@ -102,6 +102,7 @@ var Poll = /** @class */ (function () {
     __decorate([
         typeorm_1.Column({
             nullable: false,
+            default: false,
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_familiarity_required", void 0);

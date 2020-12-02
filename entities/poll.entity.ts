@@ -86,6 +86,7 @@ export class Poll {
 
   @Column({
     nullable: false,
+    default: false,
   })
   is_familiarity_required?: boolean;
 
