@@ -75,7 +75,8 @@ export class Poll {
   release_date?: Date;
 
   @Column({
-    nullable: true,
+    nullable: false,
+    default: false,
   })
   is_analytics_poll?: boolean;
 
@@ -85,8 +86,7 @@ export class Poll {
   is_private?: boolean;
 
   @Column({
-    nullable: false,
-    default: false,
+    nullable: true,
   })
   is_familiarity_required?: boolean;
 

@@ -89,7 +89,8 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "release_date", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true,
+            nullable: false,
+            default: false,
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_analytics_poll", void 0);
@@ -101,8 +102,7 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "is_private", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: false,
-            default: false,
+            nullable: true,
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_familiarity_required", void 0);
