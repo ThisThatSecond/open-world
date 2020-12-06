@@ -13,6 +13,7 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
   `(profile_id is not null and creator_id is not null and collection_id is null) or (profile_id is null and creator_id is null and collection_id is not null)`
 )
 @Check("check_poll_finalized", `is_draft is null or (is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)`)
+@Check("check_poll_scheduled", `release_date is null or (is_draft or ready_to_post)`)
 @Check("check_poll_responses_count", `responses_count <= desired_responses_count and responses_count >= 0`)
 @Check("check_poll_comments_count", `comments_count >=  0`)
 @Check("check_poll_position_in_collection", `collection_id is null or position is not null`)
@@ -104,6 +105,12 @@ export class Poll {
     nullable: true,
   })
   is_active?: boolean;
+
+  @Column({
+    nullable: false,
+    default: false,
+  })
+  ready_to_post?: boolean;
 
   @Column({
     nullable: true,

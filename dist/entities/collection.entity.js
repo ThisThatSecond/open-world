@@ -112,6 +112,13 @@ var Collection = /** @class */ (function () {
     ], Collection.prototype, "is_private", void 0);
     __decorate([
         typeorm_1.Column({
+            nullable: false,
+            default: false,
+        }),
+        __metadata("design:type", Boolean)
+    ], Collection.prototype, "ready_to_post", void 0);
+    __decorate([
+        typeorm_1.Column({
             default: 0,
         }),
         __metadata("design:type", Number)
@@ -179,6 +186,7 @@ var Collection = /** @class */ (function () {
         typeorm_1.Entity("collections"),
         typeorm_1.Check("check_requirements", "\n        is_draft or ( \n          title is not null and\n          desired_responses_count > 0 and\n          location is not null and\n          language is not null and\n          geo_point is not null\n        )\n    "),
         typeorm_1.Check("check_collection_finalized", "(is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)"),
+        typeorm_1.Check("check_collection_scheduled", "release_date is null or (is_draft or ready_to_post)"),
         typeorm_1.Check("check_collection_responses_count", "responses_count <= desired_responses_count and responses_count >= 0"),
         typeorm_1.Check("check_collection_complete_responses_count", "complete_responses_count <=  responses_count and complete_responses_count >= 0"),
         typeorm_1.Check("check_collection_comments_count", "comments_count >=  0")

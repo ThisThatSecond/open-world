@@ -18,6 +18,7 @@ export declare class Collection {
     is_hidden?: boolean;
     is_active?: boolean;
     is_private?: boolean;
+    ready_to_post?: boolean;
     votes_count: number;
     responses_count: number;
     complete_responses_count: number;
