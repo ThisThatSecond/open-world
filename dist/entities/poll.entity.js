@@ -126,8 +126,7 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "is_active", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: false,
-            default: false,
+            nullable: true,
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "ready_to_post", void 0);

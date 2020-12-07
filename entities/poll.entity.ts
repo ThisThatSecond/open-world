@@ -107,8 +107,7 @@ export class Poll {
   is_active?: boolean;
 
   @Column({
-    nullable: false,
-    default: false,
+    nullable: true,
   })
   ready_to_post?: boolean;
 
