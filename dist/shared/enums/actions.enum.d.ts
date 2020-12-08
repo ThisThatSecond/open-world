@@ -14,7 +14,7 @@ export declare enum OptionVoteActions {
     DOWN = 1,
     REMOVED = 2
 }
-export declare enum OptionSelectActions {
+export declare enum OptionSelectionActions {
     REMOVED = 0,
     SELECTED = 1
 }

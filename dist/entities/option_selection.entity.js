@@ -31,7 +31,7 @@ var OptionSelection = /** @class */ (function () {
     __decorate([
         typeorm_1.Column({
             type: "enum",
-            enum: actions_enum_1.OptionSelectActions,
+            enum: actions_enum_1.OptionSelectionActions,
             enumName: "option_selection_action_enum",
             nullable: false,
         }),

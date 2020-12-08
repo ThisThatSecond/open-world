@@ -1,6 +1,6 @@
 import { Entity, ManyToOne, JoinColumn, PrimaryGeneratedColumn, Unique, Index, Column } from "typeorm";
 import { Option } from "./option.entity";
-import { OptionSelectActions } from "../shared/enums/actions.enum";
+import { OptionSelectionActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
 
 @Entity("option_selections")
@@ -18,11 +18,11 @@ export class OptionSelection {
 
   @Column({
     type: "enum",
-    enum: OptionSelectActions,
+    enum: OptionSelectionActions,
     enumName: "option_selection_action_enum",
     nullable: false,
   })
-  action: OptionSelectActions;
+  action: OptionSelectionActions;
 
   @Index()
   @ManyToOne(() => Profile, { nullable: false })

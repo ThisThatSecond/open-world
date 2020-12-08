@@ -17,7 +17,7 @@ export enum OptionVoteActions {
   REMOVED,
 }
 
-export enum OptionSelectActions {
+export enum OptionSelectionActions {
   REMOVED,
   SELECTED,
 }
