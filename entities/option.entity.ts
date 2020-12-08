@@ -9,7 +9,7 @@ export class Option {
   option_id: string;
 
   @Column({
-    nullable: false,
+    nullable: true,
   })
   title: string;
 
