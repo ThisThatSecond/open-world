@@ -32,7 +32,7 @@ var OptionSelection = /** @class */ (function () {
         typeorm_1.Column({
             type: "enum",
             enum: actions_enum_1.OptionSelectActions,
-            enumName: "option_select_action_enum",
+            enumName: "option_selection_action_enum",
             nullable: false,
         }),
         __metadata("design:type", Number)

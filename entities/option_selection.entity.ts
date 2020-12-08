@@ -19,7 +19,7 @@ export class OptionSelection {
   @Column({
     type: "enum",
     enum: OptionSelectActions,
-    enumName: "option_select_action_enum",
+    enumName: "option_selection_action_enum",
     nullable: false,
   })
   action: OptionSelectActions;
