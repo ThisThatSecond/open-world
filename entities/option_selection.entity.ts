@@ -7,7 +7,7 @@ import { Profile } from "./profile.entity";
 @Unique("unique_option_selector", ["option", "selector"])
 export class OptionSelection {
   @PrimaryGeneratedColumn("uuid")
-  option_select_id: string;
+  option_selection_id: string;
 
   @Index()
   @ManyToOne(() => Option, { nullable: false })

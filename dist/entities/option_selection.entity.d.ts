@@ -2,7 +2,7 @@ import { Option } from "./option.entity";
 import { OptionSelectActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
 export declare class OptionSelection {
-    option_select_id: string;
+    option_selection_id: string;
     option: Option;
     action: OptionSelectActions;
     selector: Profile;

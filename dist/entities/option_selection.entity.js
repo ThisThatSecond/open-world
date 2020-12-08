@@ -19,7 +19,7 @@ var OptionSelection = /** @class */ (function () {
     __decorate([
         typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", String)
-    ], OptionSelection.prototype, "option_select_id", void 0);
+    ], OptionSelection.prototype, "option_selection_id", void 0);
     __decorate([
         typeorm_1.Index(),
         typeorm_1.ManyToOne(function () { return option_entity_1.Option; }, { nullable: false }),
