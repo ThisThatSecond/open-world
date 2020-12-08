@@ -13,13 +13,13 @@ var typeorm_1 = require("typeorm");
 var option_entity_1 = require("./option.entity");
 var actions_enum_1 = require("../shared/enums/actions.enum");
 var profile_entity_1 = require("./profile.entity");
-var OptionVote = /** @class */ (function () {
-    function OptionVote() {
+var OptionSelection = /** @class */ (function () {
+    function OptionSelection() {
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", String)
-    ], OptionVote.prototype, "option_select_id", void 0);
+    ], OptionSelection.prototype, "option_select_id", void 0);
     __decorate([
         typeorm_1.Index(),
         typeorm_1.ManyToOne(function () { return option_entity_1.Option; }, { nullable: false }),
@@ -27,7 +27,7 @@ var OptionVote = /** @class */ (function () {
             name: "option_id",
         }),
         __metadata("design:type", option_entity_1.Option)
-    ], OptionVote.prototype, "option", void 0);
+    ], OptionSelection.prototype, "option", void 0);
     __decorate([
         typeorm_1.Column({
             type: "enum",
@@ -36,7 +36,7 @@ var OptionVote = /** @class */ (function () {
             nullable: false,
         }),
         __metadata("design:type", Number)
-    ], OptionVote.prototype, "action", void 0);
+    ], OptionSelection.prototype, "action", void 0);
     __decorate([
         typeorm_1.Index(),
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
@@ -44,14 +44,14 @@ var OptionVote = /** @class */ (function () {
             name: "selector_id",
         }),
         __metadata("design:type", profile_entity_1.Profile)
-    ], OptionVote.prototype, "selector", void 0);
+    ], OptionSelection.prototype, "selector", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: "sharing_profile_id",
         }),
         __metadata("design:type", profile_entity_1.Profile)
-    ], OptionVote.prototype, "sharing_profile", void 0);
+    ], OptionSelection.prototype, "sharing_profile", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
@@ -59,12 +59,12 @@ var OptionVote = /** @class */ (function () {
             nullable: false,
         }),
         __metadata("design:type", Date)
-    ], OptionVote.prototype, "created_at", void 0);
-    OptionVote = __decorate([
+    ], OptionSelection.prototype, "created_at", void 0);
+    OptionSelection = __decorate([
         typeorm_1.Entity("option_selection"),
         typeorm_1.Unique("unique_option_selector", ["option", "selector"])
-    ], OptionVote);
-    return OptionVote;
+    ], OptionSelection);
+    return OptionSelection;
 }());
-exports.OptionVote = OptionVote;
+exports.OptionSelection = OptionSelection;
 //# sourceMappingURL=option_selection.entity.js.map

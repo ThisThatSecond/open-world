@@ -2,6 +2,7 @@ export { CommentVote } from "./comment_vote.entity";
 export { Comment } from "./comment.entity";
 export { OptionVoteHistory } from "./option_vote_history.entity";
 export { OptionVote } from "./option_vote.entity";
+export { OptionSelection } from "./option_selection.entity";
 export { Option } from "./option.entity";
 export { PairVoteHistory } from "./pair_vote_history.entity";
 export { PairVote } from "./pair_vote.entity";

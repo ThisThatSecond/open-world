@@ -5,7 +5,7 @@ import { Profile } from "./profile.entity";
 
 @Entity("option_selection")
 @Unique("unique_option_selector", ["option", "selector"])
-export class OptionVote {
+export class OptionSelection {
   @PrimaryGeneratedColumn("uuid")
   option_select_id: string;
 
