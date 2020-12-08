@@ -61,7 +61,7 @@ var OptionSelection = /** @class */ (function () {
         __metadata("design:type", Date)
     ], OptionSelection.prototype, "created_at", void 0);
     OptionSelection = __decorate([
-        typeorm_1.Entity("option_selection"),
+        typeorm_1.Entity("option_selections"),
         typeorm_1.Unique("unique_option_selector", ["option", "selector"])
     ], OptionSelection);
     return OptionSelection;

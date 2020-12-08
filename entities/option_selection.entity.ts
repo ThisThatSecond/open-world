@@ -3,7 +3,7 @@ import { Option } from "./option.entity";
 import { OptionSelectActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
 
-@Entity("option_selection")
+@Entity("option_selections")
 @Unique("unique_option_selector", ["option", "selector"])
 export class OptionSelection {
   @PrimaryGeneratedColumn("uuid")
