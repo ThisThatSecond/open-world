@@ -19,6 +19,11 @@ var OptionVoteActions;
     OptionVoteActions[OptionVoteActions["DOWN"] = 1] = "DOWN";
     OptionVoteActions[OptionVoteActions["REMOVED"] = 2] = "REMOVED";
 })(OptionVoteActions = exports.OptionVoteActions || (exports.OptionVoteActions = {}));
+var OptionSelectionActions;
+(function (OptionSelectionActions) {
+    OptionSelectionActions[OptionSelectionActions["REMOVED"] = 0] = "REMOVED";
+    OptionSelectionActions[OptionSelectionActions["SELECTED"] = 1] = "SELECTED";
+})(OptionSelectionActions = exports.OptionSelectionActions || (exports.OptionSelectionActions = {}));
 var PollProfileActions;
 (function (PollProfileActions) {
     PollProfileActions[PollProfileActions["SKIP"] = 0] = "SKIP";

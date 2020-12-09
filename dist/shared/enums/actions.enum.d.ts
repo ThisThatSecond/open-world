@@ -14,6 +14,10 @@ export declare enum OptionVoteActions {
     DOWN = 1,
     REMOVED = 2
 }
+export declare enum OptionSelectionActions {
+    REMOVED = 0,
+    SELECTED = 1
+}
 export declare enum PollProfileActions {
     SKIP = 0
 }
