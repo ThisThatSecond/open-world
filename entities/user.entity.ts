@@ -126,6 +126,11 @@ export class User {
   @Column({
     default: false,
   })
+  is_admin?: boolean;
+
+  @Column({
+    default: false,
+  })
   email_verified?: boolean;
 
   @Column({

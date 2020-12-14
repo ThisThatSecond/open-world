@@ -217,7 +217,7 @@ var Poll = /** @class */ (function () {
         typeorm_1.Check("check_poll_responses_count", "responses_count <= desired_responses_count and responses_count >= 0"),
         typeorm_1.Check("check_poll_comments_count", "comments_count >=  0"),
         typeorm_1.Check("check_poll_position_in_collection", "collection_id is null or position is not null"),
-        typeorm_1.Check("check_visible_options_count", "visible_options_count is null or visible_option_count >= 0")
+        typeorm_1.Check("check_visible_options_count", "visible_options_count is null or visible_options_count >= 0")
     ], Poll);
     return Poll;
 }());

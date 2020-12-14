@@ -26,6 +26,7 @@ export declare class User {
     is_anonymous_user?: boolean;
     is_active?: boolean;
     is_hidden?: boolean;
+    is_admin?: boolean;
     email_verified?: boolean;
     bio?: string;
     last_opened_analytics?: Date;

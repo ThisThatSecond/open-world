@@ -156,6 +156,12 @@ var User = /** @class */ (function () {
             default: false,
         }),
         __metadata("design:type", Boolean)
+    ], User.prototype, "is_admin", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: false,
+        }),
+        __metadata("design:type", Boolean)
     ], User.prototype, "email_verified", void 0);
     __decorate([
         typeorm_1.Column({
