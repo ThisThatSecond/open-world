@@ -1,32 +1,8 @@
-import { Profile } from "./profile.entity";
-import { User } from "./user.entity";
 import { Poll } from "./poll.entity";
-import { CATEGORIES } from "../shared/enums/categories.enum";
-import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
+import { Survey } from "./survey.entity";
 export declare class Collection {
     collection_id: string;
     title: string;
-    thumbnail_url: string;
-    caption: string;
-    category?: CATEGORIES;
-    location: string;
-    language: string;
-    geo_point?: IGeoPoint | string;
-    desired_responses_count: number;
-    release_date?: Date;
-    is_draft?: boolean;
-    is_hidden?: boolean;
-    is_active?: boolean;
-    is_private?: boolean;
-    ready_to_post?: boolean;
-    votes_count: number;
-    responses_count: number;
-    complete_responses_count: number;
-    comments_count: number;
+    survey?: Survey;
     polls?: Poll[];
-    profile: Profile;
-    creator: User;
-    created_at?: Date;
-    finalized_at?: Date;
-    extra?: any;
 }

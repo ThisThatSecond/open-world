@@ -1,28 +1,8 @@
-import { Entity, Column, Index, JoinColumn, PrimaryGeneratedColumn, ManyToOne, OneToMany, Check } from "typeorm";
-import { Profile } from "./profile.entity";
-import { User } from "./user.entity";
+import { Entity, Column, Index, JoinColumn, OneToMany, PrimaryColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Poll } from "./poll.entity";
-import { CATEGORIES } from "../shared/enums/categories.enum";
-import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
+import { Survey } from "./survey.entity";
 
 @Entity("collections")
-@Check(
-  "check_requirements",
-  `
-        is_draft or ( 
-          title is not null and
-          desired_responses_count > 0 and
-          location is not null and
-          language is not null and
-          geo_point is not null
-        )
-    `
-)
-@Check("check_collection_finalized", `(is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)`)
-@Check("check_collection_scheduled", `release_date is null or (is_draft or ready_to_post)`)
-@Check("check_collection_responses_count", `responses_count <= desired_responses_count and responses_count >= 0`)
-@Check("check_collection_complete_responses_count", `complete_responses_count <=  responses_count and complete_responses_count >= 0`)
-@Check("check_collection_comments_count", `comments_count >=  0`)
 export class Collection {
   @PrimaryGeneratedColumn("uuid")
   collection_id: string;
@@ -33,132 +13,15 @@ export class Collection {
   })
   title: string;
 
-  @Column({
-    nullable: true,
-  })
-  thumbnail_url: string;
-
-  @Index() // is it needed?
-  @Column({
-    nullable: true,
-  })
-  caption: string;
-
-  @Column({
-    type: "enum",
-    enum: CATEGORIES,
-    nullable: true,
-  })
-  category?: CATEGORIES;
-
-  @Column({
-    nullable: true,
-  })
-  location: string;
-
-  @Column({
-    nullable: true,
-  })
-  language: string;
-
-  @Column({
-    type: "point",
-    nullable: true,
-  })
-  geo_point?: IGeoPoint | string;
-
-  @Column({
-    nullable: true,
-  })
-  desired_responses_count: number;
-
-  @Column({
-    type: "timestamptz",
-    nullable: true,
-  })
-  release_date?: Date;
-
-  @Column({
-    default: true,
+  @Index()
+  @OneToOne(() => Survey, (survey) => survey.collection, {
     nullable: false,
   })
-  is_draft?: boolean;
-
-  @Column({
-    default: false,
+  @JoinColumn({
+    name: "survey_id",
   })
-  is_hidden?: boolean;
-
-  @Column({
-    default: true,
-    nullable: false,
-  })
-  is_active?: boolean;
-
-  @Column({
-    default: false,
-    nullable: false,
-  })
-  is_private?: boolean;
-
-  @Column({
-    nullable: false,
-    default: false,
-  })
-  ready_to_post?: boolean;
-
-  @Column({
-    default: 0,
-  })
-  votes_count: number;
-
-  @Column({
-    default: 0,
-  })
-  responses_count: number;
-
-  @Column({
-    default: 0,
-  })
-  complete_responses_count: number;
-
-  @Column({
-    default: 0,
-  })
-  comments_count: number;
+  survey?: Survey;
 
   @OneToMany(() => Poll, (poll) => poll.collection)
   polls?: Poll[];
-
-  @ManyToOne(() => Profile, (profile) => profile.polls, { nullable: false })
-  @JoinColumn({
-    name: "profile_id",
-  })
-  profile: Profile;
-
-  @ManyToOne(() => User, (user) => user.polls, { nullable: false })
-  @JoinColumn({
-    name: "creator_id",
-  })
-  creator: User;
-
-  @Column({
-    type: "timestamptz",
-    default: () => "CURRENT_TIMESTAMP",
-    nullable: false,
-  })
-  created_at?: Date;
-
-  @Column({
-    type: "timestamptz",
-    nullable: true,
-  })
-  finalized_at?: Date;
-
-  @Column({
-    type: "jsonb",
-    array: false,
-    nullable: true,
-  })
-  extra?: any;
 }
