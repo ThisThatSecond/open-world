@@ -134,14 +134,14 @@ var Survey = /** @class */ (function () {
         __metadata("design:type", poll_entity_1.Poll)
     ], Survey.prototype, "poll", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, function (user) { return user.polls; }, { nullable: false }),
+        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, function (user) { return user.surveys; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "creator_id",
         }),
         __metadata("design:type", user_entity_1.User)
     ], Survey.prototype, "creator", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, function (profile) { return profile.polls; }, { nullable: false }),
+        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, function (profile) { return profile.surveys; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "profile_id",
         }),

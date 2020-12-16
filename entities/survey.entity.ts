@@ -111,13 +111,13 @@ export class Survey {
   @OneToOne(() => Poll, (poll) => poll.survey)
   poll?: Poll;
 
-  @ManyToOne(() => User, (user) => user.polls, { nullable: false })
+  @ManyToOne(() => User, (user) => user.surveys, { nullable: false })
   @JoinColumn({
     name: "creator_id",
   })
   creator: User;
 
-  @ManyToOne(() => Profile, (profile) => profile.polls, { nullable: false })
+  @ManyToOne(() => Profile, (profile) => profile.surveys, { nullable: false })
   @JoinColumn({
     name: "profile_id",
   })
