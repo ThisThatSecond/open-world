@@ -74,10 +74,4 @@ export class Poll {
   @OneToMany(() => Pair, (pair) => pair.poll)
   pairs?: Pair[];
 
-  @Column({
-    type: "jsonb",
-    array: false,
-    nullable: true,
-  })
-  extra?: any;
 }

@@ -15,5 +15,4 @@ export declare class Poll {
     survey?: Survey;
     options?: Option[];
     pairs?: Pair[];
-    extra?: any;
 }

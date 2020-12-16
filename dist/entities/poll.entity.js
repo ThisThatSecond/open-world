@@ -91,14 +91,6 @@ var Poll = /** @class */ (function () {
         typeorm_1.OneToMany(function () { return pair_entity_1.Pair; }, function (pair) { return pair.poll; }),
         __metadata("design:type", Array)
     ], Poll.prototype, "pairs", void 0);
-    __decorate([
-        typeorm_1.Column({
-            type: "jsonb",
-            array: false,
-            nullable: true,
-        }),
-        __metadata("design:type", Object)
-    ], Poll.prototype, "extra", void 0);
     Poll = __decorate([
         typeorm_1.Entity("polls"),
         typeorm_1.Check("check_collection_or_survey", "(collection_id is not null and survey_id is null) or (collection_id is null and survey_id is not null)"),
