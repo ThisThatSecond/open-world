@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var survey_entity_1 = require("./survey.entity");
+exports.Survey = survey_entity_1.Survey;
 var comment_vote_entity_1 = require("./comment_vote.entity");
 exports.CommentVote = comment_vote_entity_1.CommentVote;
 var comment_entity_1 = require("./comment.entity");

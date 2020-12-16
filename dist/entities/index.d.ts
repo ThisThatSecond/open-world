@@ -1,3 +1,4 @@
+export { Survey } from "./survey.entity";
 export { CommentVote } from "./comment_vote.entity";
 export { Comment } from "./comment.entity";
 export { OptionVoteHistory } from "./option_vote_history.entity";
