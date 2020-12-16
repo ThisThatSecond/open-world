@@ -69,34 +69,39 @@ export class Survey {
   is_analytics_survey?: boolean;
 
   @Column({
-    nullable: true,
+    nullable: false,
+    default: false,
   })
   is_private?: boolean;
 
   @Column({
-    nullable: true,
+    nullable: false,
+    default: true,
   })
   is_draft?: boolean;
 
   @Column({
+    nullable: false,
     default: false,
   })
   is_hidden?: boolean;
 
   @Column({
-    nullable: true,
+    nullable: false,
+    default: true,
   })
   is_active?: boolean;
 
   @Column({
-    nullable: true,
+    nullable: false,
+    default: false,
   })
   ready_to_post?: boolean;
 
   @Column({
     type: "enum",
     enum: SurveyTypes,
-    nullable: true,
+    nullable: false,
   })
   type?: SurveyTypes;
 
@@ -106,13 +111,13 @@ export class Survey {
   @OneToOne(() => Poll, (poll) => poll.survey)
   poll?: Poll;
 
-  @ManyToOne(() => User, (user) => user.polls, { nullable: true })
+  @ManyToOne(() => User, (user) => user.polls, { nullable: false })
   @JoinColumn({
     name: "creator_id",
   })
   creator: User;
 
-  @ManyToOne(() => Profile, (profile) => profile.polls, { nullable: true })
+  @ManyToOne(() => Profile, (profile) => profile.polls, { nullable: false })
   @JoinColumn({
     name: "profile_id",
   })

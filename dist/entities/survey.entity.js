@@ -84,31 +84,36 @@ var Survey = /** @class */ (function () {
     ], Survey.prototype, "is_analytics_survey", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true,
+            nullable: false,
+            default: false,
         }),
         __metadata("design:type", Boolean)
     ], Survey.prototype, "is_private", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true,
+            nullable: false,
+            default: true,
         }),
         __metadata("design:type", Boolean)
     ], Survey.prototype, "is_draft", void 0);
     __decorate([
         typeorm_1.Column({
+            nullable: false,
             default: false,
         }),
         __metadata("design:type", Boolean)
     ], Survey.prototype, "is_hidden", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true,
+            nullable: false,
+            default: true,
         }),
         __metadata("design:type", Boolean)
     ], Survey.prototype, "is_active", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true,
+            nullable: false,
+            default: false,
         }),
         __metadata("design:type", Boolean)
     ], Survey.prototype, "ready_to_post", void 0);
@@ -116,7 +121,7 @@ var Survey = /** @class */ (function () {
         typeorm_1.Column({
             type: "enum",
             enum: survey_types_enum_1.SurveyTypes,
-            nullable: true,
+            nullable: false,
         }),
         __metadata("design:type", String)
     ], Survey.prototype, "type", void 0);
@@ -129,14 +134,14 @@ var Survey = /** @class */ (function () {
         __metadata("design:type", poll_entity_1.Poll)
     ], Survey.prototype, "poll", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, function (user) { return user.polls; }, { nullable: true }),
+        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, function (user) { return user.polls; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "creator_id",
         }),
         __metadata("design:type", user_entity_1.User)
     ], Survey.prototype, "creator", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, function (profile) { return profile.polls; }, { nullable: true }),
+        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, function (profile) { return profile.polls; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "profile_id",
         }),
