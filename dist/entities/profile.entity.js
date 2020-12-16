@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var user_entity_1 = require("./user.entity");
 var team_entity_1 = require("./team.entity");
-var poll_entity_1 = require("./poll.entity");
+var survey_entity_1 = require("./survey.entity");
 var Profile = /** @class */ (function () {
     /**
       there are two unique constraint for:
@@ -179,9 +179,9 @@ var Profile = /** @class */ (function () {
         __metadata("design:type", team_entity_1.Team)
     ], Profile.prototype, "team", void 0);
     __decorate([
-        typeorm_1.OneToMany(function () { return poll_entity_1.Poll; }, function (poll) { return poll.profile; }),
+        typeorm_1.OneToMany(function () { return survey_entity_1.Survey; }, function (survey) { return survey.profile; }),
         __metadata("design:type", Array)
-    ], Profile.prototype, "polls", void 0);
+    ], Profile.prototype, "surveys", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",

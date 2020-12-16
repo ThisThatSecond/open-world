@@ -5,6 +5,7 @@ import { Profile } from "./profile.entity";
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 import { Invitation } from "./invitation.entity";
 import { Team } from "./team.entity";
+import { Survey } from "./survey.entity";
 
 @Check("check_analytics_user_email", `not is_analytics_user or email is not null`)
 @Check("check_anonymous_user", `not is_anonymous_user or not is_analytics_user`)
@@ -164,8 +165,8 @@ export class User {
   @OneToMany(() => Profile, (profile) => profile.user)
   profiles?: Profile[];
 
-  @OneToMany(() => Poll, (poll) => poll.creator)
-  polls?: Poll[];
+  @OneToMany(() => Survey, (survey) => survey.creator)
+  surveys?: Survey[];
 
   @OneToMany(() => Invitation, (invitation) => invitation.invitee)
   invitations?: Invitation[];
