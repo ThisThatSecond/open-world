@@ -2,11 +2,10 @@ import { Entity, Column, JoinColumn, ManyToOne, Check, PrimaryGeneratedColumn, U
 import { Poll } from "./poll.entity";
 import { Collection } from "./collection.entity";
 import { Profile } from "./profile.entity";
+import { Survey } from "./survey.entity";
 
 @Entity("trackings")
-@Check("check_poll_or_collection_tracking", `poll_id is not null or collection_id is not null`)
-@Unique('unique_profile_poll_tracking', ['tracker', 'poll'])
-@Unique('unique_profile_collection_tracking', ['tracker', 'collection'])
+@Unique("unique_profile_poll_tracking", ["tracker", "survey"])
 export class Tracking {
   @PrimaryGeneratedColumn("uuid")
   tracking_id: string;
@@ -17,17 +16,11 @@ export class Tracking {
   })
   tracker: Profile;
 
-  @ManyToOne(() => Poll, { nullable: true })
+  @ManyToOne(() => Survey, { nullable: false })
   @JoinColumn({
-    name: "poll_id",
+    name: "survey_id",
   })
-  poll?: Poll;
-
-  @ManyToOne(() => Collection, { nullable: true })
-  @JoinColumn({
-    name: "collection_id",
-  })
-  collection?: Collection;
+  survey?: Survey;
 
   @ManyToOne(() => Profile, { nullable: true })
   @JoinColumn({

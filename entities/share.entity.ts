@@ -1,10 +1,9 @@
 import { Entity, Column, JoinColumn, ManyToOne, Check, PrimaryGeneratedColumn } from "typeorm";
-import { Poll } from "./poll.entity";
-import { Collection } from "./collection.entity";
 import { Profile } from "./profile.entity";
+import { Survey } from "./survey.entity";
 
 @Entity("shares")
-@Check("check_poll_or_collection_share", `poll_id is not null or collection_id is not null or profile_id is not null`)
+@Check("check_survey_or_profile_share", `survey_id is not null or profile_id is not null`)
 export class Share {
   @PrimaryGeneratedColumn("uuid")
   share_id: string;
@@ -15,17 +14,11 @@ export class Share {
   })
   sharingProfile: Profile;
 
-  @ManyToOne(() => Poll, { nullable: true })
+  @ManyToOne(() => Survey, { nullable: true })
   @JoinColumn({
-    name: "poll_id",
+    name: "survey_id",
   })
-  poll?: Poll;
-
-  @ManyToOne(() => Collection, { nullable: true })
-  @JoinColumn({
-    name: "collection_id",
-  })
-  collection?: Collection;
+  survey?: Survey;
 
   @ManyToOne(() => Profile, { nullable: true })
   @JoinColumn({
