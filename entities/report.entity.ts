@@ -6,8 +6,7 @@ import { Survey } from "./survey.entity";
 @Entity("reports")
 @Check("check_comment_or_survey_or_profile_report", `comment_id is not null or survey_id is not null or profile_id is not null`)
 @Unique("unique_reporter_comment", ["reporter", "comment"])
-@Unique("unique_reporter_poll", ["reporter", "poll"])
-@Unique("unique_reporter_collection", ["reporter", "collection"])
+@Unique("unique_reporter_survey", ["reporter", "survey"])
 @Unique("unique_reporter_profile", ["reporter", "profile"])
 export class Report {
   @PrimaryGeneratedColumn("uuid")

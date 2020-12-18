@@ -60,8 +60,7 @@ var Report = /** @class */ (function () {
         typeorm_1.Entity("reports"),
         typeorm_1.Check("check_comment_or_survey_or_profile_report", "comment_id is not null or survey_id is not null or profile_id is not null"),
         typeorm_1.Unique("unique_reporter_comment", ["reporter", "comment"]),
-        typeorm_1.Unique("unique_reporter_poll", ["reporter", "poll"]),
-        typeorm_1.Unique("unique_reporter_collection", ["reporter", "collection"]),
+        typeorm_1.Unique("unique_reporter_survey", ["reporter", "survey"]),
         typeorm_1.Unique("unique_reporter_profile", ["reporter", "profile"])
     ], Report);
     return Report;
