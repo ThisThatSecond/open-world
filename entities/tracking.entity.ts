@@ -1,6 +1,4 @@
-import { Entity, Column, JoinColumn, ManyToOne, Check, PrimaryGeneratedColumn, Unique } from "typeorm";
-import { Poll } from "./poll.entity";
-import { Collection } from "./collection.entity";
+import { Entity, Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn, Unique } from "typeorm";
 import { Profile } from "./profile.entity";
 import { Survey } from "./survey.entity";
 

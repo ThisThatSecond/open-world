@@ -1,4 +1,4 @@
-import { Entity, Column, JoinColumn, ManyToOne, Check, PrimaryGeneratedColumn, Unique } from "typeorm";
+import { Entity, Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn, Unique } from "typeorm";
 import { Profile } from "./profile.entity";
 import { Reactions } from "../shared/enums/reactions.enum";
 import { Survey } from "./survey.entity";
