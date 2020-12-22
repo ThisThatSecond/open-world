@@ -10,9 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
-var poll_entity_1 = require("./poll.entity");
-var collection_entity_1 = require("./collection.entity");
 var profile_entity_1 = require("./profile.entity");
+var survey_entity_1 = require("./survey.entity");
 var Comment = /** @class */ (function () {
     function Comment() {
     }
@@ -27,19 +26,12 @@ var Comment = /** @class */ (function () {
         __metadata("design:type", String)
     ], Comment.prototype, "text", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return poll_entity_1.Poll; }, { nullable: true }),
+        typeorm_1.ManyToOne(function () { return survey_entity_1.Survey; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: "poll_id",
+            name: "survey_id",
         }),
-        __metadata("design:type", poll_entity_1.Poll)
-    ], Comment.prototype, "poll", void 0);
-    __decorate([
-        typeorm_1.ManyToOne(function () { return collection_entity_1.Collection; }, { nullable: true }),
-        typeorm_1.JoinColumn({
-            name: "collection_id",
-        }),
-        __metadata("design:type", collection_entity_1.Collection)
-    ], Comment.prototype, "collection", void 0);
+        __metadata("design:type", survey_entity_1.Survey)
+    ], Comment.prototype, "survey", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
         typeorm_1.JoinColumn({
@@ -81,8 +73,7 @@ var Comment = /** @class */ (function () {
         __metadata("design:type", Date)
     ], Comment.prototype, "created_at", void 0);
     Comment = __decorate([
-        typeorm_1.Entity("comments"),
-        typeorm_1.Check("check_null_poll_or_collection", "(poll_id is not null and collection_id is null) or (poll_id is null and collection_id is not null)")
+        typeorm_1.Entity("comments")
     ], Comment);
     return Comment;
 }());

@@ -1,11 +1,9 @@
-import { Poll } from "./poll.entity";
-import { Collection } from "./collection.entity";
 import { Profile } from "./profile.entity";
+import { Survey } from "./survey.entity";
 export declare class Comment {
     comment_id: string;
     text: string;
-    poll: Poll;
-    collection?: Collection;
+    survey?: Survey;
     creator: Profile;
     sharing_profile: Profile;
     is_hidden?: boolean;
