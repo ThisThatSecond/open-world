@@ -50,7 +50,7 @@ var Tracking = /** @class */ (function () {
     ], Tracking.prototype, "created_at", void 0);
     Tracking = __decorate([
         typeorm_1.Entity("trackings"),
-        typeorm_1.Unique("unique_profile_poll_tracking", ["tracker", "survey"])
+        typeorm_1.Unique("unique_profile_survey_tracking", ["tracker", "survey"])
     ], Tracking);
     return Tracking;
 }());

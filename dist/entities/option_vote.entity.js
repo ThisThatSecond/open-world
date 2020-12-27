@@ -62,7 +62,7 @@ var OptionVote = /** @class */ (function () {
     ], OptionVote.prototype, "created_at", void 0);
     OptionVote = __decorate([
         typeorm_1.Entity("option_votes"),
-        typeorm_1.Unique("uniqe_option_voter", ["option", "voter"])
+        typeorm_1.Unique("unique_option_voter", ["option", "voter"])
     ], OptionVote);
     return OptionVote;
 }());

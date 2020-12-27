@@ -62,7 +62,7 @@ var PairVote = /** @class */ (function () {
     ], PairVote.prototype, "created_at", void 0);
     PairVote = __decorate([
         typeorm_1.Entity("pair_votes"),
-        typeorm_1.Unique("uniqe_pair_voter", ["pair", "voter"])
+        typeorm_1.Unique("unique_pair_voter", ["pair", "voter"])
     ], PairVote);
     return PairVote;
 }());

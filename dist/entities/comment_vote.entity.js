@@ -60,7 +60,7 @@ var CommentVote = /** @class */ (function () {
     ], CommentVote.prototype, "created_at", void 0);
     CommentVote = __decorate([
         typeorm_1.Entity("comment_votes"),
-        typeorm_1.Unique("uniqe_comment_voter", ["comment", "voter"])
+        typeorm_1.Unique("unique_comment_voter", ["comment", "voter"])
     ], CommentVote);
     return CommentVote;
 }());
