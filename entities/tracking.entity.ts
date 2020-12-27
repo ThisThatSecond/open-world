@@ -3,7 +3,7 @@ import { Profile } from "./profile.entity";
 import { Survey } from "./survey.entity";
 
 @Entity("trackings")
-@Unique("unique_profile_poll_tracking", ["tracker", "survey"])
+@Unique("unique_profile_survey_tracking", ["tracker", "survey"])
 export class Tracking {
   @PrimaryGeneratedColumn("uuid")
   tracking_id: string;

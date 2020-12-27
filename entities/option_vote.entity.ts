@@ -4,7 +4,7 @@ import { OptionVoteActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
 
 @Entity("option_votes")
-@Unique("uniqe_option_voter", ["option", "voter"])
+@Unique("unique_option_voter", ["option", "voter"])
 export class OptionVote {
   @PrimaryGeneratedColumn("uuid")
   option_vote_id: string;

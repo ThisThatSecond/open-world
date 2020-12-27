@@ -1,9 +1,10 @@
 import { Entity, Column, JoinColumn, PrimaryGeneratedColumn, ManyToOne, Unique } from "typeorm";
 import { Profile } from "./profile.entity";
 import { FollowershipStatus } from "../shared/enums/followership_status.enum";
+import { Survey } from "./survey.entity";
 
 @Entity("followerships")
-@Unique("unique_follwership", ["follower", "following"])
+@Unique("unique_followership", ["follower", "following"])
 export class Followership {
   @PrimaryGeneratedColumn("uuid")
   followership_id: string;
@@ -33,6 +34,12 @@ export class Followership {
     name: "sharing_profile_id",
   })
   sharing_profile: Profile;
+
+  @ManyToOne(() => Profile, { nullable: true })
+  @JoinColumn({
+    name: "by_survey_id",
+  })
+  by_survey_id: Survey;
 
   @Column({
     type: "timestamptz",

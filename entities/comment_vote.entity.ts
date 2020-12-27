@@ -5,7 +5,7 @@ import { CommentVoteActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
 
 @Entity("comment_votes")
-@Unique("uniqe_comment_voter", ["comment", "voter"])
+@Unique("unique_comment_voter", ["comment", "voter"])
 
 export class CommentVote {
   @PrimaryGeneratedColumn("uuid")
