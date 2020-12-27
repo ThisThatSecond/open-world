@@ -39,7 +39,7 @@ export class Followership {
   @JoinColumn({
     name: "by_survey_id",
   })
-  by_survey_id: Survey;
+  by_survey: Survey;
 
   @Column({
     type: "timestamptz",

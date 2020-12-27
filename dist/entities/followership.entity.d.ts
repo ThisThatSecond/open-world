@@ -7,7 +7,7 @@ export declare class Followership {
     following: Profile;
     status: FollowershipStatus;
     sharing_profile: Profile;
-    by_survey_id: Survey;
+    by_survey: Survey;
     created_at?: Date;
     updated_at: Date;
 }

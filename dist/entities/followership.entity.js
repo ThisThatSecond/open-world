@@ -56,7 +56,7 @@ var Followership = /** @class */ (function () {
             name: "by_survey_id",
         }),
         __metadata("design:type", survey_entity_1.Survey)
-    ], Followership.prototype, "by_survey_id", void 0);
+    ], Followership.prototype, "by_survey", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
