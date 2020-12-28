@@ -41,7 +41,6 @@ var SurveyRespondent = /** @class */ (function () {
         __metadata("design:type", Date)
     ], SurveyRespondent.prototype, "created_at", void 0);
     SurveyRespondent = __decorate([
-        typeorm_1.Check("video_image_check", "video_url is null or image_url is not null"),
         typeorm_1.Entity("survey_respondents")
     ], SurveyRespondent);
     return SurveyRespondent;

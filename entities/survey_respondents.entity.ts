@@ -2,7 +2,6 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, PrimaryC
 import { Survey } from "./survey.entity";
 import { Profile } from "./profile.entity";
 
-@Check("video_image_check", "video_url is null or image_url is not null")
 @Entity("survey_respondents")
 export class SurveyRespondent {
   @Index()
