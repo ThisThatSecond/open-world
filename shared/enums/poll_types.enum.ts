@@ -1,6 +1,5 @@
 export enum PollTypes {
   THISTHAT,
   TOURNAMENT,
-  SINGLE_SELECTION,
-  MULTI_SELECTION,
+  SELECTION,
 }
