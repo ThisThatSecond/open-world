@@ -8,6 +8,7 @@ import { Profile } from "./profile.entity";
 @Entity("survey_respondents")
 export class SurveyRespondent {
   @Index()
+  @PrimaryColumn()
   @ManyToOne(() => Survey, (survey) => survey.respondents, { nullable: false })
   @JoinColumn({
     name: "survey_id",
