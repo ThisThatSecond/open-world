@@ -5,6 +5,7 @@ import { Poll } from "./poll.entity";
 import { NOTIFICATION_PREFERENCES } from "../shared/enums/notification_preferences.enum";
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 import { Survey } from "./survey.entity";
+import { SurveyRespondent } from "./survey_respondents.entity";
 
 @Entity("profiles")
 @Check("check_analytics_profile_join_link", `not is_analytics_profile or join_link is not null`)
@@ -151,6 +152,9 @@ export class Profile {
 
   @OneToMany(() => Survey, (survey) => survey.profile)
   surveys?: Survey[];
+
+  @OneToMany(() => SurveyRespondent, (surveyRespondent) => surveyRespondent.profile)
+  responded_surveys?: SurveyRespondent[];
 
   @Column({
     type: "timestamptz",

@@ -1,4 +1,4 @@
-import { Entity, Column, JoinColumn, ManyToOne, Check, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, JoinColumn, ManyToOne, Check, OneToOne, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { User } from "./user.entity";
 import { CATEGORIES } from "../shared/enums/categories.enum";
 import { Profile } from "./profile.entity";
@@ -6,6 +6,7 @@ import { Collection } from "./collection.entity";
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 import { Poll } from "./poll.entity";
 import { SurveyTypes } from "../shared/enums/survey_types.enum";
+import { SurveyRespondent } from "./survey_respondents.entity";
 
 @Entity("surveys")
 @Check("check_survey_finalized", `(is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)`)
@@ -122,6 +123,9 @@ export class Survey {
     name: "profile_id",
   })
   profile?: Profile;
+
+  @OneToMany(() => SurveyRespondent, (SurveyRespondent) => SurveyRespondent.survey)
+  respondents?: SurveyRespondent[];
 
   @Column({
     default: 0,

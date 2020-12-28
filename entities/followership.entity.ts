@@ -35,7 +35,7 @@ export class Followership {
   })
   sharing_profile: Profile;
 
-  @ManyToOne(() => Profile, { nullable: true })
+  @ManyToOne(() => Survey, { nullable: true })
   @JoinColumn({
     name: "by_survey_id",
   })

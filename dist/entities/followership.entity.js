@@ -51,7 +51,7 @@ var Followership = /** @class */ (function () {
         __metadata("design:type", profile_entity_1.Profile)
     ], Followership.prototype, "sharing_profile", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: true }),
+        typeorm_1.ManyToOne(function () { return survey_entity_1.Survey; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: "by_survey_id",
         }),
