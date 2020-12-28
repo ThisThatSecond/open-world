@@ -3,6 +3,8 @@ import { Option } from "./option.entity";
 import { Collection } from "./collection.entity";
 import { Pair } from "./pair.entity";
 import { Survey } from "./survey.entity";
+import { PollTypes } from "../shared/enums/poll_types.enum";
+import { MultiSelectionTypes, SelectionTypes } from "../shared/enums/selection_types.enum";
 
 @Entity("polls")
 @Check("check_collection_or_survey", `(collection_id is not null and survey_id is null) or (collection_id is null and survey_id is not null)`)
@@ -21,6 +23,13 @@ export class Poll {
   question: string;
 
   @Column({
+    type: "enum",
+    enum: PollTypes,
+    nullable: false,
+  })
+  type: PollTypes;
+
+  @Column({
     nullable: true,
   })
   visible_options_count?: number;
@@ -29,6 +38,25 @@ export class Poll {
     nullable: true,
   })
   is_familiarity_required?: boolean;
+
+  @Column({
+    type: "enum",
+    enum: SelectionTypes,
+    nullable: true,
+  })
+  selection_type: SelectionTypes;
+
+  @Column({
+    type: "enum",
+    enum: MultiSelectionTypes,
+    nullable: true,
+  })
+  multi_selection_type: MultiSelectionTypes;
+
+  @Column({
+    nullable: true,
+  })
+  multi_selection_count?: number;
 
   @Column({
     nullable: true,
@@ -73,5 +101,4 @@ export class Poll {
 
   @OneToMany(() => Pair, (pair) => pair.poll)
   pairs?: Pair[];
-
 }

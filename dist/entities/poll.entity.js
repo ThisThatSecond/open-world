@@ -14,6 +14,8 @@ var option_entity_1 = require("./option.entity");
 var collection_entity_1 = require("./collection.entity");
 var pair_entity_1 = require("./pair.entity");
 var survey_entity_1 = require("./survey.entity");
+var poll_types_enum_1 = require("../shared/enums/poll_types.enum");
+var selection_types_enum_1 = require("../shared/enums/selection_types.enum");
 var Poll = /** @class */ (function () {
     function Poll() {
     }
@@ -29,6 +31,14 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "question", void 0);
     __decorate([
         typeorm_1.Column({
+            type: "enum",
+            enum: poll_types_enum_1.PollTypes,
+            nullable: false,
+        }),
+        __metadata("design:type", Number)
+    ], Poll.prototype, "type", void 0);
+    __decorate([
+        typeorm_1.Column({
             nullable: true,
         }),
         __metadata("design:type", Number)
@@ -39,6 +49,28 @@ var Poll = /** @class */ (function () {
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "is_familiarity_required", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: "enum",
+            enum: selection_types_enum_1.SelectionTypes,
+            nullable: true,
+        }),
+        __metadata("design:type", Number)
+    ], Poll.prototype, "selection_type", void 0);
+    __decorate([
+        typeorm_1.Column({
+            type: "enum",
+            enum: selection_types_enum_1.MultiSelectionTypes,
+            nullable: true,
+        }),
+        __metadata("design:type", Number)
+    ], Poll.prototype, "multi_selection_type", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: true,
+        }),
+        __metadata("design:type", Number)
+    ], Poll.prototype, "multi_selection_count", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: true,
