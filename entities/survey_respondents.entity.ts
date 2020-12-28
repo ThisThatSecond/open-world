@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, PrimaryColumn, OneToMany, Check, In, Index } from "typeorm";
+import { Entity, Column, ManyToOne, JoinColumn, PrimaryColumn, Index } from "typeorm";
 import { Survey } from "./survey.entity";
 import { Profile } from "./profile.entity";
 

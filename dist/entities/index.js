@@ -54,4 +54,6 @@ var block_entity_1 = require("./block.entity");
 exports.Block = block_entity_1.Block;
 var report_entity_1 = require("./report.entity");
 exports.Report = report_entity_1.Report;
+var survey_respondents_entity_1 = require("./survey_respondents.entity");
+exports.SurveyRespondent = survey_respondents_entity_1.SurveyRespondent;
 //# sourceMappingURL=index.js.map
