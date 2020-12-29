@@ -40,7 +40,7 @@ export class OptionSelection {
 
   @ManyToOne(() => SurveyCampaign, { nullable: true })
   @JoinColumn({
-    name: "campaign_id",
+    name: "survey_campaign_id",
   })
   survey_campaign: SurveyCampaign;
 

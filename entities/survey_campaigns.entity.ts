@@ -5,7 +5,7 @@ import { User } from "./user.entity";
 @Entity("survey_campaigns")
 export class SurveyCampaign {
   @PrimaryGeneratedColumn("uuid")
-  campaign_id;
+  survey_campaign_id;
 
   @Index()
   @ManyToOne(() => Survey, { nullable: false })

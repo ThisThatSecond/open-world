@@ -54,7 +54,7 @@ var CommentVote = /** @class */ (function () {
     __decorate([
         typeorm_1.ManyToOne(function () { return survey_campaigns_entity_1.SurveyCampaign; }, { nullable: true }),
         typeorm_1.JoinColumn({
-            name: "campaign_id",
+            name: "survey_campaign_id",
         }),
         __metadata("design:type", survey_campaigns_entity_1.SurveyCampaign)
     ], CommentVote.prototype, "survey_campaign", void 0);

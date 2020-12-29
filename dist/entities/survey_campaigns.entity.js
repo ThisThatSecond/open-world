@@ -18,7 +18,7 @@ var SurveyCampaign = /** @class */ (function () {
     __decorate([
         typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", Object)
-    ], SurveyCampaign.prototype, "campaign_id", void 0);
+    ], SurveyCampaign.prototype, "survey_campaign_id", void 0);
     __decorate([
         typeorm_1.Index(),
         typeorm_1.ManyToOne(function () { return survey_entity_1.Survey; }, { nullable: false }),
