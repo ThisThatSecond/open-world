@@ -16,7 +16,7 @@ var SurveyCampaign = /** @class */ (function () {
     function SurveyCampaign() {
     }
     __decorate([
-        typeorm_1.PrimaryColumn("uuid"),
+        typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", Object)
     ], SurveyCampaign.prototype, "campaign_id", void 0);
     __decorate([

@@ -1,10 +1,10 @@
-import { Entity, Column, ManyToOne, JoinColumn, PrimaryColumn, Index } from "typeorm";
+import { Entity, Column, ManyToOne, JoinColumn, PrimaryColumn, Index, PrimaryGeneratedColumn } from "typeorm";
 import { Survey } from "./survey.entity";
 import { User } from "./user.entity";
 
 @Entity("survey_campaigns")
 export class SurveyCampaign {
-  @PrimaryColumn("uuid")
+  @PrimaryGeneratedColumn("uuid")
   campaign_id;
 
   @Index()
