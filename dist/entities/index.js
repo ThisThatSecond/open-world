@@ -56,4 +56,6 @@ var report_entity_1 = require("./report.entity");
 exports.Report = report_entity_1.Report;
 var survey_respondents_entity_1 = require("./survey_respondents.entity");
 exports.SurveyRespondent = survey_respondents_entity_1.SurveyRespondent;
+var survey_campaigns_entity_1 = require("./survey_campaigns.entity");
+exports.SurveyCampaign = survey_campaigns_entity_1.SurveyCampaign;
 //# sourceMappingURL=index.js.map
