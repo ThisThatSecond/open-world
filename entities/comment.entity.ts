@@ -4,6 +4,7 @@ import { Poll } from "./poll.entity";
 import { Collection } from "./collection.entity";
 import { Profile } from "./profile.entity";
 import { Survey } from "./survey.entity";
+import { SurveyCampaign } from "./survey_campaigns.entity";
 
 @Entity("comments")
 export class Comment {
@@ -32,6 +33,13 @@ export class Comment {
     name: "sharing_profile_id",
   })
   sharing_profile: Profile;
+
+  @ManyToOne(() => SurveyCampaign, { nullable: true })
+  @JoinColumn({
+    name: "campaign_id",
+  })
+  survey_campaign: SurveyCampaign;
+
 
   @Column({
     default: false,

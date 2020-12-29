@@ -3,6 +3,7 @@ import { User } from "./user.entity";
 import { Option } from "./option.entity";
 import { OptionVoteActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
+import { SurveyCampaign } from "./survey_campaigns.entity";
 
 @Entity("option_votes_history")
 export class OptionVoteHistory {
@@ -36,6 +37,13 @@ export class OptionVoteHistory {
     name: "sharing_profile_id",
   })
   sharing_profile: Profile;
+
+  @ManyToOne(() => SurveyCampaign, { nullable: true })
+  @JoinColumn({
+    name: "campaign_id",
+  })
+  survey_campaign: SurveyCampaign;
+
 
   @Column({
     type: "timestamptz",

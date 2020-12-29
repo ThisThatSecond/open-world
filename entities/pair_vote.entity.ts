@@ -2,6 +2,7 @@ import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn, Unique, 
 import { Pair } from "./pair.entity";
 import { PairVoteActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
+import { SurveyCampaign } from "./survey_campaigns.entity";
 
 @Entity("pair_votes")
 @Unique("unique_pair_voter", ["pair", "voter"])
@@ -37,6 +38,11 @@ export class PairVote {
   })
   sharing_profile: Profile;
 
+  @ManyToOne(() => SurveyCampaign, { nullable: true })
+  @JoinColumn({
+    name: "campaign_id",
+  })
+  survey_campaign: SurveyCampaign;
 
   @Column({
     type: "timestamptz",

@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var profile_entity_1 = require("./profile.entity");
 var survey_entity_1 = require("./survey.entity");
+var survey_campaigns_entity_1 = require("./survey_campaigns.entity");
 var Share = /** @class */ (function () {
     function Share() {
     }
@@ -19,13 +20,6 @@ var Share = /** @class */ (function () {
         typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", String)
     ], Share.prototype, "share_id", void 0);
-    __decorate([
-        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
-        typeorm_1.JoinColumn({
-            name: "sharing_profile_id",
-        }),
-        __metadata("design:type", profile_entity_1.Profile)
-    ], Share.prototype, "sharingProfile", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return survey_entity_1.Survey; }, { nullable: true }),
         typeorm_1.JoinColumn({
@@ -40,6 +34,20 @@ var Share = /** @class */ (function () {
         }),
         __metadata("design:type", profile_entity_1.Profile)
     ], Share.prototype, "profile", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: false }),
+        typeorm_1.JoinColumn({
+            name: "sharing_profile_id",
+        }),
+        __metadata("design:type", profile_entity_1.Profile)
+    ], Share.prototype, "sharingProfile", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return survey_campaigns_entity_1.SurveyCampaign; }, { nullable: true }),
+        typeorm_1.JoinColumn({
+            name: "campaign_id",
+        }),
+        __metadata("design:type", survey_campaigns_entity_1.SurveyCampaign)
+    ], Share.prototype, "survey_campaign", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
