@@ -3,6 +3,9 @@ import { Profile } from "./profile.entity";
 export declare class SurveyEngagement {
     survey: Survey;
     profile: Profile;
+    has_tracked?: boolean;
+    has_reaction?: boolean;
+    has_shared?: boolean;
     is_respondent?: boolean;
     created_at: Date;
 }

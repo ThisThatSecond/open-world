@@ -1,8 +1,9 @@
-import { Entity, Column, ManyToOne, JoinColumn, PrimaryColumn, Index } from "typeorm";
+import { Entity, Column, ManyToOne, JoinColumn, PrimaryColumn, Index, Check } from "typeorm";
 import { Survey } from "./survey.entity";
 import { Profile } from "./profile.entity";
 
 @Entity("survey_engagements")
+@Check("check_engagement", `has_tracked or has_reaction or has_shared or is_respondent`)
 export class SurveyEngagement {
   @Index()
   @PrimaryColumn("uuid")
@@ -21,7 +22,25 @@ export class SurveyEngagement {
 
   @Column({
     default: false,
-    nullable: false
+    nullable: false,
+  })
+  has_tracked?: boolean;
+
+  @Column({
+    default: false,
+    nullable: false,
+  })
+  has_reaction?: boolean;
+
+  @Column({
+    default: false,
+    nullable: false,
+  })
+  has_shared?: boolean;
+
+  @Column({
+    default: false,
+    nullable: false,
   })
   is_respondent?: boolean;
 
