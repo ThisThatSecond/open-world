@@ -5,7 +5,7 @@ export declare class Share {
     share_id: string;
     survey?: Survey;
     profile?: Profile;
-    sharingProfile: Profile;
+    sharing_profile: Profile;
     survey_campaign: SurveyCampaign;
     created_at?: Date;
 }

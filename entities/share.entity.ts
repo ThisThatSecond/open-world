@@ -26,7 +26,7 @@ export class Share {
   @JoinColumn({
     name: "sharing_profile_id",
   })
-  sharingProfile: Profile;
+  sharing_profile: Profile;
 
   @ManyToOne(() => SurveyCampaign, { nullable: true })
   @JoinColumn({

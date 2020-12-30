@@ -40,7 +40,7 @@ var Share = /** @class */ (function () {
             name: "sharing_profile_id",
         }),
         __metadata("design:type", profile_entity_1.Profile)
-    ], Share.prototype, "sharingProfile", void 0);
+    ], Share.prototype, "sharing_profile", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return survey_campaigns_entity_1.SurveyCampaign; }, { nullable: true }),
         typeorm_1.JoinColumn({
