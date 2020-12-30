@@ -12,26 +12,33 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var survey_entity_1 = require("./survey.entity");
 var profile_entity_1 = require("./profile.entity");
-var SurveyRespondent = /** @class */ (function () {
-    function SurveyRespondent() {
+var SurveyEngagement = /** @class */ (function () {
+    function SurveyEngagement() {
     }
     __decorate([
         typeorm_1.Index(),
         typeorm_1.PrimaryColumn("uuid"),
-        typeorm_1.ManyToOne(function () { return survey_entity_1.Survey; }, function (survey) { return survey.respondents; }, { nullable: false }),
+        typeorm_1.ManyToOne(function () { return survey_entity_1.Survey; }, function (survey) { return survey.engagements; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "survey_id",
         }),
         __metadata("design:type", survey_entity_1.Survey)
-    ], SurveyRespondent.prototype, "survey", void 0);
+    ], SurveyEngagement.prototype, "survey", void 0);
     __decorate([
         typeorm_1.Index(),
-        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, function (profile) { return profile.responded_surveys; }, { nullable: false }),
+        typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, function (profile) { return profile.engaged_surveys; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "profile_id",
         }),
         __metadata("design:type", profile_entity_1.Profile)
-    ], SurveyRespondent.prototype, "profile", void 0);
+    ], SurveyEngagement.prototype, "profile", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: false,
+            nullable: false
+        }),
+        __metadata("design:type", Boolean)
+    ], SurveyEngagement.prototype, "is_respondent", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
@@ -39,11 +46,11 @@ var SurveyRespondent = /** @class */ (function () {
             nullable: false,
         }),
         __metadata("design:type", Date)
-    ], SurveyRespondent.prototype, "created_at", void 0);
-    SurveyRespondent = __decorate([
-        typeorm_1.Entity("survey_respondents")
-    ], SurveyRespondent);
-    return SurveyRespondent;
+    ], SurveyEngagement.prototype, "created_at", void 0);
+    SurveyEngagement = __decorate([
+        typeorm_1.Entity("survey_engagements")
+    ], SurveyEngagement);
+    return SurveyEngagement;
 }());
-exports.SurveyRespondent = SurveyRespondent;
-//# sourceMappingURL=survey_respondents.entity.js.map
+exports.SurveyEngagement = SurveyEngagement;
+//# sourceMappingURL=survey_engagements.entity.js.map

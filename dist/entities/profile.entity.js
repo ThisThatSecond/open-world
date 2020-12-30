@@ -13,7 +13,7 @@ var typeorm_1 = require("typeorm");
 var user_entity_1 = require("./user.entity");
 var team_entity_1 = require("./team.entity");
 var survey_entity_1 = require("./survey.entity");
-var survey_respondents_entity_1 = require("./survey_respondents.entity");
+var survey_engagements_entity_1 = require("./survey_engagements.entity");
 var Profile = /** @class */ (function () {
     /**
       there are two unique constraint for:
@@ -184,9 +184,9 @@ var Profile = /** @class */ (function () {
         __metadata("design:type", Array)
     ], Profile.prototype, "surveys", void 0);
     __decorate([
-        typeorm_1.OneToMany(function () { return survey_respondents_entity_1.SurveyRespondent; }, function (surveyRespondent) { return surveyRespondent.profile; }),
+        typeorm_1.OneToMany(function () { return survey_engagements_entity_1.SurveyEngagement; }, function (surveyEngagement) { return surveyEngagement.profile; }),
         __metadata("design:type", Array)
-    ], Profile.prototype, "responded_surveys", void 0);
+    ], Profile.prototype, "engaged_surveys", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",

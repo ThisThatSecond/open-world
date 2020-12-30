@@ -16,7 +16,7 @@ var profile_entity_1 = require("./profile.entity");
 var collection_entity_1 = require("./collection.entity");
 var poll_entity_1 = require("./poll.entity");
 var survey_types_enum_1 = require("../shared/enums/survey_types.enum");
-var survey_respondents_entity_1 = require("./survey_respondents.entity");
+var survey_engagements_entity_1 = require("./survey_engagements.entity");
 var Survey = /** @class */ (function () {
     function Survey() {
     }
@@ -149,9 +149,9 @@ var Survey = /** @class */ (function () {
         __metadata("design:type", profile_entity_1.Profile)
     ], Survey.prototype, "profile", void 0);
     __decorate([
-        typeorm_1.OneToMany(function () { return survey_respondents_entity_1.SurveyRespondent; }, function (SurveyRespondent) { return SurveyRespondent.survey; }),
+        typeorm_1.OneToMany(function () { return survey_engagements_entity_1.SurveyEngagement; }, function (SurveyEngagement) { return SurveyEngagement.survey; }),
         __metadata("design:type", Array)
-    ], Survey.prototype, "respondents", void 0);
+    ], Survey.prototype, "engagements", void 0);
     __decorate([
         typeorm_1.Column({
             default: 0,

@@ -25,5 +25,5 @@ export { PaymentPackage } from "./payment_packages.entity";
 export { PaymentDiscount } from "./payment_discounts.entity";
 export { Block } from "./block.entity";
 export { Report } from "./report.entity";
-export { SurveyRespondent } from "./survey_respondents.entity";
+export { SurveyEngagement as SurveyRespondent } from "./survey_engagements.entity";
 export { SurveyCampaign } from "./survey_campaigns.entity";

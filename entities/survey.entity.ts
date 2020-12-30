@@ -6,7 +6,7 @@ import { Collection } from "./collection.entity";
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 import { Poll } from "./poll.entity";
 import { SurveyTypes } from "../shared/enums/survey_types.enum";
-import { SurveyRespondent } from "./survey_respondents.entity";
+import { SurveyEngagement } from "./survey_engagements.entity";
 
 @Entity("surveys")
 @Check("check_survey_finalized", `(is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)`)
@@ -124,8 +124,8 @@ export class Survey {
   })
   profile?: Profile;
 
-  @OneToMany(() => SurveyRespondent, (SurveyRespondent) => SurveyRespondent.survey)
-  respondents?: SurveyRespondent[];
+  @OneToMany(() => SurveyEngagement, (SurveyEngagement) => SurveyEngagement.survey)
+  engagements?: SurveyEngagement[];
 
   @Column({
     default: 0,

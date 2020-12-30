@@ -3,7 +3,7 @@ import { Team } from "./team.entity";
 import { NOTIFICATION_PREFERENCES } from "../shared/enums/notification_preferences.enum";
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 import { Survey } from "./survey.entity";
-import { SurveyRespondent } from "./survey_respondents.entity";
+import { SurveyEngagement } from "./survey_engagements.entity";
 export declare class Profile {
     profile_id: string;
     user: User;
@@ -30,6 +30,6 @@ export declare class Profile {
     is_private?: boolean;
     team: Team;
     surveys?: Survey[];
-    responded_surveys?: SurveyRespondent[];
+    engaged_surveys?: SurveyEngagement[];
     created_at?: Date;
 }
