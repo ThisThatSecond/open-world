@@ -3,7 +3,6 @@ import { Survey } from "./survey.entity";
 import { Profile } from "./profile.entity";
 
 @Entity("survey_engagements")
-@Check("check_engagement", `has_tracked or has_reaction or has_shared or is_respondent`)
 export class SurveyEngagement {
   @Index()
   @PrimaryColumn("uuid")

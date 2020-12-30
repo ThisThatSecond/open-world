@@ -69,8 +69,7 @@ var SurveyEngagement = /** @class */ (function () {
         __metadata("design:type", Date)
     ], SurveyEngagement.prototype, "created_at", void 0);
     SurveyEngagement = __decorate([
-        typeorm_1.Entity("survey_engagements"),
-        typeorm_1.Check("check_engagement", "has_tracked or has_reaction or has_shared or is_respondent")
+        typeorm_1.Entity("survey_engagements")
     ], SurveyEngagement);
     return SurveyEngagement;
 }());
