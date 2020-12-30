@@ -41,6 +41,12 @@ export class SurveyEngagement {
     default: false,
     nullable: false,
   })
+  has_voted?: boolean;
+
+  @Column({
+    default: false,
+    nullable: false,
+  })
   is_respondent?: boolean;
 
   @Column({
