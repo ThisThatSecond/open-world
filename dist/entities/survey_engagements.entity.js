@@ -59,13 +59,6 @@ var SurveyEngagement = /** @class */ (function () {
             nullable: false,
         }),
         __metadata("design:type", Boolean)
-    ], SurveyEngagement.prototype, "has_voted", void 0);
-    __decorate([
-        typeorm_1.Column({
-            default: false,
-            nullable: false,
-        }),
-        __metadata("design:type", Boolean)
     ], SurveyEngagement.prototype, "is_respondent", void 0);
     __decorate([
         typeorm_1.Column({

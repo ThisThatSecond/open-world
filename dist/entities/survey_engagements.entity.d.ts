@@ -6,7 +6,6 @@ export declare class SurveyEngagement {
     has_tracked?: boolean;
     has_reaction?: boolean;
     has_shared?: boolean;
-    has_voted?: boolean;
     is_respondent?: boolean;
     created_at: Date;
 }
