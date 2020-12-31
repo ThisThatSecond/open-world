@@ -50,7 +50,7 @@ var SurveyCampaign = /** @class */ (function () {
     ], SurveyCampaign.prototype, "created_at", void 0);
     SurveyCampaign = __decorate([
         typeorm_1.Entity("survey_campaigns"),
-        typeorm_1.Unique(["survey", "name"])
+        typeorm_1.Unique('unique_survey_campaign_name', ["survey", "name"])
     ], SurveyCampaign);
     return SurveyCampaign;
 }());

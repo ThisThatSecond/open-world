@@ -70,7 +70,7 @@ var SurveyEngagement = /** @class */ (function () {
     ], SurveyEngagement.prototype, "created_at", void 0);
     SurveyEngagement = __decorate([
         typeorm_1.Entity("survey_engagements"),
-        typeorm_1.Unique(["survey", "profile"])
+        typeorm_1.Unique("unique_survey_profile_engagement", ["survey", "profile"])
     ], SurveyEngagement);
     return SurveyEngagement;
 }());

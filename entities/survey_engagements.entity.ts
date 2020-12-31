@@ -3,7 +3,7 @@ import { Survey } from "./survey.entity";
 import { Profile } from "./profile.entity";
 
 @Entity("survey_engagements")
-@Unique(["survey", "profile"])
+@Unique("unique_survey_profile_engagement", ["survey", "profile"])
 export class SurveyEngagement {
   @Index()
   @PrimaryColumn("uuid")
