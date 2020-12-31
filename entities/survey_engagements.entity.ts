@@ -6,7 +6,7 @@ import { Profile } from "./profile.entity";
 @Unique("unique_survey_profile_engagement", ["survey", "profile"])
 export class SurveyEngagement {
   @Index()
-  @PrimaryColumn("uuid")
+  @PrimaryColumn()
   @ManyToOne(() => Survey, (survey) => survey.engagements, { nullable: false })
   @JoinColumn({
     name: "survey_id",
