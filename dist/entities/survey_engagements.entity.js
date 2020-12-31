@@ -16,8 +16,12 @@ var SurveyEngagement = /** @class */ (function () {
     function SurveyEngagement() {
     }
     __decorate([
+        typeorm_1.PrimaryGeneratedColumn("uuid"),
+        __metadata("design:type", String)
+    ], SurveyEngagement.prototype, "survey_engagement_id", void 0);
+    __decorate([
         typeorm_1.Index(),
-        typeorm_1.ManyToOne(function () { return survey_entity_1.Survey; }, function (survey) { return survey.engagements; }, { nullable: false, primary: true }),
+        typeorm_1.ManyToOne(function () { return survey_entity_1.Survey; }, function (survey) { return survey.engagements; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "survey_id",
         }),
