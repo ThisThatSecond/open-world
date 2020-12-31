@@ -1,8 +1,9 @@
-import { Entity, Column, ManyToOne, JoinColumn, Index, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, ManyToOne, JoinColumn, Index, PrimaryGeneratedColumn, Unique } from "typeorm";
 import { Survey } from "./survey.entity";
 import { User } from "./user.entity";
 
 @Entity("survey_campaigns")
+@Unique(["survey", "name"])
 export class SurveyCampaign {
   @PrimaryGeneratedColumn("uuid")
   survey_campaign_id;

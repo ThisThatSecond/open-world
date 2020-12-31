@@ -69,7 +69,8 @@ var SurveyEngagement = /** @class */ (function () {
         __metadata("design:type", Date)
     ], SurveyEngagement.prototype, "created_at", void 0);
     SurveyEngagement = __decorate([
-        typeorm_1.Entity("survey_engagements")
+        typeorm_1.Entity("survey_engagements"),
+        typeorm_1.Unique(["survey", "profile"])
     ], SurveyEngagement);
     return SurveyEngagement;
 }());

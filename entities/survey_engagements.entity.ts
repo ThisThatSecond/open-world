@@ -1,8 +1,9 @@
-import { Entity, Column, ManyToOne, JoinColumn, PrimaryColumn, Index, Check } from "typeorm";
+import { Entity, Column, ManyToOne, JoinColumn, PrimaryColumn, Index, Check, Unique } from "typeorm";
 import { Survey } from "./survey.entity";
 import { Profile } from "./profile.entity";
 
 @Entity("survey_engagements")
+@Unique(["survey", "profile"])
 export class SurveyEngagement {
   @Index()
   @PrimaryColumn("uuid")
