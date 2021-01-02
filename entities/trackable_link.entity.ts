@@ -1,6 +1,6 @@
 import { Entity, Column, ManyToOne, JoinColumn, Index, PrimaryGeneratedColumn, Check } from "typeorm";
 import { Survey } from "./survey.entity";
-import { surveyThumbnail } from "./survey_thumbnail.entity";
+import { SurveyThumbnail } from "./survey_thumbnail.entity";
 import { User } from "./user.entity";
 
 @Entity("trackable_links")
@@ -17,11 +17,11 @@ export class TrackableLink {
   survey: Survey;
 
   @Index()
-  @ManyToOne(() => surveyThumbnail, { nullable: false })
+  @ManyToOne(() => SurveyThumbnail, { nullable: false })
   @JoinColumn({
     name: "survey_thumbnail_id",
   })
-  surveyThumbnail: surveyThumbnail;
+  surveyThumbnail: SurveyThumbnail;
 
   @Column({
     nullable: true,
