@@ -19,6 +19,12 @@ export class SurveyThumbnail {
   thumbnail_url: string;
 
   @Column({
+    nullable: false,
+    default: false,
+  })
+  is_default: boolean;
+
+  @Column({
     type: "timestamptz",
     default: () => "CURRENT_TIMESTAMP",
     nullable: false,

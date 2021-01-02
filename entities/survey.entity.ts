@@ -7,6 +7,7 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 import { Poll } from "./poll.entity";
 import { SurveyTypes } from "../shared/enums/survey_types.enum";
 import { SurveyEngagement } from "./survey_engagements.entity";
+import { SurveyThumbnail } from "./survey_thumbnail.entity";
 
 @Entity("surveys")
 @Check("check_survey_finalized", `(is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)`)
@@ -112,6 +113,9 @@ export class Survey {
   @OneToOne(() => Poll, (poll) => poll.survey)
   poll?: Poll;
 
+  @OneToMany(() => SurveyThumbnail, (surveyThumbnail) => surveyThumbnail.survey)
+  thumbnails: SurveyThumbnail[];
+
   @ManyToOne(() => User, (user) => user.surveys, { nullable: false })
   @JoinColumn({
     name: "creator_id",
@@ -124,7 +128,7 @@ export class Survey {
   })
   profile?: Profile;
 
-  @OneToMany(() => SurveyEngagement, (SurveyEngagement) => SurveyEngagement.survey)
+  @OneToMany(() => SurveyEngagement, (surveyEngagement) => surveyEngagement.survey)
   engagements?: SurveyEngagement[];
 
   @Column({

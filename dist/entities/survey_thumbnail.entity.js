@@ -34,6 +34,13 @@ var SurveyThumbnail = /** @class */ (function () {
     ], SurveyThumbnail.prototype, "thumbnail_url", void 0);
     __decorate([
         typeorm_1.Column({
+            nullable: false,
+            default: false,
+        }),
+        __metadata("design:type", Boolean)
+    ], SurveyThumbnail.prototype, "is_default", void 0);
+    __decorate([
+        typeorm_1.Column({
             type: "timestamptz",
             default: function () { return "CURRENT_TIMESTAMP"; },
             nullable: false,

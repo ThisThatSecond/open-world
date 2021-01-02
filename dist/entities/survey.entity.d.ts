@@ -6,6 +6,7 @@ import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 import { Poll } from "./poll.entity";
 import { SurveyTypes } from "../shared/enums/survey_types.enum";
 import { SurveyEngagement } from "./survey_engagements.entity";
+import { SurveyThumbnail } from "./survey_thumbnail.entity";
 export declare class Survey {
     survey_id: string;
     thumbnail_url: string;
@@ -25,6 +26,7 @@ export declare class Survey {
     type?: SurveyTypes;
     collection?: Collection;
     poll?: Poll;
+    thumbnails: SurveyThumbnail[];
     creator: User;
     profile?: Profile;
     engagements?: SurveyEngagement[];
