@@ -1,7 +1,7 @@
 import { Entity, Column, JoinColumn, ManyToOne, Check, PrimaryGeneratedColumn } from "typeorm";
 import { Profile } from "./profile.entity";
 import { Survey } from "./survey.entity";
-import { SurveyCampaign } from "./survey_campaigns.entity";
+import { trackableLink } from "./trackable_link.entity";
 
 @Entity("shares")
 @Check("check_survey_or_profile_share", `survey_id is not null or profile_id is not null`)
@@ -28,11 +28,11 @@ export class Share {
   })
   sharing_profile: Profile;
 
-  @ManyToOne(() => SurveyCampaign, { nullable: true })
+  @ManyToOne(() => trackableLink, { nullable: true })
   @JoinColumn({
-    name: "survey_campaign_id",
+    name: "trackable_link_id",
   })
-  survey_campaign: SurveyCampaign;
+  trackable_link: trackableLink;
 
   @Column({
     type: "timestamptz",

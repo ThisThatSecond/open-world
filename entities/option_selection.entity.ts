@@ -2,7 +2,7 @@ import { Entity, ManyToOne, JoinColumn, PrimaryGeneratedColumn, Unique, Index, C
 import { Option } from "./option.entity";
 import { OptionSelectionActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
-import { SurveyCampaign } from "./survey_campaigns.entity";
+import { trackableLink } from "./trackable_link.entity";
 
 @Entity("option_selections")
 @Unique("unique_option_selector", ["option", "selector"])
@@ -38,11 +38,11 @@ export class OptionSelection {
   })
   sharing_profile: Profile;
 
-  @ManyToOne(() => SurveyCampaign, { nullable: true })
+  @ManyToOne(() => trackableLink, { nullable: true })
   @JoinColumn({
-    name: "survey_campaign_id",
+    name: "trackable_link_id",
   })
-  survey_campaign: SurveyCampaign;
+  trackable_link: trackableLink;
 
 
   @Column({

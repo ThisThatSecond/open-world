@@ -1,7 +1,7 @@
 import { Entity, Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn, Unique } from "typeorm";
 import { Profile } from "./profile.entity";
 import { Survey } from "./survey.entity";
-import { SurveyCampaign } from "./survey_campaigns.entity";
+import { trackableLink } from "./trackable_link.entity";
 
 @Entity("trackings")
 @Unique("unique_profile_survey_tracking", ["tracker", "survey"])
@@ -27,11 +27,11 @@ export class Tracking {
   })
   sharing_profile: Profile;
 
-  @ManyToOne(() => SurveyCampaign, { nullable: true })
+  @ManyToOne(() => trackableLink, { nullable: true })
   @JoinColumn({
-    name: "survey_campaign_id",
+    name: "trackable_link_id",
   })
-  survey_campaign: SurveyCampaign;
+  trackable_link: trackableLink;
 
   @Column({
     type: "timestamptz",

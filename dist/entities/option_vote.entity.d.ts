@@ -1,13 +1,13 @@
 import { Option } from "./option.entity";
 import { OptionVoteActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
-import { SurveyCampaign } from "./survey_campaigns.entity";
+import { trackableLink } from "./trackable_link.entity";
 export declare class OptionVote {
     option_vote_id: string;
     option: Option;
     action: OptionVoteActions;
     voter: Profile;
     sharing_profile: Profile;
-    survey_campaign: SurveyCampaign;
+    trackable_link: trackableLink;
     created_at?: Date;
 }

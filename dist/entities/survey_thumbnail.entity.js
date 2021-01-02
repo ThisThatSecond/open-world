@@ -11,14 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var survey_entity_1 = require("./survey.entity");
-var user_entity_1 = require("./user.entity");
-var SurveyCampaign = /** @class */ (function () {
-    function SurveyCampaign() {
+var surveyThumbnail = /** @class */ (function () {
+    function surveyThumbnail() {
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", Object)
-    ], SurveyCampaign.prototype, "survey_campaign_id", void 0);
+    ], surveyThumbnail.prototype, "survey_thumbnail_id", void 0);
     __decorate([
         typeorm_1.Index(),
         typeorm_1.ManyToOne(function () { return survey_entity_1.Survey; }, { nullable: false }),
@@ -26,20 +25,13 @@ var SurveyCampaign = /** @class */ (function () {
             name: "survey_id",
         }),
         __metadata("design:type", survey_entity_1.Survey)
-    ], SurveyCampaign.prototype, "survey", void 0);
+    ], surveyThumbnail.prototype, "survey", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: false,
         }),
         __metadata("design:type", String)
-    ], SurveyCampaign.prototype, "name", void 0);
-    __decorate([
-        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
-        typeorm_1.JoinColumn({
-            name: "creator_id",
-        }),
-        __metadata("design:type", user_entity_1.User)
-    ], SurveyCampaign.prototype, "creator", void 0);
+    ], surveyThumbnail.prototype, "thumbnail_url", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
@@ -47,12 +39,11 @@ var SurveyCampaign = /** @class */ (function () {
             nullable: false,
         }),
         __metadata("design:type", Date)
-    ], SurveyCampaign.prototype, "created_at", void 0);
-    SurveyCampaign = __decorate([
-        typeorm_1.Entity("survey_campaigns"),
-        typeorm_1.Unique('unique_survey_campaign_name', ["survey", "name"])
-    ], SurveyCampaign);
-    return SurveyCampaign;
+    ], surveyThumbnail.prototype, "created_at", void 0);
+    surveyThumbnail = __decorate([
+        typeorm_1.Entity("survey_thumbnails")
+    ], surveyThumbnail);
+    return surveyThumbnail;
 }());
-exports.SurveyCampaign = SurveyCampaign;
-//# sourceMappingURL=survey_campaigns.entity.js.map
+exports.surveyThumbnail = surveyThumbnail;
+//# sourceMappingURL=survey_thumbnail.entity.js.map

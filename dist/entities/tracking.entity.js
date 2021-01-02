@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var profile_entity_1 = require("./profile.entity");
 var survey_entity_1 = require("./survey.entity");
-var survey_campaigns_entity_1 = require("./survey_campaigns.entity");
+var trackable_link_entity_1 = require("./trackable_link.entity");
 var Tracking = /** @class */ (function () {
     function Tracking() {
     }
@@ -42,12 +42,12 @@ var Tracking = /** @class */ (function () {
         __metadata("design:type", profile_entity_1.Profile)
     ], Tracking.prototype, "sharing_profile", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return survey_campaigns_entity_1.SurveyCampaign; }, { nullable: true }),
+        typeorm_1.ManyToOne(function () { return trackable_link_entity_1.trackableLink; }, { nullable: true }),
         typeorm_1.JoinColumn({
-            name: "survey_campaign_id",
+            name: "trackable_link_id",
         }),
-        __metadata("design:type", survey_campaigns_entity_1.SurveyCampaign)
-    ], Tracking.prototype, "survey_campaign", void 0);
+        __metadata("design:type", trackable_link_entity_1.trackableLink)
+    ], Tracking.prototype, "trackable_link", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",

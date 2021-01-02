@@ -13,7 +13,7 @@ var typeorm_1 = require("typeorm");
 var option_entity_1 = require("./option.entity");
 var actions_enum_1 = require("../shared/enums/actions.enum");
 var profile_entity_1 = require("./profile.entity");
-var survey_campaigns_entity_1 = require("./survey_campaigns.entity");
+var trackable_link_entity_1 = require("./trackable_link.entity");
 var OptionVote = /** @class */ (function () {
     function OptionVote() {
     }
@@ -54,12 +54,12 @@ var OptionVote = /** @class */ (function () {
         __metadata("design:type", profile_entity_1.Profile)
     ], OptionVote.prototype, "sharing_profile", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return survey_campaigns_entity_1.SurveyCampaign; }, { nullable: true }),
+        typeorm_1.ManyToOne(function () { return trackable_link_entity_1.trackableLink; }, { nullable: true }),
         typeorm_1.JoinColumn({
-            name: "survey_campaign_id",
+            name: "trackable_link_id",
         }),
-        __metadata("design:type", survey_campaigns_entity_1.SurveyCampaign)
-    ], OptionVote.prototype, "survey_campaign", void 0);
+        __metadata("design:type", trackable_link_entity_1.trackableLink)
+    ], OptionVote.prototype, "trackable_link", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",

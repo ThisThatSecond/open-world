@@ -3,7 +3,7 @@ import { User } from "./user.entity";
 import { Comment } from "./comment.entity";
 import { CommentVoteActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
-import { SurveyCampaign } from "./survey_campaigns.entity";
+import { trackableLink } from "./trackable_link.entity";
 
 @Entity("comment_votes")
 @Unique("unique_comment_voter", ["comment", "voter"])
@@ -38,11 +38,11 @@ export class CommentVote {
   })
   sharing_profile: Profile;
 
-  @ManyToOne(() => SurveyCampaign, { nullable: true })
+  @ManyToOne(() => trackableLink, { nullable: true })
   @JoinColumn({
-    name: "survey_campaign_id",
+    name: "trackable_link_id",
   })
-  survey_campaign: SurveyCampaign;
+  trackable_link: trackableLink;
 
 
   @Column({

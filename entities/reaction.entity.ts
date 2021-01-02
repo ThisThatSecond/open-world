@@ -2,7 +2,7 @@ import { Entity, Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn, Unique }
 import { Profile } from "./profile.entity";
 import { Reactions } from "../shared/enums/reactions.enum";
 import { Survey } from "./survey.entity";
-import { SurveyCampaign } from "./survey_campaigns.entity";
+import { trackableLink } from "./trackable_link.entity";
 
 @Entity("reactions")
 @Unique("unique_profile_survey_reaction", ["survey", "profile"])
@@ -35,11 +35,11 @@ export class Reaction {
   })
   sharing_profile: Profile;
 
-  @ManyToOne(() => SurveyCampaign, { nullable: true })
+  @ManyToOne(() => trackableLink, { nullable: true })
   @JoinColumn({
-    name: "survey_campaign_id",
+    name: "trackable_link_id",
   })
-  survey_campaign: SurveyCampaign;
+  trackable_link: trackableLink;
 
 
   @Column({
