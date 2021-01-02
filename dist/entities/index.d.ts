@@ -27,4 +27,4 @@ export { Block } from "./block.entity";
 export { Report } from "./report.entity";
 export { SurveyEngagement } from "./survey_engagements.entity";
 export { TrackableLink } from "./trackable_link.entity";
-export { surveyThumbnail } from "./survey_thumbnail.entity";
+export { SurveyThumbnail } from "./survey_thumbnail.entity";
