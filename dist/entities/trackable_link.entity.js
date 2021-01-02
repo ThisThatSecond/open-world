@@ -16,6 +16,7 @@ var user_entity_1 = require("./user.entity");
 var TrackableLink = /** @class */ (function () {
     function TrackableLink() {
     }
+    var _a;
     __decorate([
         typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", Object)
@@ -34,7 +35,7 @@ var TrackableLink = /** @class */ (function () {
         typeorm_1.JoinColumn({
             name: "survey_thumbnail_id",
         }),
-        __metadata("design:type", survey_thumbnail_entity_1.surveyThumbnail)
+        __metadata("design:type", typeof (_a = typeof survey_thumbnail_entity_1.surveyThumbnail !== "undefined" && survey_thumbnail_entity_1.surveyThumbnail) === "function" ? _a : Object)
     ], TrackableLink.prototype, "surveyThumbnail", void 0);
     __decorate([
         typeorm_1.Column({

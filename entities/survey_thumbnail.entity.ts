@@ -2,7 +2,7 @@ import { Entity, Column, ManyToOne, JoinColumn, Index, PrimaryGeneratedColumn, U
 import { Survey } from "./survey.entity";
 
 @Entity("survey_thumbnails")
-export class surveyThumbnail {
+export class SurveyThumbnail {
   @PrimaryGeneratedColumn("uuid")
   survey_thumbnail_id;
 

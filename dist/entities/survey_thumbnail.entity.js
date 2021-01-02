@@ -11,13 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var survey_entity_1 = require("./survey.entity");
-var surveyThumbnail = /** @class */ (function () {
-    function surveyThumbnail() {
+var SurveyThumbnail = /** @class */ (function () {
+    function SurveyThumbnail() {
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", Object)
-    ], surveyThumbnail.prototype, "survey_thumbnail_id", void 0);
+    ], SurveyThumbnail.prototype, "survey_thumbnail_id", void 0);
     __decorate([
         typeorm_1.Index(),
         typeorm_1.ManyToOne(function () { return survey_entity_1.Survey; }, { nullable: false }),
@@ -25,13 +25,13 @@ var surveyThumbnail = /** @class */ (function () {
             name: "survey_id",
         }),
         __metadata("design:type", survey_entity_1.Survey)
-    ], surveyThumbnail.prototype, "survey", void 0);
+    ], SurveyThumbnail.prototype, "survey", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: false,
         }),
         __metadata("design:type", String)
-    ], surveyThumbnail.prototype, "thumbnail_url", void 0);
+    ], SurveyThumbnail.prototype, "thumbnail_url", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
@@ -39,11 +39,11 @@ var surveyThumbnail = /** @class */ (function () {
             nullable: false,
         }),
         __metadata("design:type", Date)
-    ], surveyThumbnail.prototype, "created_at", void 0);
-    surveyThumbnail = __decorate([
+    ], SurveyThumbnail.prototype, "created_at", void 0);
+    SurveyThumbnail = __decorate([
         typeorm_1.Entity("survey_thumbnails")
-    ], surveyThumbnail);
-    return surveyThumbnail;
+    ], SurveyThumbnail);
+    return SurveyThumbnail;
 }());
-exports.surveyThumbnail = surveyThumbnail;
+exports.SurveyThumbnail = SurveyThumbnail;
 //# sourceMappingURL=survey_thumbnail.entity.js.map
