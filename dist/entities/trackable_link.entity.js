@@ -65,7 +65,7 @@ var trackableLink = /** @class */ (function () {
     ], trackableLink.prototype, "created_at", void 0);
     trackableLink = __decorate([
         typeorm_1.Entity("trackable_links"),
-        typeorm_1.Check("trackable_link_campaign_or_user", "(campaign_name is not null user_id is null) or (campaign_name is null user_id is not null) ")
+        typeorm_1.Check("trackable_link_campaign_or_user", "(campaign_name is not null and user_id is null) or (campaign_name is null and user_id is not null) ")
     ], trackableLink);
     return trackableLink;
 }());

@@ -4,7 +4,7 @@ import { surveyThumbnail } from "./survey_thumbnail.entity";
 import { User } from "./user.entity";
 
 @Entity("trackable_links")
-@Check("trackable_link_campaign_or_user", "(campaign_name is not null user_id is null) or (campaign_name is null user_id is not null) ")
+@Check("trackable_link_campaign_or_user", "(campaign_name is not null and user_id is null) or (campaign_name is null and user_id is not null) ")
 export class trackableLink {
   @PrimaryGeneratedColumn("uuid")
   trackable_link_id;
@@ -15,7 +15,7 @@ export class trackableLink {
     name: "survey_id",
   })
   survey: Survey;
-  
+
   @Index()
   @ManyToOne(() => surveyThumbnail, { nullable: false })
   @JoinColumn({
