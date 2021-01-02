@@ -2,7 +2,7 @@ import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn, Unique, 
 import { Pair } from "./pair.entity";
 import { PairVoteActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
-import { trackableLink } from "./trackable_link.entity";
+import { TrackableLink } from "./trackable_link.entity";
 
 @Entity("pair_votes")
 @Unique("unique_pair_voter", ["pair", "voter"])
@@ -38,11 +38,11 @@ export class PairVote {
   })
   sharing_profile: Profile;
 
-  @ManyToOne(() => trackableLink, { nullable: true })
+  @ManyToOne(() => TrackableLink, { nullable: true })
   @JoinColumn({
     name: "trackable_link_id",
   })
-  trackable_link: trackableLink;
+  trackable_link: TrackableLink;
 
   @Column({
     type: "timestamptz",

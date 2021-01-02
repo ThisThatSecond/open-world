@@ -54,11 +54,11 @@ var OptionVoteHistory = /** @class */ (function () {
         __metadata("design:type", profile_entity_1.Profile)
     ], OptionVoteHistory.prototype, "sharing_profile", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return trackable_link_entity_1.trackableLink; }, { nullable: true }),
+        typeorm_1.ManyToOne(function () { return trackable_link_entity_1.TrackableLink; }, { nullable: true }),
         typeorm_1.JoinColumn({
             name: "trackable_link_id",
         }),
-        __metadata("design:type", trackable_link_entity_1.trackableLink)
+        __metadata("design:type", trackable_link_entity_1.TrackableLink)
     ], OptionVoteHistory.prototype, "trackable_link", void 0);
     __decorate([
         typeorm_1.Column({

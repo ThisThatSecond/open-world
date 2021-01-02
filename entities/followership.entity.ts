@@ -2,7 +2,7 @@ import { Entity, Column, JoinColumn, PrimaryGeneratedColumn, ManyToOne, Unique }
 import { Profile } from "./profile.entity";
 import { FollowershipStatus } from "../shared/enums/followership_status.enum";
 import { Survey } from "./survey.entity";
-import { trackableLink } from "./trackable_link.entity";
+import { TrackableLink } from "./trackable_link.entity";
 
 @Entity("followerships")
 @Unique("unique_followership", ["follower", "following"])
@@ -36,11 +36,11 @@ export class Followership {
   })
   sharing_profile: Profile;
 
-  @ManyToOne(() => trackableLink, { nullable: true })
+  @ManyToOne(() => TrackableLink, { nullable: true })
   @JoinColumn({
     name: "trackable_link_id",
   })
-  trackable_link: trackableLink;
+  trackable_link: TrackableLink;
 
 
   @ManyToOne(() => Survey, { nullable: true })

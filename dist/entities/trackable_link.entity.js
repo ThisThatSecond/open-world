@@ -13,13 +13,13 @@ var typeorm_1 = require("typeorm");
 var survey_entity_1 = require("./survey.entity");
 var survey_thumbnail_entity_1 = require("./survey_thumbnail.entity");
 var user_entity_1 = require("./user.entity");
-var trackableLink = /** @class */ (function () {
-    function trackableLink() {
+var TrackableLink = /** @class */ (function () {
+    function TrackableLink() {
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", Object)
-    ], trackableLink.prototype, "trackable_link_id", void 0);
+    ], TrackableLink.prototype, "trackable_link_id", void 0);
     __decorate([
         typeorm_1.Index(),
         typeorm_1.ManyToOne(function () { return survey_entity_1.Survey; }, { nullable: false }),
@@ -27,7 +27,7 @@ var trackableLink = /** @class */ (function () {
             name: "survey_id",
         }),
         __metadata("design:type", survey_entity_1.Survey)
-    ], trackableLink.prototype, "survey", void 0);
+    ], TrackableLink.prototype, "survey", void 0);
     __decorate([
         typeorm_1.Index(),
         typeorm_1.ManyToOne(function () { return survey_thumbnail_entity_1.surveyThumbnail; }, { nullable: false }),
@@ -35,26 +35,26 @@ var trackableLink = /** @class */ (function () {
             name: "survey_thumbnail_id",
         }),
         __metadata("design:type", survey_thumbnail_entity_1.surveyThumbnail)
-    ], trackableLink.prototype, "surveyThumbnail", void 0);
+    ], TrackableLink.prototype, "surveyThumbnail", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: true,
         }),
         __metadata("design:type", String)
-    ], trackableLink.prototype, "campaign_name", void 0);
+    ], TrackableLink.prototype, "campaign_name", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: true,
         }),
         __metadata("design:type", String)
-    ], trackableLink.prototype, "user_id", void 0);
+    ], TrackableLink.prototype, "user_id", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
         typeorm_1.JoinColumn({
             name: "creator_id",
         }),
         __metadata("design:type", user_entity_1.User)
-    ], trackableLink.prototype, "creator", void 0);
+    ], TrackableLink.prototype, "creator", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
@@ -62,12 +62,12 @@ var trackableLink = /** @class */ (function () {
             nullable: false,
         }),
         __metadata("design:type", Date)
-    ], trackableLink.prototype, "created_at", void 0);
-    trackableLink = __decorate([
+    ], TrackableLink.prototype, "created_at", void 0);
+    TrackableLink = __decorate([
         typeorm_1.Entity("trackable_links"),
         typeorm_1.Check("trackable_link_campaign_or_user", "(campaign_name is not null and user_id is null) or (campaign_name is null and user_id is not null) ")
-    ], trackableLink);
-    return trackableLink;
+    ], TrackableLink);
+    return TrackableLink;
 }());
-exports.trackableLink = trackableLink;
+exports.TrackableLink = TrackableLink;
 //# sourceMappingURL=trackable_link.entity.js.map

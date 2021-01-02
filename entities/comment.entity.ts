@@ -4,7 +4,7 @@ import { Poll } from "./poll.entity";
 import { Collection } from "./collection.entity";
 import { Profile } from "./profile.entity";
 import { Survey } from "./survey.entity";
-import { trackableLink } from "./trackable_link.entity";
+import { TrackableLink } from "./trackable_link.entity";
 
 @Entity("comments")
 export class Comment {
@@ -34,11 +34,11 @@ export class Comment {
   })
   sharing_profile: Profile;
 
-  @ManyToOne(() => trackableLink, { nullable: true })
+  @ManyToOne(() => TrackableLink, { nullable: true })
   @JoinColumn({
     name: "trackable_link_id",
   })
-  trackable_link: trackableLink;
+  trackable_link: TrackableLink;
 
 
   @Column({

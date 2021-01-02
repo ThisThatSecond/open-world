@@ -26,5 +26,5 @@ export { PaymentDiscount } from "./payment_discounts.entity";
 export { Block } from "./block.entity";
 export { Report } from "./report.entity";
 export { SurveyEngagement } from "./survey_engagements.entity";
-export { trackableLink } from "./trackable_link.entity";
+export { TrackableLink as trackableLink } from "./trackable_link.entity";
 export { surveyThumbnail } from "./survey_thumbnail.entity";
