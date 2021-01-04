@@ -16,6 +16,11 @@ export class TrackableLink {
   })
   survey: Survey;
 
+  @Column({
+    nullable: false,
+  })
+  link: string;
+
   @Index()
   @ManyToOne(() => SurveyThumbnail, { nullable: false })
   @JoinColumn({

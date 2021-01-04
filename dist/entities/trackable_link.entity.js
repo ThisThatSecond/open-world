@@ -29,6 +29,12 @@ var TrackableLink = /** @class */ (function () {
         __metadata("design:type", survey_entity_1.Survey)
     ], TrackableLink.prototype, "survey", void 0);
     __decorate([
+        typeorm_1.Column({
+            nullable: false,
+        }),
+        __metadata("design:type", String)
+    ], TrackableLink.prototype, "link", void 0);
+    __decorate([
         typeorm_1.Index(),
         typeorm_1.ManyToOne(function () { return survey_thumbnail_entity_1.SurveyThumbnail; }, { nullable: false }),
         typeorm_1.JoinColumn({
