@@ -33,10 +33,11 @@ export class TrackableLink {
   })
   campaign_name: string;
 
-  @Column({
-    nullable: true,
+  @ManyToOne(() => User, { nullable: true })
+  @JoinColumn({
+    name: "user_id",
   })
-  user_id: string;
+  user: User;
 
   @ManyToOne(() => User, { nullable: false })
   @JoinColumn({

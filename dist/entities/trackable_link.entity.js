@@ -49,11 +49,12 @@ var TrackableLink = /** @class */ (function () {
         __metadata("design:type", String)
     ], TrackableLink.prototype, "campaign_name", void 0);
     __decorate([
-        typeorm_1.Column({
-            nullable: true,
+        typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: true }),
+        typeorm_1.JoinColumn({
+            name: "user_id",
         }),
-        __metadata("design:type", String)
-    ], TrackableLink.prototype, "user_id", void 0);
+        __metadata("design:type", user_entity_1.User)
+    ], TrackableLink.prototype, "user", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return user_entity_1.User; }, { nullable: false }),
         typeorm_1.JoinColumn({

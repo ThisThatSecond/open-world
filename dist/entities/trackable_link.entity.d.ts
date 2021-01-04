@@ -7,7 +7,7 @@ export declare class TrackableLink {
     link: string;
     surveyThumbnail: SurveyThumbnail;
     campaign_name: string;
-    user_id: string;
+    user: User;
     creator: User;
     created_at: Date;
 }
