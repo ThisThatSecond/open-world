@@ -26,7 +26,7 @@ export class TrackableLink {
   @JoinColumn({
     name: "survey_thumbnail_id",
   })
-  surveyThumbnail: SurveyThumbnail;
+  survey_thumbnail: SurveyThumbnail;
 
   @Column({
     nullable: true,

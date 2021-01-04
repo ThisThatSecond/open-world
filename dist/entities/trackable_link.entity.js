@@ -41,7 +41,7 @@ var TrackableLink = /** @class */ (function () {
             name: "survey_thumbnail_id",
         }),
         __metadata("design:type", survey_thumbnail_entity_1.SurveyThumbnail)
-    ], TrackableLink.prototype, "surveyThumbnail", void 0);
+    ], TrackableLink.prototype, "survey_thumbnail", void 0);
     __decorate([
         typeorm_1.Column({
             nullable: true,
