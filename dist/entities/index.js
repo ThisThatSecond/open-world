@@ -60,4 +60,6 @@ var trackable_link_entity_1 = require("./trackable_link.entity");
 exports.TrackableLink = trackable_link_entity_1.TrackableLink;
 var survey_thumbnail_entity_1 = require("./survey_thumbnail.entity");
 exports.SurveyThumbnail = survey_thumbnail_entity_1.SurveyThumbnail;
+var survey_audience_requests_entity_1 = require("./survey_audience_requests.entity");
+exports.SurveyAudienceRequest = survey_audience_requests_entity_1.SurveyAudienceRequest;
 //# sourceMappingURL=index.js.map
