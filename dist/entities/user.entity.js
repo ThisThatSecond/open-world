@@ -11,10 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var genders_enum_1 = require("../shared/enums/genders.enum");
-var poll_entity_1 = require("./poll.entity");
 var profile_entity_1 = require("./profile.entity");
 var invitation_entity_1 = require("./invitation.entity");
 var team_entity_1 = require("./team.entity");
+var survey_entity_1 = require("./survey.entity");
 var User = /** @class */ (function () {
     function User() {
     }
@@ -201,9 +201,9 @@ var User = /** @class */ (function () {
         __metadata("design:type", Array)
     ], User.prototype, "profiles", void 0);
     __decorate([
-        typeorm_1.OneToMany(function () { return poll_entity_1.Poll; }, function (poll) { return poll.creator; }),
+        typeorm_1.OneToMany(function () { return survey_entity_1.Survey; }, function (survey) { return survey.creator; }),
         __metadata("design:type", Array)
-    ], User.prototype, "polls", void 0);
+    ], User.prototype, "surveys", void 0);
     __decorate([
         typeorm_1.OneToMany(function () { return invitation_entity_1.Invitation; }, function (invitation) { return invitation.invitee; }),
         __metadata("design:type", Array)

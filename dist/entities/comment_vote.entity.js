@@ -13,6 +13,7 @@ var typeorm_1 = require("typeorm");
 var comment_entity_1 = require("./comment.entity");
 var actions_enum_1 = require("../shared/enums/actions.enum");
 var profile_entity_1 = require("./profile.entity");
+var trackable_link_entity_1 = require("./trackable_link.entity");
 var CommentVote = /** @class */ (function () {
     function CommentVote() {
     }
@@ -51,6 +52,13 @@ var CommentVote = /** @class */ (function () {
         __metadata("design:type", profile_entity_1.Profile)
     ], CommentVote.prototype, "sharing_profile", void 0);
     __decorate([
+        typeorm_1.ManyToOne(function () { return trackable_link_entity_1.TrackableLink; }, { nullable: true }),
+        typeorm_1.JoinColumn({
+            name: "trackable_link_id",
+        }),
+        __metadata("design:type", trackable_link_entity_1.TrackableLink)
+    ], CommentVote.prototype, "trackable_link", void 0);
+    __decorate([
         typeorm_1.Column({
             type: "timestamptz",
             default: function () { return "CURRENT_TIMESTAMP"; },
@@ -60,7 +68,7 @@ var CommentVote = /** @class */ (function () {
     ], CommentVote.prototype, "created_at", void 0);
     CommentVote = __decorate([
         typeorm_1.Entity("comment_votes"),
-        typeorm_1.Unique("uniqe_comment_voter", ["comment", "voter"])
+        typeorm_1.Unique("unique_comment_voter", ["comment", "voter"])
     ], CommentVote);
     return CommentVote;
 }());

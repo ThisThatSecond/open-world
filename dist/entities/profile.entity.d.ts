@@ -1,8 +1,9 @@
 import { User } from "./user.entity";
 import { Team } from "./team.entity";
-import { Poll } from "./poll.entity";
 import { NOTIFICATION_PREFERENCES } from "../shared/enums/notification_preferences.enum";
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
+import { Survey } from "./survey.entity";
+import { SurveyEngagement } from "./survey_engagements.entity";
 export declare class Profile {
     profile_id: string;
     user: User;
@@ -28,6 +29,7 @@ export declare class Profile {
     join_link?: string;
     is_private?: boolean;
     team: Team;
-    polls?: Poll[];
+    surveys?: Survey[];
+    engaged_surveys?: SurveyEngagement[];
     created_at?: Date;
 }

@@ -13,6 +13,7 @@ var typeorm_1 = require("typeorm");
 var pair_entity_1 = require("./pair.entity");
 var actions_enum_1 = require("../shared/enums/actions.enum");
 var profile_entity_1 = require("./profile.entity");
+var trackable_link_entity_1 = require("./trackable_link.entity");
 var PairVoteHistory = /** @class */ (function () {
     function PairVoteHistory() {
     }
@@ -51,6 +52,13 @@ var PairVoteHistory = /** @class */ (function () {
         }),
         __metadata("design:type", profile_entity_1.Profile)
     ], PairVoteHistory.prototype, "sharing_profile", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return trackable_link_entity_1.TrackableLink; }, { nullable: true }),
+        typeorm_1.JoinColumn({
+            name: "trackable_link_id",
+        }),
+        __metadata("design:type", trackable_link_entity_1.TrackableLink)
+    ], PairVoteHistory.prototype, "trackable_link", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",

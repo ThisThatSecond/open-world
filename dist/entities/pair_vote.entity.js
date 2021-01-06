@@ -13,6 +13,7 @@ var typeorm_1 = require("typeorm");
 var pair_entity_1 = require("./pair.entity");
 var actions_enum_1 = require("../shared/enums/actions.enum");
 var profile_entity_1 = require("./profile.entity");
+var trackable_link_entity_1 = require("./trackable_link.entity");
 var PairVote = /** @class */ (function () {
     function PairVote() {
     }
@@ -53,6 +54,13 @@ var PairVote = /** @class */ (function () {
         __metadata("design:type", profile_entity_1.Profile)
     ], PairVote.prototype, "sharing_profile", void 0);
     __decorate([
+        typeorm_1.ManyToOne(function () { return trackable_link_entity_1.TrackableLink; }, { nullable: true }),
+        typeorm_1.JoinColumn({
+            name: "trackable_link_id",
+        }),
+        __metadata("design:type", trackable_link_entity_1.TrackableLink)
+    ], PairVote.prototype, "trackable_link", void 0);
+    __decorate([
         typeorm_1.Column({
             type: "timestamptz",
             default: function () { return "CURRENT_TIMESTAMP"; },
@@ -62,7 +70,7 @@ var PairVote = /** @class */ (function () {
     ], PairVote.prototype, "created_at", void 0);
     PairVote = __decorate([
         typeorm_1.Entity("pair_votes"),
-        typeorm_1.Unique("uniqe_pair_voter", ["pair", "voter"])
+        typeorm_1.Unique("unique_pair_voter", ["pair", "voter"])
     ], PairVote);
     return PairVote;
 }());

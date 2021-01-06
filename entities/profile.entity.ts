@@ -4,6 +4,8 @@ import { Team } from "./team.entity";
 import { Poll } from "./poll.entity";
 import { NOTIFICATION_PREFERENCES } from "../shared/enums/notification_preferences.enum";
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
+import { Survey } from "./survey.entity";
+import { SurveyEngagement } from "./survey_engagements.entity";
 
 @Entity("profiles")
 @Check("check_analytics_profile_join_link", `not is_analytics_profile or join_link is not null`)
@@ -148,8 +150,11 @@ export class Profile {
   })
   team: Team;
 
-  @OneToMany(() => Poll, (poll) => poll.profile)
-  polls?: Poll[];
+  @OneToMany(() => Survey, (survey) => survey.profile)
+  surveys?: Survey[];
+
+  @OneToMany(() => SurveyEngagement, (surveyEngagement) => surveyEngagement.profile)
+  engaged_surveys?: SurveyEngagement[];
 
   @Column({
     type: "timestamptz",

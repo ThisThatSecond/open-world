@@ -3,9 +3,10 @@ import { User } from "./user.entity";
 import { Poll } from "./poll.entity";
 import { Collection } from "./collection.entity";
 import { Profile } from "./profile.entity";
+import { Survey } from "./survey.entity";
+import { TrackableLink } from "./trackable_link.entity";
 
 @Entity("comments")
-@Check("check_null_poll_or_collection", `(poll_id is not null and collection_id is null) or (poll_id is null and collection_id is not null)`)
 export class Comment {
   @PrimaryColumn()
   comment_id: string;
@@ -15,17 +16,11 @@ export class Comment {
   })
   text: string;
 
-  @ManyToOne(() => Poll, { nullable: true })
+  @ManyToOne(() => Survey, { nullable: false })
   @JoinColumn({
-    name: "poll_id",
+    name: "survey_id",
   })
-  poll: Poll;
-
-  @ManyToOne(() => Collection, { nullable: true })
-  @JoinColumn({
-    name: "collection_id",
-  })
-  collection?: Collection;
+  survey?: Survey;
 
   @ManyToOne(() => Profile, { nullable: false })
   @JoinColumn({
@@ -39,6 +34,12 @@ export class Comment {
   })
   sharing_profile: Profile;
 
+  @ManyToOne(() => TrackableLink, { nullable: true })
+  @JoinColumn({
+    name: "trackable_link_id",
+  })
+  trackable_link: TrackableLink;
+
 
   @Column({
     default: false,
@@ -49,7 +50,7 @@ export class Comment {
     default: 0,
   })
   upvotes_count: number;
-  
+
   @Column({
     default: 0,
   })

@@ -1,12 +1,10 @@
-import { Entity, Column, JoinColumn, ManyToOne, Check, PrimaryGeneratedColumn, Unique } from "typeorm";
-import { Poll } from "./poll.entity";
-import { Collection } from "./collection.entity";
+import { Entity, Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn, Unique } from "typeorm";
 import { Profile } from "./profile.entity";
+import { Survey } from "./survey.entity";
+import { TrackableLink } from "./trackable_link.entity";
 
 @Entity("trackings")
-@Check("check_poll_or_collection_tracking", `poll_id is not null or collection_id is not null`)
-@Unique('unique_profile_poll_tracking', ['tracker', 'poll'])
-@Unique('unique_profile_collection_tracking', ['tracker', 'collection'])
+@Unique("unique_profile_survey_tracking", ["tracker", "survey"])
 export class Tracking {
   @PrimaryGeneratedColumn("uuid")
   tracking_id: string;
@@ -17,23 +15,23 @@ export class Tracking {
   })
   tracker: Profile;
 
-  @ManyToOne(() => Poll, { nullable: true })
+  @ManyToOne(() => Survey, { nullable: false })
   @JoinColumn({
-    name: "poll_id",
+    name: "survey_id",
   })
-  poll?: Poll;
-
-  @ManyToOne(() => Collection, { nullable: true })
-  @JoinColumn({
-    name: "collection_id",
-  })
-  collection?: Collection;
+  survey?: Survey;
 
   @ManyToOne(() => Profile, { nullable: true })
   @JoinColumn({
     name: "sharing_profile_id",
   })
   sharing_profile: Profile;
+
+  @ManyToOne(() => TrackableLink, { nullable: true })
+  @JoinColumn({
+    name: "trackable_link_id",
+  })
+  trackable_link: TrackableLink;
 
   @Column({
     type: "timestamptz",

@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var survey_entity_1 = require("./survey.entity");
+exports.Survey = survey_entity_1.Survey;
 var comment_vote_entity_1 = require("./comment_vote.entity");
 exports.CommentVote = comment_vote_entity_1.CommentVote;
 var comment_entity_1 = require("./comment.entity");
@@ -52,4 +54,12 @@ var block_entity_1 = require("./block.entity");
 exports.Block = block_entity_1.Block;
 var report_entity_1 = require("./report.entity");
 exports.Report = report_entity_1.Report;
+var survey_engagements_entity_1 = require("./survey_engagements.entity");
+exports.SurveyEngagement = survey_engagements_entity_1.SurveyEngagement;
+var trackable_link_entity_1 = require("./trackable_link.entity");
+exports.TrackableLink = trackable_link_entity_1.TrackableLink;
+var survey_thumbnail_entity_1 = require("./survey_thumbnail.entity");
+exports.SurveyThumbnail = survey_thumbnail_entity_1.SurveyThumbnail;
+var survey_audience_requests_entity_1 = require("./survey_audience_requests.entity");
+exports.SurveyAudienceRequest = survey_audience_requests_entity_1.SurveyAudienceRequest;
 //# sourceMappingURL=index.js.map

@@ -1,3 +1,4 @@
+export { Survey } from "./survey.entity";
 export { CommentVote } from "./comment_vote.entity";
 export { Comment } from "./comment.entity";
 export { OptionVoteHistory } from "./option_vote_history.entity";
@@ -24,3 +25,7 @@ export { PaymentPackage } from "./payment_packages.entity";
 export { PaymentDiscount } from "./payment_discounts.entity";
 export { Block } from "./block.entity";
 export { Report } from "./report.entity";
+export { SurveyEngagement } from "./survey_engagements.entity";
+export { TrackableLink } from "./trackable_link.entity";
+export { SurveyThumbnail } from "./survey_thumbnail.entity";
+export { SurveyAudienceRequest } from "./survey_audience_requests.entity";

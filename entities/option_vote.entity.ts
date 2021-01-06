@@ -2,9 +2,10 @@ import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn, Unique, 
 import { Option } from "./option.entity";
 import { OptionVoteActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
+import { TrackableLink } from "./trackable_link.entity";
 
 @Entity("option_votes")
-@Unique("uniqe_option_voter", ["option", "voter"])
+@Unique("unique_option_voter", ["option", "voter"])
 export class OptionVote {
   @PrimaryGeneratedColumn("uuid")
   option_vote_id: string;
@@ -36,6 +37,13 @@ export class OptionVote {
     name: "sharing_profile_id",
   })
   sharing_profile: Profile;
+
+  @ManyToOne(() => TrackableLink, { nullable: true })
+  @JoinColumn({
+    name: "trackable_link_id",
+  })
+  trackable_link: TrackableLink;
+
 
   @Column({
     type: "timestamptz",

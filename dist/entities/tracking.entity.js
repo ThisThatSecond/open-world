@@ -10,9 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
-var poll_entity_1 = require("./poll.entity");
-var collection_entity_1 = require("./collection.entity");
 var profile_entity_1 = require("./profile.entity");
+var survey_entity_1 = require("./survey.entity");
+var trackable_link_entity_1 = require("./trackable_link.entity");
 var Tracking = /** @class */ (function () {
     function Tracking() {
     }
@@ -28,19 +28,12 @@ var Tracking = /** @class */ (function () {
         __metadata("design:type", profile_entity_1.Profile)
     ], Tracking.prototype, "tracker", void 0);
     __decorate([
-        typeorm_1.ManyToOne(function () { return poll_entity_1.Poll; }, { nullable: true }),
+        typeorm_1.ManyToOne(function () { return survey_entity_1.Survey; }, { nullable: false }),
         typeorm_1.JoinColumn({
-            name: "poll_id",
+            name: "survey_id",
         }),
-        __metadata("design:type", poll_entity_1.Poll)
-    ], Tracking.prototype, "poll", void 0);
-    __decorate([
-        typeorm_1.ManyToOne(function () { return collection_entity_1.Collection; }, { nullable: true }),
-        typeorm_1.JoinColumn({
-            name: "collection_id",
-        }),
-        __metadata("design:type", collection_entity_1.Collection)
-    ], Tracking.prototype, "collection", void 0);
+        __metadata("design:type", survey_entity_1.Survey)
+    ], Tracking.prototype, "survey", void 0);
     __decorate([
         typeorm_1.ManyToOne(function () { return profile_entity_1.Profile; }, { nullable: true }),
         typeorm_1.JoinColumn({
@@ -48,6 +41,13 @@ var Tracking = /** @class */ (function () {
         }),
         __metadata("design:type", profile_entity_1.Profile)
     ], Tracking.prototype, "sharing_profile", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return trackable_link_entity_1.TrackableLink; }, { nullable: true }),
+        typeorm_1.JoinColumn({
+            name: "trackable_link_id",
+        }),
+        __metadata("design:type", trackable_link_entity_1.TrackableLink)
+    ], Tracking.prototype, "trackable_link", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",
@@ -58,9 +58,7 @@ var Tracking = /** @class */ (function () {
     ], Tracking.prototype, "created_at", void 0);
     Tracking = __decorate([
         typeorm_1.Entity("trackings"),
-        typeorm_1.Check("check_poll_or_collection_tracking", "poll_id is not null or collection_id is not null"),
-        typeorm_1.Unique('unique_profile_poll_tracking', ['tracker', 'poll']),
-        typeorm_1.Unique('unique_profile_collection_tracking', ['tracker', 'collection'])
+        typeorm_1.Unique("unique_profile_survey_tracking", ["tracker", "survey"])
     ], Tracking);
     return Tracking;
 }());

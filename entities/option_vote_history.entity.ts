@@ -3,6 +3,7 @@ import { User } from "./user.entity";
 import { Option } from "./option.entity";
 import { OptionVoteActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
+import { TrackableLink } from "./trackable_link.entity";
 
 @Entity("option_votes_history")
 export class OptionVoteHistory {
@@ -36,6 +37,13 @@ export class OptionVoteHistory {
     name: "sharing_profile_id",
   })
   sharing_profile: Profile;
+
+  @ManyToOne(() => TrackableLink, { nullable: true })
+  @JoinColumn({
+    name: "trackable_link_id",
+  })
+  trackable_link: TrackableLink;
+
 
   @Column({
     type: "timestamptz",

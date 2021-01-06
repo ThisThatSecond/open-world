@@ -1,13 +1,11 @@
-import { Entity, Column, JoinColumn, ManyToOne, Check, PrimaryGeneratedColumn, Unique } from "typeorm";
-import { Poll } from "./poll.entity";
-import { Collection } from "./collection.entity";
+import { Entity, Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn, Unique } from "typeorm";
 import { Profile } from "./profile.entity";
 import { Reactions } from "../shared/enums/reactions.enum";
+import { Survey } from "./survey.entity";
+import { TrackableLink } from "./trackable_link.entity";
 
 @Entity("reactions")
-@Check("check_poll_or_collection_reaction", `poll_id is not null or collection_id is not null`)
-@Unique("unique_profile_poll_reaction", ['poll', 'profile'])
-@Unique("unique_profile_collection_reaction", ['collection', 'profile'])
+@Unique("unique_profile_survey_reaction", ["survey", "profile"])
 export class Reaction {
   @PrimaryGeneratedColumn("uuid")
   reaction_id: string;
@@ -18,17 +16,11 @@ export class Reaction {
   })
   profile: Profile;
 
-  @ManyToOne(() => Poll, { nullable: true })
+  @ManyToOne(() => Survey, { nullable: false })
   @JoinColumn({
-    name: "poll_id",
+    name: "survey_id",
   })
-  poll?: Poll;
-
-  @ManyToOne(() => Collection, { nullable: true })
-  @JoinColumn({
-    name: "collection_id",
-  })
-  collection?: Collection;
+  survey?: Survey;
 
   @Column({
     type: "enum",
@@ -42,6 +34,13 @@ export class Reaction {
     name: "sharing_profile_id",
   })
   sharing_profile: Profile;
+
+  @ManyToOne(() => TrackableLink, { nullable: true })
+  @JoinColumn({
+    name: "trackable_link_id",
+  })
+  trackable_link: TrackableLink;
+
 
   @Column({
     type: "timestamptz",

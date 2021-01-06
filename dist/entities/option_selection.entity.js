@@ -13,6 +13,7 @@ var typeorm_1 = require("typeorm");
 var option_entity_1 = require("./option.entity");
 var actions_enum_1 = require("../shared/enums/actions.enum");
 var profile_entity_1 = require("./profile.entity");
+var trackable_link_entity_1 = require("./trackable_link.entity");
 var OptionSelection = /** @class */ (function () {
     function OptionSelection() {
     }
@@ -52,6 +53,13 @@ var OptionSelection = /** @class */ (function () {
         }),
         __metadata("design:type", profile_entity_1.Profile)
     ], OptionSelection.prototype, "sharing_profile", void 0);
+    __decorate([
+        typeorm_1.ManyToOne(function () { return trackable_link_entity_1.TrackableLink; }, { nullable: true }),
+        typeorm_1.JoinColumn({
+            name: "trackable_link_id",
+        }),
+        __metadata("design:type", trackable_link_entity_1.TrackableLink)
+    ], OptionSelection.prototype, "trackable_link", void 0);
     __decorate([
         typeorm_1.Column({
             type: "timestamptz",

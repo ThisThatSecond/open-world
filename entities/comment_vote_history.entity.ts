@@ -2,6 +2,7 @@ import { Entity, ManyToOne, JoinColumn, Column, PrimaryGeneratedColumn } from "t
 import { CommentVoteActions } from "../shared/enums/actions.enum";
 import { Profile } from "./profile.entity";
 import { Comment } from "./comment.entity";
+import { TrackableLink } from "./trackable_link.entity";
 
 @Entity("comment_votes_history")
 export class CommentVoteHistory {
@@ -33,6 +34,12 @@ export class CommentVoteHistory {
     name: "sharing_profile_id",
   })
   sharing_profile: Profile;
+
+  @ManyToOne(() => TrackableLink, { nullable: true })
+  @JoinColumn({
+    name: "trackable_link_id",
+  })
+  trackable_link: TrackableLink;
 
   @Column({
     type: "timestamptz",
