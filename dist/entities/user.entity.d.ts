@@ -31,7 +31,7 @@ export declare class User {
     bio?: string;
     last_opened_analytics?: Date;
     desc?: {
-        gender: string;
+        gender?: string;
     };
     created_at?: Date;
     teams?: Team[];
