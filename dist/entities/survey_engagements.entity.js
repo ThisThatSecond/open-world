@@ -65,6 +65,13 @@ var SurveyEngagement = /** @class */ (function () {
     ], SurveyEngagement.prototype, "is_respondent", void 0);
     __decorate([
         typeorm_1.Column({
+            default: false,
+            nullable: false,
+        }),
+        __metadata("design:type", Boolean)
+    ], SurveyEngagement.prototype, "is_complete_respondent", void 0);
+    __decorate([
+        typeorm_1.Column({
             type: "timestamptz",
             default: function () { return "CURRENT_TIMESTAMP"; },
             nullable: false,

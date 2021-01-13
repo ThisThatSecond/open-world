@@ -45,6 +45,12 @@ export class SurveyEngagement {
     nullable: false,
   })
   is_respondent?: boolean;
+  
+  @Column({
+    default: false,
+    nullable: false,
+  })
+  is_complete_respondent?: boolean;
 
   @Column({
     type: "timestamptz",

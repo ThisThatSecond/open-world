@@ -8,5 +8,6 @@ export declare class SurveyEngagement {
     has_reaction?: boolean;
     has_shared?: boolean;
     is_respondent?: boolean;
+    is_complete_respondent?: boolean;
     created_at: Date;
 }
