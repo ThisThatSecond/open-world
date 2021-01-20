@@ -90,6 +90,13 @@ export class User {
   location?: string;
 
   @Column({
+    type: "jsonb",
+    array: false,
+    nullable: true,
+  })
+  geo_ip?: any;
+
+  @Column({
     default: false,
   })
   neighborhood_visible?: boolean;

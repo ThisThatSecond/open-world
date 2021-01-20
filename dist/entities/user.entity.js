@@ -111,6 +111,14 @@ var User = /** @class */ (function () {
     ], User.prototype, "location", void 0);
     __decorate([
         typeorm_1.Column({
+            type: "jsonb",
+            array: false,
+            nullable: true,
+        }),
+        __metadata("design:type", Object)
+    ], User.prototype, "geo_ip", void 0);
+    __decorate([
+        typeorm_1.Column({
             default: false,
         }),
         __metadata("design:type", Boolean)
