@@ -22,6 +22,11 @@ export class Survey {
   @Column({
     nullable: true,
   })
+  title: string;
+  
+  @Column({
+    nullable: true,
+  })
   thumbnail_url: string;
 
   @Column({

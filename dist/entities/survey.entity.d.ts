@@ -8,6 +8,7 @@ import { SurveyEngagement } from "./survey_engagements.entity";
 import { SurveyThumbnail } from "./survey_thumbnail.entity";
 export declare class Survey {
     survey_id: string;
+    title: string;
     thumbnail_url: string;
     context?: string;
     category?: CATEGORIES;

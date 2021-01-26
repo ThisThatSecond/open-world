@@ -17,7 +17,7 @@ export { InvitationLink } from "./invitation_link.entity";
 export { Followership } from "./followership.entity";
 export { Tracking } from "./tracking.entity";
 export { Reaction } from "./reaction.entity";
-export { Share } from "./share.entity";
+export { Share } from "./share.entity"; 
 export { Payment } from "./payment.entity";
 export { PaymentSetting } from "./payment_setting.entity";
 export { PaymentPackage } from "./payment_packages.entity";

@@ -29,6 +29,12 @@ var Survey = /** @class */ (function () {
             nullable: true,
         }),
         __metadata("design:type", String)
+    ], Survey.prototype, "title", void 0);
+    __decorate([
+        typeorm_1.Column({
+            nullable: true,
+        }),
+        __metadata("design:type", String)
     ], Survey.prototype, "thumbnail_url", void 0);
     __decorate([
         typeorm_1.Column({
