@@ -1,5 +1,4 @@
 import { Option } from "./option.entity";
-import { Collection } from "./collection.entity";
 import { Pair } from "./pair.entity";
 import { Survey } from "./survey.entity";
 import { PollTypes } from "../shared/enums/poll_types.enum";
@@ -17,7 +16,6 @@ export declare class Poll {
     votes_count: number;
     responses_count: number;
     comments_count: number;
-    collection?: Collection;
     survey?: Survey;
     options?: Option[];
     pairs?: Pair[];

@@ -13,7 +13,6 @@ var typeorm_1 = require("typeorm");
 var user_entity_1 = require("./user.entity");
 var categories_enum_1 = require("../shared/enums/categories.enum");
 var profile_entity_1 = require("./profile.entity");
-var collection_entity_1 = require("./collection.entity");
 var poll_entity_1 = require("./poll.entity");
 var survey_types_enum_1 = require("../shared/enums/survey_types.enum");
 var survey_engagements_entity_1 = require("./survey_engagements.entity");
@@ -128,13 +127,9 @@ var Survey = /** @class */ (function () {
         __metadata("design:type", String)
     ], Survey.prototype, "type", void 0);
     __decorate([
-        typeorm_1.OneToOne(function () { return collection_entity_1.Collection; }, function (collection) { return collection.survey; }),
-        __metadata("design:type", collection_entity_1.Collection)
-    ], Survey.prototype, "collection", void 0);
-    __decorate([
-        typeorm_1.OneToOne(function () { return poll_entity_1.Poll; }, function (poll) { return poll.survey; }),
-        __metadata("design:type", poll_entity_1.Poll)
-    ], Survey.prototype, "poll", void 0);
+        typeorm_1.OneToMany(function () { return poll_entity_1.Poll; }, function (poll) { return poll.survey; }),
+        __metadata("design:type", Array)
+    ], Survey.prototype, "polls", void 0);
     __decorate([
         typeorm_1.OneToMany(function () { return survey_thumbnail_entity_1.SurveyThumbnail; }, function (surveyThumbnail) { return surveyThumbnail.survey; }),
         __metadata("design:type", Array)

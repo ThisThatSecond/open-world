@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
 var option_entity_1 = require("./option.entity");
-var collection_entity_1 = require("./collection.entity");
 var pair_entity_1 = require("./pair.entity");
 var survey_entity_1 = require("./survey.entity");
 var poll_types_enum_1 = require("../shared/enums/poll_types.enum");
@@ -73,7 +72,8 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "multi_selection_count", void 0);
     __decorate([
         typeorm_1.Column({
-            nullable: true,
+            nullable: false,
+            default: 0
         }),
         __metadata("design:type", Number)
     ], Poll.prototype, "position", void 0);
@@ -97,17 +97,7 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "comments_count", void 0);
     __decorate([
         typeorm_1.Index(),
-        typeorm_1.ManyToOne(function () { return collection_entity_1.Collection; }, function (collection) { return collection.polls; }, {
-            nullable: true,
-        }),
-        typeorm_1.JoinColumn({
-            name: "collection_id",
-        }),
-        __metadata("design:type", collection_entity_1.Collection)
-    ], Poll.prototype, "collection", void 0);
-    __decorate([
-        typeorm_1.Index(),
-        typeorm_1.OneToOne(function () { return survey_entity_1.Survey; }, function (survey) { return survey.poll; }, {
+        typeorm_1.OneToOne(function () { return survey_entity_1.Survey; }, function (survey) { return survey.polls; }, {
             nullable: true,
         }),
         typeorm_1.JoinColumn({
@@ -125,11 +115,9 @@ var Poll = /** @class */ (function () {
     ], Poll.prototype, "pairs", void 0);
     Poll = __decorate([
         typeorm_1.Entity("polls"),
-        typeorm_1.Check("check_collection_or_survey", "(collection_id is not null and survey_id is null) or (collection_id is null and survey_id is not null)"),
         typeorm_1.Check("check_poll_votes_count", "votes_count >=  0"),
         typeorm_1.Check("check_poll_responses_count", "responses_count >=  0"),
         typeorm_1.Check("check_poll_comments_count", "comments_count >=  0"),
-        typeorm_1.Check("check_poll_position_in_collection", "collection_id is null or position is not null"),
         typeorm_1.Check("check_visible_options_count", "visible_options_count is null or visible_options_count >= 0")
     ], Poll);
     return Poll;
