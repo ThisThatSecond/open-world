@@ -78,7 +78,7 @@ export class Poll {
 
   @Index()
   @OneToOne(() => Survey, (survey) => survey.polls, {
-    nullable: true,
+    nullable: false,
   })
   @JoinColumn({
     name: "survey_id",

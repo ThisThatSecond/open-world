@@ -98,7 +98,7 @@ var Poll = /** @class */ (function () {
     __decorate([
         typeorm_1.Index(),
         typeorm_1.OneToOne(function () { return survey_entity_1.Survey; }, function (survey) { return survey.polls; }, {
-            nullable: true,
+            nullable: false,
         }),
         typeorm_1.JoinColumn({
             name: "survey_id",
