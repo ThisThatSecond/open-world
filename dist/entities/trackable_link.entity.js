@@ -72,9 +72,7 @@ var TrackableLink = /** @class */ (function () {
     ], TrackableLink.prototype, "created_at", void 0);
     TrackableLink = __decorate([
         typeorm_1.Entity("trackable_links"),
-        typeorm_1.Check("trackable_link_campaign_or_user", "(campaign_name is not null and user_id is null) or (campaign_name is null and user_id is not null) "),
-        typeorm_1.Unique("unique_tl_survey_campaign", ["survey", "campaign_name"]),
-        typeorm_1.Unique("unique_tl_survey_user", ["survey", "user"])
+        typeorm_1.Check("trackable_link_campaign_or_user", "(campaign_name is not null and user_id is null) or (campaign_name is null and user_id is not null) ")
     ], TrackableLink);
     return TrackableLink;
 }());
