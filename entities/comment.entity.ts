@@ -1,7 +1,4 @@
-import { Entity, PrimaryColumn, ManyToOne, JoinColumn, Column, Check } from "typeorm";
-import { User } from "./user.entity";
-import { Poll } from "./poll.entity";
-import { Collection } from "./collection.entity";
+import { Entity, PrimaryColumn, ManyToOne, JoinColumn, Column } from "typeorm";
 import { Profile } from "./profile.entity";
 import { Survey } from "./survey.entity";
 import { TrackableLink } from "./trackable_link.entity";
