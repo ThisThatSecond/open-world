@@ -15,5 +15,6 @@ var CATEGORIES;
     CATEGORIES["BEAUTY"] = "beauty";
     CATEGORIES["FOOD"] = "food";
     CATEGORIES["CARS"] = "cars";
+    CATEGORIES["BUSINESS"] = "business";
 })(CATEGORIES = exports.CATEGORIES || (exports.CATEGORIES = {}));
 //# sourceMappingURL=categories.enum.js.map
