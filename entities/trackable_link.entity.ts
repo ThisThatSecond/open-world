@@ -1,10 +1,12 @@
-import { Entity, Column, ManyToOne, JoinColumn, Index, PrimaryGeneratedColumn, Check } from "typeorm";
+import { Entity, Column, ManyToOne, JoinColumn, Index, PrimaryGeneratedColumn, Check, Unique } from "typeorm";
 import { Survey } from "./survey.entity";
 import { SurveyThumbnail } from "./survey_thumbnail.entity";
 import { User } from "./user.entity";
 
 @Entity("trackable_links")
 @Check("trackable_link_campaign_or_user", "(campaign_name is not null and user_id is null) or (campaign_name is null and user_id is not null) ")
+@Unique("unique_tl_survey_campaign", ["survey", "campaign_name"])
+@Unique("unique_tl_survey_user", ["survey", "user"])
 export class TrackableLink {
   @PrimaryGeneratedColumn("uuid")
   trackable_link_id;
