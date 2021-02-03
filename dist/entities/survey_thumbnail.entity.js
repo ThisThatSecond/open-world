@@ -48,7 +48,8 @@ var SurveyThumbnail = /** @class */ (function () {
         __metadata("design:type", Date)
     ], SurveyThumbnail.prototype, "created_at", void 0);
     SurveyThumbnail = __decorate([
-        typeorm_1.Entity("survey_thumbnails")
+        typeorm_1.Entity("survey_thumbnails"),
+        typeorm_1.Unique(["survey", "thumbnail_url", "is_default"])
     ], SurveyThumbnail);
     return SurveyThumbnail;
 }());
