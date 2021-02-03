@@ -2,7 +2,7 @@ import { Entity, Column, ManyToOne, JoinColumn, Index, PrimaryGeneratedColumn, U
 import { Survey } from "./survey.entity";
 
 @Entity("survey_thumbnails")
-@Unique(["survey", "thumbnail_url", "is_default"])
+@Unique("unique_survey_default_thumbnail", ["survey", "thumbnail_url", "is_default"])
 export class SurveyThumbnail {
   @PrimaryGeneratedColumn("uuid")
   survey_thumbnail_id;
