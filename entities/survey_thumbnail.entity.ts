@@ -1,7 +1,8 @@
-import { Entity, Column, ManyToOne, JoinColumn, Index, PrimaryGeneratedColumn, Unique, Check } from "typeorm";
+import { Entity, Column, ManyToOne, JoinColumn, Index, PrimaryGeneratedColumn, Unique } from "typeorm";
 import { Survey } from "./survey.entity";
 
 @Entity("survey_thumbnails")
+@Unique("unique_survey_default_thumbnail", ["survey", "thumbnail_url", "is_default"])
 export class SurveyThumbnail {
   @PrimaryGeneratedColumn("uuid")
   survey_thumbnail_id;
