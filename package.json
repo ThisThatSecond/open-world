@@ -1,7 +1,7 @@
 {
   "name": "thisthat-shared-modules",
   "private": true,
-  "version": "9.0.0-rc7",
+  "version": "9.1.0",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
