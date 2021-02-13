@@ -2,7 +2,6 @@ import { Entity, Column, JoinColumn, ManyToOne, Check, OneToOne, PrimaryGenerate
 import { User } from "./user.entity";
 import { CATEGORIES } from "../shared/enums/categories.enum";
 import { Profile } from "./profile.entity";
-import { Collection } from "./collection.entity";
 import { IGeoPoint } from "../shared/interfaces/geo_point.interface";
 import { Poll } from "./poll.entity";
 import { SurveyTypes } from "../shared/enums/survey_types.enum";
@@ -20,6 +19,11 @@ export class Survey {
   @PrimaryGeneratedColumn("uuid")
   survey_id: string;
 
+  @Column({
+    nullable: true,
+  })
+  title: string;
+  
   @Column({
     nullable: true,
   })
@@ -107,11 +111,8 @@ export class Survey {
   })
   type?: SurveyTypes;
 
-  @OneToOne(() => Collection, (collection) => collection.survey)
-  collection?: Collection;
-
-  @OneToOne(() => Poll, (poll) => poll.survey)
-  poll?: Poll;
+  @OneToMany(() => Poll, (poll) => poll.survey)
+  polls?: Poll[];
 
   @OneToMany(() => SurveyThumbnail, (surveyThumbnail) => surveyThumbnail.survey)
   thumbnails: SurveyThumbnail[];
