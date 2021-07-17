@@ -47,4 +47,9 @@ export class Option {
     name: "poll_id",
   })
   poll: Poll;
+
+  @Column({
+    default: false,
+  })
+  is_non_option: boolean;
 }
