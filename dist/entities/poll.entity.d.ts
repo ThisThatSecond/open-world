@@ -19,4 +19,5 @@ export declare class Poll {
     survey?: Survey;
     options?: Option[];
     pairs?: Pair[];
+    shuffle_options: boolean;
 }

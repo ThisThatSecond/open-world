@@ -10,4 +10,5 @@ export declare class Option {
     downvotes_count: number;
     optionVotes?: OptionVote[];
     poll: Poll;
+    is_non_option: boolean;
 }
