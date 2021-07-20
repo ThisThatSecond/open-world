@@ -90,4 +90,9 @@ export class Poll {
 
   @OneToMany(() => Pair, (pair) => pair.poll)
   pairs?: Pair[];
+  @Column({
+  default: true,
+  })
+  shuffle_options:boolean;
+
 }

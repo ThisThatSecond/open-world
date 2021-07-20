@@ -67,6 +67,12 @@ var Option = /** @class */ (function () {
         }),
         __metadata("design:type", poll_entity_1.Poll)
     ], Option.prototype, "poll", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: false,
+        }),
+        __metadata("design:type", Boolean)
+    ], Option.prototype, "is_non_option", void 0);
     Option = __decorate([
         typeorm_1.Check("video_image_check", "video_url is null or image_url is not null"),
         typeorm_1.Entity("options")
