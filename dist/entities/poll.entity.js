@@ -124,7 +124,7 @@ var Poll = /** @class */ (function () {
         typeorm_1.Column({
             default: lift_type_enum_1.LiftTypes.None,
         }),
-        __metadata("design:type", Number)
+        __metadata("design:type", String)
     ], Poll.prototype, "lift_type", void 0);
     __decorate([
         typeorm_1.Column({
