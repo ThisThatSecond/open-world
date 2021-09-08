@@ -100,7 +100,7 @@ export class Poll {
   })
   lift_type:LiftTypes;
   @Column({
-  default: LiftTypes.None,
+  default: null,
   })
   lift_selected_option_id:string
 }
