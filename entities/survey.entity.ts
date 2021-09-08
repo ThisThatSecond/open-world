@@ -171,4 +171,16 @@ export class Survey {
     nullable: true,
   })
   extra?: any;
+
+  @Column("varchar", {
+    array: true,
+    default: "{}",
+  })
+  testGroupTrackableLinks?: string[];
+
+  @Column("varchar", {
+    array: true,
+    default: "{}",
+  })
+  controlGroupTrackableLinks?: string[];
 }
