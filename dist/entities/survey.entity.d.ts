@@ -36,4 +36,7 @@ export declare class Survey {
     created_at?: Date;
     finalized_at?: Date;
     extra?: any;
+    testGroupTrackableLinks: string[];
+    controlGroupTrackableLinks: string[];
+
 }

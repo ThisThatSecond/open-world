@@ -176,11 +176,11 @@ export class Survey {
     array: true,
     default: "{}",
   })
-  testGroupTrackableLinks?: string[];
+  testGroupTrackableLinks: string[];
 
   @Column("varchar", {
     array: true,
     default: "{}",
   })
-  controlGroupTrackableLinks?: string[];
+  controlGroupTrackableLinks: string[];
 }
