@@ -96,6 +96,7 @@ export class Poll {
   })
   shuffle_options:boolean;
   @Column({
+    type: "enum",
     default: LiftTypes.None,
   })
   lift_type:LiftTypes;
