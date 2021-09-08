@@ -4,7 +4,7 @@ import { Pair } from "./pair.entity";
 import { Survey } from "./survey.entity";
 import { PollTypes } from "../shared/enums/poll_types.enum";
 import { MultiSelectionTypes, SelectionTypes } from "../shared/enums/selection_types.enum";
-import {LiftTypes} from "../dist/shared/enums/lift_type.enum";
+import {LiftTypes} from "../shared/enums/lift_type.enum";
 
 @Entity("polls")
 @Check("check_poll_votes_count", `votes_count >=  0`)

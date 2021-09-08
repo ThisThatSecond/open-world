@@ -38,5 +38,4 @@ export declare class Survey {
     extra?: any;
     testGroupTrackableLinks: string[];
     controlGroupTrackableLinks: string[];
-
 }

@@ -205,6 +205,20 @@ var Survey = /** @class */ (function () {
         }),
         __metadata("design:type", Object)
     ], Survey.prototype, "extra", void 0);
+    __decorate([
+        typeorm_1.Column("varchar", {
+            array: true,
+            default: "{}",
+        }),
+        __metadata("design:type", Array)
+    ], Survey.prototype, "testGroupTrackableLinks", void 0);
+    __decorate([
+        typeorm_1.Column("varchar", {
+            array: true,
+            default: "{}",
+        }),
+        __metadata("design:type", Array)
+    ], Survey.prototype, "controlGroupTrackableLinks", void 0);
     Survey = __decorate([
         typeorm_1.Entity("surveys"),
         typeorm_1.Check("check_survey_finalized", "(is_draft and finalized_at is null) or (not is_draft and finalized_at is not null)"),

@@ -15,6 +15,7 @@ var pair_entity_1 = require("./pair.entity");
 var survey_entity_1 = require("./survey.entity");
 var poll_types_enum_1 = require("../shared/enums/poll_types.enum");
 var selection_types_enum_1 = require("../shared/enums/selection_types.enum");
+var lift_type_enum_1 = require("../shared/enums/lift_type.enum");
 var Poll = /** @class */ (function () {
     function Poll() {
     }
@@ -119,6 +120,18 @@ var Poll = /** @class */ (function () {
         }),
         __metadata("design:type", Boolean)
     ], Poll.prototype, "shuffle_options", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: lift_type_enum_1.LiftTypes.None,
+        }),
+        __metadata("design:type", Number)
+    ], Poll.prototype, "lift_type", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: null,
+        }),
+        __metadata("design:type", String)
+    ], Poll.prototype, "lift_selected_option_id", void 0);
     Poll = __decorate([
         typeorm_1.Entity("polls"),
         typeorm_1.Check("check_poll_votes_count", "votes_count >=  0"),
