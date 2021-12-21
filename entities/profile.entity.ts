@@ -162,4 +162,21 @@ export class Profile {
     nullable: false,
   })
   created_at?: Date;
+  @Column({
+    default: null
+  })
+  company_id?: string;
+  @Column({
+    default: false
+  })
+  is_company_profile?: boolean;
+
+  @Column({
+    default: false
+  })
+  require_invitation?: boolean;
+  @Column({
+    default: null
+  })
+  company_team_id?: string;
 }
