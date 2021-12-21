@@ -1,4 +1,4 @@
-export declare class Pair {
+export declare class Company {
     id: string;
     name: string;
     website: string;

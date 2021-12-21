@@ -4,7 +4,7 @@ import { Option } from "./option.entity";
 import { PairVote } from "./pair_vote.entity";
 
 @Entity("company")
-export class Pair {
+export class Company {
   @PrimaryGeneratedColumn("uuid")
   id: string;
   @Column({    nullable: false})

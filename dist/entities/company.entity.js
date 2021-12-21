@@ -10,45 +10,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var typeorm_1 = require("typeorm");
-var Pair = /** @class */ (function () {
-    function Pair() {
+var Company = /** @class */ (function () {
+    function Company() {
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn("uuid"),
         __metadata("design:type", String)
-    ], Pair.prototype, "id", void 0);
+    ], Company.prototype, "id", void 0);
     __decorate([
         typeorm_1.Column({ nullable: false }),
         __metadata("design:type", String)
-    ], Pair.prototype, "name", void 0);
+    ], Company.prototype, "name", void 0);
     __decorate([
         typeorm_1.Column({ default: null }),
         __metadata("design:type", String)
-    ], Pair.prototype, "website", void 0);
+    ], Company.prototype, "website", void 0);
     __decorate([
         typeorm_1.Column({ default: null }),
         __metadata("design:type", String)
-    ], Pair.prototype, "logo", void 0);
+    ], Company.prototype, "logo", void 0);
     __decorate([
         typeorm_1.Column({ default: null }),
         __metadata("design:type", String)
-    ], Pair.prototype, "company_size", void 0);
+    ], Company.prototype, "company_size", void 0);
     __decorate([
         typeorm_1.Column({ default: null }),
         __metadata("design:type", String)
-    ], Pair.prototype, "company_type", void 0);
+    ], Company.prototype, "company_type", void 0);
     __decorate([
         typeorm_1.Column({ nullable: false }),
         __metadata("design:type", String)
-    ], Pair.prototype, "email_domain_name", void 0);
+    ], Company.prototype, "email_domain_name", void 0);
     __decorate([
         typeorm_1.Column({ nullable: false }),
         __metadata("design:type", String)
-    ], Pair.prototype, "owner_id", void 0);
-    Pair = __decorate([
+    ], Company.prototype, "owner_id", void 0);
+    Company = __decorate([
         typeorm_1.Entity("company")
-    ], Pair);
-    return Pair;
+    ], Company);
+    return Company;
 }());
-exports.Pair = Pair;
+exports.Company = Company;
 //# sourceMappingURL=company.entity.js.map
