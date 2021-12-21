@@ -32,4 +32,8 @@ export declare class Profile {
     surveys?: Survey[];
     engaged_surveys?: SurveyEngagement[];
     created_at?: Date;
+    company_id?: string;
+    is_company_profile?: boolean;
+    require_invitation?: boolean;
+    company_team_id?: string;
 }

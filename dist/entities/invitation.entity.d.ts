@@ -15,4 +15,5 @@ export declare class Invitation {
     is_active?: boolean;
     created_at?: Date;
     updated_at: Date;
+    is_requested_by_user?: boolean;
 }

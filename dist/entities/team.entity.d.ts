@@ -13,4 +13,5 @@ export declare class Team {
     profiles?: Profile[];
     invitations?: Invitation[];
     created_at?: Date;
+    company_id?: string;
 }

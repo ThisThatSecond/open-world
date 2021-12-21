@@ -121,7 +121,9 @@ var Poll = /** @class */ (function () {
         __metadata("design:type", Boolean)
     ], Poll.prototype, "shuffle_options", void 0);
     __decorate([
-        typeorm_1.Column('int'),
+        typeorm_1.Column({ type: "enum",
+            enum: lift_type_enum_1.LiftTypes,
+            nullable: true }),
         __metadata("design:type", Number)
     ], Poll.prototype, "lift_type", void 0);
     __decorate([

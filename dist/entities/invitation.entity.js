@@ -96,6 +96,12 @@ var Invitation = /** @class */ (function () {
         }),
         __metadata("design:type", Date)
     ], Invitation.prototype, "updated_at", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: false,
+        }),
+        __metadata("design:type", Boolean)
+    ], Invitation.prototype, "is_requested_by_user", void 0);
     Invitation = __decorate([
         typeorm_1.Entity("invitations"),
         typeorm_1.Check("check_profile_or_team_invitation", "profile_id is not null or team_id is not null"),
