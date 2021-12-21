@@ -167,11 +167,6 @@ export class User {
   created_at?: Date;
 
   @Column({
-    type: "timestamptz",
-    default: () => "CURRENT_TIMESTAMP",
-    nullable: false,
-  })
-  @Column({
     default: false,
   })
   is_company_member?: boolean;

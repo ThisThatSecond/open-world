@@ -202,11 +202,6 @@ var User = /** @class */ (function () {
     ], User.prototype, "created_at", void 0);
     __decorate([
         typeorm_1.Column({
-            type: "timestamptz",
-            default: function () { return "CURRENT_TIMESTAMP"; },
-            nullable: false,
-        }),
-        typeorm_1.Column({
             default: false,
         }),
         __metadata("design:type", Boolean)
