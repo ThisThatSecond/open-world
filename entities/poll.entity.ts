@@ -95,12 +95,13 @@ export class Poll {
   default: true,
   })
   shuffle_options:boolean;
-  @Column({type: "enum",
-  enum: LiftTypes,
-  nullable: true})
+  // @Column({type: "enum",
+  // enum: LiftTypes,
+  // nullable: true})
+  @Column({type: "int"})
   lift_type:LiftTypes;
   @Column({
   default: null,
   })
-  lift_selected_option_id:string
+  lift_selected_option_id:string;
 }
