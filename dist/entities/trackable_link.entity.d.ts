@@ -10,4 +10,7 @@ export declare class TrackableLink {
     user: User;
     creator: User;
     created_at: Date;
+    contains_video: boolean;
+    video_link: string;
+    advertisement_platform: string;
 }
