@@ -66,5 +66,5 @@ export class TrackableLink {
             default: null
         }
     )
-    advertisement_platform: string;
+    alias: string;
 }

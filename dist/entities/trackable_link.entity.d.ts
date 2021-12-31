@@ -12,5 +12,5 @@ export declare class TrackableLink {
     created_at: Date;
     contains_video: boolean;
     video_link: string;
-    advertisement_platform: string;
+    alias: string;
 }
