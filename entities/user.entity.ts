@@ -184,7 +184,7 @@ export class User {
   @Column({
     default: false,
   })
-  hasOnBoarded?: boolean;
+  has_on_boarded?: boolean;
 
 
   @OneToMany(() => Team, (team) => team.owner)
