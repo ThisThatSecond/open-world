@@ -38,6 +38,7 @@ export declare class User {
     is_company_member?: boolean;
     company_id?: string;
     company_role?: string;
+    hasOnBoarded?: boolean;
     teams?: Team[];
     profiles?: Profile[];
     surveys?: Survey[];

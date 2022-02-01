@@ -181,6 +181,11 @@ export class User {
   })
   company_role?: string;
 
+  @Column({
+    default: false,
+  })
+  hasOnBoarded?: boolean;
+
 
   @OneToMany(() => Team, (team) => team.owner)
   teams?: Team[];

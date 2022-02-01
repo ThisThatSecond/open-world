@@ -219,6 +219,12 @@ var User = /** @class */ (function () {
         __metadata("design:type", String)
     ], User.prototype, "company_role", void 0);
     __decorate([
+        typeorm_1.Column({
+            default: false,
+        }),
+        __metadata("design:type", Boolean)
+    ], User.prototype, "hasOnBoarded", void 0);
+    __decorate([
         typeorm_1.OneToMany(function () { return team_entity_1.Team; }, function (team) { return team.owner; }),
         __metadata("design:type", Array)
     ], User.prototype, "teams", void 0);
