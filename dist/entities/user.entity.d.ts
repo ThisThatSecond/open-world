@@ -35,6 +35,10 @@ export declare class User {
         gender?: string;
     };
     created_at?: Date;
+    is_company_member?: boolean;
+    company_id?: string;
+    company_role?: string;
+    has_on_boarded?: boolean;
     teams?: Team[];
     profiles?: Profile[];
     surveys?: Survey[];

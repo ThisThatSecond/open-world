@@ -85,6 +85,12 @@ var Team = /** @class */ (function () {
         }),
         __metadata("design:type", Date)
     ], Team.prototype, "created_at", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: null,
+        }),
+        __metadata("design:type", String)
+    ], Team.prototype, "company_id", void 0);
     Team = __decorate([
         typeorm_1.Entity("teams"),
         typeorm_1.Unique("unique_join_link", ["join_link"])

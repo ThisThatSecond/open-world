@@ -166,6 +166,27 @@ export class User {
   })
   created_at?: Date;
 
+  @Column({
+    default: false,
+  })
+  is_company_member?: boolean;
+
+  @Column({
+    default: null,
+  })
+  company_id?: string;
+
+  @Column({
+    default: null,
+  })
+  company_role?: string;
+
+  @Column({
+    default: false,
+  })
+  has_on_boarded?: boolean;
+
+
   @OneToMany(() => Team, (team) => team.owner)
   teams?: Team[];
 

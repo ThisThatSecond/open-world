@@ -4,6 +4,7 @@ import { Pair } from "./pair.entity";
 import { Survey } from "./survey.entity";
 import { PollTypes } from "../shared/enums/poll_types.enum";
 import { MultiSelectionTypes, SelectionTypes } from "../shared/enums/selection_types.enum";
+import {LiftTypes} from "../shared/enums/lift_type.enum";
 
 @Entity("polls")
 @Check("check_poll_votes_count", `votes_count >=  0`)
@@ -94,5 +95,13 @@ export class Poll {
   default: true,
   })
   shuffle_options:boolean;
-
+  // @Column({type: "enum",
+  // enum: LiftTypes,
+  // nullable: true})
+  @Column({type: "int"})
+  lift_type:LiftTypes;
+  @Column({
+  default: null,
+  })
+  lift_selected_option_id:string;
 }

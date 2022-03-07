@@ -3,6 +3,7 @@ import { Pair } from "./pair.entity";
 import { Survey } from "./survey.entity";
 import { PollTypes } from "../shared/enums/poll_types.enum";
 import { MultiSelectionTypes, SelectionTypes } from "../shared/enums/selection_types.enum";
+import { LiftTypes } from "../shared/enums/lift_type.enum";
 export declare class Poll {
     poll_id: string;
     question: string;
@@ -20,4 +21,6 @@ export declare class Poll {
     options?: Option[];
     pairs?: Pair[];
     shuffle_options: boolean;
+    lift_type: LiftTypes;
+    lift_selected_option_id: string;
 }

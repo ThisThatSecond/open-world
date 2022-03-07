@@ -195,6 +195,30 @@ var Profile = /** @class */ (function () {
         }),
         __metadata("design:type", Date)
     ], Profile.prototype, "created_at", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: null
+        }),
+        __metadata("design:type", String)
+    ], Profile.prototype, "company_id", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: false
+        }),
+        __metadata("design:type", Boolean)
+    ], Profile.prototype, "is_company_profile", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: false
+        }),
+        __metadata("design:type", Boolean)
+    ], Profile.prototype, "require_invitation", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: null
+        }),
+        __metadata("design:type", String)
+    ], Profile.prototype, "company_team_id", void 0);
     Profile = __decorate([
         typeorm_1.Entity("profiles"),
         typeorm_1.Check("check_analytics_profile_join_link", "not is_analytics_profile or join_link is not null"),

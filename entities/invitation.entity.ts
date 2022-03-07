@@ -77,4 +77,9 @@ export class Invitation {
     nullable: false,
   })
   updated_at: Date;
+
+  @Column({
+    default: false,
+  })
+  is_requested_by_user?: boolean;
 }

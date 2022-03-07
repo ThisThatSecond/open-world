@@ -201,6 +201,30 @@ var User = /** @class */ (function () {
         __metadata("design:type", Date)
     ], User.prototype, "created_at", void 0);
     __decorate([
+        typeorm_1.Column({
+            default: false,
+        }),
+        __metadata("design:type", Boolean)
+    ], User.prototype, "is_company_member", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: null,
+        }),
+        __metadata("design:type", String)
+    ], User.prototype, "company_id", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: null,
+        }),
+        __metadata("design:type", String)
+    ], User.prototype, "company_role", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: false,
+        }),
+        __metadata("design:type", Boolean)
+    ], User.prototype, "has_on_boarded", void 0);
+    __decorate([
         typeorm_1.OneToMany(function () { return team_entity_1.Team; }, function (team) { return team.owner; }),
         __metadata("design:type", Array)
     ], User.prototype, "teams", void 0);

@@ -70,6 +70,24 @@ var TrackableLink = /** @class */ (function () {
         }),
         __metadata("design:type", Date)
     ], TrackableLink.prototype, "created_at", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: false
+        }),
+        __metadata("design:type", Boolean)
+    ], TrackableLink.prototype, "contains_video", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: null
+        }),
+        __metadata("design:type", String)
+    ], TrackableLink.prototype, "video_link", void 0);
+    __decorate([
+        typeorm_1.Column({
+            default: null
+        }),
+        __metadata("design:type", String)
+    ], TrackableLink.prototype, "alias", void 0);
     TrackableLink = __decorate([
         typeorm_1.Entity("trackable_links"),
         typeorm_1.Check("trackable_link_campaign_or_user", "(campaign_name is not null and user_id is null) or (campaign_name is null and user_id is not null) ")

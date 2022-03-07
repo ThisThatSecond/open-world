@@ -63,4 +63,9 @@ export class Team {
     nullable: false,
   })
   created_at?: Date;
+  @Column({
+    default: null,
+  })
+  company_id?: string;
+
 }
